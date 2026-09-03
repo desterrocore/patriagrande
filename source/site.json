@@ -88,8 +88,8 @@
    "cineclube-patria-grande",
    "cine-retrata"
   ],
-  "ongoing_title": "Em produção agora",
-  "ongoing_lede": "O FICA Garopaba e o FLACA têm novas edições em andamento para 2026. Enquanto elas acontecem, os números que o site apresenta continuam sendo os das edições já realizadas.",
+  "ongoing_title": "Novas edições a caminho",
+  "ongoing_lede": "O FICA Garopaba e o FLACA têm novas edições aprovadas na Lei Rouanet e autorizadas a captar recursos desde abril de 2026. Ainda não há data de realização anunciada, e nada do que está previsto nelas entra nos números das edições já realizadas.",
   "ongoing": [
    "fica-garopaba",
    "flaca"
@@ -112,27 +112,27 @@
   "axes": [
    {
     "title": "Cinema e audiovisual",
-    "text": "Criamos, programamos e realizamos festivais, cineclubes e mostras — do FICA Garopaba, que existe desde 2022 e soma quatro edições realizadas, ao FLACA, cuja primeira edição aconteceu em Florianópolis em 2025. Curadoria, exibição, mediação e debate fazem parte do mesmo trabalho: a sessão não termina quando o filme acaba."
+    "text": "Festivais, cineclubes e mostras, da curadoria ao debate depois da sessão."
    },
    {
     "title": "Formação",
-    "text": "Oficinas, cursos, mediação e atividades com escolas. O Curso Básico de Fotografia Digital #Abrindoacaixapreta reuniu vinte vagas gratuitas, cinco aulas teóricas, duas saídas de campo e duas exposições de conclusão; a Oficina de Pandorga — Arte para Voar levou a formação para fora da tela. Formar público é parte do projeto, não uma ação paralela."
+    "text": "Oficinas, cursos, mediação e atividades com escolas — formar público é parte do projeto."
    },
    {
     "title": "Artes visuais",
-    "text": "Fotografia autoral e documental, exposições e documentação dos próprios projetos. O curso de fotografia da produtora não terminou em sala de aula: terminou em duas exposições públicas. E as imagens que registram as sessões são feitas pela própria equipe — o arquivo fotográfico é parte do trabalho, não sobra dele."
+    "text": "Fotografia autoral e documental, exposições e o registro dos próprios projetos."
    },
    {
     "title": "Produção cultural",
-    "text": "Concepção, planejamento, produção executiva, articulação institucional e execução, incluindo projetos financiados por políticas públicas de cultura, com a documentação e a prestação de contas que isso exige. É a estrutura que sustenta os festivais e cineclubes da casa — e é o que a produtora coloca à disposição de outros projetos."
+    "text": "Concepção, produção executiva e execução, inclusive com recurso público e prestação de contas."
    },
    {
     "title": "Território e socioambiental",
-    "text": "Cinema ambiental, educação ambiental e descentralização. O Cineclube Educa Ambiental levou filmes e debate ao Rio Vermelho, em vez de concentrar a discussão ambiental no centro da cidade; o Cineclube Marighella armou tela dentro da Ocupação Urbana Carlos Marighella, em Palhoça. O endereço não é detalhe de produção: é parte da proposta."
+    "text": "Cinema e educação ambiental levados ao bairro, à ocupação, à escola."
    },
    {
     "title": "América Latina",
-    "text": "Programação, circulação, tradução e intercâmbio. O Cineclube Pátria Grande trata a América Latina como assunto contemporâneo, e não como recorte geográfico; o FLACA reúne produção audiovisual do continente e debate socioambiental na mesma grade. A tradução e a legendagem existem para que os filmes atravessem a fronteira linguística sem perder o que os torna particulares."
+    "text": "Programação, circulação e tradução: o continente como assunto, não como recorte."
    }
   ],
   "territories_title": "Onde os projetos acontecem",
@@ -317,7 +317,10 @@
    },
    {
     "title": "Telefone",
-    "value": "[(48) 99697-1772](tel:+5548996971772)<br>[(48) 99948-6832](tel:+5548999486832)",
+    "values": [
+     "[(48) 99697-1772](tel:+5548996971772)",
+     "[(48) 99948-6832](tel:+5548999486832)"
+    ],
     "note": "Dois números da produtora."
    },
    {

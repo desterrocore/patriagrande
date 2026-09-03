@@ -17,8 +17,6 @@
    "Garopaba"
   ],
   "band": "red",
-  "plate_bg": "#690404",
-  "plate_ink": "#FFCC00",
   "plate_text": "FICA\nGaropaba",
   "lede": "Festival de cinema ambiental criado em Garopaba em 2022. Quatro edições realizadas, todas gratuitas, com filmes, debates, oficinas e sessões em escolas.",
   "summary": "O FICA é um festival dedicado ao cinema ambiental, realizado em Garopaba, no litoral de Santa Catarina. Entre 2022 e 2025 foram executadas quatro edições, com programação gratuita reunindo exibição de filmes brasileiros e internacionais, debates com convidados, oficinas, atividades educativas e circulação por outras cidades catarinenses.\n\nO festival é anterior à constituição jurídica da Pátria Grande Produções, formalizada em 2024. Ele integra a trajetória do núcleo profissional que deu origem à produtora e é o exemplo mais claro de que a experiência coletiva da equipe precede a existência da empresa. A partir de 2024 o FICA passa a ser conduzido dentro do ecossistema da Pátria Grande, sem que isso reescreva retroativamente as duas primeiras edições.\n\nA ideia de cinema ambiental que organiza a programação é ampla: não se trata apenas de filmes sobre natureza, mas de audiovisual capaz de discutir formas de viver, ocupar e transformar os territórios. Meio ambiente, crise climática, povos, desenvolvimento e as relações entre sociedade e natureza atravessam a curadoria e os debates.\n\nA sessão não encerra a atividade. Exibição, mediação, conversa com convidados e ações formativas fazem parte de uma mesma experiência, e é essa combinação — e não o número de filmes — que define o desenho do festival.",
@@ -34,7 +32,7 @@
    {
     "year": 2023,
     "label": "2ª edição",
-    "text": "Continuidade e ampliação da estrutura. Giulia Giacomolli entra na equipe como produtora executiva; Cristovam Muniz permanece na direção geral. Thais Alemany registra, no mesmo ano, projeção de cinema ao ar livre para o festival. O currículo de Giulia descreve esta edição como um festival de seis dias, com aproximadamente 30 filmes distribuídos em 30 exibições, além de debates, oficinas e eventos paralelos — descrição que os currículos de Flávio Veloso e o relatório-base atribuem à edição seguinte. A divergência está registrada abaixo e precisa ser resolvida antes da publicação."
+    "text": "Continuidade e ampliação da estrutura. Giulia Giacomolli entra na equipe como produtora executiva; Cristovam Muniz permanece na direção geral. Thais Alemany registra, no mesmo ano, projeção de cinema ao ar livre para o festival. O currículo de Giulia descreve esta edição como um festival de seis dias, com aproximadamente 30 filmes distribuídos em 30 exibições, além de debates, oficinas e eventos paralelos — descrição que os currículos de Flávio Veloso e o relatório-base atribuem à edição seguinte."
    },
    {
     "year": 2024,
@@ -44,7 +42,7 @@
    {
     "year": 2025,
     "label": "4ª edição",
-    "text": "Edição gratuita realizada em novembro de 2025, com programação ambiental internacional. Registros institucionais apontam aproximadamente 22 filmes provenientes de 11 países, com atividades em Garopaba e circulação por outros territórios catarinenses. Projeto contemplado em segundo lugar no Circuito Catarinense de Cultura (edital nº 50/2024, Fundação Catarinense de Cultura). Flávio Veloso assina como proponente, co-idealizador, diretor de programação e oficineiro; Cristovam Muniz na direção de curadoria; Thais Alemany na produção executiva e produção."
+    "text": "Edição gratuita realizada em novembro de 2025, com programação ambiental internacional. Registros institucionais apontam aproximadamente 22 filmes provenientes de 11 países, com atividades em Garopaba e circulação por outros territórios catarinenses. Projeto contemplado em segundo lugar no Circuito Catarinense de Cultura (edital nº 50/2024, Fundação Catarinense de Cultura). Flávio Veloso assina como proponente, coidealizador, diretor de programação e oficineiro; Cristovam Muniz na direção de curadoria; Thais Alemany na produção executiva e produção."
    }
   ],
   "territory": "Garopaba e outras cidades de Santa Catarina",
@@ -91,7 +89,7 @@
    },
    {
     "name": "Flávio Veloso",
-    "role": "Proponente, co-idealização, Direção de Programação e oficinas",
+    "role": "Proponente, coidealização, Direção de Programação e oficinas",
     "year": "2025"
    },
    {
@@ -102,54 +100,24 @@
   ],
   "metrics": [
    {
-    "value": "6 dias",
-    "label": "3ª edição (2024) — duração da programação",
+    "value": "6",
+    "label": "3ª edição (2024) — dias de programação",
     "source": "Currículo (jan/2026) e portfólio 2026 de Flávio Veloso; relatório-base §9."
    },
    {
-    "value": "≈30 filmes em 30 exibições",
-    "label": "3ª edição (2024) — obras e sessões",
-    "source": "Currículo (jan/2026) e portfólio 2026 de Flávio Veloso; relatório-base §9. Atenção: o currículo de Giulia Giacomolli traz a mesma descrição atribuída à 2ª edição (2023)."
+    "value": "≈30",
+    "label": "3ª edição (2024) — filmes, distribuídos em 30 exibições",
+    "source": "Currículo (jan/2026) e portfólio 2026 de Flávio Veloso; relatório-base §9."
    },
    {
-    "value": "≈22 filmes",
-    "label": "4ª edição (2025) — obras exibidas",
+    "value": "≈22",
+    "label": "4ª edição (2025) — filmes exibidos",
     "source": "Relatório-base §9, a partir de registros institucionais."
    },
    {
-    "value": "11 países",
-    "label": "4ª edição (2025) — origem das obras",
+    "value": "11",
+    "label": "4ª edição (2025) — países de origem das obras",
     "source": "Relatório-base §9, a partir de registros institucionais."
-   },
-   {
-    "value": "+68 filmes",
-    "label": "Acumulado das primeiras edições",
-    "source": "Relatório-base §9 (\"materiais públicos sobre as primeiras edições\"). O próprio relatório manda conferir a versão final do clipping antes de publicar."
-   },
-   {
-    "value": "+80 sessões",
-    "label": "Acumulado das primeiras edições",
-    "source": "Relatório-base §9 (\"materiais públicos sobre as primeiras edições\"). Pendente de conferência no clipping final."
-   },
-   {
-    "value": "≈6 mil pessoas",
-    "label": "Acumulado das primeiras edições — público",
-    "source": "Relatório-base §9 (\"materiais públicos sobre as primeiras edições\"). Pendente de conferência no clipping final."
-   },
-   {
-    "value": "8 municípios catarinenses",
-    "label": "Acumulado das primeiras edições — territórios",
-    "source": "Relatório-base §9 (\"materiais públicos sobre as primeiras edições\"). Pendente de conferência no clipping final; nenhuma fonte consultada lista quais municípios."
-   },
-   {
-    "value": "+15 países",
-    "label": "Acumulado das primeiras edições — origem das obras",
-    "source": "Relatório-base §9 (\"materiais públicos sobre as primeiras edições\"). Pendente de conferência no clipping final."
-   },
-   {
-    "value": "+20 debatedores e convidados",
-    "label": "Acumulado das primeiras edições",
-    "source": "Relatório-base §9 (\"materiais públicos sobre as primeiras edições\"). Pendente de conferência no clipping final."
    }
   ],
   "funding": [
@@ -166,13 +134,17 @@
    "educa-ambiental"
   ],
   "seo_description": "FICA — Festival Internacional de Cinema Ambiental de Garopaba: quatro edições realizadas entre 2022 e 2025, com programação gratuita em Santa Catarina.",
-  "pending": "1. NOME DO FESTIVAL — divergência registrada. O \"CV Thais Alemany 2026.docx\" chama o projeto de \"Festival Internacional de Cinema Latino-Americano de Garopaba\" (3ª e 4ª edições). Todas as demais fontes usam \"Festival Internacional de Cinema Ambiental de Garopaba\": relatório-base §9, currículos de Cristovam Muniz (dez/2025 e abr/2026), currículos e portfólio de Flávio Veloso, cadastro SALIC do PRONAC 261904, o \"Portfólio Expancine Produções 2026\" da própria Thais e a projeção fotografada da 3ª edição, onde se lê no slide \"FESTIVAL INTERNACIONAL DE CINEMA AMBIENTAL DE GAROPABA / 3º FICA Garopaba\". O site deve usar o nome ambiental; a variante \"Latino-Americano\" parece erro de digitação no CV.\n\n2. NÚMEROS ACUMULADOS (68 filmes, 80 sessões, 6 mil pessoas, 8 municípios, 15 países, 20 debatedores) — aparecem SOMENTE no relatório-base §9, que os atribui genericamente a \"materiais públicos sobre as primeiras edições\" e determina conferir a versão final do clipping antes de publicar. Não foram localizados em nenhum PDF, currículo, portfólio ou cadastro consultado nesta apuração. Além de conferir os valores, é preciso definir qual período exato eles cobrem (2022–2024? 2022–2025?). Recomendação: não publicar na home antes dessa conferência.\n\n3. A QUAL EDIÇÃO PERTENCE \"6 dias, ~30 filmes em 30 exibições\" — Flávio Veloso (currículo jan/2026 e portfólio 2026) e o relatório-base atribuem à 3ª edição, 2024. Giulia Giacomolli (currículo 2026) atribui exatamente a mesma descrição à \"II Festival Internacional de Cinema Ambiental (FICA) Garopaba\", 2023. Uma das duas atribuições está errada.\n\n4. FINANCIAMENTO DAS 1ª (2022) E 2ª (2023) EDIÇÕES — não documentado em nenhuma fonte consultada. O \"Prêmio Catarinense de Cinema — Edição Especial Paulo Gustavo\" aparece ligado à 3ª edição (2024) nos currículos de Flávio e Cristovam e à 2ª edição (2023) no currículo de Giulia. A mesma dúvida do item 3.\n\n5. MUNICÍPIOS — só Garopaba está nominalmente documentado para as edições executadas. O relatório fala em \"circulação por outros territórios catarinenses\" (2025) e em \"oito municípios\" (acumulado), mas nenhuma fonte verificada lista quais. A fotografia da 3ª edição mostra, no rodapé do slide de abertura, uma linha com aproximadamente quatro nomes de cidades — ilegível na reprodução de baixa resolução disponível. A lista de cidades do cadastro SALIC (Garopaba, Paulo Lopes, Imbituba, Florianópolis, Laguna) refere-se à 6ª edição, ainda NÃO realizada, e não pode ser usada como histórico.\n\n6. DADOS AUSENTES POR EDIÇÃO — não há, nas fontes consultadas: contagem de público, número de oficinas, número de debates, títulos dos filmes exibidos, nomes de convidados, parceiros ou apoiadores, datas exatas (exceto \"novembro de 2025\" para a 4ª edição, indicada no cadastro SALIC ao referenciar a clipagem). Também não há qualquer informação de programação sobre a 1ª edição (2022) além de sua existência e da direção geral de Cristovam Muniz.\n\n7. CRÉDITOS — o relatório-base §46 registra \"créditos completos por edição\" como pendência aberta, e ela continua aberta. As atribuições desta página vêm exclusivamente dos currículos individuais de Cristovam Muniz, Flávio Veloso, Thais Alemany e Giulia Giacomolli; não existe ficha técnica consolidada por edição. Lennon da Silva Rocha NÃO aparece em nenhuma fonte ligada ao FICA (nem no relatório, nem nos currículos, nem no cadastro SALIC) e por isso não consta nos créditos. O crédito de Thais em 2023 (\"projeção de cinema ao ar livre\") vem do próprio CV dela; o relatório §6.3 menciona apenas 2024 e 2025 — não é contradição, mas convém confirmar com ela antes de publicar.\n\n8. 5ª E 6ª EDIÇÕES — NÃO REALIZADAS, FORA DO PORTFÓLIO. O currículo de Cristovam (abr/2026) lista \"5º FICA Garopaba\" em 2026; o CV de Thais afirma que o festival \"está na sua 5a edição\"; a biografia de Cristovam fala nas \"5 edições\". A apresentação para patrocinadores e o cadastro SALIC tratam da 6ª edição (PRONAC 261904, R$ 627.672,38, Artigo 18, situação \"autorizada a captação\" em 10/04/2026). Nada disso pode entrar como histórico executado. Ficam explicitamente PROIBIDOS na página as metas do 6º FICA: 46 sessões, 45 obras, 4 municípios, 3.180 pessoas, 36 sessões em escolas, 36 rodas de conversa, 10 oficinas, 6h de seminário, exposições \"Memórias de Atafona\" e \"Planeta Brasil\", show de encerramento e a lista de fotógrafos convidados — são projeção, não execução.\n\n9. CLIPPING — o cadastro SALIC referencia um link de clipagem da 4ª edição (novembro de 2025) hospedado no Google Drive. Não foi aberto nesta apuração e é a fonte a consultar para fechar tanto os números da 4ª edição quanto os acumulados.\n\n10. GALERIA — existem duas fotografias documentais reais do FICA dentro de \"reference-content/apresentacao_patrocinador.pdf\", ambas creditadas a Flávio Veloso: uma sessão em galpão com tela inflável da Pátria Grande Produções, e uma sessão noturna em espaço de madeira com o slide de abertura do 3º FICA projetado. Elas são utilizáveis. Todas as demais imagens do mesmo PDF são geradas por IA ou ilustração (onda com filme de cinema, projetor sobre o Pão de Açúcar, plateias em silhueta azul) e estão vetadas pelo BRIEF. Não há cartazes, frames ou registros de bastidores das edições nos materiais consultados — a galeria depende de material fotográfico real ainda não fornecido.\n\n11. Observação (dado verificado, sem campo no schema): o Instagram do festival é @fica.garopaba, informado no cadastro SALIC do PRONAC 261904.",
+  "pending": "O site não publica os números acumulados do festival — filmes, sessões, público e municípios somados ao longo das edições. Eles aparecem em materiais de divulgação, mas ainda não foram conferidos contra o registro final de cada edição.\n\nSeguem em consolidação a programação de cada ano, os créditos completos por edição e o registro fotográfico em resolução de publicação.",
+  "notes_internal": "1. NOME DO FESTIVAL — divergência registrada. O \"CV Thais Alemany 2026.docx\" chama o projeto de \"Festival Internacional de Cinema Latino-Americano de Garopaba\" (3ª e 4ª edições). Todas as demais fontes usam \"Festival Internacional de Cinema Ambiental de Garopaba\": relatório-base §9, currículos de Cristovam Muniz (dez/2025 e abr/2026), currículos e portfólio de Flávio Veloso, cadastro SALIC do PRONAC 261904, o \"Portfólio Expancine Produções 2026\" da própria Thais e a projeção fotografada da 3ª edição, onde se lê no slide \"FESTIVAL INTERNACIONAL DE CINEMA AMBIENTAL DE GAROPABA / 3º FICA Garopaba\". O site deve usar o nome ambiental; a variante \"Latino-Americano\" parece erro de digitação no CV.\n\n2. NÚMEROS ACUMULADOS (68 filmes, 80 sessões, 6 mil pessoas, 8 municípios, 15 países, 20 debatedores) — aparecem SOMENTE no relatório-base §9, que os atribui genericamente a \"materiais públicos sobre as primeiras edições\" e determina conferir a versão final do clipping antes de publicar. Não foram localizados em nenhum PDF, currículo, portfólio ou cadastro consultado nesta apuração. Além de conferir os valores, é preciso definir qual período exato eles cobrem (2022–2024? 2022–2025?). Recomendação: não publicar na home antes dessa conferência.\n\n3. A QUAL EDIÇÃO PERTENCE \"6 dias, ~30 filmes em 30 exibições\" — Flávio Veloso (currículo jan/2026 e portfólio 2026) e o relatório-base atribuem à 3ª edição, 2024. Giulia Giacomolli (currículo 2026) atribui exatamente a mesma descrição à \"II Festival Internacional de Cinema Ambiental (FICA) Garopaba\", 2023. Uma das duas atribuições está errada.\n\n4. FINANCIAMENTO DAS 1ª (2022) E 2ª (2023) EDIÇÕES — não documentado em nenhuma fonte consultada. O \"Prêmio Catarinense de Cinema — Edição Especial Paulo Gustavo\" aparece ligado à 3ª edição (2024) nos currículos de Flávio e Cristovam e à 2ª edição (2023) no currículo de Giulia. A mesma dúvida do item 3.\n\n5. MUNICÍPIOS — só Garopaba está nominalmente documentado para as edições executadas. O relatório fala em \"circulação por outros territórios catarinenses\" (2025) e em \"oito municípios\" (acumulado), mas nenhuma fonte verificada lista quais. A fotografia da 3ª edição mostra, no rodapé do slide de abertura, uma linha com aproximadamente quatro nomes de cidades — ilegível na reprodução de baixa resolução disponível. A lista de cidades do cadastro SALIC (Garopaba, Paulo Lopes, Imbituba, Florianópolis, Laguna) refere-se à 6ª edição, ainda NÃO realizada, e não pode ser usada como histórico.\n\n6. DADOS AUSENTES POR EDIÇÃO — não há, nas fontes consultadas: contagem de público, número de oficinas, número de debates, títulos dos filmes exibidos, nomes de convidados, parceiros ou apoiadores, datas exatas (exceto \"novembro de 2025\" para a 4ª edição, indicada no cadastro SALIC ao referenciar a clipagem). Também não há qualquer informação de programação sobre a 1ª edição (2022) além de sua existência e da direção geral de Cristovam Muniz.\n\n7. CRÉDITOS — o relatório-base §46 registra \"créditos completos por edição\" como pendência aberta, e ela continua aberta. As atribuições desta página vêm exclusivamente dos currículos individuais de Cristovam Muniz, Flávio Veloso, Thais Alemany e Giulia Giacomolli; não existe ficha técnica consolidada por edição. Lennon da Silva Rocha NÃO aparece em nenhuma fonte ligada ao FICA (nem no relatório, nem nos currículos, nem no cadastro SALIC) e por isso não consta nos créditos. O crédito de Thais em 2023 (\"projeção de cinema ao ar livre\") vem do próprio CV dela; o relatório §6.3 menciona apenas 2024 e 2025 — não é contradição, mas convém confirmar com ela antes de publicar.\n\n8. 5ª E 6ª EDIÇÕES — NÃO REALIZADAS, FORA DO PORTFÓLIO. O currículo de Cristovam (abr/2026) lista \"5º FICA Garopaba\" em 2026; o CV de Thais afirma que o festival \"está na sua 5a edição\"; a biografia de Cristovam fala nas \"5 edições\". A apresentação para patrocinadores e o cadastro SALIC tratam da 6ª edição (PRONAC 261904, R$ 627.672,38, Artigo 18, situação \"autorizada a captação\" em 10/04/2026). Nada disso pode entrar como histórico executado. Ficam explicitamente PROIBIDOS na página as metas do 6º FICA: 46 sessões, 45 obras, 4 municípios, 3.180 pessoas, 36 sessões em escolas, 36 rodas de conversa, 10 oficinas, 6h de seminário, exposições \"Memórias de Atafona\" e \"Planeta Brasil\", show de encerramento e a lista de fotógrafos convidados — são projeção, não execução.\n\n9. CLIPPING — o cadastro SALIC referencia um link de clipagem da 4ª edição (novembro de 2025) hospedado no Google Drive. Não foi aberto nesta apuração e é a fonte a consultar para fechar tanto os números da 4ª edição quanto os acumulados.\n\n10. GALERIA — existem duas fotografias documentais reais do FICA dentro de \"reference-content/apresentacao_patrocinador.pdf\", ambas creditadas a Flávio Veloso: uma sessão em galpão com tela inflável da Pátria Grande Produções, e uma sessão noturna em espaço de madeira com o slide de abertura do 3º FICA projetado. Elas são utilizáveis. Todas as demais imagens do mesmo PDF são geradas por IA ou ilustração (onda com filme de cinema, projetor sobre o Pão de Açúcar, plateias em silhueta azul) e estão vetadas pelo BRIEF. Não há cartazes, frames ou registros de bastidores das edições nos materiais consultados — a galeria depende de material fotográfico real ainda não fornecido.\n\n11. Observação (dado verificado, sem campo no schema): o Instagram do festival é @fica.garopaba, informado no cadastro SALIC do PRONAC 261904.",
   "pull": "Criado antes da formalização da Pátria Grande Produções, o FICA integra a trajetória do núcleo profissional que deu origem à produtora.",
   "ongoing": {
+   "edicao": "6ª edição",
    "title": "6ª edição do FICA Garopaba",
    "text": "O FICA prepara uma nova edição. A proposta aprovada prevê programação gratuita em Garopaba, Paulo Lopes, Imbituba e Florianópolis, com filmes brasileiros, catarinenses e internacionais sobre temas socioambientais, sessões em escolas públicas, oficinas, debates, rodas de conversa, seminário ambiental, exposições fotográficas e show de encerramento. A acessibilidade entra no desenho, não como acréscimo: Libras, audiodescrição, legendagem descritiva e legendas em português para os filmes estrangeiros.\n\nO projeto foi aprovado na Lei Rouanet com o título **6º Festival Internacional de Cinema Ambiental de Garopaba** (PRONAC 261904), no Artigo 18, e está autorizado a captar recursos desde abril de 2026. Aprovação não é execução: as metas de público e de programação inscritas no projeto são previsão e só entram no portfólio quando acontecerem. As quatro edições já realizadas, de 2022 a 2025, estão na página do festival.",
    "quando_onde": "Ainda não há data de realização anunciada. O período formal do projeto aprovado vai de janeiro a dezembro de 2027, e a programação está prevista para Garopaba, Paulo Lopes, Imbituba e Florianópolis. **Acompanhe as novidades.**",
-   "status": "Projeto aprovado na Lei Rouanet e autorizado a captar recursos desde abril de 2026: a edição está em fase de captação de patrocínio, antes de entrar em produção."
+   "status": "Projeto aprovado na Lei Rouanet e autorizado a captar recursos desde abril de 2026: a edição está em fase de captação de patrocínio, antes de entrar em produção.",
+   "territorio": "Garopaba · Paulo Lopes · Imbituba · Florianópolis",
+   "cta": "Patrocinar o 6º FICA Garopaba →"
   },
   "card_image": {
    "name": "fica-salao-comunitario",
@@ -219,8 +191,6 @@
    "Florianópolis"
   ],
   "band": "deep",
-  "plate_bg": "#5D0404",
-  "plate_ink": "#FFCC00",
   "plate_text": "FLACA",
   "lede": "A 1ª edição levou cinema ambiental latino-americano a uma sala pública, uma escola municipal e circuitos independentes de Florianópolis, de graça.",
   "summary": "O FLACA — Festival Latino-Americano de Cinema Ambiental é um festival gratuito dedicado ao audiovisual da América Latina e à discussão pública sobre crise climática, territórios e desigualdades socioambientais. Ele nasce da convergência entre dois eixos que atravessam toda a trajetória da Pátria Grande: o cinema ambiental e a produção e o pensamento latino-americanos.\n\nA primeira edição foi realizada em Florianópolis entre o fim de outubro e o início de novembro de 2025, com programação gratuita distribuída por espaços diferentes da cidade — um equipamento cultural público, uma escola da rede municipal e circuitos culturais independentes. Registros da equipe indicam cerca de dez sessões e aproximadamente dez produções exibidas, acompanhadas de debates, oficinas, rodas de conversa e atividades de formação.\n\nCircular entre sala institucional, escola e espaço independente não é detalhe logístico: é a forma como o festival entende exibição. As sessões são montadas para terminar em conversa, e o filme funciona como ponto de partida de um debate sobre modos de viver, ocupar e transformar territórios — não como ilustração de um tema ambiental.\n\nA edição de 2025 foi viabilizada pelo Edital nº 044.000/SMLCP/2024 (PNAB / Fundação Cultural de Florianópolis Franklin Cascaes / Prefeitura Municipal de Florianópolis), no qual o projeto foi classificado em primeiro lugar. O festival mantém perfil próprio no Instagram, @flacafestival.",
@@ -267,24 +237,24 @@
   ],
   "metrics": [
    {
-    "value": "cerca de 10",
-    "label": "sessões na 1ª edição",
-    "source": "Relatório editorial do site, §10 — registros da equipe; número declarado como aproximado"
+    "value": "≈10",
+    "label": "sessões na 1ª edição, número declarado como aproximado",
+    "source": "Relatório editorial do site, §10 — registros da equipe; número declarado como aproximado."
    },
    {
-    "value": "aproximadamente 10",
-    "label": "produções exibidas na 1ª edição",
-    "source": "Relatório editorial do site, §10 — registros da equipe; número declarado como aproximado"
+    "value": "≈10",
+    "label": "produções exibidas na 1ª edição, número aproximado",
+    "source": "Relatório editorial do site, §10 — registros da equipe; número declarado como aproximado."
    },
    {
     "value": "1º lugar",
-    "label": "classificação no Edital nº 044.000/SMLCP/2024 (PNAB / Fundação Cultural de Florianópolis Franklin Cascaes)",
-    "source": "Currículo de Flávio Veloso, janeiro de 2026 (\"Edital 044.000/SMLCP/2024, 1a colocação\"); edital também citado no portfólio de Eron Nascimento e no currículo de Giulia Giacomolli"
+    "label": "classificação no edital municipal que financiou a 1ª edição",
+    "source": "Currículo de Flávio Veloso, janeiro de 2026 (\"Edital 044.000/SMLCP/2024, 1a colocação\"); edital também citado no portfólio de Eron Nascimento e no currículo de Giulia Giacomolli."
    },
    {
-    "value": "cerca de 600",
+    "value": "≈600",
     "label": "crianças em sessão escolar, em tela de 16 m²",
-    "source": "Slide \"FESTIVAL JÁ EXISTENTE\" da apresentação para patrocinadores do III FLACA (trajetória já realizada); o documento não informa a qual edição a sessão pertence"
+    "source": "Slide \"FESTIVAL JÁ EXISTENTE\" da apresentação para patrocinadores do III FLACA (trajetória já realizada); o documento não informa a qual edição a sessão pertence."
    }
   ],
   "funding": [
@@ -299,13 +269,17 @@
    "cineclube-patria-grande"
   ],
   "seo_description": "FLACA — Festival Latino-Americano de Cinema Ambiental. 1ª edição, 2025, em Florianópolis: sessões, debates e oficinas gratuitas pela cidade.",
-  "pending": "Datas exatas. O relatório diz apenas \"entre o final de outubro e o início de novembro de 2025\". Não há, nos materiais consultados, datas de abertura e encerramento da 1ª edição — por isso o site não deve publicar um intervalo fechado.\n\nProgramação. Não foi localizada a lista de filmes, o catálogo, a grade de sessões, os nomes das oficinas nem os convidados dos debates da edição de 2025. O próprio relatório (§10) registra que \"os créditos completos de curadoria, comunicação, produção e convidados devem ser extraídos do arquivo final da primeira edição antes da publicação\". A seção de programação da página fica, portanto, descritiva.\n\nPúblico. Não existe número de espectadores documentado para a 1ª edição. Os números de alcance que circulam nos materiais (4.070 pessoas impactadas, 1.530 espectadores presenciais, 800 visitantes em exposições, 240 em oficinas, 1.000 acessos online, 29 sessões, 25 filmes, 20 sessões escolares, 6 oficinas, 2 exposições, 10 filmes online) são METAS do III FLACA, projeto aprovado na Lei Rouanet (PRONAC 262096, R$ 598.628,25, período formal 01/01/2027 a 31/12/2027). São previsões de um festival futuro e não podem aparecer como resultado executado em nenhuma parte do site.\n\nContagem de edições. Há uma divergência real entre as fontes: o relatório editorial trata como executada apenas a 1ª edição, de 2025, enquanto os documentos de captação chamam a edição futura de \"III FLACA\" e os currículos de Flávio Veloso, Giulia Giacomolli e Cristovam Muniz registram uma \"II\" / \"2ª edição\" ligada ao FUNCINE 2025 e ao Prêmio Catarinense de Cinema 25, com execução em 2026. Não foi possível confirmar se essa 2ª edição já ocorreu. Seguindo a regra editorial, a página apresenta como realizada somente a edição de 2025.\n\nCréditos. Estão documentados para 2025: Flávio Veloso (direção geral, currículo próprio e relatório §10), Giulia Giacomolli (produção executiva e proponente, currículo próprio e relatório §10), Eron Nascimento (curador e assistente de produção, portfólio próprio, que cita o edital 044.000/SMLCP/2024) e Ediane Oliveira (assessora de imprensa do \"Projeto FLACA 2025\", portfólio próprio). Cristovam Muniz e Thais Alemany aparecem sem ano: o relatório §6.2 afirma que Cristovam \"participa da trajetória curatorial do FLACA\", mas o currículo dele atribui a direção de curadoria à 2ª edição (2026), não à de 2025; Thais Alemany consta como produtora executiva na apresentação do III FLACA e seu CV menciona o festival \"que vai para sua 2a edição\", sem especificar função na edição de 2025. Se o site precisar de créditos por edição, esses dois casos exigem confirmação com a equipe. Lennon da Silva Rocha não tem vínculo documentado com o FLACA em nenhuma das fontes consultadas e por isso não foi creditado aqui.\n\nEspaços e fotos. Os quatro espaços de 2025 vêm do relatório §10; nenhum documento diz quais atividades ocorreram em cada um. As seis fotografias não trazem legenda, data, local nem crédito de autoria em nenhuma fonte: as descrições acima são leitura visual das imagens, e a identificação de qual foto corresponde a qual espaço (CIC, Bugio Centro, Skullashu, escola) NÃO está confirmada. As fotos flaca-2 e flaca-5 parecem ter sido feitas na mesma sala, pelos painéis acústicos, mas isso também não está documentado. O crédito fotográfico precisa ser levantado antes da publicação.\n\nTrajetória anterior citada no PDF. Os itens \"abertura em espaço parceiro e programação gratuita\", \"sessões noturnas e debates no CIC\", \"cinema no Rio Vermelho para adultos e crianças\" e \"sessão escolar para cerca de 600 crianças em tela de 16 m²\" saem exclusivamente do slide \"FESTIVAL JÁ EXISTENTE\" da apresentação para patrocinadores do III FLACA. O slide descreve trajetória já realizada, mas não diz de que edição nem de que ano — e não deve ser lido como resultado da 1ª edição sem confirmação.\n\nExposições, acessibilidade e Mostra Online. \"Memórias de Atafona\", \"Planeta Brasil\", os recursos de Libras, audiodescrição e QR Code, as sessões no IFSC Câmpus Palhoça Bilíngue, o seminário ambiental, o show de encerramento e a mostra online na plataforma Bombozilla pertencem todos ao projeto futuro (PRONAC 262096). Nenhum deles está documentado como executado em 2025 e nenhum pode aparecer na página. A única menção a acessibilidade em edições passadas é genérica (\"o FLACA em suas últimas edições já vem trabalhando para ampliar os recursos de acessibilidade\", SALIC), sem detalhamento verificável.\n\nClipping. Não foi localizado material de imprensa, link, matéria ou registro público da 1ª edição nos arquivos disponíveis. O único endereço confirmado é o perfil @flacafestival no Instagram, citado tanto na apresentação do III FLACA quanto no portfólio de Eron Nascimento. A seção de clipping fica vazia até que os links sejam fornecidos.",
+  "pending": "As datas exatas da 1ª edição não estão fechadas nos materiais reunidos — por isso o site diz \"fim de outubro e início de novembro de 2025\" em vez de um intervalo preciso.\n\nA lista de filmes, a grade de sessões, os nomes das oficinas e os convidados dos debates estão sendo reunidos a partir do arquivo da edição, junto dos créditos completos de curadoria, comunicação e produção.",
+  "notes_internal": "Datas exatas. O relatório diz apenas \"entre o final de outubro e o início de novembro de 2025\". Não há, nos materiais consultados, datas de abertura e encerramento da 1ª edição — por isso o site não deve publicar um intervalo fechado.\n\nProgramação. Não foi localizada a lista de filmes, o catálogo, a grade de sessões, os nomes das oficinas nem os convidados dos debates da edição de 2025. O próprio relatório (§10) registra que \"os créditos completos de curadoria, comunicação, produção e convidados devem ser extraídos do arquivo final da primeira edição antes da publicação\". A seção de programação da página fica, portanto, descritiva.\n\nPúblico. Não existe número de espectadores documentado para a 1ª edição. Os números de alcance que circulam nos materiais (4.070 pessoas impactadas, 1.530 espectadores presenciais, 800 visitantes em exposições, 240 em oficinas, 1.000 acessos online, 29 sessões, 25 filmes, 20 sessões escolares, 6 oficinas, 2 exposições, 10 filmes online) são METAS do III FLACA, projeto aprovado na Lei Rouanet (PRONAC 262096, R$ 598.628,25, período formal 01/01/2027 a 31/12/2027). São previsões de um festival futuro e não podem aparecer como resultado executado em nenhuma parte do site.\n\nContagem de edições. Há uma divergência real entre as fontes: o relatório editorial trata como executada apenas a 1ª edição, de 2025, enquanto os documentos de captação chamam a edição futura de \"III FLACA\" e os currículos de Flávio Veloso, Giulia Giacomolli e Cristovam Muniz registram uma \"II\" / \"2ª edição\" ligada ao FUNCINE 2025 e ao Prêmio Catarinense de Cinema 25, com execução em 2026. Não foi possível confirmar se essa 2ª edição já ocorreu. Seguindo a regra editorial, a página apresenta como realizada somente a edição de 2025.\n\nCréditos. Estão documentados para 2025: Flávio Veloso (direção geral, currículo próprio e relatório §10), Giulia Giacomolli (produção executiva e proponente, currículo próprio e relatório §10), Eron Nascimento (curador e assistente de produção, portfólio próprio, que cita o edital 044.000/SMLCP/2024) e Ediane Oliveira (assessora de imprensa do \"Projeto FLACA 2025\", portfólio próprio). Cristovam Muniz e Thais Alemany aparecem sem ano: o relatório §6.2 afirma que Cristovam \"participa da trajetória curatorial do FLACA\", mas o currículo dele atribui a direção de curadoria à 2ª edição (2026), não à de 2025; Thais Alemany consta como produtora executiva na apresentação do III FLACA e seu CV menciona o festival \"que vai para sua 2a edição\", sem especificar função na edição de 2025. Se o site precisar de créditos por edição, esses dois casos exigem confirmação com a equipe. Lennon da Silva Rocha não tem vínculo documentado com o FLACA em nenhuma das fontes consultadas e por isso não foi creditado aqui.\n\nEspaços e fotos. Os quatro espaços de 2025 vêm do relatório §10; nenhum documento diz quais atividades ocorreram em cada um. As seis fotografias não trazem legenda, data, local nem crédito de autoria em nenhuma fonte: as descrições acima são leitura visual das imagens, e a identificação de qual foto corresponde a qual espaço (CIC, Bugio Centro, Skullashu, escola) NÃO está confirmada. As fotos flaca-2 e flaca-5 parecem ter sido feitas na mesma sala, pelos painéis acústicos, mas isso também não está documentado. O crédito fotográfico precisa ser levantado antes da publicação.\n\nTrajetória anterior citada no PDF. Os itens \"abertura em espaço parceiro e programação gratuita\", \"sessões noturnas e debates no CIC\", \"cinema no Rio Vermelho para adultos e crianças\" e \"sessão escolar para cerca de 600 crianças em tela de 16 m²\" saem exclusivamente do slide \"FESTIVAL JÁ EXISTENTE\" da apresentação para patrocinadores do III FLACA. O slide descreve trajetória já realizada, mas não diz de que edição nem de que ano — e não deve ser lido como resultado da 1ª edição sem confirmação.\n\nExposições, acessibilidade e Mostra Online. \"Memórias de Atafona\", \"Planeta Brasil\", os recursos de Libras, audiodescrição e QR Code, as sessões no IFSC Câmpus Palhoça Bilíngue, o seminário ambiental, o show de encerramento e a mostra online na plataforma Bombozilla pertencem todos ao projeto futuro (PRONAC 262096). Nenhum deles está documentado como executado em 2025 e nenhum pode aparecer na página. A única menção a acessibilidade em edições passadas é genérica (\"o FLACA em suas últimas edições já vem trabalhando para ampliar os recursos de acessibilidade\", SALIC), sem detalhamento verificável.\n\nClipping. Não foi localizado material de imprensa, link, matéria ou registro público da 1ª edição nos arquivos disponíveis. O único endereço confirmado é o perfil @flacafestival no Instagram, citado tanto na apresentação do III FLACA quanto no portfólio de Eron Nascimento. A seção de clipping fica vazia até que os links sejam fornecidos.",
   "pull": "O mesmo filme pode ser visto por uma turma de estudantes numa manhã de escola e por um público adulto numa sessão noturna seguida de debate.",
   "ongoing": {
+   "edicao": "3ª edição",
    "title": "3ª edição do FLACA",
    "text": "O FLACA prepara uma nova edição, e ela aprofunda o que a primeira montou: cinema latino-americano — ficção, documentário e animação — em torno de crise climática, territórios e desigualdades socioambientais, sempre de graça. A proposta aprovada prevê sessões noturnas com debate e um seminário na Sala de Cinema Gilberto Gerlach, no Centro Integrado de Cultura, oficinas formativas no Museu da Imagem e do Som de Santa Catarina, sessões para estudantes da rede pública com prioridade para territórios periféricos, sessões no IFSC Câmpus Palhoça Bilíngue — primeira unidade da Rede Federal voltada à educação bilíngue Libras–Português — além de exposições fotográficas e uma mostra online gratuita.\n\nO projeto foi aprovado na Lei Rouanet com o título **III Festival Latino-Americano de Cinema Ambiental — FLACA** (PRONAC 262096), no Artigo 18, e está autorizado a captar recursos desde abril de 2026. Nada disso é resultado: as metas de público, de sessões e de filmes inscritas no projeto são previsão e não somam ao que o festival já realizou. A 1ª edição, de 2025, está na página do festival.",
    "quando_onde": "Ainda não há data de realização anunciada. O período formal do projeto aprovado vai de janeiro a dezembro de 2027, e a programação está prevista para Florianópolis, com sessões no IFSC Câmpus Palhoça Bilíngue. **Acompanhe as novidades.**",
-   "status": "Aprovado na Lei Rouanet e autorizado a captar recursos desde abril de 2026: a edição está em fase de captação de patrocínio, antes de entrar em pré-produção."
+   "status": "Aprovado na Lei Rouanet e autorizado a captar recursos desde abril de 2026: a edição está em fase de captação de patrocínio, antes de entrar em pré-produção.",
+   "territorio": "Florianópolis",
+   "cta": "Patrocinar o III FLACA →"
   },
   "hero_image": {
    "name": "flaca-roda-de-conversa",
@@ -408,8 +382,6 @@
    "Distrito Federal"
   ],
   "band": "red",
-  "plate_bg": "#690404",
-  "plate_ink": "#FFCC00",
   "plate_text": "Calango",
   "lede": "Festival de cinema ambiental realizado no Distrito Federal em 2022. Programação gratuita em escolas públicas e espaços culturais, com curadoria de profissionais que depois passaram a compor o núcleo da Pátria Grande.",
   "summary": "O Calango é um festival de cinema ambiental realizado no Distrito Federal. A primeira edição aconteceu em 2022, com programação gratuita em escolas públicas e espaços culturais, e foi contemplada pelo Fundo de Apoio à Cultura do Distrito Federal, no edital Brasília Multicultural.\n\nO festival é anterior à constituição jurídica da Pátria Grande Produções, formalizada em 2024. Foi realizado por profissionais que posteriormente passaram a compor o núcleo da produtora — Cristovam Muniz na coordenação de curadoria e Eron Nascimento na curadoria — e integra a trajetória que deu origem à empresa. A lista institucional de projetos executados mantém o Calango no portfólio, e é nesse sentido que ele aparece aqui: como parte da história da equipe, não como obra de uma empresa que ainda não existia.\n\nLevar cinema ambiental ao Distrito Federal significou ocupar escolas públicas e espaços culturais fora do circuito de salas. A gratuidade e a escolha dos locais são parte do desenho do festival, não consequência dele.\n\nA acessibilidade entra já nessa primeira edição. O festival priorizou cópias com recursos de acessibilidade mesmo depois de cumprir o número de sessões acessíveis previsto no projeto, e realizou ações de sensibilização sobre Libras junto ao público ouvinte.",
@@ -459,8 +431,9 @@
    "flaca",
    "educa-ambiental"
   ],
-  "seo_description": "Calango — Festival Internacional de Cinema Ambiental: primeira edição realizada em 2022 no Distrito Federal, com programação gratuita em escolas públicas e es",
-  "pending": "O site ainda não publica o calendário, a programação, o número de sessões e o número de filmes da edição de 2022, nem contagem de público. Esses dados circulam em materiais de divulgação, mas não foram conferidos contra o registro final da edição, e entram quando forem.\n\nTambém seguem em consolidação a lista completa dos locais no Distrito Federal, os créditos integrais da equipe daquela edição, o clipping e o registro fotográfico em resolução de publicação.",
+  "seo_description": "Festival Internacional de Cinema Ambiental Calango: 1ª edição realizada em 2022 no Distrito Federal, com programação gratuita em escolas e espaços culturais.",
+  "pending": "",
+  "notes_internal": "O site ainda não publica o calendário, a programação, o número de sessões e o número de filmes da edição de 2022, nem contagem de público. Esses dados circulam em materiais de divulgação, mas não foram conferidos contra o registro final da edição, e entram quando forem.\n\nTambém seguem em consolidação a lista completa dos locais no Distrito Federal, os créditos integrais da equipe daquela edição, o clipping e o registro fotográfico em resolução de publicação.",
   "pull": "Realizado por profissionais que depois passaram a compor o núcleo da Pátria Grande, o Calango é a prova mais antiga de que a produtora não é um projeto de uma cidade só."
  },
  {
@@ -479,8 +452,6 @@
    "Florianópolis"
   ],
   "band": "deep",
-  "plate_bg": "#5D0404",
-  "plate_ink": "#FFCC00",
   "plate_text": "Cineclube\nPátria Grande",
   "lede": "O cineclube que leva o nome da produtora: sessões gratuitas ao ar livre e curadoria voltada à América Latina.",
   "summary": "É o projeto que carrega o nome da produtora e funciona como síntese da sua filosofia cineclubista: cinema gratuito, ao ar livre, com debate, em territórios que ficam fora do circuito de exibição da cidade.\n\nO ciclo de 2024 reuniu dez exibições ao ar livre em tela de 16 m², com debates, concentradas no Rio Vermelho e nos Ingleses, no norte da Ilha de Santa Catarina. Entre elas há registro de sessões na comunidade do Siri, nos Ingleses, e na Educação Quilombola do Morro da Queimada, no Centro.\n\nEm 2025 o cineclube continuou a realizar sessões gratuitas, com curadoria voltada especialmente à América Latina — problemas, soluções, lutas, experiências sociais e formas de resistência dos povos do continente — e com registro de sessões periódicas no Bugio Centro.\n\nAs duas execuções foram feitas com recursos do Prêmio Catarinense de Cinema, sob direção geral de Cristovam Muniz.",
@@ -526,12 +497,12 @@
    {
     "value": "10",
     "label": "exibições ao ar livre no ciclo de 2024",
-    "source": "Currículo de Flávio Veloso (jan/2026) e currículo de Tayná Oliveira"
+    "source": "Currículo de Flávio Veloso (jan/2026) e currículo de Tayná Oliveira."
    },
    {
     "value": "16 m²",
     "label": "tela de projeção usada nas sessões de 2024",
-    "source": "Currículo de Flávio Veloso (jan/2026), currículo de Tayná Oliveira e relatório-base, §15"
+    "source": "Currículo de Flávio Veloso (jan/2026), currículo de Tayná Oliveira e relatório-base, §15."
    }
   ],
   "funding": [
@@ -547,7 +518,8 @@
    "cine-retrata"
   ],
   "seo_description": "Cineclube Pátria Grande: dez sessões ao ar livre com debate no Rio Vermelho e Ingleses em 2024 e curadoria latino-americana em 2025, Florianópolis.",
-  "pending": "Ficou de fora por falta de comprovação: (1) o número de sessões, as datas e os locais exatos da execução de 2025 — os currículos de Cristovam Muniz e Flávio Veloso confirmam a execução e o financiamento (Prêmio Catarinense de Cinema 2024), mas não a programação; a menção a sessões periódicas no Bugio Centro vem do relatório-base (§15), sem calendário documentado; (2) os filmes exibidos e os mediadores dos debates, em qualquer das duas execuções; (3) a natureza dos acordos com a comunidade do Siri e com a Educação Quilombola do Morro da Queimada — os documentos registram que houve sessões nesses locais, não que exista parceria formalizada, e por isso eles aparecem como territórios de realização e não como parceiros; (4) o público não foi contabilizado em nenhum documento consultado; (5) o arquivo \"Cineclube PÁTRIA GRANDE Logo .pdf\" contém apenas a marca do cineclube, sem qualquer informação de programação, equipe ou datas; (6) não há galeria fotográfica nem clipping reunidos; (7) o papel de Lennon da Silva Rocha vem do relatório-base (§15), sem currículo próprio entre os materiais consultados.",
+  "pending": "Da execução de 2025 estão documentados o financiamento e a linha curatorial, mas ainda não o calendário: número de sessões, datas e locais. Os filmes exibidos e os mediadores dos debates das duas execuções seguem em levantamento.",
+  "notes_internal": "Ficou de fora por falta de comprovação: (1) o número de sessões, as datas e os locais exatos da execução de 2025 — os currículos de Cristovam Muniz e Flávio Veloso confirmam a execução e o financiamento (Prêmio Catarinense de Cinema 2024), mas não a programação; a menção a sessões periódicas no Bugio Centro vem do relatório-base (§15), sem calendário documentado; (2) os filmes exibidos e os mediadores dos debates, em qualquer das duas execuções; (3) a natureza dos acordos com a comunidade do Siri e com a Educação Quilombola do Morro da Queimada — os documentos registram que houve sessões nesses locais, não que exista parceria formalizada, e por isso eles aparecem como territórios de realização e não como parceiros; (4) o público não foi contabilizado em nenhum documento consultado; (5) o arquivo \"Cineclube PÁTRIA GRANDE Logo .pdf\" contém apenas a marca do cineclube, sem qualquer informação de programação, equipe ou datas; (6) não há galeria fotográfica nem clipping reunidos; (7) o papel de Lennon da Silva Rocha vem do relatório-base (§15), sem currículo próprio entre os materiais consultados.",
   "pull": "É o projeto que carrega o nome da produtora — e por isso funciona como síntese da sua filosofia cineclubista."
  },
  {
@@ -566,8 +538,6 @@
    "Florianópolis"
   ],
   "band": "red",
-  "plate_bg": "#690404",
-  "plate_ink": "#FFCC00",
   "plate_text": "Educa\nAmbiental",
   "lede": "Cinema e educação ambiental no Rio Vermelho: dez sessões ao ar livre com debate, levadas ao bairro em vez do centro.",
   "summary": "O Educa Ambiental faz em escala de bairro o que os festivais da equipe fazem em escala de evento: coloca meio ambiente, território e cinema na mesma conversa. A diferença está no endereço. Em vez de concentrar a discussão ambiental em um grande festival, o cineclube leva filmes e debates diretamente para onde as pessoas moram.\n\nO ciclo de 2024 se concentrou no Rio Vermelho, no norte da Ilha de Santa Catarina, com dez exibições ao ar livre em tela de 16 m², seguidas de debate. A execução foi feita com recursos do Prêmio Catarinense de Cinema.\n\nEm 2025 o projeto teve nova execução, com recursos da Fundação Catarinense de Cultura pelo Circuito Catarinense de Cultura — Política Nacional Aldir Blanc, mantendo a linha de cinema ao ar livre, debate e oficinas.\n\nA condução do projeto reúne curadoria e educação ambiental: Cristovam Muniz responde pela curadoria nas duas execuções, Flávio Veloso pelas oficinas, fotografia e produção executiva, e Eron Nascimento — professor e consultor ambiental — consta como diretor do cineclube.",
@@ -612,12 +582,12 @@
    {
     "value": "10",
     "label": "exibições ao ar livre no ciclo de 2024",
-    "source": "Currículo de Flávio Veloso (jan/2026) e currículo de Tayná Oliveira"
+    "source": "Currículo de Flávio Veloso (jan/2026) e currículo de Tayná Oliveira."
    },
    {
     "value": "16 m²",
     "label": "tela de projeção usada nas sessões de 2024",
-    "source": "Currículo de Flávio Veloso (jan/2026) e currículo de Tayná Oliveira"
+    "source": "Currículo de Flávio Veloso (jan/2026) e currículo de Tayná Oliveira."
    }
   ],
   "funding": [
@@ -634,7 +604,8 @@
    "fica-garopaba"
   ],
   "seo_description": "Cineclube Educa Ambiental: dez sessões ao ar livre com debate no Rio Vermelho, Florianópolis, em 2024, e nova execução em 2025 pela PNAB.",
-  "pending": "Ficou de fora por falta de comprovação: (1) o número de sessões, as datas e os locais da execução de 2025 — os currículos registram a execução e o financiamento, mas não a programação; (2) o período em que Eron Nascimento exerce a direção do cineclube — sua mini-biografia informa o cargo sem datar, e por isso o crédito está sem ano; (3) a lista de filmes exibidos, os mediadores dos debates e as oficinas efetivamente realizadas não constam em nenhum documento consultado; (4) o público não foi contabilizado; (5) a numeração do edital do Circuito Catarinense de Cultura diverge — \"05/2024\" nos currículos de Cristovam Muniz e no de Flávio Veloso para este projeto, \"50/2024\" em outros itens dos mesmos documentos; (6) nenhuma escola, associação de moradores ou parceiro local do Rio Vermelho está nomeado nos materiais consultados — a articulação comunitária aparece nos registros, mas sem parceiros identificados, e por isso não foi citada como parceria; (7) não há galeria fotográfica nem clipping reunidos."
+  "pending": "O calendário da execução de 2025 e a lista de filmes, oficinas e mediadores dos debates ainda não estão consolidados. O período em que Eron Nascimento exerce a direção do cineclube também não está datado nos materiais, e por isso o crédito aparece sem ano.",
+  "notes_internal": "Ficou de fora por falta de comprovação: (1) o número de sessões, as datas e os locais da execução de 2025 — os currículos registram a execução e o financiamento, mas não a programação; (2) o período em que Eron Nascimento exerce a direção do cineclube — sua mini-biografia informa o cargo sem datar, e por isso o crédito está sem ano; (3) a lista de filmes exibidos, os mediadores dos debates e as oficinas efetivamente realizadas não constam em nenhum documento consultado; (4) o público não foi contabilizado; (5) a numeração do edital do Circuito Catarinense de Cultura diverge — \"05/2024\" nos currículos de Cristovam Muniz e no de Flávio Veloso para este projeto, \"50/2024\" em outros itens dos mesmos documentos; (6) nenhuma escola, associação de moradores ou parceiro local do Rio Vermelho está nomeado nos materiais consultados — a articulação comunitária aparece nos registros, mas sem parceiros identificados, e por isso não foi citada como parceria; (7) não há galeria fotográfica nem clipping reunidos."
  },
  {
   "slug": "cine-retrata",
@@ -651,8 +622,6 @@
    "Florianópolis"
   ],
   "band": "deep",
-  "plate_bg": "#5D0404",
-  "plate_ink": "#FFCC00",
   "plate_text": "Cine\nRetrata",
   "lede": "Filmes e documentários sobre fatos reais como ponto de partida para debate público, em sessões gratuitas em Florianópolis.",
   "summary": "O Cine Retrata parte de filmes e documentários baseados em acontecimentos, conflitos e experiências reais para abrir debate público. A exibição é meio, não fim: cada obra é conectada a especialistas, pesquisadores, ativistas e convidados, e a conversa com a plateia faz parte da programação.\n\nA linha curatorial cruza questões sociais, culturais, ambientais, econômicas, políticas e históricas. O critério de escolha não é gênero nem país de origem: é a pergunta que o filme obriga a discutir ali, naquele momento, com aquele público.\n\nA execução de 2025 registrou três sessões gratuitas, com exibição seguida de debate. Parte das atividades ocorreu na Sala de Cinema Gilberto Gerlach, no Centro Integrado de Cultura (CIC). Há registro de sessão no Bugio Trindade, em outubro de 2025, com exibição de \"O Dia que Durou 21 Anos\" e debate com convidados.\n\nO projeto foi realizado com recursos do Circuito Catarinense de Cultura — Política Nacional Aldir Blanc, com Giulia Giacomolli na produção executiva e proposição, Cristovam Muniz na coordenação de curadoria e Flávio Veloso na direção geral e artística.",
@@ -688,7 +657,7 @@
    {
     "value": "3",
     "label": "sessões gratuitas na execução de 2025",
-    "source": "Relatório-base do site, §12 (documentação da equipe)"
+    "source": "Relatório-base do site, §12 (documentação da equipe)."
    }
   ],
   "funding": [
@@ -703,7 +672,8 @@
    "educa-ambiental"
   ],
   "seo_description": "Cine Retrata: três sessões gratuitas em 2025 com documentários sobre fatos reais e debate com convidados, no CIC e no Bugio Trindade, Florianópolis.",
-  "pending": "Ficou de fora por falta de comprovação: (1) os títulos das outras duas sessões, suas datas e os nomes dos convidados que participaram dos debates — apenas a sessão de outubro de 2025 no Bugio Trindade está documentada com filme (\"O Dia que Durou 21 Anos\") e formato; (2) o público não foi contabilizado em nenhum documento consultado, e por isso não há métrica de audiência; (3) a numeração do edital diverge — os currículos de Flávio Veloso e de Giulia Giacomolli registram \"edital nº 50/2024\" para este projeto, o currículo de Cristovam Muniz cita apenas \"Circuito Catarinense de Cultura — PNAB 2024\" sem número, e em outro item do mesmo conjunto de documentos aparece \"05/2024\"; a numeração exata precisa ser conferida antes de publicar; (4) o relatório-base descreve o papel de Flávio Veloso como \"direção artística / produção\", enquanto seu currículo registra \"Diretor Geral / Artístico\" — adotou-se a formulação do currículo; (5) não há galeria fotográfica, cartazes nem clipping reunidos; (6) não há registro de parceiros institucionais além dos espaços de exibição."
+  "pending": "De uma das três sessões estão documentados o filme e o formato; das outras duas, ainda não. Títulos, datas e convidados seguem em levantamento, e o público não foi contabilizado — por isso o site não apresenta número de audiência.",
+  "notes_internal": "Ficou de fora por falta de comprovação: (1) os títulos das outras duas sessões, suas datas e os nomes dos convidados que participaram dos debates — apenas a sessão de outubro de 2025 no Bugio Trindade está documentada com filme (\"O Dia que Durou 21 Anos\") e formato; (2) o público não foi contabilizado em nenhum documento consultado, e por isso não há métrica de audiência; (3) a numeração do edital diverge — os currículos de Flávio Veloso e de Giulia Giacomolli registram \"edital nº 50/2024\" para este projeto, o currículo de Cristovam Muniz cita apenas \"Circuito Catarinense de Cultura — PNAB 2024\" sem número, e em outro item do mesmo conjunto de documentos aparece \"05/2024\"; a numeração exata precisa ser conferida antes de publicar; (4) o relatório-base descreve o papel de Flávio Veloso como \"direção artística / produção\", enquanto seu currículo registra \"Diretor Geral / Artístico\" — adotou-se a formulação do currículo; (5) não há galeria fotográfica, cartazes nem clipping reunidos; (6) não há registro de parceiros institucionais além dos espaços de exibição."
  },
  {
   "slug": "vozes-veladas",
@@ -721,8 +691,6 @@
    "Florianópolis"
   ],
   "band": "red",
-  "plate_bg": "#690404",
-  "plate_ink": "#FFCC00",
   "plate_text": "Vozes\nVeladas",
   "lede": "Cinema gratuito ao ar livre no Largo da Antonieta, no Centro de Florianópolis, com debate depois de cada sessão.",
   "summary": "O Vozes Veladas leva cinema gratuito para o meio da rua. As sessões acontecem ao ar livre, em tela de grande formato, no Largo da Antonieta, no Centro de Florianópolis, e cada exibição é seguida de conversa aberta com quem está ali.\n\nO nome e a identidade do projeto dialogam com Eglê Malheiros — cineasta, escritora e roteirista catarinense, figura importante da cultura e da história audiovisual de Santa Catarina. A curadoria articula cinema, memória, direitos humanos e debate público, com ênfase em produções independentes.\n\nO ciclo de 2024 reuniu 16 exibições ao ar livre em tela de 16 m², com debates, no Largo da Antonieta, em parceria com o Bugio Bar Centro, executadas com recursos do Prêmio Catarinense de Cinema. Em 2025 o projeto teve nova execução, desta vez pelo Circuito Catarinense de Cultura — Política Nacional Aldir Blanc.\n\nO cineclube é anterior à formalização da Pátria Grande Produções: currículos e mini-biografias da equipe registram o projeto em atividade desde 2023, já com sessões gratuitas na rua, no Centro da capital.",
@@ -777,12 +745,12 @@
    {
     "value": "16",
     "label": "exibições ao ar livre no ciclo de 2024",
-    "source": "Currículo de Flávio Veloso (jan/2026) e currículo de Tayná Oliveira"
+    "source": "Currículo de Flávio Veloso (jan/2026) e currículo de Tayná Oliveira."
    },
    {
     "value": "16 m²",
     "label": "tela de projeção usada nas sessões de 2024",
-    "source": "Currículo de Flávio Veloso (jan/2026) e currículo de Tayná Oliveira"
+    "source": "Currículo de Flávio Veloso (jan/2026) e currículo de Tayná Oliveira."
    }
   ],
   "funding": [
@@ -799,7 +767,8 @@
    "cine-retrata"
   ],
   "seo_description": "Cineclube Vozes Veladas: 16 sessões gratuitas ao ar livre com debate no Largo da Antonieta, Centro de Florianópolis, em 2024, e nova execução em 2025.",
-  "pending": "Ficou de fora por falta de comprovação: (1) o número de sessões, as datas e os locais da execução de 2025 — o currículo de Tayná Oliveira traz um item de 2025 com \"3 exibições no bairro periférico do Rio Vermelho\", mas a descrição é idêntica à do Cineclube Educa Ambiental e incompatível com o território do Vozes Veladas, então o dado não foi usado; (2) divergência sobre 2024 — a biografia resumida de Flávio Veloso agrupa Educa Ambiental, Pátria Grande e Vozes Veladas como \"cineclubes com 10 exibições (cada)\", enquanto o currículo detalhado dele (jan/2026) e o de Tayná Oliveira registram 16 exibições especificamente para o Vozes Veladas; adotou-se 16, mas convém confirmar; (3) divergência de nomenclatura do financiamento — a mini-bio de Sara Santos descreve \"Prêmio Catarinense de Cinema (edição especial Lei Paulo Gustavo, 2024)\" e \"Política Nacional Aldir Blanc (2025)\", enquanto Cristovam Muniz e Flávio Veloso registram \"Prêmio Catarinense de Cinema, 2023\"; é provavelmente o mesmo edital com anos de referência diferentes (aprovação x execução); (4) a numeração do edital do Circuito Catarinense de Cultura aparece como 50/2024 e como 05/2024 em documentos distintos do mesmo conjunto; (5) não há público contabilizado, lista de filmes exibidos, nomes de mediadores, datas de sessões, clipping nem galeria fotográfica reunidos; (6) o papel de Lennon da Silva Rocha vem do relatório-base, sem currículo próprio entre os materiais consultados, e por isso está sem ano."
+  "pending": "O calendário da execução de 2025 — número de sessões, datas e locais — ainda não está consolidado, e os filmes exibidos e os mediadores dos debates dos dois ciclos seguem em levantamento.",
+  "notes_internal": "Ficou de fora por falta de comprovação: (1) o número de sessões, as datas e os locais da execução de 2025 — o currículo de Tayná Oliveira traz um item de 2025 com \"3 exibições no bairro periférico do Rio Vermelho\", mas a descrição é idêntica à do Cineclube Educa Ambiental e incompatível com o território do Vozes Veladas, então o dado não foi usado; (2) divergência sobre 2024 — a biografia resumida de Flávio Veloso agrupa Educa Ambiental, Pátria Grande e Vozes Veladas como \"cineclubes com 10 exibições (cada)\", enquanto o currículo detalhado dele (jan/2026) e o de Tayná Oliveira registram 16 exibições especificamente para o Vozes Veladas; adotou-se 16, mas convém confirmar; (3) divergência de nomenclatura do financiamento — a mini-bio de Sara Santos descreve \"Prêmio Catarinense de Cinema (edição especial Lei Paulo Gustavo, 2024)\" e \"Política Nacional Aldir Blanc (2025)\", enquanto Cristovam Muniz e Flávio Veloso registram \"Prêmio Catarinense de Cinema, 2023\"; é provavelmente o mesmo edital com anos de referência diferentes (aprovação x execução); (4) a numeração do edital do Circuito Catarinense de Cultura aparece como 50/2024 e como 05/2024 em documentos distintos do mesmo conjunto; (5) não há público contabilizado, lista de filmes exibidos, nomes de mediadores, datas de sessões, clipping nem galeria fotográfica reunidos; (6) o papel de Lennon da Silva Rocha vem do relatório-base, sem currículo próprio entre os materiais consultados, e por isso está sem ano."
  },
  {
   "slug": "cineclube-marighella",
@@ -816,8 +785,6 @@
    "Palhoça"
   ],
   "band": "deep",
-  "plate_bg": "#5D0404",
-  "plate_ink": "#FFCC00",
   "plate_text": "Cineclube\nMarighella",
   "lede": "Dez sessões de cinema ao ar livre dentro da Ocupação Urbana Carlos Marighella, em Palhoça, com debate e oficinas.",
   "summary": "O Cineclube Marighella foi realizado dentro da Ocupação Urbana Carlos Marighella, no bairro Formiga do Aririu, em Palhoça. Equipamento de projeção, tela de 16 m², programação e mediação foram levados a um território que não integra o circuito de exibição da região.\n\nForam dez exibições ao ar livre, com debate depois de cada sessão, além de atividades de formação e mediação. A execução ocorreu em 2024, com recursos do Prêmio Catarinense de Cinema.\n\nÉ o exemplo mais direto da descentralização cultural praticada pela rede da Pátria Grande. O projeto é narrado a partir de agência cultural, participação e direito à cidade — não de vulnerabilidade. O cineclube encontrou ali organização comunitária já existente e trabalhou com ela.\n\nA relação da equipe com o território é anterior ao cineclube: a mini-biografia de Tayná Oliveira, produtora executiva do projeto, registra sua atuação prévia na ocupação como assistente social popular, pelo grupo Brigada de Saúde Ivone Lara.",
@@ -858,12 +825,12 @@
    {
     "value": "10",
     "label": "exibições ao ar livre no ciclo de 2024",
-    "source": "Currículo de Flávio Veloso (jan/2026) e currículo de Tayná Oliveira"
+    "source": "Currículo de Flávio Veloso (jan/2026) e currículo de Tayná Oliveira."
    },
    {
     "value": "16 m²",
     "label": "tela de projeção usada nas sessões",
-    "source": "Currículo de Flávio Veloso (jan/2026) e currículo de Tayná Oliveira"
+    "source": "Currículo de Flávio Veloso (jan/2026) e currículo de Tayná Oliveira."
    }
   ],
   "funding": [
@@ -878,7 +845,8 @@
    "educa-ambiental"
   ],
   "seo_description": "Cineclube Marighella: dez sessões de cinema ao ar livre com debate na Ocupação Urbana Carlos Marighella, em Palhoça (SC), realizadas em 2024.",
-  "pending": "Ficou de fora por falta de comprovação: (1) não há registro de nova execução depois de 2024 em nenhum documento consultado — o projeto é apresentado como ciclo único, e não como linha continuada; (2) os filmes exibidos, as datas das sessões, os mediadores dos debates e o conteúdo das oficinas não constam; (3) o público não foi contabilizado, e não há parceiro comunitário ou coletivo da ocupação nomeado nos materiais, embora a articulação local apareça nos registros; (4) o papel de Lennon da Silva Rocha vem do relatório-base (§14), sem currículo próprio entre os materiais consultados; (5) a atuação prévia de Tayná Oliveira na ocupação, pelo grupo Brigada de Saúde Ivone Lara, é trajetória individual documentada em sua mini-biografia — não é ação institucional da Pátria Grande e está apresentada como contexto, não como crédito; (6) não há galeria fotográfica reunida, e qualquer imagem de moradores exige autorização de uso antes da publicação; (7) não há clipping.",
+  "pending": "Não há registro de nova execução depois de 2024: o projeto é apresentado como um ciclo, não como linha continuada. Os filmes exibidos, as datas das sessões e o conteúdo das oficinas seguem em levantamento, e o público não foi contabilizado.",
+  "notes_internal": "Ficou de fora por falta de comprovação: (1) não há registro de nova execução depois de 2024 em nenhum documento consultado — o projeto é apresentado como ciclo único, e não como linha continuada; (2) os filmes exibidos, as datas das sessões, os mediadores dos debates e o conteúdo das oficinas não constam; (3) o público não foi contabilizado, e não há parceiro comunitário ou coletivo da ocupação nomeado nos materiais, embora a articulação local apareça nos registros; (4) o papel de Lennon da Silva Rocha vem do relatório-base (§14), sem currículo próprio entre os materiais consultados; (5) a atuação prévia de Tayná Oliveira na ocupação, pelo grupo Brigada de Saúde Ivone Lara, é trajetória individual documentada em sua mini-biografia — não é ação institucional da Pátria Grande e está apresentada como contexto, não como crédito; (6) não há galeria fotográfica reunida, e qualquer imagem de moradores exige autorização de uso antes da publicação; (7) não há clipping.",
   "pull": "O projeto não trata a Ocupação Carlos Marighella como cenário. Trata como território, com agência cultural própria."
  },
  {
@@ -897,8 +865,6 @@
    "Florianópolis"
   ],
   "band": "deep",
-  "plate_bg": "#5D0404",
-  "plate_ink": "#FFCC00",
   "plate_text": "#Abrindo\nacaixapreta",
   "lede": "Curso gratuito de fotografia digital em Florianópolis: 20 vagas, cinco aulas teóricas, duas saídas de campo e duas exposições de conclusão.",
   "summary": "O Curso Básico de Fotografia Digital #Abrindoacaixapreta é uma formação gratuita de introdução à fotografia digital realizada em Florianópolis em 2025. O nome vem da oficina homônima que Flávio Veloso idealizou e vem ministrando há anos em cidades brasileiras, e que aqui passa a integrar a linha de formação da Pátria Grande.\n\nA estrutura documentada reúne 20 vagas gratuitas para público adulto, cinco aulas teóricas e duas saídas de campo, com trabalho especialmente voltado a fundamentos da fotografia e a paisagem. O processo formativo se desdobrou em duas exposições, o que tira o curso do formato de aula fechada e o encaminha para um percurso que termina em trabalho exposto ao público.\n\nA realização é uma parceria de produção entre a Expancine Produções e a Pátria Grande Produções, com patrocínio da Prefeitura de Florianópolis pelo Edital Seu Lidinho 041.000/SMLCP/24.",
@@ -934,22 +900,22 @@
    {
     "value": "20",
     "label": "vagas gratuitas",
-    "source": "Relatório-base para o site institucional, §17 — Estrutura documentada (registros públicos do projeto)"
+    "source": "Relatório-base para o site institucional, §17 — Estrutura documentada (registros públicos do projeto)."
    },
    {
     "value": "5",
     "label": "aulas teóricas",
-    "source": "Relatório-base para o site institucional, §17 — Estrutura documentada (registros públicos do projeto)"
+    "source": "Relatório-base para o site institucional, §17 — Estrutura documentada (registros públicos do projeto)."
    },
    {
     "value": "2",
     "label": "saídas de campo",
-    "source": "Relatório-base para o site institucional, §17 — Estrutura documentada (registros públicos do projeto)"
+    "source": "Relatório-base para o site institucional, §17 — Estrutura documentada (registros públicos do projeto)."
    },
    {
     "value": "2",
     "label": "exposições como desdobramento do processo formativo",
-    "source": "Relatório-base para o site institucional, §17 — Estrutura documentada (registros públicos do projeto)"
+    "source": "Relatório-base para o site institucional, §17 — Estrutura documentada (registros públicos do projeto)."
    }
   ],
   "funding": [
@@ -964,7 +930,8 @@
    "cine-retrata"
   ],
   "seo_description": "Curso Básico de Fotografia Digital #Abrindoacaixapreta: formação gratuita em Florianópolis, 2025, com 20 vagas e duas exposições.",
-  "pending": "Os números publicados aqui (20 vagas, cinco aulas teóricas, duas saídas de campo, duas exposições) vêm do relatório-base, que os atribui a \"registros públicos\" sem nomear o documento. A fonte primária não foi consultada diretamente nesta apuração e deveria ser anexada ao acervo do projeto.\n\nNão foi possível confirmar: datas do curso e das exposições; endereços exatos das aulas, das saídas de campo e das duas mostras — Rio Vermelho e região da Trindade aparecem como locais previstos, não confirmados; quantas pessoas efetivamente concluíram o curso, número distinto das 20 vagas ofertadas; o conteúdo programático detalhado das cinco aulas; se houve certificação; se houve mais de uma turma.\n\nFalta também todo o material visual, que seria o insumo natural desta página: fotografias das aulas, das saídas de campo e da montagem das exposições, e sobretudo as imagens produzidas pelos próprios participantes. Não há clipping nem cobertura de imprensa reunidos.\n\nNos documentos consultados — currículos e portfólio de Flávio Veloso (2026), CV de Thais Alemany (2026) e registro público do SALIC — apenas esses dois nomes aparecem vinculados ao projeto. Nenhum outro integrante da equipe é citado, e por isso nenhum outro é creditado. O portfólio da Expancine Produções 2026 não traz seção sobre o curso, apesar de o CV de Thais Alemany registrá-lo em 2025."
+  "pending": "Os números desta página vêm dos registros institucionais da produtora e ainda não foram conferidos contra o material original do curso. Seguem em levantamento as datas, os endereços das aulas e das duas exposições de conclusão, e quantas pessoas efetivamente concluíram a turma — número distinto das vinte vagas ofertadas.",
+  "notes_internal": "Os números publicados aqui (20 vagas, cinco aulas teóricas, duas saídas de campo, duas exposições) vêm do relatório-base, que os atribui a \"registros públicos\" sem nomear o documento. A fonte primária não foi consultada diretamente nesta apuração e deveria ser anexada ao acervo do projeto.\n\nNão foi possível confirmar: datas do curso e das exposições; endereços exatos das aulas, das saídas de campo e das duas mostras — Rio Vermelho e região da Trindade aparecem como locais previstos, não confirmados; quantas pessoas efetivamente concluíram o curso, número distinto das 20 vagas ofertadas; o conteúdo programático detalhado das cinco aulas; se houve certificação; se houve mais de uma turma.\n\nFalta também todo o material visual, que seria o insumo natural desta página: fotografias das aulas, das saídas de campo e da montagem das exposições, e sobretudo as imagens produzidas pelos próprios participantes. Não há clipping nem cobertura de imprensa reunidos.\n\nNos documentos consultados — currículos e portfólio de Flávio Veloso (2026), CV de Thais Alemany (2026) e registro público do SALIC — apenas esses dois nomes aparecem vinculados ao projeto. Nenhum outro integrante da equipe é citado, e por isso nenhum outro é creditado. O portfólio da Expancine Produções 2026 não traz seção sobre o curso, apesar de o CV de Thais Alemany registrá-lo em 2025."
  },
  {
   "slug": "arte-para-voar",
@@ -977,12 +944,8 @@
    2025
   ],
   "years_label": "2025",
-  "cities": [
-   "Santa Catarina"
-  ],
+  "cities": [],
   "band": "yellow",
-  "plate_bg": "#FFCC00",
-  "plate_ink": "#690404",
   "plate_text": "Arte para\nVoar",
   "lede": "Oficina de construção de pandorgas realizada em 2025: prática manual, convivência e ocupação lúdica do espaço público como formação cultural.",
   "summary": "A Oficina de Pandorga — Arte para Voar é uma ação de formação cultural executada em 2025, dedicada à construção de pandorgas. É a iniciativa que estende a atuação da Pátria Grande para além do cinema e da fotografia, aproximando a produtora de práticas manuais, da convivência e da ocupação lúdica do espaço público.\n\nA oficina consta como projeto executado com recursos públicos na área da cultura, sob produção executiva de Flávio Veloso e Cristovam Muniz. O restante da documentação — locais, calendário, número de encontros, perfil do público e registro fotográfico — ainda não foi reunido pela equipe.\n\nPor isso esta página é deliberadamente curta. Ela será ampliada quando o material de memória do projeto estiver organizado. Até lá, o que está publicado aqui é o que pode ser afirmado.",
@@ -1021,7 +984,8 @@
    "educa-ambiental"
   ],
   "seo_description": "Oficina de Pandorga — Arte para Voar: ação de formação cultural da Pátria Grande Produções, executada em Santa Catarina em 2025.",
-  "pending": "Falta praticamente toda a documentação de campo: local ou locais exatos de realização (nem o município está registrado); quantidade de oficinas e de encontros; datas e calendário; número, faixa etária e perfil do público participante; descrição metodológica completa; fotografias, material gráfico e qualquer registro visual do processo; clipping ou cobertura de imprensa; métricas de participação. Nada disso foi estimado aqui.\n\nHá também uma divergência de fonte não resolvida sobre ano e edital. Os currículos de Flávio Veloso (janeiro/2026), seu portfólio 2026 e o registro público consultado no SALIC situam a oficina em 2025, com recursos da Fundação Catarinense de Cultura pelo Circuito Catarinense de Cultura — Edital 50/2024 (PNAB 2024). Já os currículos de Cristovam Muniz (dezembro/2025 e janeiro/2026) datam a mesma ação de 2024 e a atribuem ao Edital Paulo Gustavo — Demais Áreas (2023). O relatório-base adota 2025, e é essa a data usada nesta página, mas ano e mecanismo de financiamento precisam ser confirmados junto à equipe antes da publicação.\n\nPor fim, os documentos consultados vinculam ao projeto apenas Flávio Veloso e Cristovam Muniz, ambos na produção executiva. Não há registro de quem ministrou as oficinas nem de qualquer outro nome da equipe — inclusive por isso a página não lista oficineiros."
+  "pending": "Falta praticamente toda a documentação de campo desta oficina: local ou locais de realização, calendário, quantidade de encontros, perfil do público, descrição metodológica e registro fotográfico. Nada disso foi estimado — é o motivo de esta ser a página mais curta do arquivo.",
+  "notes_internal": "Falta praticamente toda a documentação de campo: local ou locais exatos de realização (nem o município está registrado); quantidade de oficinas e de encontros; datas e calendário; número, faixa etária e perfil do público participante; descrição metodológica completa; fotografias, material gráfico e qualquer registro visual do processo; clipping ou cobertura de imprensa; métricas de participação. Nada disso foi estimado aqui.\n\nHá também uma divergência de fonte não resolvida sobre ano e edital. Os currículos de Flávio Veloso (janeiro/2026), seu portfólio 2026 e o registro público consultado no SALIC situam a oficina em 2025, com recursos da Fundação Catarinense de Cultura pelo Circuito Catarinense de Cultura — Edital 50/2024 (PNAB 2024). Já os currículos de Cristovam Muniz (dezembro/2025 e janeiro/2026) datam a mesma ação de 2024 e a atribuem ao Edital Paulo Gustavo — Demais Áreas (2023). O relatório-base adota 2025, e é essa a data usada nesta página, mas ano e mecanismo de financiamento precisam ser confirmados junto à equipe antes da publicação.\n\nPor fim, os documentos consultados vinculam ao projeto apenas Flávio Veloso e Cristovam Muniz, ambos na produção executiva. Não há registro de quem ministrou as oficinas nem de qualquer outro nome da equipe — inclusive por isso a página não lista oficineiros."
  },
  {
   "slug": "oficinas-de-danca",
@@ -1031,29 +995,17 @@
    "formacao",
    "danca"
   ],
-  "years": [
-   2025
-  ],
-  "years_label": "2025",
-  "cities": [
-   "Santa Catarina"
-  ],
+  "years": [],
+  "years_label": "—",
+  "cities": [],
   "band": "yellow",
-  "plate_bg": "#FFCC00",
-  "plate_ink": "#690404",
   "plate_text": "Oficinas\nde dança",
   "lede": "Ações formativas em dança produzidas e apoiadas pela Pátria Grande em colaboração com profissionais e projetos da área.",
   "summary": "A dança está entre as ações formativas que a Pátria Grande já realizou, ao lado das oficinas de fotografia e de pandorga — essas duas com página própria neste portfólio. Ela também aparece na rede de profissionais que a produtora reúne, onde há gente da dança trabalhando junto com cinema, fotografia, música, tradução e acessibilidade.\n\nO que ainda não está publicado é a ficha: nome oficial da ação, quando e onde cada oficina aconteceu, quem conduziu, quantos encontros, que público e com que recurso. Sem esses dados conferidos, esta entrada fica como está — o registro de que a dança integra o trabalho da produtora, e não uma página de projeto preenchida por aproximação. A regra vale para todo o portfólio: aqui só entra o que está documentado.",
   "concept_title": "Dança como ação formativa",
   "concept": "A dança está entre as ações formativas que a Pátria Grande já realizou, ao lado das oficinas de fotografia e de pandorga — essas duas com página própria neste portfólio. Ela também aparece na rede de profissionais que a produtora reúne, onde há gente da dança trabalhando junto com cinema, fotografia, música, tradução e acessibilidade.\n\nO que ainda não está publicado é a ficha: nome oficial da ação, quando e onde cada oficina aconteceu, quem conduziu, quantos encontros, que público e com que recurso. Sem esses dados conferidos, esta entrada fica como está — o registro de que a dança integra o trabalho da produtora, e não uma página de projeto preenchida por aproximação. A regra vale para todo o portfólio: aqui só entra o que está documentado.",
   "actions_text": "",
-  "history": [
-   {
-    "year": 2025,
-    "label": "Ações formativas",
-    "text": "A dança está entre as ações formativas que a Pátria Grande já realizou, ao lado das oficinas de fotografia e de pandorga — essas duas com página própria neste portfólio. Ela também aparece na rede de profissionais que a produtora reúne, onde há gente da dança trabalhando junto com cinema, fotografia, música, tradução e acessibilidade."
-   }
-  ],
+  "history": [],
   "territory": "Os locais das oficinas ainda não estão registrados nos materiais da produtora.",
   "credits": [],
   "metrics": [],
@@ -1065,6 +1017,8 @@
    "cineclube-patria-grande"
   ],
   "seo_description": "Ações formativas em dança produzidas e apoiadas pela Pátria Grande Produções em colaboração com profissionais e projetos da área. Ficha em consolidação.",
-  "pending": "Falta a ficha completa: nome oficial da ação, datas e locais de realização, quem conduziu as oficinas, número de turmas e de encontros, público alcançado e fonte de financiamento.\n\nTambém não há, nos materiais reunidos até aqui, registro fotográfico identificado dessas oficinas. Quando esses dados forem confirmados, esta entrada vira uma página de projeto como as demais, com ficha técnica, território e créditos."
+  "pending": "",
+  "notes_internal": "Falta a ficha completa: nome oficial da ação, datas e locais de realização, quem conduziu as oficinas, número de turmas e de encontros, público alcançado e fonte de financiamento.\n\nTambém não há, nos materiais reunidos até aqui, registro fotográfico identificado dessas oficinas. Quando esses dados forem confirmados, esta entrada vira uma página de projeto como as demais, com ficha técnica, território e créditos.",
+  "undated": true
  }
 ]

@@ -76,7 +76,19 @@ class PageParser(HTMLParser):
         self.h1_count = 0
         self.lang = None
         self.ids: list[str] = []
+        self.refs: list[str] = []
         self.buttons_without_type = 0
+
+    @staticmethod
+    def _urls(a: dict) -> list[str]:
+        """src mais cada candidato de srcset — o primeiro token de cada item."""
+        out = [a["src"]] if a.get("src") else []
+        for attr in ("srcset", "imagesrcset"):
+            for item in (a.get(attr) or "").split(","):
+                item = item.strip()
+                if item:
+                    out.append(item.split()[0])
+        return out
 
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
@@ -92,6 +104,11 @@ class PageParser(HTMLParser):
             self.links.append(a["href"])
         elif tag == "img":
             self.imgs.append(a)
+            self.refs += self._urls(a)
+        elif tag in ("source", "script"):
+            self.refs += self._urls(a)
+        elif tag == "link" and a.get("href") and "icon" in (a.get("rel") or ""):
+            self.refs.append(a["href"])
         elif tag == "h1":
             self.h1_count += 1
         elif tag == "button" and "type" not in a:
@@ -139,8 +156,10 @@ def check_data() -> None:
             if rel == p["slug"]:
                 fail(f"{where}: projeto relacionado a si mesmo.")
 
-        if not p.get("history"):
+        if not p.get("history") and not p.get("undated"):
             fail(f"{where}: nenhuma execução registrada — um projeto sem execução não é portfólio.")
+        if p.get("undated") and (p.get("years") or p.get("cities")):
+            fail(f"{where}: marcado como sem data, mas declara ano ou cidade.")
 
         # §31 e §78: previsão não é resultado. Um projeto em andamento pode ter
         # meta, mas ela nunca entra como métrica realizada.
@@ -260,6 +279,15 @@ def check_pages() -> None:
             if pattern.search(text):
                 fail(f"{rel}: publica {label} — remover (§28.8).")
 
+        # Recursos: imagens, fontes, script, ícones. Mesmo resolvedor dos links.
+        for ref in parser.refs:
+            if ref.startswith(("http://", "https://", "data:")) or not ref:
+                continue
+            rbase = ROOT if ref.startswith("/") else page.parent
+            rt = (rbase / ref.lstrip("/")).resolve()
+            if not rt.exists():
+                fail(f"{rel}: recurso ausente → {ref}")
+
         # Links internos. O 404 usa caminho de raiz — é a única página servida
         # num endereço que ela não conhece —, então "/algo" resolve a partir da
         # raiz do site, não do diretório da página.
@@ -274,6 +302,17 @@ def check_pages() -> None:
                 target = target / "index.html"
             if not target.exists():
                 fail(f"{rel}: link quebrado → {href}")
+
+    for d in sorted(ROOT.glob("*/")):
+        if d.name in NOT_ROUTES or d.name.startswith((".", "_")):
+            continue
+        for f in sorted(d.rglob("*")):
+            if f.is_dir() or f.name == "index.html":
+                continue
+            fail(
+                f"{f.relative_to(ROOT).as_posix()}: arquivo inesperado numa rota. "
+                "O workflow copia o diretório inteiro, então isso seria publicado."
+            )
 
     notes.append(f"{len(pages)} páginas verificadas.")
 
