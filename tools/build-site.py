@@ -29,7 +29,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "source"
 
-BASE_URL = "https://desterrocore.github.io/patriagrande"
+BASE_URL = "https://patriagrande.com.br"
 
 # --------------------------------------------------------------------------
 # utilidades
@@ -41,10 +41,23 @@ def e(text) -> str:
     return html.escape(str(text if text is not None else ""), quote=True)
 
 
+# O 404 é a única página servida em endereço que ela não conhece: o GitHub
+# Pages devolve o mesmo arquivo para /qualquer/coisa/funda/, e ali um caminho
+# relativo resolve para /qualquer/coisa/funda/assets/… — a página aparece sem
+# estilo. Num domínio de ápice dá para usar caminho de raiz, que é sempre
+# válido. Num subcaminho não dá, e o relativo continua sendo o certo.
+_ABS_ROOT = False
+
+
 def up(depth: int) -> str:
-    """Prefixo relativo até a raiz. Nenhum caminho absoluto no HTML — é o que
-    permite o mesmo build funcionar em desterrocore.github.io/patriagrande/ e
-    num domínio próprio, sem reescrever nada."""
+    """Prefixo até a raiz do site.
+
+    Relativo por padrão — é o que permite o mesmo build funcionar num
+    subcaminho como usuario.github.io/repo/ e num domínio próprio, sem
+    reescrever nada. Só o 404, e só quando o site está num ápice, usa raiz.
+    """
+    if _ABS_ROOT:
+        return "/"
     return "../" * depth
 
 
@@ -1293,7 +1306,10 @@ def page_contato(site, services) -> None:
 
 
 def page_404(site) -> None:
+    global _ABS_ROOT
     depth = 0
+    # Caminho de raiz só é seguro quando o site vive no ápice do domínio.
+    _ABS_ROOT = "/" not in BASE_URL.split("://", 1)[-1]
     out = head("Página não encontrada — Pátria Grande Produções", site["seo"]["404"], "404.html", depth)
     out += header("__none__", depth)
     out += f"""
@@ -1312,6 +1328,7 @@ def page_404(site) -> None:
 """
     out += footer(site, depth)
     write("404.html", out)
+    _ABS_ROOT = False
 
 
 # ---- sitemap --------------------------------------------------------------

@@ -255,5 +255,62 @@ Pátria Grande</span></div>
 </div>
 </footer>
 <script src="../../assets/js/main.js" defer></script>
+
+<script>
+window.addEventListener('load', function () {
+  setTimeout(function () {
+    var out = [];
+    var link = document.querySelectorAll('[data-gallery] a[data-full]')[0];
+    link.click();
+    var dlg = document.querySelector('dialog.lightbox');
+    out.push('dialogo aberto: ' + (dlg && dlg.open));
+    var ae = document.activeElement;
+    out.push('foco ao abrir: <' + ae.tagName + ' class="' + ae.className + '"> "' + ae.textContent.trim().slice(0, 30) + '"');
+    var img = dlg.querySelector('.lightbox__img');
+    var cap = dlg.querySelector('.lightbox__cap');
+    var pos = dlg.querySelector('.lightbox__pos');
+    out.push('POS  : ' + pos.textContent);
+    out.push('ALT  : ' + img.alt.slice(0, 70));
+    out.push('CAP  : ' + cap.textContent.slice(0, 70));
+    out.push('cap.hidden: ' + cap.hidden + ' | cap visivel: ' + (cap.offsetHeight > 0));
+    var recs = [];
+    var mo = new MutationObserver(function (list) {
+      list.forEach(function (m) {
+        var t = m.target;
+        var el = t.nodeType === 1 ? t : t.parentElement;
+        var live = el.closest('[aria-live]');
+        recs.push(m.type + (m.attributeName ? '[' + m.attributeName + ']' : '') +
+          ' em .' + (el.className || el.nodeName) +
+          ' -> regiao viva: ' + (live ? '.' + live.className + ' (' + live.getAttribute('aria-live') + ')' : 'NENHUMA'));
+      });
+    });
+    mo.observe(dlg, { subtree: true, childList: true, characterData: true, attributes: true });
+    dlg.dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true }));
+    setTimeout(function () {
+      out.push('--- apos ArrowRight ---');
+      out.push('POS  : ' + pos.textContent);
+      out.push('ALT  : ' + img.alt.slice(0, 70));
+      out.push('CAP  : ' + cap.textContent.slice(0, 70));
+      var ae2 = document.activeElement;
+      out.push('foco: <' + ae2.tagName + '> "' + ae2.textContent.trim().slice(0, 30) + '"');
+      out.push('aria-live no documento: ' + Array.prototype.map.call(document.querySelectorAll('[aria-live]'), function (e) { return '.' + e.className; }).join(' | '));
+      out.push('img aria-hidden/display: ' + img.getAttribute('aria-hidden') + ' / ' + getComputedStyle(img).display);
+      out.push('cap display: ' + getComputedStyle(cap).display + ' | cap.hidden=' + cap.hidden);
+      out.push('dialog tem accessible name? aria-label=' + dlg.getAttribute('aria-label') + ' aria-labelledby=' + dlg.getAttribute('aria-labelledby'));
+      recs.forEach(function (r) { out.push('MUT: ' + r); });
+      dlg.close();
+      document.documentElement.style.background = '#fff';
+      document.body.style.cssText = 'background:#fff;color:#000;margin:0;padding:8px';
+      document.body.innerHTML = '';
+      var pre = document.createElement('pre');
+      pre.id = 'PROBE-RESULTADO';
+      pre.style.cssText = 'font:12px/1.35 monospace;color:#000;background:#fff;white-space:pre-wrap;margin:0';
+      pre.textContent = out.join('\n');
+      document.body.appendChild(pre);
+      window.scrollTo(0,0);
+    }, 400);
+  }, 1200);
+});
+</script>
 </body>
 </html>

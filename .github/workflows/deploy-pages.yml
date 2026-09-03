@@ -40,6 +40,13 @@ jobs:
           set -euo pipefail
           mkdir -p _site
           cp index.html 404.html robots.txt sitemap.xml site.webmanifest .nojekyll _site/
+          # O CNAME vai junto por consistência, não por necessidade: quando a
+          # publicação sai de um workflow do Actions, o GitHub ignora o arquivo
+          # e o domínio é exclusivamente o de Settings → Pages. Ele importa
+          # aqui como declaração versionada — é o que tools/check-site.py usa
+          # para cobrar que BASE_URL e robots.txt falem do mesmo domínio — e
+          # passaria a valer se um dia a publicação voltasse a sair de um branch.
+          cp CNAME _site/
           cp -r assets _site/
           for dir in quem-somos projetos servicos equipe contato; do
             cp -r "$dir" _site/
