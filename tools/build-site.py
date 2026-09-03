@@ -343,7 +343,7 @@ def project_card(p: dict, depth: int, feature: bool = False) -> str:
         media = f'<div class="pcard__media">{picture(p["card_image"], depth, sizes=sizes, ratio="3:2")}</div>'
     else:
         media = (
-            f'<div class="pcard__plate" style="--plate-bg:{p["plate_bg"]};--plate-ink:{p["plate_ink"]}">'
+            f'<div class="pcard__plate plate--{p["band"]}">'
             f'{cartografia("cartografia")}'
             f'<span aria-hidden="true">{e(p["plate_text"])}</span></div>'
         )
@@ -352,7 +352,11 @@ def project_card(p: dict, depth: int, feature: bool = False) -> str:
     # está correndo agora é uma edição nova. A diferença é o ponto inteiro.
     flag = f'<span class="pcard__flag">{badge("Edição em andamento")}</span>' if p.get("ongoing") else ""
     kicker = " · ".join(CATEGORY_LABEL.get(c, c) for c in p["categories"])
-    cities = " · ".join(p["cities"])
+    foot = "".join(
+        f"<span>{e(v)}</span>"
+        for v in (p["years_label"] if p["years"] else "", " · ".join(p["cities"]))
+        if v
+    ) or '<span>Sem data confirmada</span>' 
 
     return f"""<li data-category="{cats}" data-status="{status}" data-years="{years}">
 <article class="pcard{' pcard--feature' if feature else ''}">
@@ -361,7 +365,31 @@ def project_card(p: dict, depth: int, feature: bool = False) -> str:
 <p class="pcard__kicker">{e(kicker)}</p>
 <h3 class="pcard__title"><a href="{href}">{e(p["short_title"])}</a></h3>
 <p class="pcard__desc">{inline(p["lede"])}</p>
-<p class="pcard__foot"><span>{e(p["years_label"])}</span><span>{e(cities)}</span></p>
+<p class="pcard__foot">{foot}</p>
+</div>
+</article>
+</li>"""
+
+
+def ongoing_card(p: dict, depth: int) -> str:
+    """A edição corrente não é o projeto: reaproveitar o card do histórico dizia
+    "2022–2025 · Garopaba" numa seção sobre o que ainda vai acontecer. Este card
+    fala só da edição em curso — e não imprime data, porque não há data
+    anunciada; a janela do PRONAC é prazo de projeto, não de festival."""
+    o = p["ongoing"]
+    href = f'{up(depth)}projetos/{p["slug"]}/'
+    return f"""<li>
+<article class="pcard pcard--ongoing">
+<div class="pcard__plate plate--{p["band"]}">
+{cartografia("cartografia")}
+<span aria-hidden="true">{e(p["plate_text"])}</span>
+</div>
+<span class="pcard__flag">{badge("Edição em andamento")}</span>
+<div class="pcard__body">
+<p class="pcard__kicker">{e(o.get("edicao") or "Nova edição")}</p>
+<h3 class="pcard__title"><a href="{href}">{e(p["short_title"])}</a></h3>
+<p class="pcard__desc">{inline(o["status"])}</p>
+<p class="pcard__foot"><span>{e(o.get("territorio", ""))}</span><span>Sem data anunciada</span></p>
 </div>
 </article>
 </li>"""
@@ -515,7 +543,7 @@ def page_home(site, projects, people, services, by_slug) -> None:
     depth = 0
 
     featured = "".join(project_card(by_slug[s], depth, feature=True) for s in h["featured"])
-    ongoing = "".join(project_card(by_slug[s], depth) for s in h["ongoing"])
+    ongoing = "".join(ongoing_card(by_slug[s], depth) for s in h["ongoing"])
     service_cards = "".join(service_card(s, depth, i) for i, s in enumerate(services, 1))
     nucleo = [p for p in people if p["tier"] == "nucleo"]
     team_cards = "".join(team_card(p, depth, compact=True) for p in nucleo)
@@ -787,7 +815,8 @@ def page_projetos(site, projects) -> None:
     depth = 1
     s = site["projetos"]
 
-    executed = [p for p in projects if not p.get("ongoing")]
+    executed = [p for p in projects
+                if "executado" in ("executado andamento" if p.get("ongoing") else "executado")]
     ongoing = [p for p in projects if p.get("ongoing")]
 
     filters = "".join(
@@ -820,10 +849,13 @@ def page_projetos(site, projects) -> None:
 <legend class="meta">Filtrar por tipo de projeto</legend>
 {filters}
 </fieldset>
+<h2 class="visually-hidden">Projetos</h2>
 <p class="meta" data-filter-count aria-live="polite">{len(executed)} projetos realizados</p>
-<ul class="projectgrid" id="painel-projetos" role="tabpanel" style="margin-top:clamp(20px,2.4vw,32px)">
+<div id="painel-projetos" role="tabpanel" tabindex="0" style="margin-top:clamp(20px,2.4vw,32px)">
+<ul class="projectgrid">
 {cards}
 </ul>
+</div>
 {note(s["note_label"], s["note"])}
 </div>
 </section>
@@ -838,12 +870,16 @@ def page_projetos(site, projects) -> None:
 def page_projeto(site, p, by_slug) -> None:
     depth = 2
 
+    # Campo sem dado sai da ficha. O §78 é explícito: onde não há informação,
+    # ocultar o campo — nunca imprimir zero, travessão ou território inventado.
     meta_items = [
-        ("Situação", "Em andamento" if p.get("ongoing") else "Realizado"),
+        ("Situação", "Realizado" if p["history"] else "Sem data confirmada"),
         ("Categoria", " · ".join(CATEGORY_LABEL.get(c, c) for c in p["categories"])),
-        ("Execução", p["years_label"]),
-        ("Território", " · ".join(p["cities"])),
     ]
+    if p["years"]:
+        meta_items.append(("Execução", p["years_label"]))
+    if p["cities"]:
+        meta_items.append(("Território", " · ".join(p["cities"])))
     if p.get("funding_short"):
         meta_items.append(("Fomento", " · ".join(p["funding_short"])))
     metastrip = "".join(
@@ -1061,6 +1097,7 @@ def page_servicos(site, services, by_slug) -> None:
 <section class="band band--paper">
 <div class="shell">
 <div class="prose prose--wide" data-reveal>{paras(s["intro"])}</div>
+<h2 class="visually-hidden">Os quatro serviços</h2>
 <ul class="services" style="margin-top:clamp(28px,3.4vw,52px)" data-reveal>{cards}</ul>
 </div>
 </section>
@@ -1097,7 +1134,7 @@ def page_servico(site, s, num, services, by_slug) -> None:
 <section class="band band--paper band--tight">
 <div class="shell">
 {eyebrow("Prova", "Projetos que sustentam")}
-<h2 data-reveal>Onde isso já foi feito</h2>
+<h2 data-reveal>Projetos que comprovam</h2>
 <ul class="projectgrid" style="margin-top:clamp(20px,2.4vw,32px)" data-reveal>{items}</ul>
 </div>
 </section>"""
@@ -1228,12 +1265,15 @@ def page_contato(site, services) -> None:
     depth = 1
     s = site["contato"]
 
-    blocks = "".join(
-        f'<div class="contact__block"><h3>{e(b["title"])}</h3>'
-        f'<p class="contact__value">{inline(b["value"])}</p>'
-        f'<p class="meta" style="margin-top:.8em">{inline(b["note"])}</p></div>'
-        for b in s["blocks"]
-    )
+    def contact_block(b: dict) -> str:
+        # "values" vira uma linha por item. O dado não carrega marcação: <br>
+        # dentro do JSON seria escapado por inline() e apareceria como texto.
+        vals = b.get("values") or [b["value"]]
+        body = "".join(f'<p class="contact__value">{inline(v)}</p>' for v in vals)
+        return (f'<div class="contact__block"><h3>{e(b["title"])}</h3>{body}'
+                f'<p class="meta" style="margin-top:.8em">{inline(b["note"])}</p></div>')
+
+    blocks = "".join(contact_block(b) for b in s["blocks"])
     reasons = "".join(f"<li>{inline(r)}</li>" for r in s["reasons"])
     roteiro = bullets(s["roteiro"])
     kit = "".join(
@@ -1255,6 +1295,7 @@ def page_contato(site, services) -> None:
 
 <section class="band band--paper">
 <div class="shell">
+<h2 class="visually-hidden">Canais de contato</h2>
 <div class="contact" data-reveal>{blocks}</div>
 </div>
 </section>

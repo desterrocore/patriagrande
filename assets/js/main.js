@@ -187,6 +187,7 @@
   if (galleries.length && typeof HTMLDialogElement === 'function') {
     var dialog = document.createElement('dialog');
     dialog.className = 'lightbox';
+    dialog.setAttribute('aria-label', 'Fotografia ampliada');
     dialog.innerHTML =
       '<figure class="lightbox__fig">' +
       '<img class="lightbox__img" alt="">' +
