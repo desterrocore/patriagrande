@@ -81,6 +81,7 @@
   if (filterBar || tabBar) {
     var cards = Array.prototype.slice.call(document.querySelectorAll('[data-status]'));
     var count = document.querySelector('[data-filter-count]');
+    var panel = document.getElementById('painel-projetos');
     var fButtons = filterBar
       ? Array.prototype.slice.call(filterBar.querySelectorAll('.filters__btn'))
       : [];
@@ -115,8 +116,12 @@
         b.setAttribute('aria-pressed', b.dataset.filter === state.filtro ? 'true' : 'false');
       });
       tButtons.forEach(function (b) {
-        b.setAttribute('aria-selected', b.dataset.tab === state.tab ? 'true' : 'false');
-        b.tabIndex = b.dataset.tab === state.tab ? 0 : -1;
+        var on = b.dataset.tab === state.tab;
+        b.setAttribute('aria-selected', on ? 'true' : 'false');
+        b.tabIndex = on ? 0 : -1;
+        // O painel é um só e muda de dono conforme a aba: sem isso o leitor de
+        // tela anuncia sempre o mesmo rótulo, qualquer que seja a aba ativa.
+        if (on && panel) panel.setAttribute('aria-labelledby', b.id);
       });
 
       if (count) {
