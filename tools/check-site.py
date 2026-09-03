@@ -45,6 +45,12 @@ SENSITIVE = [
     (re.compile(r"meucnpj@", re.I), "e-mail contábil interno"),
 ]
 
+# Diretórios que existem no repositório mas não são rotas do site. "_site" é o
+# mais importante: o workflow monta a cópia a publicar ANTES de rodar esta
+# verificação, e sem esta lista o verificador compara cada página com o clone
+# dela mesma e acusa título duplicado.
+NOT_ROUTES = {"_site", "assets", "source", "tools", "reference-content", "node_modules"}
+
 # O histórico de um projeto só admite execução concluída. 2026 é o ano corrente,
 # e o que acontece em 2026 vive no bloco "em andamento", nunca na linha do tempo.
 FUTURE_FROM = 2026
@@ -199,11 +205,15 @@ def check_data() -> None:
 
 
 def check_pages() -> None:
+    def is_route(path: Path) -> bool:
+        top = path.relative_to(ROOT).parts[0]
+        return top not in NOT_ROUTES and not top.startswith((".", "_"))
+
     pages = sorted(
         [ROOT / "index.html", ROOT / "404.html"]
-        + list(ROOT.glob("*/index.html"))
-        + list(ROOT.glob("projetos/*/index.html"))
-        + list(ROOT.glob("servicos/*/index.html"))
+        + [p for p in ROOT.glob("*/index.html") if is_route(p)]
+        + [p for p in ROOT.glob("projetos/*/index.html") if is_route(p)]
+        + [p for p in ROOT.glob("servicos/*/index.html") if is_route(p)]
     )
     if not pages:
         fail("Nenhuma página gerada — rode tools/build-site.py.")
@@ -339,6 +349,7 @@ def main() -> int:
 
     for n in notes:
         print(f"  · {n}")
+    sys.stdout.flush()
 
     if problems:
         print("\nProblemas:", file=sys.stderr)

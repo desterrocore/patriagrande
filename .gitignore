@@ -3,6 +3,9 @@
 # edita. Tudo que a página publica é derivado dele por tools/build-images.py.
 reference-content/
 
+# Saída de montagem do workflow, quando o passo é rodado localmente para teste
+_site/
+
 # Sistema operacional e editores
 .DS_Store
 Thumbs.db

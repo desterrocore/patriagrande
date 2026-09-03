@@ -26,6 +26,11 @@ jobs:
       - name: Configurar Pages
         uses: actions/configure-pages@v5
 
+      # A verificação roda ANTES da montagem: falha aqui é falha do repositório,
+      # e não faz sentido copiar 200 arquivos para descobrir isso depois.
+      - name: Verificar consistência dos dados
+        run: python3 tools/check-site.py
+
       # O site é HTML/CSS/JS estático — não há nada para compilar. Este passo
       # só separa o que vai ao ar do que é material de trabalho: o relatório
       # editorial, as ferramentas e os arquivos de dados ficam no repositório
@@ -43,9 +48,6 @@ jobs:
           find _site -type f | sort
           echo "--- tamanho ---"
           du -sh _site
-
-      - name: Verificar consistência dos dados
-        run: python3 tools/check-site.py
 
       - name: Enviar artefato
         uses: actions/upload-pages-artifact@v3
