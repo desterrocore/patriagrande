@@ -92,10 +92,9 @@ def picture(img: dict, depth: int, sizes: str = "100vw", loading: str = "lazy",
     o navegador reservar o espaço certo antes de a imagem chegar."""
     widths = img["widths"]
     base = f'{up(depth)}assets/img/{img.get("group", group)}/{img["name"]}'
-    single = len(widths) == 1
 
     def src(w, ext):
-        return f"{base}.{ext}" if single else f"{base}-{w}.{ext}"
+        return f"{base}-{w}.{ext}"
 
     webp = ", ".join(f"{src(w, 'webp')} {w}w" for w in widths)
     jpg = ", ".join(f"{src(w, 'jpg')} {w}w" for w in widths)
@@ -437,8 +436,7 @@ def gallery(images: list[dict], depth: int) -> str:
     items = []
     for img in images:
         big = max(img["widths"])
-        stem = img["name"] if len(img["widths"]) == 1 else f'{img["name"]}-{big}'
-        full = f'{up(depth)}assets/img/fotos/{stem}.jpg'
+        full = f'{up(depth)}assets/img/fotos/{img["name"]}-{big}.jpg'
         items.append(
             "<li><figure>"
             f'<a href="{full}" data-full>'
