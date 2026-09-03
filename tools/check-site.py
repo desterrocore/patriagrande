@@ -284,29 +284,51 @@ def check_brand() -> None:
 
 
 def check_assets() -> None:
+    """Cada entrada do manifesto tem de ter TODOS os arquivos que o srcset promete.
+
+    Conferir só se "existe alguma saída" deixa passar o caso que de fato quebra:
+    uma largura presente em WebP e ausente em JPEG. O navegador que não suporta
+    WebP segue o srcset do <img> e recebe 404 — e a página fica com buraco no
+    lugar da foto, sem nenhum aviso no build.
+    """
     manifest = json.loads((SRC / "images.json").read_text(encoding="utf-8"))
     for group, entries in manifest.items():
+        out_dir = ROOT / "assets" / "img" / group
         for entry in entries:
             src = ROOT / entry["src"]
             if not src.exists():
                 notes.append(
-                    f'images.json / {group} / {entry["name"]}: original ausente '
-                    f"({entry['src']}) — normal em clone sem reference-content/."
+                    f'images.json / {group} / {entry["name"]}: original ausente — '
+                    "normal em clone sem reference-content/."
                 )
+
+            missing = []
             for width in entry["widths"]:
-                stem = entry["name"] if len(entry["widths"]) == 1 else f'{entry["name"]}-{width}'
+                stem = f'{entry["name"]}-{width}'
                 for ext in ("webp", "jpg"):
-                    out = ROOT / "assets" / "img" / group / f"{stem}.{ext}"
-                    if not out.exists():
-                        # Um original menor que a largura pedida não gera arquivo:
-                        # só é problema se nenhuma largura tiver saído.
-                        continue
-            any_out = list((ROOT / "assets" / "img" / group).glob(f'{entry["name"]}*'))
-            if not any_out:
+                    if not (out_dir / f"{stem}.{ext}").exists():
+                        missing.append(f"{stem}.{ext}")
+            if missing:
                 fail(
-                    f'images.json / {group} / {entry["name"]}: nenhuma imagem gerada — '
-                    "rode tools/build-images.py."
+                    f'images.json / {group} / {entry["name"]}: faltam '
+                    f'{len(missing)} arquivo(s) — {", ".join(missing[:4])}'
+                    f'{"…" if len(missing) > 4 else ""}. Rode tools/build-images.py.'
                 )
+
+    # Arquivo em assets/img que nenhum manifesto reivindica é lixo de build
+    # anterior: some do site sem ninguém perceber, e engorda o repositório.
+    declared = set()
+    for group, entries in manifest.items():
+        for entry in entries:
+            for width in entry["widths"]:
+                for ext in ("webp", "jpg"):
+                    declared.add(f'assets/img/{group}/{entry["name"]}-{width}.{ext}')
+
+    for group in manifest:
+        for f in sorted((ROOT / "assets" / "img" / group).glob("*")):
+            rel = f.relative_to(ROOT).as_posix()
+            if rel not in declared:
+                notes.append(f"{rel}: não consta em images.json — órfão de build anterior?")
 
 
 def main() -> int:
