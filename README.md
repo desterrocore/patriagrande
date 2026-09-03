@@ -3,7 +3,7 @@
 Site institucional da **Pátria Grande Produções** — produtora cultural de Florianópolis,
 com atuação em diferentes regiões do Brasil.
 
-No ar: <https://desterrocore.github.io/patriagrande/>
+No ar: <https://desterrocore.com.br/patriagrande/> — migrando para <https://patriagrande.com.br>
 
 ---
 
@@ -115,10 +115,32 @@ monta o artefato apenas com o que vai ao ar — a especificação, as ferramenta
 no repositório mas fora do site — e roda `tools/check-site.py` antes de enviar. Verificação
 reprovada, publicação não sai.
 
-Todos os caminhos internos são relativos, então o mesmo build funciona em
-`desterrocore.github.io/patriagrande/` e num domínio próprio. Para apontar um domínio: criar
-`CNAME` na raiz, acrescentar `cp CNAME _site/` ao passo "Selecionar arquivos" e trocar
-`BASE_URL` em `tools/build-site.py` (usado só nas URLs canônicas, no Open Graph e no sitemap).
+### Domínio
+
+O site vai para **patriagrande.com.br**. Quem define isso é **Settings → Pages → Custom
+domain** no repositório, e só isso: quando a publicação sai de um workflow do Actions, como
+aqui, o GitHub ignora o arquivo `CNAME`. O arquivo continua no repositório por outro motivo —
+é a declaração versionada do domínio, e é o que permite verificar que o resto concorda com ele:
+
+| Onde | O quê |
+| --- | --- |
+| `CNAME` | o domínio, sozinho, numa linha |
+| `BASE_URL` em `tools/build-site.py` | tags canônicas, `og:url` e `sitemap.xml` |
+| `Sitemap:` em `robots.txt` | o único arquivo com o domínio escrito à mão — `build-site.py` não gera o robots |
+| `index.html` | a canônica publicada tem de bater com o `BASE_URL` atual |
+| `deploy-pages.yml` | copia o `CNAME` para o artefato |
+
+`tools/check-site.py` confere os cinco e falha se divergirem. Não é zelo: divergência aqui não
+quebra nada visivelmente — o site abre e publica canônicas apontando para outro endereço, o
+buscador segue a canônica e indexa o domínio errado. Trocar o `BASE_URL` e esquecer de rodar
+`build-site.py` também é pego, comparando a canônica do `index.html` com o valor atual.
+
+Todos os caminhos internos são relativos, então o mesmo build funciona no ápice e num
+subcaminho. A exceção é o `404.html`: o Pages devolve esse arquivo para qualquer endereço
+inexistente, inclusive `/projetos/algo/inexistente/`, e ali um caminho relativo resolveria para
+`/projetos/algo/inexistente/assets/…` — a página apareceria sem estilo. Por isso o 404, e só
+ele, sai com caminho de raiz, e só quando o `BASE_URL` não tem subcaminho. Voltando para um
+subcaminho, o gerador devolve o relativo sozinho.
 
 ## Design
 
