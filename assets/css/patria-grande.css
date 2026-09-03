@@ -436,6 +436,14 @@ hr { border: 0; border-top: 1px solid var(--band-rule); margin: clamp(30px, 4vw,
   background: var(--pg-red);
   color: var(--pg-white);
   border-bottom: 1px solid rgba(255, 204, 0, .3);
+  /* O cabeçalho é uma faixa vermelha e precisa declarar os tokens de faixa.
+     Sem isso o anel de :focus-visible herda o acento de :root — o mesmo
+     vermelho do fundo, 1,00:1 — e quem navega por teclado não vê onde está. */
+  --band-bg: var(--pg-red);
+  --band-ink: var(--pg-white);
+  --band-dim: rgba(255, 255, 255, .80);
+  --band-rule: rgba(255, 204, 0, .34);
+  --band-accent: var(--pg-yellow);
 }
 .header__inner {
   display: flex;
@@ -545,6 +553,8 @@ hr { border: 0; border-top: 1px solid var(--band-rule); margin: clamp(30px, 4vw,
 .hero__panel {
   position: relative;
   overflow: hidden;
+  /* O título é dimensionado pela largura desta coluna, não pela da janela. */
+  container-type: inline-size;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -565,11 +575,17 @@ hr { border: 0; border-top: 1px solid var(--band-rule); margin: clamp(30px, 4vw,
    então ele não pode ser dimensionado pela largura da janela: "TERRITÓRIOS" em
    Archivo Black a 90px atravessa a coluna. A escala aqui é a do painel. */
 .hero__title {
-  font-size: clamp(2.2rem, 1rem + 3.4vw, 4.4rem);
+  /* cqi é 1% da largura do painel: a maior palavra do título, "TERRITÓRIOS.",
+     tem 12 caracteres e cabe com folga a 11,2cqi. Dimensionar por vw partia a
+     palavra no meio entre 900 e 1199px, onde a coluna é estreita e a janela
+     não. Sem break-word: uma palavra partida é pior que uma linha a mais. */
+  font-size: clamp(2.2rem, 11.2cqi, 4.4rem);
   text-transform: uppercase;
   max-width: 13ch;
   margin-bottom: .42em;
-  overflow-wrap: break-word;
+}
+@supports not (font-size: 1cqi) {
+  .hero__title { font-size: clamp(2.2rem, 1rem + 2.9vw, 4.4rem); }
 }
 .hero__title em { font-style: normal; color: var(--pg-yellow); display: block; }
 .hero__lede {
@@ -803,6 +819,12 @@ blockquote.pull cite {
 }
 .pcard__plate .cartografia { right: -10%; top: 50%; width: 50%; transform: translateY(-50%); opacity: .16; }
 
+/* Cor da placa por classe, e não por estilo em linha: em linha ela venceria a
+   variação por faixa logo abaixo, e a sobreposição nunca chegaria a valer. */
+.plate--red    { --plate-bg: var(--pg-red);      --plate-ink: var(--pg-yellow); }
+.plate--deep   { --plate-bg: var(--pg-red-deep); --plate-ink: var(--pg-yellow); }
+.plate--yellow { --plate-bg: var(--pg-yellow);   --plate-ink: var(--pg-red); }
+
 /* Sobre faixa vermelha a placa vermelha desaparece — os dois vermelhos da marca
    têm 1,09:1 entre si. Nesse contexto a placa vira amarela, que é a outra cor
    da casa e devolve o contraste sem inventar tom novo. */
@@ -896,6 +918,8 @@ blockquote.pull cite {
   color: var(--pg-white);
   overflow: hidden;
   transition: background var(--dur) var(--ease);
+  /* Superfície vermelha: o foco tem de ser amarelo, como em toda faixa da casa. */
+  --band-accent: var(--pg-yellow);
 }
 .scard:hover, .scard:focus-within { background: var(--pg-red-deep); }
 .scard > *:not(.cartografia) { position: relative; z-index: 1; }
@@ -975,9 +999,12 @@ blockquote.pull cite {
   position: absolute;
   inset: auto 0 0 0;
   margin: 0;
-  padding: 1.4em .7em .5em;
-  background: linear-gradient(to top, rgba(93, 4, 4, .88), rgba(93, 4, 4, 0));
-  color: rgba(255, 255, 255, .92);
+  padding: 1.6em .7em .5em;
+  /* O gradiente anterior parava em 88% e deixava o crédito em 3,65:1 sobre as
+     fotos mais claras. Opaco na base, o texto lê contra o vermelho da marca:
+     branco sobre #5D0404 é 14,15:1, seja qual for a fotografia embaixo. */
+  background: linear-gradient(to top, rgb(93, 4, 4) 0%, rgba(93, 4, 4, .92) 45%, rgba(93, 4, 4, 0) 100%);
+  color: var(--pg-white);
   font-size: .62rem;
   letter-spacing: .08em;
 }
