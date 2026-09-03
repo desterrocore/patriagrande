@@ -100,7 +100,10 @@ def build_one(entry: dict, group: str, check: bool) -> list[str]:
             # simply has one fewer candidate.
             continue
         scaled = im.resize((width, round(im.height * width / im.width)), Image.LANCZOS)
-        stem = entry["name"] if len(entry["widths"]) == 1 else f"{entry['name']}-{width}"
+        # A largura entra sempre no nome, mesmo quando só há uma. Fazer o
+        # sufixo depender da quantidade significa que acrescentar uma largura
+        # renomeia os arquivos já publicados — e quebra todo srcset em cache.
+        stem = f"{entry['name']}-{width}"
         for ext, kwargs in (
             ("webp", dict(format="WEBP", quality=WEBP_Q, method=6)),
             ("jpg", dict(format="JPEG", quality=JPEG_Q, optimize=True, progressive=True)),
