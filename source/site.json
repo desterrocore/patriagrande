@@ -1,0 +1,369 @@
+{
+ "email": "patriagrandeproducoes@gmail.com",
+ "instagram": "@patriagrandeproducoes",
+ "instagram_url": "https://www.instagram.com/patriagrandeproducoes/",
+ "phones": [
+  {
+   "tel": "+5548996971772",
+   "label": "(48) 99697-1772"
+  },
+  {
+   "tel": "+5548999486832",
+   "label": "(48) 99948-6832"
+  }
+ ],
+ "footer_projects": [
+  [
+   "fica-garopaba",
+   "FICA Garopaba"
+  ],
+  [
+   "flaca",
+   "FLACA"
+  ],
+  [
+   "fica-calango",
+   "FICA Calango"
+  ],
+  [
+   "cineclube-patria-grande",
+   "Cineclube Pátria Grande"
+  ],
+  [
+   "cine-retrata",
+   "Cine Retrata"
+  ]
+ ],
+ "footer_services": [
+  [
+   "producao-executiva",
+   "Produção executiva e gestão cultural"
+  ],
+  [
+   "projecao-e-equipamentos",
+   "Cinema onde o público está"
+  ],
+  [
+   "traducao-e-legendagem",
+   "Tradução e legendagem audiovisual"
+  ],
+  [
+   "oficinas-e-formacao",
+   "Oficinas, cursos e ações formativas"
+  ]
+ ],
+ "seo": {
+  "home": "Produtora cultural de Florianópolis: festivais de cinema ambiental, cineclubes gratuitos, oficinas, produção executiva, projeção, tradução e legendagem.",
+  "quem_somos": "Produtora cultural sediada em Florianópolis, formalizada em 2024. Festivais, cineclubes e formação com horizonte latino-americano e atuação territorial.",
+  "projetos": "Portfólio da Pátria Grande: FICA Garopaba, FLACA, Cineclube Pátria Grande, Educa Ambiental, Marighella, Vozes Veladas, Cine Retrata, oficina e curso.",
+  "servicos": "Produção executiva e gestão cultural, estrutura de projeção, tradução e legendagem audiovisual, oficinas e formação com a Pátria Grande Produções.",
+  "equipe": "Cinema, fotografia, curadoria, produção executiva, formação, tradução, acessibilidade e tecnologia: as pessoas que fazem a Pátria Grande Produções.",
+  "contato": "Fale com a Pátria Grande Produções: e-mail institucional, Instagram e base em Florianópolis. Exibições, oficinas, orçamentos, imprensa e parcerias.",
+  "404": "A página que você procurou não existe neste site da Pátria Grande Produções."
+ },
+ "home": {
+  "title": "Pátria Grande Produções — cultura para conectar territórios",
+  "hero_title": "Cultura para conectar territórios.",
+  "hero_lede": "Festivais, cineclubes, mostras, formação e produção cultural criados a partir de Florianópolis e em diálogo com diferentes territórios do Brasil e da América Latina.",
+  "hero_image": {
+   "name": "casa-cheia-debate",
+   "widths": [
+    1800,
+    1200,
+    800,
+    500
+   ],
+   "alt": "Salão de espaço cultural independente lotado sob dezenas de lâmpadas pendentes acesas; à esquerda, uma pessoa fala ao microfone e o público ocupa cadeiras, bancos e o chão.",
+   "caption": "Casa cheia no debate depois da sessão, em espaço cultural independente. Outubro de 2025. Foto: Flávio Veloso.",
+   "group": "fotos"
+  },
+  "manifesto": "Uma cultura viva, democrática e acessível.",
+  "about_title": "Uma produtora cultural com identidade latino-americana",
+  "about_text": "A Pátria Grande Produções é uma produtora cultural sediada em Florianópolis que atua em diferentes regiões do Brasil. Realizamos festivais, cineclubes, mostras, ações formativas e projetos que aproximam cultura, território e pensamento crítico.\n\nNosso nome parte do ideal de Pátria Grande — uma América Latina conectada por suas culturas, suas histórias e suas diferenças. É essa perspectiva que orienta a forma como produzimos, programamos e criamos encontros.",
+  "projects_title": "O que já aconteceu",
+  "projects_lede": "Festivais, cineclubes, oficina e curso realizados entre 2022 e 2025 em Garopaba, Florianópolis, Palhoça e outras cidades catarinenses. Aqui entra só o que foi executado — e o site diz, projeto a projeto, o que é anterior à empresa, constituída em 2024.",
+  "featured": [
+   "fica-garopaba",
+   "flaca",
+   "cineclube-patria-grande",
+   "cine-retrata"
+  ],
+  "ongoing_title": "Em produção agora",
+  "ongoing_lede": "O FICA Garopaba e o FLACA têm novas edições em andamento para 2026. Enquanto elas acontecem, os números que o site apresenta continuam sendo os das edições já realizadas.",
+  "ongoing": [
+   "fica-garopaba",
+   "flaca"
+  ],
+  "services_title": "Serviços e produção",
+  "services_lede": "A mesma estrutura que realiza os projetos da casa trabalha para outras iniciativas: produção executiva e gestão cultural, estrutura e locação para projeção, tradução e legendagem audiovisual, oficinas e ações formativas.",
+  "fullbleed_image": {
+   "name": "sessao-noturna-casa-cheia",
+   "widths": [
+    1800,
+    1200,
+    800,
+    500
+   ],
+   "alt": "Público numeroso de costas, em pé e sentado, diante de um palco com tela de projeção cercada por cortinas de luzinhas, em salão de tijolo e madeira.",
+   "caption": "Casa cheia em sessão noturna, novembro de 2025. Foto: Flávio Veloso.",
+   "group": "fotos"
+  },
+  "axes_title": "Seis linhas que se atravessam",
+  "axes": [
+   {
+    "title": "Cinema e audiovisual",
+    "text": "Criamos, programamos e realizamos festivais, cineclubes e mostras — do FICA Garopaba, que existe desde 2022 e soma quatro edições realizadas, ao FLACA, cuja primeira edição aconteceu em Florianópolis em 2025. Curadoria, exibição, mediação e debate fazem parte do mesmo trabalho: a sessão não termina quando o filme acaba."
+   },
+   {
+    "title": "Formação",
+    "text": "Oficinas, cursos, mediação e atividades com escolas. O Curso Básico de Fotografia Digital #Abrindoacaixapreta reuniu vinte vagas gratuitas, cinco aulas teóricas, duas saídas de campo e duas exposições de conclusão; a Oficina de Pandorga — Arte para Voar levou a formação para fora da tela. Formar público é parte do projeto, não uma ação paralela."
+   },
+   {
+    "title": "Artes visuais",
+    "text": "Fotografia autoral e documental, exposições e documentação dos próprios projetos. O curso de fotografia da produtora não terminou em sala de aula: terminou em duas exposições públicas. E as imagens que registram as sessões são feitas pela própria equipe — o arquivo fotográfico é parte do trabalho, não sobra dele."
+   },
+   {
+    "title": "Produção cultural",
+    "text": "Concepção, planejamento, produção executiva, articulação institucional e execução, incluindo projetos financiados por políticas públicas de cultura, com a documentação e a prestação de contas que isso exige. É a estrutura que sustenta os festivais e cineclubes da casa — e é o que a produtora coloca à disposição de outros projetos."
+   },
+   {
+    "title": "Território e socioambiental",
+    "text": "Cinema ambiental, educação ambiental e descentralização. O Cineclube Educa Ambiental levou filmes e debate ao Rio Vermelho, em vez de concentrar a discussão ambiental no centro da cidade; o Cineclube Marighella armou tela dentro da Ocupação Urbana Carlos Marighella, em Palhoça. O endereço não é detalhe de produção: é parte da proposta."
+   },
+   {
+    "title": "América Latina",
+    "text": "Programação, circulação, tradução e intercâmbio. O Cineclube Pátria Grande trata a América Latina como assunto contemporâneo, e não como recorte geográfico; o FLACA reúne produção audiovisual do continente e debate socioambiental na mesma grade. A tradução e a legendagem existem para que os filmes atravessem a fronteira linguística sem perder o que os torna particulares."
+   }
+  ],
+  "territories_title": "Onde os projetos acontecem",
+  "territories_text": "Florianópolis é base, não limite. Garopaba, casa do FICA desde 2022, e outras cidades do litoral catarinense. O Rio Vermelho e os Ingleses, no norte da Ilha. A Ocupação Urbana Carlos Marighella, em Palhoça. Salas públicas, escolas, praças e espaços independentes no Centro da capital.\n\nCada lugar muda o projeto. Um cineclube montado dentro de uma ocupação não é o mesmo cineclube de uma sala pública no Centro, e a programação sabe disso.",
+  "territories": [
+   {
+    "name": "Florianópolis",
+    "text": "Base da produtora. Cineclubes no Centro, no Rio Vermelho e nos Ingleses, o Cine Retrata, o FLACA e o curso de fotografia."
+   },
+   {
+    "name": "Garopaba",
+    "text": "Casa do FICA desde 2022, com circulação por outras cidades do litoral catarinense."
+   },
+   {
+    "name": "Palhoça",
+    "text": "Ocupação Urbana Carlos Marighella, na região da Formiga do Aririu, onde funcionou o Cineclube Marighella."
+   },
+   {
+    "name": "Distrito Federal",
+    "text": "Escolas públicas e espaços culturais receberam a primeira edição do Calango, em 2022."
+   }
+  ],
+  "team_title": "Um núcleo e uma rede",
+  "team_text": "A Pátria Grande é formada por profissionais com experiência em produção cultural, cinema, fotografia, curadoria, gestão de projetos, formação, tradução, acessibilidade, articulação socioambiental e tecnologia. As funções se reorganizam a cada projeto: quem dirige um pode assinar a curadoria de outro e conduzir uma oficina num terceiro.",
+  "contact_title": "Tem um projeto, evento ou parceria em mente?",
+  "contact_text": "Conte em poucas linhas o que você precisa — uma sessão, uma oficina, produção executiva, legendagem ou uma parceria — e fale com a equipe da Pátria Grande."
+ },
+ "quem_somos": {
+  "title": "Cultura, cinema e território a partir de Florianópolis",
+  "lede": "A Pátria Grande Produções é uma produtora cultural sediada em Florianópolis que realiza festivais, cineclubes, mostras, oficinas e projetos audiovisuais em diferentes regiões do Brasil, com um horizonte latino-americano.",
+  "institucional": "A **Pátria Grande Produções** é uma produtora cultural sediada em Florianópolis. Atuamos em diferentes regiões do Brasil, promovendo encontros, experiências e projetos que fortalecem a cultura, a arte e o pensamento crítico.\n\nNosso nome é inspirado no ideal latino-americano de **Pátria Grande**: uma visão de integração entre os povos, as culturas e os territórios da América Latina, baseada na diversidade, na cooperação e na valorização das identidades que nos conectam. É essa inspiração que orienta nosso trabalho e nossa forma de ocupar os espaços culturais.\n\nAcreditamos que a cultura é uma ferramenta de transformação social, capaz de aproximar pessoas, estimular reflexões e construir novos olhares sobre o mundo. Por isso desenvolvemos projetos que promovem o acesso à arte, à educação e à produção cultural em suas múltiplas linguagens.\n\nNossa atuação abrange a criação, a produção e a gestão de festivais de cinema — com destaque para iniciativas voltadas às questões ambientais e socioambientais —, a realização de cineclubes e mostras audiovisuais, eventos de artes visuais, ações formativas, oficinas e cursos em diferentes áreas, além da prestação de serviços técnicos e culturais, como produção executiva, tradução e legendagem, locação de equipamentos de projeção e suporte para eventos.\n\nMais do que realizar eventos, buscamos criar pontes entre territórios, artistas, comunidades e públicos diversos. Cada projeto é pensado como uma oportunidade de fortalecer redes culturais, ampliar o acesso à produção artística e valorizar as narrativas que emergem da América Latina e de seus diferentes contextos.\n\nIsso tem endereço. O FICA, festival de cinema ambiental de Garopaba, chegou à quarta edição realizada. O FLACA teve sua primeira edição em Florianópolis, circulando entre uma sala pública, uma escola da rede municipal e espaços de circuito independente. Os cineclubes montaram tela no Rio Vermelho, nos Ingleses e dentro de uma ocupação urbana em Palhoça. A oficina de pandorga e o curso de fotografia levaram a formação para fora do cinema. Os festivais, os cineclubes e o curso foram realizados com programação gratuita, viabilizados por políticas públicas de cultura.\n\nA Pátria Grande Produções acredita em uma cultura viva, democrática e acessível. Trabalhamos para que o cinema, as artes visuais, a formação cultural e a circulação de conhecimento cheguem a diferentes lugares, conectando pessoas por meio da criatividade, da memória e da imaginação coletiva.",
+  "fecho": "**Porque construir uma Pátria Grande é também ampliar os espaços de encontro entre culturas, ideias e sonhos.**",
+  "logo_caption": "**Logotipo Pátria Grande Produções** · A América Latina desenhada com o sul para cima, cercada por sol, lua, aves, peixe, água, cidade e a linha do Equador.",
+  "conceito_titulo": "O que quer dizer Pátria Grande",
+  "conceito": "Pátria Grande é o nome de uma ideia antiga na América Latina: a de que o continente se entende melhor junto do que dividido em fronteiras. Línguas vizinhas. Histórias que se repetem com outros nomes. Músicas e filmes que atravessam países sem pedir licença. Questões — clima, terra, cidade, desigualdade — que nenhum país resolve sozinho.\n\nNo nosso caso, isso não é palavra de ordem nem programa fechado. É um horizonte de trabalho, e ele aparece em decisões concretas: quais filmes entram na programação, quem é convidado para o debate, o que precisa ser traduzido para que uma obra circule, quais narrativas do continente chegam a um público que ainda não teve a chance de vê-las.\n\nA América Latina, aqui, é assunto contemporâneo, não recorte geográfico de programação. Interessa menos o mapa e mais o que está sendo filmado, discutido e disputado agora — no litoral, nas periferias, nas escolas, nos territórios que raramente aparecem na tela grande.\n\nE integração, para uma produtora cultural, começa perto. Antes de conectar países, é preciso conectar um bairro ao centro da própria cidade, uma escola a um festival, uma ocupação urbana a um filme que ela nunca teve como assistir. Esse é o tamanho prático de uma Pátria Grande.",
+  "cartografia_titulo": "Um mapa com o sul para cima",
+  "cartografia": "O logotipo da Pátria Grande é um mapa da América Latina de cabeça para baixo. Não é brincadeira gráfica. O norte no topo é uma convenção cartográfica, não um fato do mundo — e virar o mapa muda quem está no centro da imagem. O extremo sul do continente passa a ocupar o alto do desenho, a América Central e o Caribe se desdobram para o lado, e a linha do Equador, grafada em espanhol, atravessa a base da composição. Quem olha precisa reconhecer o continente de novo, dessa vez a partir dele mesmo.\n\nEm volta do mapa há um pequeno vocabulário desenhado à mão: o sol de um lado, a lua do outro, no mesmo céu; aves; uma linha de horizonte que corta a composição inteira; uma cidade recortada sobre essa linha; água em ondas e um peixe. Reunidos, esses elementos dizem uma coisa só — o território que nos interessa tem cidade e tem natureza, tem dia e tem noite, e não cabe na oposição entre as duas coisas. É a mesma leitura que orienta a programação dos projetos.\n\nNo site, essa lógica volta em escala menor. A silhueta do mapa aparece como abertura, textura e máscara de imagem, sem virar carimbo em toda tela. O sol, a onda, a ave e a linha do horizonte servem de divisor entre seções. A tipografia pesada e geométrica do logotipo, de cartaz, define o tom dos títulos, e o amarelo sobre o vermelho faz o resto.",
+  "fullbleed_image": {
+   "name": "sessao-ao-ar-livre-conversa",
+   "widths": [
+    1800,
+    1200,
+    800,
+    500
+   ],
+   "alt": "Sessão de cinema ao ar livre à noite: tela iluminada à esquerda, duas pessoas conduzem uma conversa ao microfone e o público acompanha sentado em cadeiras sobre areia e deque de madeira.",
+   "caption": "Conversa com o público depois da exibição, em sessão ao ar livre. Novembro de 2025. Foto: Flávio Veloso.",
+   "group": "fotos"
+  },
+  "origem_titulo": "De onde vem",
+  "origem": "A Pátria Grande Produções foi constituída em Florianópolis em 2024. A experiência que ela reúne é mais antiga. O FICA — Festival Internacional de Cinema Ambiental de Garopaba nasceu em 2022, dois anos antes de a empresa existir, e suas duas primeiras edições foram realizadas por profissionais que depois formaram o núcleo da Pátria Grande.\n\nEm 2024, ano da formalização, foram executados quatro cineclubes contemplados pelo Prêmio Catarinense de Cinema — Cineclube Pátria Grande, Educa Ambiental, Marighella e Vozes Veladas — e aconteceu a terceira edição do FICA. Em 2025 vieram a quarta edição do FICA, a primeira edição do FLACA em Florianópolis, o Cine Retrata, a Oficina de Pandorga — Arte para Voar e o Curso Básico de Fotografia Digital #Abrindoacaixapreta.\n\nA diferença entre a história das pessoas e a história da empresa importa, e o site a mantém projeto a projeto. Ela vale também para o presente: o FICA e o FLACA têm edições realizadas e, agora, novas edições em produção. Uma coisa é o que já aconteceu, que está no portfólio com o que pôde ser documentado. Outra é o que está sendo feito, que aparece como em andamento e não empresta números das edições anteriores.",
+  "timeline": [
+   {
+    "year": "2022",
+    "title": "Antes da empresa",
+    "text": "A primeira edição do FICA acontece em Garopaba e a primeira edição do Calango, no Distrito Federal. Os dois festivais são realizados por profissionais que depois passariam a compor o núcleo da Pátria Grande. A empresa ainda não existe."
+   },
+   {
+    "year": "2023",
+    "title": "O festival ganha estrutura",
+    "text": "A 2ª edição do FICA amplia a operação, com Giulia Giacomolli na produção executiva. No mesmo período começam a se formar as ações cineclubistas que depois integrariam o portfólio da produtora."
+   },
+   {
+    "year": "2024",
+    "title": "Formalização e linha cineclubista",
+    "text": "A Pátria Grande Produções é constituída em Florianópolis. No mesmo ano são executados quatro cineclubes — Pátria Grande, Educa Ambiental, Marighella e Vozes Veladas — contemplados pelo Prêmio Catarinense de Cinema, e acontece a 3ª edição do FICA."
+   },
+   {
+    "year": "2025",
+    "title": "O portfólio se amplia",
+    "text": "A 4ª edição do FICA, a 1ª edição do FLACA em Florianópolis, o Cine Retrata, a continuidade dos cineclubes por política pública estadual, a Oficina de Pandorga — Arte para Voar e o Curso Básico de Fotografia Digital #Abrindoacaixapreta."
+   }
+  ],
+  "linhas_titulo": "Seis linhas de atuação",
+  "linhas": [
+   {
+    "title": "Cinema e audiovisual",
+    "text": "Criamos, programamos e realizamos festivais, cineclubes e mostras — do FICA Garopaba, que existe desde 2022 e soma quatro edições realizadas, ao FLACA, cuja primeira edição aconteceu em Florianópolis em 2025. Curadoria, exibição, mediação e debate fazem parte do mesmo trabalho: a sessão não termina quando o filme acaba."
+   },
+   {
+    "title": "Formação",
+    "text": "Oficinas, cursos, mediação e atividades com escolas. O Curso Básico de Fotografia Digital #Abrindoacaixapreta reuniu vinte vagas gratuitas, cinco aulas teóricas, duas saídas de campo e duas exposições de conclusão; a Oficina de Pandorga — Arte para Voar levou a formação para fora da tela. Formar público é parte do projeto, não uma ação paralela."
+   },
+   {
+    "title": "Artes visuais",
+    "text": "Fotografia autoral e documental, exposições e documentação dos próprios projetos. O curso de fotografia da produtora não terminou em sala de aula: terminou em duas exposições públicas. E as imagens que registram as sessões são feitas pela própria equipe — o arquivo fotográfico é parte do trabalho, não sobra dele."
+   },
+   {
+    "title": "Produção cultural",
+    "text": "Concepção, planejamento, produção executiva, articulação institucional e execução, incluindo projetos financiados por políticas públicas de cultura, com a documentação e a prestação de contas que isso exige. É a estrutura que sustenta os festivais e cineclubes da casa — e é o que a produtora coloca à disposição de outros projetos."
+   },
+   {
+    "title": "Território e socioambiental",
+    "text": "Cinema ambiental, educação ambiental e descentralização. O Cineclube Educa Ambiental levou filmes e debate ao Rio Vermelho, em vez de concentrar a discussão ambiental no centro da cidade; o Cineclube Marighella armou tela dentro da Ocupação Urbana Carlos Marighella, em Palhoça. O endereço não é detalhe de produção: é parte da proposta."
+   },
+   {
+    "title": "América Latina",
+    "text": "Programação, circulação, tradução e intercâmbio. O Cineclube Pátria Grande trata a América Latina como assunto contemporâneo, e não como recorte geográfico; o FLACA reúne produção audiovisual do continente e debate socioambiental na mesma grade. A tradução e a legendagem existem para que os filmes atravessem a fronteira linguística sem perder o que os torna particulares."
+   }
+  ],
+  "cta_titulo": "Os projetos explicam o resto",
+  "cta_texto": "Festivais, cineclubes, oficina e curso já realizados; as edições que estão em produção agora; e os serviços que a produtora presta a outros projetos culturais."
+ },
+ "projetos": {
+  "title": "Arquivo de projetos",
+  "lede": "Festivais, cineclubes, cursos e oficinas realizados desde 2022 em Florianópolis, Garopaba, Palhoça e no Distrito Federal — e as edições que estão acontecendo agora.",
+  "tabs": [
+   {
+    "key": "executado",
+    "label": "Realizados"
+   },
+   {
+    "key": "andamento",
+    "label": "Em andamento"
+   }
+  ],
+  "filters": [
+   {
+    "key": "todos",
+    "label": "Todos"
+   },
+   {
+    "key": "festival",
+    "label": "Festivais"
+   },
+   {
+    "key": "cineclube",
+    "label": "Cineclubes"
+   },
+   {
+    "key": "formacao",
+    "label": "Formação"
+   },
+   {
+    "key": "fotografia",
+    "label": "Fotografia"
+   },
+   {
+    "key": "danca",
+    "label": "Dança"
+   }
+  ],
+  "note_label": "Realizado e em andamento",
+  "note": "Esta página tem duas entradas, e elas não se misturam. Em **Executados** está o que já aconteceu: edição realizada, financiamento identificado, créditos conferidos. Em **Em andamento** estão os projetos que hoje existem como projeto — aprovados, em captação ou em preparação, com nome, território e desenho definidos, mas sem execução concluída. O que está em andamento não entra no portfólio nem soma aos números das páginas de projeto: meta prevista não é público alcançado, e aprovação em edital ou na Lei Rouanet não é realização. Quando uma edição acontece, ela muda de aba — com os dados que forem confirmados."
+ },
+ "servicos": {
+  "title": "Produção, projeção, legendagem e formação",
+  "lede": "Estruturamos e executamos projetos culturais, sessões de cinema e ações formativas em diferentes escalas.",
+  "intro": "A Pátria Grande realiza os próprios festivais, cineclubes, cursos e oficinas. Os quatro serviços desta página são a parte desse trabalho que a produtora coloca à disposição de outros projetos: quem já montou sessão de cinema dentro de uma ocupação urbana, legendou festival internacional e executou projeto com recurso público sabe fazer isso fora de casa.\n\nSão quatro frentes — **produção executiva**, **estrutura de projeção**, **tradução e legendagem** e **oficinas e formação**. Nos projetos próprios elas costumam aparecer juntas, porque é assim que uma programação acontece. Aqui podem ser contratadas separadamente ou combinadas.\n\nCada página diz o que o serviço entrega e em que execução real ele se apoia: o projeto, o ano e quem assinou. É o portfólio que sustenta a oferta.",
+  "fullbleed_image": {
+   "name": "auditorio-lotado-sessao",
+   "widths": [
+    1800,
+    1200,
+    800,
+    500
+   ],
+   "alt": "Auditório escuro visto do fundo, com quase todas as poltronas ocupadas por pessoas de costas diante de uma tela iluminada ao longe.",
+   "caption": "Auditório lotado durante sessão, setembro de 2025. Foto: Flávio Veloso.",
+   "group": "fotos"
+  },
+  "como_titulo": "Como pedir um orçamento",
+  "como_texto": "Não há formulário neste site. Orçamentos e propostas são tratados por e-mail, em [patriagrandeproducoes@gmail.com](mailto:patriagrandeproducoes@gmail.com), e respondidos pela mesma equipe que vai executar o trabalho.\n\nPara adiantar a conversa, ajuda dizer na primeira mensagem qual serviço interessa, quem está pedindo — pessoa, coletivo, escola, organização ou projeto —, em que cidade e em que tipo de espaço a atividade acontece, a data prevista e o tamanho aproximado do público. Se houver edital, patrocínio ou prazo de prestação de contas envolvidos, vale registrar também: isso muda o desenho da proposta. Com essas informações o retorno já vem com orçamento; sem elas, vem com perguntas.",
+  "mailto_subject": "Pedido de orçamento — Pátria Grande Produções"
+ },
+ "equipe": {
+  "title": "Quem faz a Pátria Grande",
+  "lede": "Cinema, fotografia, curadoria, produção executiva, tradução, jornalismo, acessibilidade, educação, música, dança e tecnologia. As funções se reorganizam conforme cada projeto.",
+  "nucleo_title": "Núcleo",
+  "nucleo_text": "São sete pessoas que seguem de um projeto ao outro, cobrindo concepção, direção, curadoria, produção executiva, tradução, formação e execução técnica das exibições. É esse grupo que sustenta a continuidade do trabalho entre um festival e o próximo.\n\nNão é um organograma. Quem dirige um festival pode assinar a curadoria do cineclube seguinte e dar oficina num terceiro — as funções se reorganizam a cada realização.",
+  "rede_title": "Rede",
+  "rede_text": "Dezoito profissionais que entram conforme a necessidade de cada realização: imprensa, comunicação, tradução, acessibilidade, gestão socioambiental, educação, fotografia, produção audiovisual, música, dança e curadoria.\n\nÉ essa rede que faz um festival gratuito ter interpretação em Libras, mediação com escolas, cobertura de imprensa, registro fotográfico e destinação correta dos resíduos."
+ },
+ "contato": {
+  "title": "Vamos conversar?",
+  "lede": "Se você quer desenvolver um projeto cultural, organizar uma exibição, contratar produção executiva, realizar uma oficina ou propor uma parceria, escreva para a Pátria Grande.",
+  "blocks": [
+   {
+    "title": "E-mail institucional",
+    "value": "[patriagrandeproducoes@gmail.com](mailto:patriagrandeproducoes@gmail.com)",
+    "note": "Canal principal. Orçamentos, pautas de imprensa, propostas e convites."
+   },
+   {
+    "title": "Telefone",
+    "value": "[(48) 99697-1772](tel:+5548996971772)<br>[(48) 99948-6832](tel:+5548999486832)",
+    "note": "Dois números da produtora."
+   },
+   {
+    "title": "Instagram",
+    "value": "[@patriagrandeproducoes](https://www.instagram.com/patriagrandeproducoes/)",
+    "note": "Programação, chamadas de sessão e registros das atividades."
+   },
+   {
+    "title": "Onde estamos",
+    "value": "Florianópolis · SC",
+    "note": "Base da produtora, com atuação em diferentes regiões do Brasil."
+   }
+  ],
+  "roteiro_titulo": "O que informar na primeira mensagem",
+  "roteiro_intro": "Não há formulário neste site: o contato é direto, por e-mail, com a mesma equipe que executa o trabalho. Para o retorno já vir com orçamento em vez de perguntas, ajuda incluir:",
+  "roteiro": "- **Serviço de interesse** — produção executiva, estrutura de projeção, tradução e legendagem, oficina, parceria ou outro\n- **Quem está pedindo** — pessoa, coletivo, escola, organização ou projeto\n- **Cidade e local** — onde a atividade acontece, e em que tipo de espaço\n- **Data prevista**\n- **Público estimado**\n- **Edital, patrocínio ou prazo de prestação de contas**, se houver — isso muda o desenho da proposta",
+  "mailto_subject": "Contato — Pátria Grande Produções",
+  "reasons_title": "O que costuma chegar por aqui",
+  "reasons_text": "Se a sua mensagem for sobre um destes assuntos, ajuda muito indicar isso na primeira linha.",
+  "reasons": [
+   "**Contratação de serviço** — produção executiva, estrutura de projeção, tradução e legendagem, oficinas.",
+   "**Exibição** — propostas de sessão em escola, equipamento cultural, coletivo, ocupação ou espaço independente.",
+   "**Realizadoras e realizadores** — filmes para curadoria dos festivais e cineclubes.",
+   "**Editais e parcerias** — coprodução, cartas de anuência e articulação institucional.",
+   "**Patrocínio** — apoio a projetos culturais, inclusive por mecanismos de incentivo fiscal.",
+   "**Imprensa** — entrevistas, dados de projeto e material fotográfico com crédito."
+  ],
+  "kit_titulo": "Material para imprensa",
+  "kit_texto": "O kit está em organização e é enviado por e-mail mediante solicitação.",
+  "kit": [
+   {
+    "title": "Logotipo",
+    "text": "Versões oficiais da marca, com as cores corretas."
+   },
+   {
+    "title": "Textos institucionais",
+    "text": "Descrição curta e descrição longa da produtora, prontas para publicação."
+   },
+   {
+    "title": "Fotografias",
+    "text": "Registros dos projetos com crédito de fotografia e condições de uso definidas."
+   },
+   {
+    "title": "Fichas técnicas",
+    "text": "Créditos por edição, fomento, datas e territórios de cada projeto."
+   }
+  ]
+ }
+}

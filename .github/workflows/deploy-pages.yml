@@ -1,0 +1,65 @@
+name: Publicar no GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Uma publicação por vez, e nunca cancelar uma que já está no ar.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Montar
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configurar Pages
+        uses: actions/configure-pages@v5
+
+      # O site é HTML/CSS/JS estático — não há nada para compilar. Este passo
+      # só separa o que vai ao ar do que é material de trabalho: o relatório
+      # editorial, as ferramentas e os arquivos de dados ficam no repositório
+      # mas fora do artefato publicado.
+      - name: Selecionar arquivos
+        run: |
+          set -euo pipefail
+          mkdir -p _site
+          cp index.html 404.html robots.txt sitemap.xml site.webmanifest .nojekyll _site/
+          cp -r assets _site/
+          for dir in quem-somos projetos servicos equipe contato; do
+            cp -r "$dir" _site/
+          done
+          echo "--- publicado ---"
+          find _site -type f | sort
+          echo "--- tamanho ---"
+          du -sh _site
+
+      - name: Verificar consistência dos dados
+        run: python3 tools/check-site.py
+
+      - name: Enviar artefato
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    name: Publicar
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publicar no GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

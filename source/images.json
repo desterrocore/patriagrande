@@ -1,0 +1,445 @@
+{
+ "equipe": [
+  {
+   "name": "amanda-caroline",
+   "src": "reference-content/fotos-equipe-2026-eventos/Amanda Caroline/AManda no museu.jpeg",
+   "ratio": "1:1",
+   "widths": [
+    640,
+    320
+   ],
+   "focus_y": 0.51
+  },
+  {
+   "name": "carolina-rogelin",
+   "src": "reference-content/fotos-equipe-2026-eventos/Carolina Rögelin _ LIBRAS/Foto1.jpg",
+   "ratio": "1:1",
+   "widths": [
+    640,
+    320
+   ],
+   "focus_y": 0.375
+  },
+  {
+   "name": "cristovam-muniz",
+   "src": "reference-content/fotos-equipe-2026-eventos/Cristovam Muniz/foto cristovam1-1.jpg",
+   "ratio": "1:1",
+   "widths": [
+    640,
+    320
+   ],
+   "focus_y": 0.334
+  },
+  {
+   "name": "denise-de-castro",
+   "src": "reference-content/fotos-equipe-2026-eventos/Denise de castro/1744978454108.jpg",
+   "ratio": "1:1",
+   "widths": [
+    640,
+    320
+   ],
+   "focus_y": 0.362
+  },
+  {
+   "name": "ediane-oliveira",
+   "src": "reference-content/fotos-equipe-2026-eventos/Ediane Oliveira/Foto Ediane Oliveira.jpg",
+   "ratio": "1:1",
+   "widths": [
+    640,
+    320
+   ],
+   "focus_y": 0.471
+  },
+  {
+   "name": "eron-nascimento",
+   "src": "reference-content/fotos-equipe-2026-eventos/Eron Nascimento /Foto-Eron-Portfolio.jpg",
+   "ratio": "1:1",
+   "widths": [
+    640,
+    320
+   ],
+   "focus_x": 0.49
+  },
+  {
+   "name": "esteban-zapata",
+   "src": "reference-content/fotos-equipe-2026-eventos/Esteban Zapata/IMG_7142.jpg",
+   "ratio": "1:1",
+   "widths": [
+    640,
+    320
+   ],
+   "focus_y": 0.473
+  },
+  {
+   "name": "fabio-ferraz",
+   "src": "reference-content/fotos-equipe-2026-eventos/Fabio Ferraz/fabio 2.jpeg",
+   "ratio": "1:1",
+   "widths": [
+    640,
+    320
+   ],
+   "focus_x": 0.43
+  },
+  {
+   "name": "flavio-veloso",
+   "src": "reference-content/fotos-equipe-2026-eventos/Flavio Veloso/IMG_20230408_183821_375.jpg",
+   "ratio": "1:1",
+   "widths": [
+    640,
+    320
+   ],
+   "box": [
+    437,
+    0,
+    1057,
+    620
+   ]
+  },
+  {
+   "name": "giulia-giacomolli",
+   "src": "reference-content/fotos-equipe-2026-eventos/Giulia Valentina/Foto Giulia 1.jpg",
+   "ratio": "1:1",
+   "widths": [
+    640,
+    320
+   ],
+   "box": [
+    820,
+    140,
+    1820,
+    1140
+   ]
+  },
+  {
+   "name": "juliano-zanotelli",
+   "src": "reference-content/fotos-equipe-2026-eventos/Juliano Zanotelli/Juliano.jpg",
+   "ratio": "1:1",
+   "widths": [
+    640,
+    320
+   ],
+   "box": [
+    588,
+    290,
+    1288,
+    990
+   ]
+  },
+  {
+   "name": "lays-matias",
+   "src": "reference-content/fotos-equipe-2026-eventos/Lays Matias/Foto Lays.jpg",
+   "ratio": "1:1",
+   "widths": [
+    640,
+    320
+   ],
+   "focus_y": 0.28
+  },
+  {
+   "name": "lennon-da-silva-rocha",
+   "src": "reference-content/fotos-equipe-2026-eventos/Lennon da Silva Rocha/IMG_20260823_165903.jpg",
+   "ratio": "1:1",
+   "widths": [
+    640,
+    320
+   ],
+   "focus_y": 0.375
+  },
+  {
+   "name": "luna-vanzella",
+   "src": "reference-content/fotos-equipe-2026-eventos/Luna Vanzella/LUNA-FORMATURA-19.jpg",
+   "ratio": "1:1",
+   "widths": [
+    640,
+    320
+   ],
+   "focus_y": 0.425
+  },
+  {
+   "name": "marcela-guitarrarra",
+   "src": "reference-content/fotos-equipe-2026-eventos/Marcela Guitarrarra/foto_marcela.jpeg",
+   "ratio": "1:1",
+   "widths": [
+    640,
+    320
+   ],
+   "focus_y": 0.481
+  },
+  {
+   "name": "marta-siminhuk",
+   "src": "reference-content/fotos-equipe-2026-eventos/Marta Siminhuk/marta 2.jpg",
+   "ratio": "1:1",
+   "widths": [
+    640,
+    320
+   ],
+   "focus_x": 0.625
+  },
+  {
+   "name": "mauricio-garcias",
+   "src": "reference-content/fotos-equipe-2026-eventos/Maurício Garcias/Mauricio.jpg",
+   "ratio": "1:1",
+   "widths": [
+    640,
+    320
+   ],
+   "focus_y": 0.567
+  },
+  {
+   "name": "peri-dias-luersen",
+   "src": "reference-content/fotos-equipe-2026-eventos/Peri Dias Luersen/9D5DE8FE-6978-4FA7-8F9D-AA0C0366C207_Original.JPG",
+   "ratio": "1:1",
+   "widths": [
+    640,
+    320
+   ],
+   "box": [
+    0,
+    556,
+    1000,
+    1556
+   ]
+  },
+  {
+   "name": "sara-borem",
+   "src": "reference-content/fotos-equipe-2026-eventos/Sara Borém/Sara Cura.jpg",
+   "ratio": "1:1",
+   "widths": [
+    640,
+    320
+   ],
+   "rotate": 270,
+   "focus_y": 0.333
+  },
+  {
+   "name": "sara-santos",
+   "src": "reference-content/fotos-equipe-2026-eventos/Sara Santos/Sara Santos (foto por Mauricio Garcias).jpeg",
+   "ratio": "1:1",
+   "widths": [
+    640,
+    320
+   ],
+   "focus_y": 0.467
+  },
+  {
+   "name": "sarah-laranjeiras",
+   "src": "reference-content/fotos-equipe-2026-eventos/Sarah Laranjeiras/Sara Laranjeiras.jpg",
+   "ratio": "1:1",
+   "widths": [
+    640,
+    320
+   ],
+   "box": [
+    292,
+    70,
+    812,
+    590
+   ]
+  },
+  {
+   "name": "tayna-oliveira",
+   "src": "reference-content/fotos-equipe-2026-eventos/Tayná Oliveira/3.jpg",
+   "ratio": "1:1",
+   "widths": [
+    640,
+    320
+   ],
+   "focus_y": 0.415
+  },
+  {
+   "name": "vanderlan-junior",
+   "src": "reference-content/fotos-equipe-2026-eventos/Vanderlan Junior/Vanderlan.jpg",
+   "ratio": "1:1",
+   "widths": [
+    640,
+    320
+   ],
+   "focus_x": 0.48
+  }
+ ],
+ "fotos": [
+  {
+   "name": "casa-cheia-debate",
+   "src": "reference-content/Site Pátria Grande 2026/imagens/251005_7631.jpg",
+   "ratio": "3:2",
+   "focus_x": 0.34,
+   "focus_y": 0.56,
+   "widths": [
+    1800,
+    1200,
+    800,
+    500
+   ]
+  },
+  {
+   "name": "sessao-noturna-casa-cheia",
+   "src": "reference-content/Site Pátria Grande 2026/imagens/251111_7909.jpg",
+   "ratio": "16:9",
+   "focus_x": 0.45,
+   "focus_y": 0.42,
+   "widths": [
+    1800,
+    1200,
+    800,
+    500
+   ]
+  },
+  {
+   "name": "sessao-ao-ar-livre-conversa",
+   "src": "reference-content/Site Pátria Grande 2026/imagens/251115_8122.jpg",
+   "ratio": "16:9",
+   "focus_x": 0.3,
+   "focus_y": 0.55,
+   "widths": [
+    1800,
+    1200,
+    800,
+    500
+   ]
+  },
+  {
+   "name": "sessao-semiaberta-silhuetas",
+   "src": "reference-content/Site Pátria Grande 2026/imagens/251115_8087.jpg",
+   "ratio": "16:9",
+   "focus_x": 0.62,
+   "focus_y": 0.52,
+   "widths": [
+    1800,
+    1200,
+    800,
+    500
+   ]
+  },
+  {
+   "name": "auditorio-lotado-sessao",
+   "src": "reference-content/Site Pátria Grande 2026/imagens/250914_7585.jpg",
+   "ratio": "16:9",
+   "focus_x": 0.45,
+   "focus_y": 0.46,
+   "widths": [
+    1800,
+    1200,
+    800,
+    500
+   ]
+  },
+  {
+   "name": "projecao-ao-ar-livre-estrutura",
+   "src": "reference-content/Site Pátria Grande 2026/imagens/251115_8117.jpg",
+   "ratio": "3:2",
+   "focus_x": 0.24,
+   "focus_y": 0.52,
+   "widths": [
+    1800,
+    1200,
+    800,
+    500
+   ]
+  },
+  {
+   "name": "flaca-roda-de-conversa",
+   "src": "reference-content/Site Pátria Grande 2026/imagens/251102_7884.jpg",
+   "ratio": "16:9",
+   "focus_x": 0.55,
+   "focus_y": 0.4,
+   "widths": [
+    1800,
+    1200,
+    800,
+    500
+   ]
+  },
+  {
+   "name": "flaca-plateia-vertical",
+   "src": "reference-content/Site Pátria Grande 2026/imagens/251102_7831-2-2.jpg",
+   "ratio": "4:5",
+   "focus_x": 0.5,
+   "focus_y": 0.45,
+   "widths": [
+    1200,
+    800,
+    500
+   ]
+  },
+  {
+   "name": "flaca-independente",
+   "src": "reference-content/Site Pátria Grande 2026/imagens/251028_7711.jpg",
+   "ratio": "3:2",
+   "focus_x": 0.38,
+   "focus_y": 0.4,
+   "widths": [
+    1800,
+    1200,
+    800,
+    500
+   ]
+  },
+  {
+   "name": "flaca-sala-pequena",
+   "src": "reference-content/Site Pátria Grande 2026/imagens/251031_7787.jpg",
+   "ratio": "16:9",
+   "focus_x": 0.66,
+   "focus_y": 0.45,
+   "widths": [
+    1800,
+    1200,
+    800,
+    500
+   ]
+  },
+  {
+   "name": "flaca-libras",
+   "src": "reference-content/flaca-3.jpg",
+   "ratio": "3:2",
+   "focus_y": 0.5,
+   "widths": [
+    1800,
+    1200,
+    800,
+    500
+   ]
+  },
+  {
+   "name": "flaca-sala-cheia",
+   "src": "reference-content/flaca-5.jpg",
+   "ratio": "3:2",
+   "focus_y": 0.5,
+   "widths": [
+    1800,
+    1200,
+    800,
+    500
+   ]
+  },
+  {
+   "name": "flaca-plateia-floresta",
+   "src": "reference-content/flaca-2.jpg",
+   "ratio": "16:9",
+   "focus_y": 0.46,
+   "widths": [
+    1800,
+    1200,
+    800,
+    500
+   ]
+  },
+  {
+   "name": "fica-salao-comunitario",
+   "src": "reference-content/fotos-projetos/fica-salao-comunitario.jpg",
+   "ratio": "3:2",
+   "focus_y": 0.5,
+   "widths": [
+    640
+   ]
+  },
+  {
+   "name": "fica-3a-edicao",
+   "src": "reference-content/fotos-projetos/fica-3a-edicao-abertura.jpg",
+   "ratio": "3:2",
+   "focus_y": 0.5,
+   "widths": [
+    640
+   ]
+  }
+ ]
+}

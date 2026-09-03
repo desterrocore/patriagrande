@@ -1,0 +1,1352 @@
+@charset "UTF-8";
+/* ===========================================================================
+   PÁTRIA GRANDE PRODUÇÕES — sistema de design
+   ---------------------------------------------------------------------------
+   Vermelho e amarelo são a marca. Papel é onde se lê. Fotografia é o terceiro
+   elemento — e não decoração.
+
+   As cores não são interpretação: #690404, #5D0404 e #FFCC00 foram medidas
+   pixel a pixel nos arquivos oficiais do logotipo, que são chapados, sem
+   gradiente e sem canal alfa útil. Azul e verde saíram da identidade
+   institucional; podem existir dentro de uma fotografia ou da identidade
+   própria de um projeto, nunca como base do site-mãe.
+
+   A composição alterna três condições e nunca fica no meio-termo:
+
+     PAPEL    fundo #F7F4EE, tinta quase preta, medida de leitura estreita.
+     FAIXA    vermelho ou vermelho profundo sangrado, tipo amarelo ou branco;
+              é onde moram as afirmações institucionais.
+     CARTAZ   amarelo chapado com tipo vermelho — o volume máximo do sistema,
+              que perde força se repetido.
+
+   Proporção alvo: 35–45% vermelho, 20–30% amarelo, 20–30% fotografia, o resto
+   neutro. Todo par de cor usado para texto foi medido; o menor da casa é
+   5,19:1, e os pares principais passam de 8:1.
+   =========================================================================== */
+
+/* ---------------------------------------------------------------------------
+   1. Fontes — hospedadas aqui, nenhuma requisição a terceiros.
+
+   O wordmark da marca usa a Squarely, cuja licença no pacote diz "free for
+   personal use ONLY" — por isso ela NÃO é carregada aqui, e o wordmark entra
+   como arte, não como texto. Os títulos usam Archivo Black, a alternativa
+   aberta mais próxima daquele desenho geométrico, pesado e quadrado. Archivo
+   variável carrega o texto; IBM Plex Mono carrega metadado — data, cidade,
+   crédito, status, número de seção — e nunca texto corrido.
+   --------------------------------------------------------------------------- */
+
+@font-face {
+  font-family: 'Archivo Black';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(../fonts/archivo-black-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Archivo Black';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(../fonts/archivo-black-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 400 800;
+  font-stretch: 62% 125%;
+  font-display: swap;
+  src: url(../fonts/archivo-400-800-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 400 800;
+  font-stretch: 62% 125%;
+  font-display: swap;
+  src: url(../fonts/archivo-400-800-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(../fonts/plex-mono-400-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(../fonts/plex-mono-400-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(../fonts/plex-mono-500-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(../fonts/plex-mono-500-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(../fonts/plex-mono-600-latin.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'IBM Plex Mono';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(../fonts/plex-mono-600-latin-ext.woff2) format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* Métricas de fallback casadas, para a troca de fonte não empurrar o layout. */
+@font-face {
+  font-family: 'Archivo Fallback';
+  src: local('Arial'), local('Helvetica Neue'), local('Liberation Sans');
+  size-adjust: 100%;
+  ascent-override: 92%;
+  descent-override: 24%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: 'Archivo Black Fallback';
+  src: local('Arial Black'), local('Liberation Sans Bold'), local('Arial Bold');
+  size-adjust: 108%;
+  ascent-override: 86%;
+  descent-override: 22%;
+  line-gap-override: 0%;
+}
+
+/* ---------------------------------------------------------------------------
+   2. Tokens
+   --------------------------------------------------------------------------- */
+
+:root {
+  /* Marca — medidas nos arquivos oficiais. */
+  --pg-red:      #690404;
+  --pg-red-deep: #5D0404;
+  --pg-yellow:   #FFCC00;
+  --pg-black:    #000000;
+  --pg-white:    #FFFFFF;
+
+  /* Utilitária: papel para leitura longa. Não substitui o branco como neutro
+     principal — é fundo de texto, não cor de marca. */
+  --pg-paper:    #F7F4EE;
+
+  /* Tinta: preto levemente quente. Preto puro cansa em texto corrido, e 17,2:1
+     sobre o papel já é muito acima do necessário. */
+  --ink:         #14100E;
+  --ink-dim:     rgba(20, 16, 14, .70);   /* 6,83:1 sobre papel */
+  --rule:        rgba(20, 16, 14, .22);
+  --rule-strong: rgba(20, 16, 14, .42);
+
+  /* A faixa é a unidade de composição. Cada bloco de cor redefine estes cinco
+     tokens e os componentes só conversam com eles — é o que faz o mesmo card
+     funcionar sobre papel, sobre vermelho e sobre amarelo. */
+  --band-bg:     var(--pg-paper);
+  --band-ink:    var(--ink);
+  --band-dim:    var(--ink-dim);
+  --band-rule:   var(--rule);
+  --band-accent: var(--pg-red);
+
+  /* Tipo */
+  --ff-display: 'Archivo Black', 'Archivo Black Fallback', 'Archivo', 'Arial Black', sans-serif;
+  --ff-sans: 'Archivo', 'Archivo Fallback', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --ff-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+
+  --fs-display: clamp(2.4rem, 1.3rem + 4.9vw, 5.6rem);
+  --fs-h1:      clamp(1.95rem, 1.4rem + 2.7vw, 3.7rem);
+  --fs-h2:      clamp(1.55rem, 1.25rem + 1.6vw, 2.5rem);
+  --fs-h3:      clamp(1.1rem, 1.03rem + .4vw, 1.4rem);
+  --fs-h4:      clamp(.98rem, .95rem + .2vw, 1.1rem);
+  --fs-lede:    clamp(1.08rem, 1.01rem + .45vw, 1.4rem);
+  --fs-body:    clamp(1rem, .975rem + .14vw, 1.075rem);
+  --fs-small:   clamp(.875rem, .86rem + .08vw, .9375rem);
+  --fs-meta:    clamp(.6875rem, .665rem + .1vw, .78rem);
+  --fs-num:     clamp(2.1rem, 1.45rem + 2.8vw, 3.5rem);
+
+  --ls-meta:  .16em;
+  --ls-tight: -.015em;
+
+  /* Layout */
+  --maxw:      1320px;
+  --maxw-read: 66ch;
+  --pad:       clamp(18px, 4.4vw, 60px);
+  --gap:       clamp(14px, 1.8vw, 28px);
+  --band-pad:  clamp(54px, 7vw, 120px);
+  --header-h:  62px;
+
+  /* Movimento */
+  --dur:  .3s;
+  --ease: cubic-bezier(.22, .61, .36, 1);
+
+  color-scheme: light;
+}
+
+/* ---------------------------------------------------------------------------
+   3. Base
+   --------------------------------------------------------------------------- */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-h) + 16px);
+}
+
+body {
+  margin: 0;
+  background: var(--pg-paper);
+  color: var(--ink);
+  font-family: var(--ff-sans);
+  font-size: var(--fs-body);
+  line-height: 1.62;
+  font-synthesis-weight: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2 {
+  margin: 0;
+  font-family: var(--ff-display);
+  font-weight: 400;
+  line-height: 1.04;
+  letter-spacing: var(--ls-tight);
+  text-wrap: balance;
+}
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+
+/* Abaixo de h2 o Archivo Black fica pesado demais para a escala; o texto
+   corrido assume, em peso alto. */
+h3, h4 { margin: 0; font-family: var(--ff-sans); letter-spacing: var(--ls-tight); text-wrap: balance; }
+h3 { font-weight: 800; font-size: var(--fs-h3); line-height: 1.18; }
+h4 { font-weight: 700; font-size: var(--fs-h4); line-height: 1.3; }
+
+p { margin: 0 0 1.1em; text-wrap: pretty; }
+p:last-child { margin-bottom: 0; }
+
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: .22em; }
+
+img, picture, video { max-width: 100%; height: auto; display: block; }
+svg { display: block; }
+
+ul, ol { margin: 0 0 1.1em; padding-left: 1.2em; }
+li { margin-bottom: .35em; }
+li::marker { color: var(--band-accent); }
+
+hr { border: 0; border-top: 1px solid var(--band-rule); margin: clamp(30px, 4vw, 54px) 0; }
+
+::selection { background: var(--pg-yellow); color: var(--pg-red); }
+
+:focus-visible { outline: 3px solid var(--band-accent); outline-offset: 3px; border-radius: 1px; }
+
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translate(-50%, -140%);
+  z-index: 200;
+  padding: .8em 1.4em;
+  background: var(--pg-yellow);
+  color: var(--pg-red);
+  font: 600 var(--fs-meta)/1 var(--ff-mono);
+  letter-spacing: var(--ls-meta);
+  text-transform: uppercase;
+  transition: transform var(--dur) var(--ease);
+}
+.skip-link:focus { transform: translate(-50%, 0); }
+
+/* ---------------------------------------------------------------------------
+   4. Cartografia — o grafismo da casa
+
+   A silhueta da América Latina com o sul para cima é a tese visual da marca.
+   Aqui ela vira marca d'água de seção, fundo de placa e separador. É SVG
+   traçado do próprio logotipo, então herda a cor por currentColor, escala sem
+   perder nitidez e pesa 3 KB.
+   --------------------------------------------------------------------------- */
+
+/* O desenho entra uma vez por página, neste sprite, e some do fluxo. */
+.sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+.cartografia {
+  position: absolute;
+  pointer-events: none;
+  opacity: .07;
+}
+.cartografia svg { width: 100%; height: auto; }
+
+.cartografia--canto {
+  right: -3%;
+  top: 50%;
+  width: min(42%, 420px);
+  transform: translateY(-50%);
+}
+@media (max-width: 780px) { .cartografia--canto { width: 60%; opacity: .05; } }
+
+/* Motivos secundários — sol, lua com o Cruzeiro do Sul, veleiro sobre a cidade,
+   peixe sobre a água. Vêm recortados do próprio logotipo, não de biblioteca de
+   ícones, e aparecem em escala discreta: detalhe de rodapé, canto de faixa,
+   fecho de seção. */
+.motivo { position: absolute; pointer-events: none; opacity: .5; }
+.motivo--fim { position: static; width: 46px; margin: clamp(26px, 3vw, 42px) auto 0; opacity: .75; }
+
+/* Separador de seção: um filete com a cartografia miúda no meio, no lugar do
+   <hr> genérico. */
+.horizonte {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: clamp(32px, 4.2vw, 60px) 0;
+  color: var(--band-rule);
+}
+.horizonte::before,
+.horizonte::after { content: ''; flex: 1; height: 1px; background: currentColor; }
+.horizonte svg { width: 14px; color: var(--band-accent); opacity: .85; }
+
+/* ---------------------------------------------------------------------------
+   5. Shell e faixas
+   --------------------------------------------------------------------------- */
+
+.shell { width: 100%; max-width: var(--maxw); margin-inline: auto; padding-inline: var(--pad); }
+
+.band {
+  position: relative;
+  overflow: hidden;
+  background: var(--band-bg);
+  color: var(--band-ink);
+  padding-block: var(--band-pad);
+}
+.band > .shell { position: relative; z-index: 1; }
+.band--tight { padding-block: clamp(32px, 4vw, 66px); }
+
+.band--paper {
+  --band-bg: var(--pg-paper); --band-ink: var(--ink);
+  --band-dim: var(--ink-dim); --band-rule: var(--rule); --band-accent: var(--pg-red);
+}
+.band--white {
+  --band-bg: var(--pg-white); --band-ink: var(--ink);
+  --band-dim: rgba(20,16,14,.70); --band-rule: rgba(20,16,14,.20); --band-accent: var(--pg-red);
+}
+/* Sobre vermelho o acento é amarelo — o único tom que passa com folga nos dois
+   vermelhos (8,57:1 e 9,36:1). */
+.band--red {
+  --band-bg: var(--pg-red); --band-ink: var(--pg-white);
+  --band-dim: rgba(255,255,255,.80); --band-rule: rgba(255,204,0,.34); --band-accent: var(--pg-yellow);
+}
+.band--deep {
+  --band-bg: var(--pg-red-deep); --band-ink: var(--pg-white);
+  --band-dim: rgba(255,255,255,.80); --band-rule: rgba(255,204,0,.34); --band-accent: var(--pg-yellow);
+}
+.band--yellow {
+  --band-bg: var(--pg-yellow); --band-ink: var(--pg-red);
+  --band-dim: rgba(105,4,4,.86); --band-rule: rgba(105,4,4,.30); --band-accent: var(--pg-red);
+}
+
+.band--red ::selection,
+.band--deep ::selection { background: var(--pg-yellow); color: var(--pg-red); }
+.band--yellow ::selection { background: var(--pg-red); color: var(--pg-yellow); }
+
+/* ---------------------------------------------------------------------------
+   6. Metadados — a voz mono
+   --------------------------------------------------------------------------- */
+
+.meta {
+  font-family: var(--ff-mono);
+  font-size: var(--fs-meta);
+  font-weight: 500;
+  letter-spacing: var(--ls-meta);
+  text-transform: uppercase;
+  line-height: 1.5;
+  color: var(--band-dim);
+}
+
+.eyebrow {
+  display: flex;
+  align-items: baseline;
+  gap: .8em;
+  margin: 0 0 clamp(16px, 2vw, 30px);
+  font-family: var(--ff-mono);
+  font-size: var(--fs-meta);
+  font-weight: 600;
+  letter-spacing: var(--ls-meta);
+  text-transform: uppercase;
+  color: var(--band-accent);
+}
+.eyebrow::after { content: ''; flex: 1; height: 1px; background: var(--band-rule); transform: translateY(-.25em); }
+.eyebrow__num { font-variant-numeric: tabular-nums; opacity: .75; }
+
+/* Selo de status. Executado não precisa de selo — a ausência já significa
+   arquivo histórico. Em andamento precisa ser impossível de ignorar, e diz o
+   que é por escrito, não só por cor. */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: .5em;
+  padding: .38em .7em;
+  background: var(--pg-yellow);
+  color: var(--pg-red);
+  font: 600 var(--fs-meta)/1 var(--ff-mono);
+  letter-spacing: var(--ls-meta);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.badge::before { content: ''; width: .5em; height: .5em; background: currentColor; border-radius: 50%; }
+.band--yellow .badge { background: var(--pg-red); color: var(--pg-yellow); }
+
+/* ---------------------------------------------------------------------------
+   7. Cabeçalho
+   --------------------------------------------------------------------------- */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--pg-red);
+  color: var(--pg-white);
+  border-bottom: 1px solid rgba(255, 204, 0, .3);
+}
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap);
+  min-height: var(--header-h);
+}
+
+/* A assinatura do cabeçalho é o símbolo cartográfico cheio ao lado do wordmark
+   oficial. A versão de contorno do logotipo simplificado é bonita em tamanho
+   grande e desaparece numa barra de 62 px; o desenho cheio vem da versão
+   completa da marca e é o mesmo que vira favicon, o que mantém o conjunto
+   coerente de ponta a ponta. */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  text-decoration: none;
+  padding-block: 10px;
+  color: var(--pg-yellow);
+  transition: color var(--dur) var(--ease);
+}
+.brand__symbol { width: 26px; flex: none; }
+.brand__word { height: 30px; width: auto; }
+.brand:hover, .brand:focus-visible { color: var(--pg-white); }
+
+.nav { display: flex; align-items: center; gap: clamp(4px, 1.2vw, 20px); }
+.nav__list { list-style: none; margin: 0; padding: 0; }
+.nav__list li { margin: 0; }
+
+.nav__link {
+  display: inline-block;
+  padding: .55em .2em;
+  font-family: var(--ff-mono);
+  font-size: var(--fs-meta);
+  font-weight: 500;
+  letter-spacing: var(--ls-meta);
+  text-transform: uppercase;
+  text-decoration: none;
+  color: rgba(255, 255, 255, .86);
+  border-bottom: 2px solid transparent;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.nav__link:hover { color: var(--pg-white); border-bottom-color: rgba(255, 204, 0, .55); }
+.nav__link[aria-current='page'] { color: var(--pg-yellow); border-bottom-color: var(--pg-yellow); }
+
+.nav__cta {
+  padding: .62em 1em;
+  background: var(--pg-yellow);
+  color: var(--pg-red);
+  font-weight: 600;
+  border-bottom: 0;
+}
+.nav__cta:hover { background: var(--pg-white); color: var(--pg-red); border-bottom-color: transparent; }
+.nav__cta[aria-current='page'] { background: var(--pg-white); color: var(--pg-red); }
+
+.nav__toggle {
+  display: none;
+  align-items: center;
+  gap: .6em;
+  padding: .55em .9em;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, .45);
+  color: var(--pg-white);
+  font: 600 var(--fs-meta)/1 var(--ff-mono);
+  letter-spacing: var(--ls-meta);
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.nav__toggle:hover { border-color: var(--pg-yellow); color: var(--pg-yellow); }
+.nav__bars { display: inline-flex; flex-direction: column; gap: 3px; }
+.nav__bars i { display: block; width: 15px; height: 2px; background: currentColor; }
+
+@media (max-width: 900px) {
+  .nav__toggle { display: inline-flex; }
+  .nav__list {
+    position: absolute;
+    left: 0; right: 0; top: 100%;
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    padding: 8px var(--pad) 20px;
+    background: var(--pg-red);
+    border-bottom: 1px solid rgba(255, 204, 0, .3);
+  }
+  .nav__list[data-open='true'] { display: flex; }
+  .nav__link { padding: .9em 0; border-bottom: 1px solid rgba(255, 255, 255, .16); font-size: .8rem; }
+  .nav__link[aria-current='page'] { border-bottom-color: var(--pg-yellow); }
+  .nav__cta { margin-top: 12px; text-align: center; padding: .95em 1em; }
+}
+@media (min-width: 901px) {
+  .nav__list { display: flex !important; align-items: center; gap: clamp(8px, 1.4vw, 22px); }
+  .brand__symbol { width: 28px; }
+  .brand__word { height: 32px; }
+}
+
+/* ---------------------------------------------------------------------------
+   8. Heros
+   --------------------------------------------------------------------------- */
+
+/* Home: metade marca, metade fotografia. No celular vira pilha — marca em cima,
+   foto embaixo — em vez de texto sobre imagem, que é onde o contraste quebra. */
+.hero { display: grid; grid-template-columns: 1fr; }
+@media (min-width: 900px) { .hero { grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr); } }
+
+.hero__panel {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(46px, 6.6vw, 100px) var(--pad);
+  background: var(--pg-red);
+  color: var(--pg-white);
+  --band-bg: var(--pg-red);
+  --band-ink: var(--pg-white);
+  --band-dim: rgba(255, 255, 255, .8);
+  --band-rule: rgba(255, 204, 0, .34);
+  --band-accent: var(--pg-yellow);
+}
+.hero__panel > *:not(.cartografia) { position: relative; z-index: 1; }
+.hero__inner { width: 100%; max-width: 620px; margin-left: auto; }
+@media (max-width: 899px) { .hero__inner { margin-left: 0; } }
+
+/* O título do hero vive dentro de um painel que ocupa menos da metade da tela,
+   então ele não pode ser dimensionado pela largura da janela: "TERRITÓRIOS" em
+   Archivo Black a 90px atravessa a coluna. A escala aqui é a do painel. */
+.hero__title {
+  font-size: clamp(2.2rem, 1rem + 3.4vw, 4.4rem);
+  text-transform: uppercase;
+  max-width: 13ch;
+  margin-bottom: .42em;
+  overflow-wrap: break-word;
+}
+.hero__title em { font-style: normal; color: var(--pg-yellow); display: block; }
+.hero__lede {
+  font-size: var(--fs-lede);
+  max-width: 44ch;
+  color: rgba(255, 255, 255, .88);
+  margin-bottom: clamp(22px, 2.8vw, 36px);
+}
+
+.hero__media { position: relative; background: var(--pg-red-deep); min-height: clamp(250px, 44vw, 600px); }
+.hero__media picture { display: block; width: 100%; height: 100%; }
+.hero__media img { width: 100%; height: 100%; object-fit: cover; object-position: center 46%; }
+.hero__caption {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: clamp(28px, 4vw, 44px) var(--pad) clamp(12px, 1.6vw, 18px);
+  background: linear-gradient(to top, rgba(93, 4, 4, .94), rgba(93, 4, 4, 0));
+  color: rgba(255, 255, 255, .9);
+  font-family: var(--ff-mono);
+  font-size: var(--fs-meta);
+  letter-spacing: .05em;
+  line-height: 1.5;
+}
+.hero__caption strong {
+  color: var(--pg-yellow);
+  font-weight: 600;
+  letter-spacing: var(--ls-meta);
+  text-transform: uppercase;
+}
+
+/* Cabeçalho de página interna. */
+.pagehead { padding-block: clamp(56px, 7.6vw, 112px) clamp(36px, 4.8vw, 66px); }
+.pagehead__title { font-size: var(--fs-h1); text-transform: uppercase; max-width: 17ch; }
+.pagehead__lede {
+  font-size: var(--fs-lede);
+  max-width: 52ch;
+  margin-top: clamp(16px, 2vw, 26px);
+  color: var(--band-dim);
+}
+
+/* Cabeçalho de projeto: fotografia sangrada + tarja de metadados. */
+.projecthead__media { position: relative; aspect-ratio: 16 / 9; background: var(--pg-red-deep); }
+.projecthead__media img { width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 640px) { .projecthead__media { aspect-ratio: 4 / 3; } }
+
+.projecthead__body { padding-block: clamp(32px, 4.4vw, 64px); }
+.projecthead__title { font-size: var(--fs-h1); text-transform: uppercase; }
+.projecthead__lede {
+  font-size: var(--fs-lede);
+  max-width: 54ch;
+  margin-top: clamp(14px, 1.8vw, 24px);
+  color: var(--band-dim);
+}
+.projecthead__flags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 1.1em; }
+
+.metastrip {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: clamp(16px, 2vw, 30px);
+  margin-top: clamp(24px, 3vw, 42px);
+  padding-top: clamp(18px, 2.2vw, 28px);
+  border-top: 1px solid var(--band-rule);
+}
+.metastrip__k {
+  display: block;
+  margin-bottom: .5em;
+  font-family: var(--ff-mono);
+  font-size: var(--fs-meta);
+  font-weight: 600;
+  letter-spacing: var(--ls-meta);
+  text-transform: uppercase;
+  color: var(--band-accent);
+}
+.metastrip__v { font-weight: 600; line-height: 1.35; }
+
+/* ---------------------------------------------------------------------------
+   9. Botões
+   Em fundo vermelho, botão amarelo com texto vermelho. Em fundo amarelo ou
+   claro, botão vermelho com texto amarelo. Nunca branco sobre amarelo, nunca
+   preto sobre vermelho.
+   --------------------------------------------------------------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .7em;
+  padding: .92em 1.5em;
+  font-family: var(--ff-mono);
+  font-size: var(--fs-meta);
+  font-weight: 600;
+  letter-spacing: var(--ls-meta);
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background var(--dur) var(--ease), color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.btn__arrow { transition: transform var(--dur) var(--ease); }
+.btn:hover .btn__arrow { transform: translateX(3px); }
+
+.btn--primary { background: var(--pg-yellow); color: var(--pg-red); border-color: var(--pg-yellow); }
+.btn--primary:hover { background: var(--pg-white); border-color: var(--pg-white); }
+.band--yellow .btn--primary,
+.band--paper .btn--primary,
+.band--white .btn--primary { background: var(--pg-red); color: var(--pg-yellow); border-color: var(--pg-red); }
+.band--yellow .btn--primary:hover,
+.band--paper .btn--primary:hover,
+.band--white .btn--primary:hover { background: var(--pg-red-deep); border-color: var(--pg-red-deep); }
+
+.btn--ghost { background: transparent; color: var(--band-ink); border-color: var(--band-rule); }
+.btn--ghost:hover { border-color: var(--band-accent); color: var(--band-accent); }
+.band--red .btn--ghost, .band--deep .btn--ghost { border-color: rgba(255, 255, 255, .45); }
+.band--red .btn--ghost:hover,
+.band--deep .btn--ghost:hover { background: var(--pg-yellow); color: var(--pg-red); border-color: var(--pg-yellow); }
+
+.btnrow { display: flex; flex-wrap: wrap; gap: 12px; }
+
+.prose a, .linkish {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--band-accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: .2em;
+  transition: background var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+.prose a:hover, .linkish:hover { background: var(--band-accent); color: var(--band-bg); }
+
+/* ---------------------------------------------------------------------------
+   10. Texto
+   --------------------------------------------------------------------------- */
+
+.prose { max-width: var(--maxw-read); font-size: var(--fs-body); }
+.prose--wide { max-width: 80ch; }
+.prose > * + h3 { margin-top: 1.8em; }
+.prose h3 + p { margin-top: .7em; }
+.lede { font-size: var(--fs-lede); line-height: 1.5; max-width: 52ch; }
+
+.manifesto {
+  font-family: var(--ff-display);
+  font-size: clamp(1.45rem, .95rem + 2.1vw, 2.9rem);
+  line-height: 1.14;
+  letter-spacing: var(--ls-tight);
+  max-width: 20ch;
+  text-transform: uppercase;
+  text-wrap: balance;
+}
+.manifesto em { font-style: normal; color: var(--band-accent); }
+
+blockquote.pull {
+  margin: 0;
+  padding-left: clamp(16px, 2.2vw, 30px);
+  border-left: 3px solid var(--band-accent);
+  font-size: var(--fs-lede);
+  line-height: 1.45;
+}
+blockquote.pull cite {
+  display: block;
+  margin-top: .9em;
+  font-style: normal;
+  font-family: var(--ff-mono);
+  font-size: var(--fs-meta);
+  letter-spacing: var(--ls-meta);
+  text-transform: uppercase;
+  color: var(--band-dim);
+}
+
+/* ---------------------------------------------------------------------------
+   11. Estruturas de duas colunas
+   --------------------------------------------------------------------------- */
+
+.split { display: grid; gap: clamp(26px, 3.6vw, 66px); grid-template-columns: 1fr; align-items: start; }
+@media (min-width: 860px) {
+  .split { grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr); }
+  .split--even  { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .split--aside { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); }
+}
+.split__sticky { position: sticky; top: calc(var(--header-h) + 26px); }
+@media (max-width: 859px) { .split__sticky { position: static; } }
+
+/* ---------------------------------------------------------------------------
+   12. Cards de projeto
+   --------------------------------------------------------------------------- */
+
+.projectgrid {
+  display: grid;
+  gap: clamp(18px, 2.2vw, 32px);
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 290px), 1fr));
+  list-style: none; margin: 0; padding: 0;
+}
+.projectgrid > li { margin: 0; }
+@media (min-width: 900px) { .projectgrid--feature { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+.pcard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--band-bg);
+  border: 1px solid var(--band-rule);
+  transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+.pcard:hover, .pcard:focus-within { border-color: var(--band-accent); }
+@media (hover: hover) and (prefers-reduced-motion: no-preference) { .pcard:hover { transform: translateY(-3px); } }
+
+.pcard__media { position: relative; aspect-ratio: 3 / 2; overflow: hidden; background: var(--pg-red-deep); }
+.pcard__media img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease); }
+@media (prefers-reduced-motion: no-preference) { .pcard:hover .pcard__media img { transform: scale(1.035); } }
+
+/* Projeto sem registro fotográfico publicável: placa de cor da marca com o
+   nome e a cartografia ao fundo. Nunca imagem de banco, nunca imagem gerada,
+   nunca foto emprestada de outro projeto. */
+.pcard__plate {
+  position: relative;
+  aspect-ratio: 3 / 2;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: var(--plate-bg, var(--pg-red));
+  color: var(--plate-ink, var(--pg-yellow));
+}
+.pcard__plate > span:not(.cartografia) {
+  position: relative;
+  z-index: 1;
+  white-space: pre-line;
+  font-family: var(--ff-display);
+  font-size: clamp(1.25rem, .85rem + 1.7vw, 1.95rem);
+  line-height: 1.08;
+  text-transform: uppercase;
+  text-align: center;
+  padding: .5em;
+}
+.pcard__plate .cartografia { right: -10%; top: 50%; width: 50%; transform: translateY(-50%); opacity: .16; }
+
+/* Sobre faixa vermelha a placa vermelha desaparece — os dois vermelhos da marca
+   têm 1,09:1 entre si. Nesse contexto a placa vira amarela, que é a outra cor
+   da casa e devolve o contraste sem inventar tom novo. */
+.band--red .pcard__plate,
+.band--deep .pcard__plate { --plate-bg: var(--pg-yellow); --plate-ink: var(--pg-red); }
+.band--yellow .pcard__plate { --plate-bg: var(--pg-red); --plate-ink: var(--pg-yellow); }
+
+.pcard__flag { position: absolute; z-index: 2; left: 12px; top: 12px; }
+
+.pcard__body { display: flex; flex-direction: column; gap: .55em; flex: 1; padding: clamp(16px, 1.9vw, 24px); }
+.pcard__kicker {
+  font-family: var(--ff-mono);
+  font-size: var(--fs-meta);
+  font-weight: 600;
+  letter-spacing: var(--ls-meta);
+  text-transform: uppercase;
+  color: var(--band-accent);
+}
+.pcard__title { font-size: var(--fs-h3); }
+.pcard__title a { text-decoration: none; }
+.pcard__title a::after { content: ''; position: absolute; inset: 0; }
+.pcard__desc { font-size: var(--fs-small); color: var(--band-dim); margin: 0; }
+.pcard__foot {
+  margin-top: auto;
+  padding-top: .85em;
+  border-top: 1px solid var(--band-rule);
+  font-family: var(--ff-mono);
+  font-size: var(--fs-meta);
+  letter-spacing: var(--ls-meta);
+  text-transform: uppercase;
+  color: var(--band-dim);
+  display: flex; flex-wrap: wrap; gap: .3em .9em;
+}
+
+/* ---------------------------------------------------------------------------
+   13. Abas e filtros do arquivo
+   --------------------------------------------------------------------------- */
+
+.tabs { display: flex; flex-wrap: wrap; margin-bottom: clamp(18px, 2.2vw, 30px); border-bottom: 2px solid var(--band-rule); }
+.tabs__btn {
+  padding: .8em 1.2em;
+  background: transparent;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  color: var(--band-dim);
+  font: 600 var(--fs-meta)/1 var(--ff-mono);
+  letter-spacing: var(--ls-meta);
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.tabs__btn:hover { color: var(--band-ink); }
+.tabs__btn[aria-selected='true'] { color: var(--band-accent); border-bottom-color: var(--band-accent); }
+
+.filters { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: clamp(20px, 2.4vw, 34px); padding: 0; border: 0; }
+.filters legend { padding: 0; margin-bottom: 10px; }
+.filters__btn {
+  padding: .6em 1em;
+  background: transparent;
+  border: 1px solid var(--band-rule);
+  color: var(--band-ink);
+  font: 500 var(--fs-meta)/1 var(--ff-mono);
+  letter-spacing: var(--ls-meta);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background var(--dur) var(--ease), color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.filters__btn:hover { border-color: var(--band-accent); }
+.filters__btn[aria-pressed='true'] { background: var(--pg-red); border-color: var(--pg-red); color: var(--pg-yellow); }
+
+/* ---------------------------------------------------------------------------
+   14. Serviços
+   --------------------------------------------------------------------------- */
+
+.services {
+  display: grid;
+  gap: clamp(16px, 2vw, 28px);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr));
+  list-style: none; margin: 0; padding: 0;
+}
+.services > li { margin: 0; }
+
+.scard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: .7em;
+  height: 100%;
+  padding: clamp(22px, 2.6vw, 34px);
+  background: var(--pg-red);
+  color: var(--pg-white);
+  overflow: hidden;
+  transition: background var(--dur) var(--ease);
+}
+.scard:hover, .scard:focus-within { background: var(--pg-red-deep); }
+.scard > *:not(.cartografia) { position: relative; z-index: 1; }
+.scard .cartografia { right: -16%; bottom: -20%; top: auto; width: 56%; transform: none; opacity: .1; color: var(--pg-yellow); }
+.scard__num {
+  font-family: var(--ff-mono);
+  font-size: var(--fs-meta);
+  font-weight: 600;
+  letter-spacing: var(--ls-meta);
+  color: var(--pg-yellow);
+}
+.scard__title { font-size: var(--fs-h3); color: var(--pg-yellow); }
+.scard__title a { text-decoration: none; }
+.scard__title a::after { content: ''; position: absolute; inset: 0; }
+.scard__desc { font-size: var(--fs-small); color: rgba(255, 255, 255, .86); margin: 0; }
+.scard__more {
+  margin-top: auto;
+  padding-top: .9em;
+  font-family: var(--ff-mono);
+  font-size: var(--fs-meta);
+  letter-spacing: var(--ls-meta);
+  text-transform: uppercase;
+  color: var(--pg-yellow);
+}
+
+/* Lista de entregas de um serviço. */
+.deliverables { columns: 2; column-gap: clamp(20px, 3vw, 48px); margin: 0; padding-left: 1.2em; }
+@media (max-width: 620px) { .deliverables { columns: 1; } }
+.deliverables li { break-inside: avoid; }
+
+/* ---------------------------------------------------------------------------
+   15. Equipe
+   --------------------------------------------------------------------------- */
+
+.teamgrid {
+  display: grid;
+  gap: clamp(20px, 2.4vw, 38px);
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr));
+  list-style: none; margin: 0; padding: 0;
+}
+.teamgrid > li { margin: 0; }
+.teamgrid--compact { grid-template-columns: repeat(auto-fill, minmax(min(100%, 185px), 1fr)); }
+
+.tcard { display: flex; flex-direction: column; gap: .8em; height: 100%; }
+.tcard__photo {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: var(--pg-red-deep);
+  border: 1px solid var(--band-rule);
+}
+.tcard__photo img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Sem retrato: iniciais sobre vermelho com a cartografia atrás. Fica evidente
+   que é um marcador, não uma foto. */
+.tcard__initials {
+  position: relative;
+  width: 100%; height: 100%;
+  display: grid; place-items: center;
+  overflow: hidden;
+  background: var(--pg-red);
+  color: var(--pg-yellow);
+}
+.tcard__initials > span:not(.cartografia):not(.visually-hidden) {
+  position: relative; z-index: 1;
+  font-family: var(--ff-display);
+  font-size: clamp(1.4rem, 1rem + 1.8vw, 2.1rem);
+  letter-spacing: .03em;
+}
+.tcard__initials .cartografia { right: -14%; top: 50%; width: 56%; transform: translateY(-50%); opacity: .18; }
+
+/* O crédito fica sobre a foto, e não abaixo dela: como só alguns retratos têm
+   crédito conhecido, uma linha extra sob a imagem desalinharia os nomes na
+   grade. Sobreposto, ele cumpre a obrigação com quem assina sem quebrar a
+   composição. */
+.tcard__credit {
+  position: absolute;
+  inset: auto 0 0 0;
+  margin: 0;
+  padding: 1.4em .7em .5em;
+  background: linear-gradient(to top, rgba(93, 4, 4, .88), rgba(93, 4, 4, 0));
+  color: rgba(255, 255, 255, .92);
+  font-size: .62rem;
+  letter-spacing: .08em;
+}
+.tcard__name { font-size: var(--fs-h3); }
+.tcard__role {
+  font-family: var(--ff-mono);
+  font-size: var(--fs-meta);
+  font-weight: 600;
+  letter-spacing: var(--ls-meta);
+  text-transform: uppercase;
+  color: var(--band-accent);
+}
+.tcard__bio { font-size: var(--fs-small); color: var(--band-dim); margin: 0; }
+.tcard__links {
+  margin-top: auto;
+  padding-top: .6em;
+  overflow-wrap: anywhere;
+  font-family: var(--ff-mono);
+  font-size: var(--fs-meta);
+  letter-spacing: var(--ls-meta);
+  text-transform: uppercase;
+}
+.tcard--compact .tcard__name { font-size: var(--fs-h4); }
+.tcard--compact .tcard__bio { font-size: .84rem; line-height: 1.5; }
+
+.taglist { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; margin: 0; padding: 0; }
+.taglist li { margin: 0; }
+.tag {
+  display: inline-block;
+  padding: .3em .6em;
+  border: 1px solid var(--band-rule);
+  font-family: var(--ff-mono);
+  font-size: .66rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--band-dim);
+  text-decoration: none;
+}
+a.tag:hover { border-color: var(--band-accent); color: var(--band-accent); }
+
+/* ---------------------------------------------------------------------------
+   16. Linha do tempo e grades de eixos
+   --------------------------------------------------------------------------- */
+
+.timeline { list-style: none; margin: 0; padding: 0; }
+.timeline > li {
+  position: relative;
+  margin: 0;
+  padding: clamp(18px, 2.2vw, 30px) 0 clamp(18px, 2.2vw, 30px) clamp(54px, 6.5vw, 104px);
+  border-top: 1px solid var(--band-rule);
+}
+.timeline > li:last-child { border-bottom: 1px solid var(--band-rule); }
+.timeline__year {
+  position: absolute;
+  left: 0; top: clamp(18px, 2.2vw, 30px);
+  font-family: var(--ff-mono);
+  font-size: var(--fs-meta);
+  font-weight: 600;
+  letter-spacing: var(--ls-meta);
+  color: var(--band-accent);
+  font-variant-numeric: tabular-nums;
+}
+.timeline__title { font-size: var(--fs-h3); margin-bottom: .45em; }
+.timeline__body { color: var(--band-dim); font-size: var(--fs-small); }
+
+.axes {
+  display: grid;
+  gap: 1px;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+  background: var(--band-rule);
+  border: 1px solid var(--band-rule);
+  list-style: none; margin: 0; padding: 0;
+}
+/* O número de colunas é dado, não deduzido: as divisórias são o fundo
+   aparecendo pelo vão de 1px, então uma célula vazia viraria um retângulo de
+   cor. Com auto-fit, seis itens em quatro colunas deixariam duas sobrando. */
+@media (min-width: 560px) { .axes { grid-template-columns: repeat(var(--cols-sm, 2), minmax(0, 1fr)); } }
+@media (min-width: 980px) { .axes { grid-template-columns: repeat(var(--cols-lg, 3), minmax(0, 1fr)); } }
+.axes > li { margin: 0; background: var(--band-bg); padding: clamp(20px, 2.4vw, 34px); }
+.axes__num {
+  display: block;
+  margin-bottom: 1em;
+  font-family: var(--ff-mono);
+  font-size: var(--fs-meta);
+  font-weight: 600;
+  letter-spacing: var(--ls-meta);
+  color: var(--band-accent);
+}
+.axes h3 { margin-bottom: .5em; }
+.axes p { font-size: var(--fs-small); color: var(--band-dim); }
+
+/* ---------------------------------------------------------------------------
+   17. Números com fonte declarada
+   Número sem origem não entra, e a origem fica visível ao lado do dado — não
+   numa nota de rodapé que ninguém lê. Onde não há dado, o campo some: nunca
+   aparece zero no lugar de "não medido".
+   --------------------------------------------------------------------------- */
+
+.stats {
+  display: grid;
+  gap: clamp(18px, 2.4vw, 36px);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 185px), 1fr));
+  list-style: none; margin: 0; padding: 0;
+}
+.stats > li { margin: 0; padding-top: 13px; border-top: 2px solid var(--band-accent); }
+.stat__v {
+  display: block;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+  font-family: var(--ff-display);
+  font-size: var(--fs-num);
+  line-height: 1;
+  letter-spacing: var(--ls-tight);
+  font-variant-numeric: tabular-nums;
+}
+.stat__k { display: block; margin-top: .5em; font-weight: 600; line-height: 1.3; }
+.stat__src {
+  display: block;
+  margin-top: .55em;
+  font-family: var(--ff-mono);
+  font-size: .66rem;
+  letter-spacing: .07em;
+  line-height: 1.5;
+  color: var(--band-dim);
+}
+
+/* ---------------------------------------------------------------------------
+   18. Figuras, galerias, foto sangrada
+   --------------------------------------------------------------------------- */
+
+figure { margin: 0; }
+.figure img { width: 100%; }
+.figure figcaption, .archivecaption {
+  margin-top: .8em;
+  font-family: var(--ff-mono);
+  font-size: var(--fs-meta);
+  letter-spacing: .05em;
+  line-height: 1.6;
+  color: var(--band-dim);
+}
+.archivecaption b, .archivecaption strong, .figure figcaption strong {
+  color: var(--band-ink);
+  font-weight: 600;
+  letter-spacing: var(--ls-meta);
+  text-transform: uppercase;
+}
+
+.gallery {
+  display: grid;
+  gap: clamp(10px, 1.4vw, 20px);
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 270px), 1fr));
+  list-style: none; margin: 0; padding: 0;
+}
+.gallery > li { margin: 0; }
+.gallery img { aspect-ratio: 3 / 2; object-fit: cover; width: 100%; }
+
+.fullbleed { position: relative; background: var(--pg-red-deep); }
+.fullbleed img { width: 100%; max-height: 74svh; object-fit: cover; }
+.fullbleed figcaption {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: clamp(40px, 6vw, 90px) var(--pad) clamp(14px, 1.8vw, 22px);
+  background: linear-gradient(to top, rgba(93, 4, 4, .92), rgba(93, 4, 4, 0));
+  color: rgba(255, 255, 255, .9);
+  font-family: var(--ff-mono);
+  font-size: var(--fs-meta);
+  letter-spacing: .05em;
+}
+.fullbleed figcaption strong {
+  color: var(--pg-yellow);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: var(--ls-meta);
+}
+
+/* ---------------------------------------------------------------------------
+   19. Ficha técnica, territórios, avisos
+   --------------------------------------------------------------------------- */
+
+.credits { margin: 0; }
+.credits__row { display: grid; gap: 4px clamp(16px, 2vw, 32px); padding: .85em 0; border-top: 1px solid var(--band-rule); }
+@media (min-width: 620px) { .credits__row { grid-template-columns: minmax(160px, 30%) 1fr; align-items: baseline; } }
+.credits__row:last-child { border-bottom: 1px solid var(--band-rule); }
+.credits dt {
+  font-family: var(--ff-mono);
+  font-size: var(--fs-meta);
+  font-weight: 600;
+  letter-spacing: var(--ls-meta);
+  text-transform: uppercase;
+  color: var(--band-dim);
+}
+.credits dd { margin: 0; font-weight: 600; }
+
+.territories {
+  display: grid;
+  gap: clamp(16px, 2vw, 28px);
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 210px), 1fr));
+  list-style: none; margin: 0; padding: 0;
+}
+.territories > li { margin: 0; padding-top: 13px; border-top: 1px solid var(--band-rule); }
+.territories h3 { font-size: var(--fs-h4); margin-bottom: .4em; }
+.territories p { font-size: var(--fs-small); color: var(--band-dim); margin: 0; }
+
+.note {
+  padding: clamp(16px, 2vw, 26px);
+  border-left: 3px solid var(--band-accent);
+  background: color-mix(in srgb, var(--band-ink) 5%, transparent);
+  font-size: var(--fs-small);
+}
+.note p:last-child { margin-bottom: 0; }
+.note__label {
+  display: block;
+  margin-bottom: .6em;
+  font-family: var(--ff-mono);
+  font-size: var(--fs-meta);
+  font-weight: 600;
+  letter-spacing: var(--ls-meta);
+  text-transform: uppercase;
+  color: var(--band-accent);
+}
+
+/* ---------------------------------------------------------------------------
+   20. Contato
+   --------------------------------------------------------------------------- */
+
+.contact { display: grid; gap: clamp(22px, 2.8vw, 44px); }
+@media (min-width: 800px) { .contact { grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); } }
+.contact__block h3 { font-size: var(--fs-h4); margin-bottom: .6em; }
+.contact__value { font-size: var(--fs-h3); font-weight: 700; overflow-wrap: anywhere; }
+.contact__value a { text-decoration-color: var(--band-accent); text-decoration-thickness: 2px; }
+
+/* ---------------------------------------------------------------------------
+   21. Rodapé
+   --------------------------------------------------------------------------- */
+
+.footer {
+  position: relative;
+  overflow: hidden;
+  background: var(--pg-red-deep);
+  color: var(--pg-white);
+  --band-bg: var(--pg-red-deep);
+  --band-ink: var(--pg-white);
+  --band-dim: rgba(255, 255, 255, .8);
+  --band-rule: rgba(255, 204, 0, .3);
+  --band-accent: var(--pg-yellow);
+  padding-block: clamp(44px, 5.6vw, 80px) clamp(26px, 3vw, 38px);
+}
+.footer > .shell { position: relative; z-index: 1; }
+.footer .cartografia { left: 3%; top: 50%; width: min(28%, 280px); transform: translateY(-50%); opacity: .06; color: var(--pg-yellow); }
+.footer__top {
+  display: grid;
+  gap: clamp(26px, 3.2vw, 52px);
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  padding-bottom: clamp(30px, 3.8vw, 52px);
+  border-bottom: 1px solid var(--band-rule);
+}
+.footer h2, .footer h3 { font-family: var(--ff-sans); font-weight: 800; font-size: var(--fs-h4); margin-bottom: .9em; color: var(--pg-yellow); }
+.footer__mark { width: min(190px, 70%); margin-bottom: 1.2em; }
+.footer__list { list-style: none; margin: 0; padding: 0; }
+.footer__list li { margin-bottom: .5em; }
+.footer__list a {
+  font-family: var(--ff-mono);
+  font-size: var(--fs-meta);
+  letter-spacing: var(--ls-meta);
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--band-dim);
+}
+.footer__list a:hover { color: var(--pg-yellow); }
+/* Endereço de e-mail em caixa alta é hostil de ler e de ditar. */
+.footer__plain { text-transform: none !important; letter-spacing: .02em !important; }
+.footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px clamp(18px, 3vw, 40px);
+  justify-content: space-between;
+  padding-top: clamp(18px, 2.2vw, 28px);
+  font-family: var(--ff-mono);
+  font-size: var(--fs-meta);
+  letter-spacing: .05em;
+  color: var(--band-dim);
+}
+.footer__bottom a { color: var(--band-dim); }
+.footer__bottom a:hover { color: var(--pg-yellow); }
+
+/* ---------------------------------------------------------------------------
+   22. Ampliação de fotografia
+   O <dialog> nativo já traz foco preso, Esc e camada de topo.
+   --------------------------------------------------------------------------- */
+
+.lightbox {
+  width: min(96vw, 1400px);
+  max-width: none;
+  max-height: 94svh;
+  padding: clamp(12px, 2vw, 26px);
+  border: 1px solid rgba(255, 204, 0, .4);
+  background: var(--pg-red-deep);
+  color: var(--pg-white);
+  --band-ink: var(--pg-white);
+  --band-dim: rgba(255, 255, 255, .8);
+  --band-accent: var(--pg-yellow);
+}
+.lightbox::backdrop { background: rgba(20, 4, 4, .94); }
+.lightbox__fig { display: flex; flex-direction: column; gap: .8em; }
+.lightbox__img { width: 100%; max-height: min(74svh, 800px); object-fit: contain; background: #000; }
+.lightbox__cap { margin: 0; }
+.lightbox__ui {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 10px;
+  margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(255, 204, 0, .3);
+}
+.lightbox__btn {
+  padding: .72em 1.1em;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, .4);
+  color: var(--pg-white);
+  font: 600 var(--fs-meta)/1 var(--ff-mono);
+  letter-spacing: var(--ls-meta);
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.lightbox__btn:hover { border-color: var(--pg-yellow); color: var(--pg-yellow); }
+.lightbox__close { margin-left: auto; }
+.lightbox__pos {
+  font-family: var(--ff-mono);
+  font-size: var(--fs-meta);
+  letter-spacing: var(--ls-meta);
+  color: rgba(255, 255, 255, .8);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------------------------------------------------------------------------
+   23. Movimento
+   Uma revelação curta na rolagem e nada mais. Sem parallax, sem scroll-jacking,
+   sem abertura obrigatória.
+   --------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-reveal] {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity .6s var(--ease), transform .6s var(--ease);
+  }
+  [data-reveal].is-in { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Sem JavaScript nada pode ficar escondido. */
+.no-js [data-reveal] { opacity: 1; transform: none; }
+
+/* ---------------------------------------------------------------------------
+   24. Impressão — o site também é material de imprensa.
+   --------------------------------------------------------------------------- */
+
+@media print {
+  .header, .nav, .skip-link, .filters, .tabs, .btnrow, .cartografia { display: none !important; }
+  body { background: #fff; color: #000; font-size: 11pt; }
+  .band { padding-block: 12pt; background: #fff !important; color: #000 !important; }
+  .band * { color: #000 !important; }
+  a[href^='http']::after { content: ' (' attr(href) ')'; font-size: 9pt; word-break: break-all; }
+  .hero { display: block; }
+  .hero__panel { background: #fff !important; color: #000 !important; padding: 0; }
+  .badge { border: 1pt solid #000; }
+}

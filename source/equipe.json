@@ -1,0 +1,621 @@
+[
+ {
+  "slug": "flavio-veloso",
+  "display_name": "Flávio Veloso",
+  "tier": "nucleo",
+  "role_line": "Fundador · Direção Artística · Curadoria · Fotografia · Produção Cultural",
+  "bio": "Fotógrafo, produtor cultural e curador com mais de 25 anos de trabalho com imagem. Carioca radicado em Florianópolis, é graduado em Ciências Biológicas e tecnólogo em Fotografia. Suas fotografias foram publicadas por National Geographic, The Washington Post, O Globo e Veja e integraram campanhas de Citibank, Itaú, Uber e Emirates; uma delas inspirou a fragrância Still Life in Rio, da perfumaria francesa Olfactive Studio. Fundador da Pátria Grande, dirigiu a primeira edição do FLACA e o Cine Retrata, foi curador e depois diretor de programação do FICA Garopaba, curador do Cineclube Vozes Veladas e produtor executivo dos cineclubes Educa Ambiental e Pátria Grande. Idealizou e ministrou o Curso Básico de Fotografia Digital #Abrindoacaixapreta.",
+  "bio_short": "Fundador da Pátria Grande e fotógrafo há mais de 25 anos. Dirigiu o FLACA e o Cine Retrata; curador e oficineiro no FICA.",
+  "projects": [
+   [
+    "fica-garopaba",
+    "FICA Garopaba"
+   ],
+   [
+    "flaca",
+    "FLACA"
+   ],
+   [
+    "vozes-veladas",
+    "Cineclube Vozes Veladas"
+   ],
+   [
+    "cine-retrata",
+    "Cine Retrata"
+   ],
+   [
+    "educa-ambiental",
+    "Cineclube Educa Ambiental"
+   ],
+   [
+    "cineclube-marighella",
+    "Cineclube Marighella"
+   ],
+   [
+    "cineclube-patria-grande",
+    "Cineclube Pátria Grande"
+   ],
+   [
+    "arte-para-voar",
+    "Arte para Voar"
+   ],
+   [
+    "abrindo-a-caixa-preta",
+    "#Abrindoacaixapreta"
+   ]
+  ],
+  "links": [
+   {
+    "href": "https://www.flavioveloso.com",
+    "label": "flavioveloso.com"
+   }
+  ],
+  "photo": {
+   "name": "flavio-veloso",
+   "widths": [
+    640,
+    320
+   ]
+  }
+ },
+ {
+  "slug": "cristovam-muniz",
+  "display_name": "Cristovam Muniz",
+  "tier": "nucleo",
+  "role_line": "Direção · Curadoria · Programação Audiovisual",
+  "bio": "Biólogo pela UNIRIO e mestre em Zoologia pelo Museu Nacional/UFRJ, atua em produção cultural desde 2010 e em cinema desde 2019. Começou pela música, produzindo discos e shows dos grupos catarinenses Côro de Gato e Projeto Nosso Samba, com artistas como Nelson Sargento e Moacyr Luz. Dirigiu as três primeiras edições do FICA Garopaba e assumiu a direção de curadoria da quarta; dirigiu o Cineclube Pátria Grande, coordenou a curadoria do Cine Retrata e do Cineclube Educa Ambiental e coidealizou os cineclubes Marighella e Vozes Veladas. Também produziu as exposições fotográficas Encantos da Ilha, Retratos Quilombolas e Mulheres de Areia.",
+  "bio_short": "Diretor e curador de cinema ambiental: dirigiu as três primeiras edições do FICA Garopaba e coordena curadorias de cineclubes.",
+  "projects": [
+   [
+    "fica-garopaba",
+    "FICA Garopaba"
+   ],
+   [
+    "vozes-veladas",
+    "Cineclube Vozes Veladas"
+   ],
+   [
+    "cine-retrata",
+    "Cine Retrata"
+   ],
+   [
+    "educa-ambiental",
+    "Cineclube Educa Ambiental"
+   ],
+   [
+    "cineclube-marighella",
+    "Cineclube Marighella"
+   ],
+   [
+    "cineclube-patria-grande",
+    "Cineclube Pátria Grande"
+   ],
+   [
+    "arte-para-voar",
+    "Arte para Voar"
+   ]
+  ],
+  "links": [],
+  "photo": {
+   "name": "cristovam-muniz",
+   "widths": [
+    640,
+    320
+   ]
+  }
+ },
+ {
+  "slug": "giulia-giacomolli",
+  "display_name": "Giulia Giacomolli",
+  "tier": "nucleo",
+  "role_line": "Produção Executiva · Gestão de Projetos",
+  "bio": "Produtora executiva, analista de projetos e assistente social, Giulia Giacomolli atua desde 2018 em projetos culturais, sociais e de desenvolvimento comunitário. É graduada e mestre em Serviço Social. Foi produtora executiva da 2ª edição do FICA Garopaba, em 2023, e assina como produtora executiva e proponente a primeira edição do FLACA e o Cine Retrata, ambos de 2025. Fora do audiovisual, produziu edições do Festival de Dança de Florianópolis “Prêmio Desterro” e da Mostra de Dança Infantil “A noite é uma criança” em cinco cidades, e trabalhou como assistente social em casa de acolhimento para mulheres em situação de violência doméstica.",
+  "bio_short": "Produtora executiva e proponente da 1ª edição do FLACA e do Cine Retrata; mestre em Serviço Social.",
+  "projects": [
+   [
+    "fica-garopaba",
+    "FICA Garopaba"
+   ],
+   [
+    "flaca",
+    "FLACA"
+   ],
+   [
+    "cine-retrata",
+    "Cine Retrata"
+   ]
+  ],
+  "links": [],
+  "photo_credit": "Flávio Veloso",
+  "photo": {
+   "name": "giulia-giacomolli",
+   "widths": [
+    640,
+    320
+   ]
+  }
+ },
+ {
+  "slug": "thais-alemany",
+  "display_name": "Thais Alemany",
+  "tier": "nucleo",
+  "role_line": "Produção Executiva · Direção de Produção",
+  "bio": "Produtora executiva cultural e audiovisual de Florianópolis, Thais Alemany atua há mais de dez anos em toda a cadeia produtiva, do orçamento à prestação de contas. Estudou Curadoria e Gestão de Mostras e Festivais de Cinema na EICTV, em Cuba, e é formada em Letras pela UFSC. No FICA Garopaba, assinou a produção executiva das edições de 2024 e 2025. Criou a Expancine Produções, com a qual coordenou as duas edições do Festival Ó Lhó Lhó e produz projetos de cinema, circo, dança, literatura e artes visuais. Antes, passou pelo SESC-SC, pelos festivais FAM e Planeta.Doc e, em São Paulo, pela O2 Filmes e pela Estilingue Filmes.",
+  "bio_short": "Produtora executiva do FICA nas edições de 2024 e 2025 e criadora da Expancine Produções.",
+  "projects": [
+   [
+    "fica-garopaba",
+    "FICA Garopaba"
+   ]
+  ],
+  "links": []
+ },
+ {
+  "slug": "eron-nascimento",
+  "display_name": "Eron Nascimento",
+  "tier": "nucleo",
+  "role_line": "Cineclubismo · Curadoria · Direção · Articulação Socioambiental",
+  "bio": "Cientista social e produtor cultural, é bacharel e licenciado em Ciências Sociais pela UFSC e especialista em Educação, Comunicação e Tecnologias. Também atua como professor e consultor ambiental. Trabalha há cerca de sete anos com curadoria, produção e direção de projetos culturais. Assina a curadoria do FICA Garopaba desde a primeira edição, em 2022, até a de 2025, e foi curador e assistente de produção da primeira edição do FLACA, em 2025. É idealizador e diretor geral do Cineclube Educa Ambiental, realizado em Florianópolis em 2024 e 2025. Antes, foi curador das quatro primeiras edições do FICASC, na Serra Catarinense, e da primeira edição do festival Calango, em Brasília.",
+  "bio_short": "Cientista social e produtor: curador do FICA Garopaba e do FLACA, diretor geral do Cineclube Educa Ambiental.",
+  "projects": [
+   [
+    "fica-garopaba",
+    "FICA Garopaba"
+   ],
+   [
+    "flaca",
+    "FLACA"
+   ],
+   [
+    "educa-ambiental",
+    "Cineclube Educa Ambiental"
+   ]
+  ],
+  "links": [],
+  "photo": {
+   "name": "eron-nascimento",
+   "widths": [
+    640,
+    320
+   ]
+  }
+ },
+ {
+  "slug": "esteban-zapata",
+  "display_name": "Esteban Zapata",
+  "tier": "nucleo",
+  "role_line": "Tradução · Legendagem · Interpretação",
+  "bio": "Tradutor, legendador e intérprete, é bacharel em Letras — Língua Espanhola pela Universidade Federal de Santa Catarina e trabalha há mais de dez anos com tradução e legendagem de filmes. Uruguaio radicado em Florianópolis, assina tradução e legendagem em festivais de cinema ambiental: integrou a equipe do 3º FICA Garopaba, em 2024, e a da primeira edição do FLACA, em 2025, além de ter trabalhado no FICASC e no festival de cinema ambiental de Guaporé. Deu aulas de espanhol no curso extracurricular de línguas estrangeiras da UFSC e no pré-universitário Integrar. É também técnico em Guia de Turismo pelo IFSC, profissão que exerce na cidade, e violinista.",
+  "bio_short": "Tradutor, legendador e intérprete uruguaio radicado em Florianópolis; tradução e legendagem no 3º FICA e no FLACA.",
+  "projects": [
+   [
+    "fica-garopaba",
+    "FICA Garopaba"
+   ],
+   [
+    "flaca",
+    "FLACA"
+   ]
+  ],
+  "links": [],
+  "photo": {
+   "name": "esteban-zapata",
+   "widths": [
+    640,
+    320
+   ]
+  }
+ },
+ {
+  "slug": "lennon-da-silva-rocha",
+  "display_name": "Lennon da Silva Rocha",
+  "tier": "nucleo",
+  "role_line": "Produção Técnico-Cultural · Cineclubismo · Tecnologia",
+  "bio": "Atua em cineclubismo, produção cultural, curadoria, mediação e suporte técnico audiovisual. Sua trajetória em cineclubismo e formação popular começa na década de 2010, entre organização de sessões, oficinas, debates e formação de público — passou pelo CineCASTA, em Porto Alegre, e pela Escola Popular de Tecnologia do Instituto Caeté. Em Santa Catarina, responde pela execução técnica das exibições, pela organização das sessões e por atividades formativas nos cineclubes Vozes Veladas, Marighella e Pátria Grande. Trabalha em paralelo como desenvolvedor de sistemas sênior e assina seus projetos de tecnologia como [desterrocore](https://desterrocore.com.br), aproximando infraestrutura digital e produção cultural.",
+  "bio_short": "Cineclubista e produtor técnico-cultural; desenvolvedor de sistemas sênior, assina como desterrocore.",
+  "projects": [
+   [
+    "vozes-veladas",
+    "Cineclube Vozes Veladas"
+   ],
+   [
+    "cineclube-marighella",
+    "Cineclube Marighella"
+   ],
+   [
+    "cineclube-patria-grande",
+    "Cineclube Pátria Grande"
+   ]
+  ],
+  "links": [
+   {
+    "href": "https://desterrocore.com.br",
+    "label": "desterrocore"
+   }
+  ],
+  "photo": {
+   "name": "lennon-da-silva-rocha",
+   "widths": [
+    640,
+    320
+   ]
+  }
+ },
+ {
+  "slug": "amanda-caroline",
+  "display_name": "Amanda Caroline",
+  "tier": "rede",
+  "role_line": "Educação · Pesquisa em História",
+  "bio": "Amanda Caroline de Oliveira é professora de História na rede pública de Santa Catarina, pesquisadora em História Agrária do Brasil e doutoranda pelo Programa de Pós-Graduação em História da UFSC. Sua formação política vem da participação em movimentos populares e estudantis, experiência que ela associa ao compromisso com a educação e com a transformação social. No ensino, trabalha as múltiplas expressões artísticas como material de aula: procura integrar a História à cultura material, à dança, ao cinema e à literatura. É esse cruzamento entre pesquisa acadêmica, sala de aula da escola pública e linguagens artísticas que marca sua atuação.",
+  "bio_short": "Professora de História na rede pública de Santa Catarina e doutoranda pela UFSC, pesquisadora em História Agrária do Brasil.",
+  "projects": [],
+  "links": [],
+  "photo": {
+   "name": "amanda-caroline",
+   "widths": [
+    640,
+    320
+   ]
+  }
+ },
+ {
+  "slug": "carolina-rogelin",
+  "display_name": "Carolina Rögelin",
+  "tier": "rede",
+  "role_line": "Libras · Acessibilidade · Tradução e Interpretação",
+  "bio": "Carolina Rögelin é tradutora e intérprete de Libras, com atuação na área artística e em acessibilidade cultural. Formada em Letras-Libras pela UFSC e em Artes Visuais pela UDESC, acumula mais de quinze anos de trabalho com dança — foi pelo caminho do corpo que chegou à língua de sinais e à cultura surda. Atua em peças teatrais, shows, festivais e museus, com interpretação e produção de materiais educativos em Libras. Integra a equipe de intérpretes da Fundação Catarinense de Educação Especial (FCEE), com foco na interpretação comunitária. Define o próprio trabalho em uma frase: \"Falo com as mãos e de corpo inteiro\".",
+  "bio_short": "Tradutora e intérprete de Libras (UFSC), com quinze anos de dança e atuação em acessibilidade cultural.",
+  "projects": [],
+  "links": [],
+  "photo": {
+   "name": "carolina-rogelin",
+   "widths": [
+    640,
+    320
+   ]
+  }
+ },
+ {
+  "slug": "denise-de-castro",
+  "display_name": "Denise de Castro",
+  "tier": "rede",
+  "role_line": "Música · Composição · Piano e Voz",
+  "bio": "Denise de Castro é compositora, cantora e pianista nascida em Florianópolis. Licenciada em Música pelo Centro de Artes da UDESC, fez também o Curso Livre de Canto Popular e Leitura Rítmica da ULM São Paulo. Gravou dois discos autorais, Espírito da Terra (1997) e Todas as Ondas (2010), e ocupa a cadeira 22 da Academia Catarinense de Letras e Artes. Em 2019 lançou, pela Insular, o livro Poesia nos Olhos. Compôs as trilhas das vídeo-reportagens Menino Rendeiro, Mariazinha e Pescadeiras e, em 2022, assinou composição e piano na trilha do documentário Eglê Malheiros. É professora de piano, teclado e canto no espaço cultural Wagner Segura e arranjadora e pianista do grupo vocal Odara.",
+  "bio_short": "Compositora, cantora e pianista de Florianópolis, com dois discos autorais e trilhas para documentário e vídeo-reportagens.",
+  "projects": [],
+  "links": [
+   {
+    "href": "https://www.youtube.com/user/denisedecastro1",
+    "label": "YouTube"
+   },
+   {
+    "href": "https://www.instagram.com/denisedecastro1",
+    "label": "Instagram"
+   },
+   {
+    "href": "https://www.facebook.com/denise.decastro1",
+    "label": "Facebook"
+   },
+   {
+    "href": "https://on.soundcloud.com/QnUUw",
+    "label": "SoundCloud"
+   }
+  ],
+  "photo": {
+   "name": "denise-de-castro",
+   "widths": [
+    640,
+    320
+   ]
+  }
+ },
+ {
+  "slug": "ediane-oliveira",
+  "display_name": "Ediane Oliveira",
+  "tier": "rede",
+  "role_line": "Assessoria de Imprensa · Comunicação",
+  "bio": "Jornalista formada pela UCPel, mestre em Antropologia pela UFPel e doutoranda em Jornalismo na UFSC, onde integra o grupo de pesquisa TRANSVERSO. Atuou por mais de dez anos na Rádiocom 104,5 FM, em Pelotas, produzindo e apresentando programa jornalístico diário sobre cultura, política e sociedade. Foi sócia-fundadora da Maria Bonita Comunicação, agência de assessoria de imprensa para sindicatos, instituições, artistas e movimentos sociais, e coordenou o Festival Internacional MozBrasil, de intercâmbio entre artistas brasileiros e moçambicanos. Idealizou e fez a curadoria do livro Do fogo que arde em nós, contemplado pela Lei Aldir Blanc. Em 2020 recebeu o Prêmio Movimento, categoria Trajetória Cultural, em Pelotas. É repórter do Portal Catarinas e assinou a assessoria de imprensa do FLACA 2025.",
+  "bio_short": "Jornalista, mestre em Antropologia e doutoranda em Jornalismo; assinou a assessoria de imprensa do FLACA 2025.",
+  "projects": [
+   [
+    "flaca",
+    "FLACA"
+   ]
+  ],
+  "links": [
+   {
+    "href": "http://lattes.cnpq.br/6526383712077665",
+    "label": "Lattes"
+   },
+   {
+    "href": "https://instagram.com/ediane_oliv",
+    "label": "Instagram"
+   }
+  ],
+  "photo": {
+   "name": "ediane-oliveira",
+   "widths": [
+    640,
+    320
+   ]
+  }
+ },
+ {
+  "slug": "fabio-ferraz",
+  "display_name": "Fabio Ferraz",
+  "tier": "rede",
+  "role_line": "Educação Ambiental · Agroecologia",
+  "bio": "Fabio Coimbra Ferraz é engenheiro agrônomo formado pela UFSC, assentado da reforma agrária e educador quilombola. Acumula mais de dez anos de experiência em produção agroecológica, com qualificação técnica em recuperação de áreas degradadas, transição agroecológica e sistemas de compostagem de resíduos sólidos e orgânicos. Conduz oficinas, cursos e ações formativas voltadas à educação ambiental, aproximando o manejo da terra de contextos de formação e de organização comunitária. Sua atuação parte da experiência direta no campo — do assentamento e do território quilombola — e chega ao trabalho educativo, em que a agroecologia se torna conteúdo de oficina e de curso.",
+  "bio_short": "Engenheiro agrônomo, assentado da reforma agrária e educador quilombola, com mais de dez anos em produção agroecológica.",
+  "projects": [],
+  "links": [],
+  "photo": {
+   "name": "fabio-ferraz",
+   "widths": [
+    640,
+    320
+   ]
+  }
+ },
+ {
+  "slug": "jia",
+  "display_name": "Jia",
+  "tier": "rede",
+  "role_line": "Produção Assistente",
+  "bio": "Jia é produtora assistente. Paulista, é comunicadora e educadora, e atua na mediação de conflitos sociais e políticos. Mora em Garopaba há quatro anos e integra a equipe de produção do FICA — Festival Internacional de Cinema Ambiental de Garopaba.",
+  "bio_short": "Produtora assistente do FICA; paulista, comunicadora e educadora, moradora de Garopaba há quatro anos.",
+  "projects": [
+   [
+    "fica-garopaba",
+    "FICA Garopaba"
+   ]
+  ],
+  "links": []
+ },
+ {
+  "slug": "juliano-zanotelli",
+  "display_name": "Juliano Zanotelli",
+  "tier": "rede",
+  "role_line": "Jornalismo · Assessoria de Imprensa",
+  "bio": "Jornalista desde 2005, com registro profissional MTb/SC, é graduado em Comunicação Social — Jornalismo pela Universidade do Contestado, em Concórdia, e pós-graduado pela Unochapecó em Jornalismo: Linguagens Contemporâneas e Novas Tecnologias e em Criatividade: Arte e Tecnologias. Passou por revistas, jornais, sites e emissoras de TV: foi pauteiro e produtor na RICTV Record e editor no clicRBS, em Chapecó, diretor de redação da Revista de Chapecó, repórter do Diário Catarinense e produtor, pauteiro e editor da RBS TV, além de trabalhos para NSC TV, G1 SC e ND Mais. Desde 2018 mantém a Juliano Zanotelli Assessoria e Consultoria de Imprensa, em Florianópolis, com produção de conteúdo e assessoria para agências e veículos de Santa Catarina.",
+  "bio_short": "Jornalista desde 2005, com passagens por RBS TV, Diário Catarinense e NSC TV; hoje atua em assessoria de imprensa.",
+  "projects": [],
+  "links": [
+   {
+    "href": "https://www.linkedin.com/in/juliano-zanotelli-516058b8/",
+    "label": "LinkedIn"
+   }
+  ],
+  "photo": {
+   "name": "juliano-zanotelli",
+   "widths": [
+    640,
+    320
+   ]
+  }
+ },
+ {
+  "slug": "lays-matias",
+  "display_name": "Lays Matias",
+  "tier": "rede",
+  "role_line": "Dança · Samba · Coreografia",
+  "bio": "Lays Matias é bacharela em Educação Física, professora de samba, bailarina e coreógrafa. Está há mais de uma década na cena da dança e parte de uma ideia direta: corpos que falam, resistem e encantam pelo movimento. Passista — \"eternamente passista\", como ela mesma se define —, foi Rainha do Carnaval de Florianópolis em 2020, 2021 e 2022 e é Cidadã Samba de Florianópolis. A frase que usa para resumir o próprio trabalho: \"Acredito no samba como cura, resistência, liberdade e amor\".",
+  "bio_short": "Bacharela em Educação Física, passista e coreógrafa; Rainha do Carnaval de Florianópolis em 2020, 2021 e 2022.",
+  "projects": [],
+  "links": [],
+  "photo": {
+   "name": "lays-matias",
+   "widths": [
+    640,
+    320
+   ]
+  }
+ },
+ {
+  "slug": "luna-vanzella",
+  "display_name": "Luna Vanzella",
+  "tier": "rede",
+  "role_line": "Curadoria · Coordenação de Curadoria",
+  "bio": "Luna Vanzella é bacharel em Cinema pela UFSC. Durante a graduação, integrou o Centro Acadêmico de Cinema e o DCE Luis Travassos, e pesquisou difusão militante de cinema e democratização da arte. Atua no movimento LGBTQIAPN+ de Florianópolis, principalmente junto a pessoas trans e travestis. É curadora do FICA — Festival Internacional de Cinema Ambiental de Garopaba — e coordenadora de curadoria do FLACA — Festival Latino-Americano de Cinema Ambiental, os dois festivais de cinema ambiental ligados ao ecossistema da Pátria Grande.",
+  "bio_short": "Bacharel em Cinema pela UFSC; curadora do FICA e coordenadora de curadoria do FLACA.",
+  "projects": [
+   [
+    "fica-garopaba",
+    "FICA Garopaba"
+   ],
+   [
+    "flaca",
+    "FLACA"
+   ]
+  ],
+  "links": [],
+  "photo": {
+   "name": "luna-vanzella",
+   "widths": [
+    640,
+    320
+   ]
+  }
+ },
+ {
+  "slug": "marcela-guitarrarra",
+  "display_name": "Marcela Guitarrarra",
+  "tier": "rede",
+  "role_line": "Social Media · Conteúdo e Roteiro",
+  "bio": "Engenheira de formação, Marcela Guitarrarra atua como social media, criando conteúdos, roteiros e edições que conectam projetos sociais e pessoas. A apresentação que escreveu descreve uma trajetória que parte da engenharia e da dança e encontra no ambiente digital um novo palco. Fora das telas, dá aulas de samba de gafieira e de danças de salão e produz festas artesanais, feitas de papel e tesoura. Resume o próprio ofício em uma frase: comunicar é mais do que postar, é emocionar, engajar e inspirar.",
+  "bio_short": "Social media e professora de samba de gafieira; cria conteúdos, roteiros e edições para projetos sociais.",
+  "projects": [],
+  "links": [],
+  "photo": {
+   "name": "marcela-guitarrarra",
+   "widths": [
+    640,
+    320
+   ]
+  }
+ },
+ {
+  "slug": "marta-siminhuk",
+  "display_name": "Marta Siminhuk",
+  "tier": "rede",
+  "role_line": "Curadoria · Produção Cultural",
+  "bio": "Marta Siminhuk é curadora e produtora cultural. Sua formação vem da engenharia: é técnica em Edificações e técnica em Saneamento pelo Instituto Federal de Santa Catarina (IFSC) e cursa, na mesma instituição, a graduação em Engenharia Civil. O documento que ela enviou registra apenas essa combinação — formação técnica em infraestrutura e atuação no campo da cultura — e não especifica em quais mostras, festivais ou cineclubes exerceu curadoria e produção, nem em que períodos. As funções que assumiu em projetos da Pátria Grande Produções precisam ser confirmadas com a equipe antes de serem publicadas.",
+  "bio_short": "Curadora e produtora cultural; técnica em Edificações e Saneamento e graduanda em Engenharia Civil no IFSC.",
+  "projects": [],
+  "links": [],
+  "photo": {
+   "name": "marta-siminhuk",
+   "widths": [
+    640,
+    320
+   ]
+  }
+ },
+ {
+  "slug": "mauricio-garcias",
+  "display_name": "Maurício Garcias",
+  "tier": "rede",
+  "role_line": "Fotografia · Artes Visuais · Curadoria",
+  "bio": "Maurício Garcias é artista visual e fotógrafo, criado em Florianópolis. Descreve a própria prática como a de um homem negro em movimento pela cidade, ao mesmo tempo observador e observado: a fotografia lhe serve para construir memória e identidade e também como espaço de autoconhecimento, de encontro e de conexão com outras pessoas. Já participou de diferentes exposições e apresentou uma individual em Florianópolis. Além da fotografia, atua em curadorias e em festivais de cinema em Santa Catarina.",
+  "bio_short": "Artista visual e fotógrafo de Florianópolis; atua também em curadorias e festivais de cinema em Santa Catarina.",
+  "projects": [],
+  "links": [],
+  "photo": {
+   "name": "mauricio-garcias",
+   "widths": [
+    640,
+    320
+   ]
+  }
+ },
+ {
+  "slug": "peri-dias-luersen",
+  "display_name": "Peri Dias Luersen",
+  "tier": "rede",
+  "role_line": "Produção Audiovisual · Gravação · Edição",
+  "bio": "Peri Dias Luersen é produtor audiovisual, natural de Florianópolis, cidade onde também trabalha. Sua atuação transita entre gravação, edição e criação de conteúdos audiovisuais, com trabalhos que procuram unir técnica, estética e emoção para dialogar com públicos e contextos diferentes.",
+  "bio_short": "Produtor audiovisual de Florianópolis, atuando entre gravação, edição e criação de conteúdos.",
+  "projects": [],
+  "links": [],
+  "photo": {
+   "name": "peri-dias-luersen",
+   "widths": [
+    640,
+    320
+   ]
+  }
+ },
+ {
+  "slug": "sara-borem",
+  "display_name": "Sara Borém",
+  "tier": "rede",
+  "role_line": "Gestão Socioambiental · Produção Cultural",
+  "bio": "Sara Borém é engenheira sanitarista e ambiental formada pela UFSC, gestora de sustentabilidade e produtora cultural. Atua na gestão socioambiental de eventos culturais, desenhando estratégias de redução, triagem e destinação de resíduos sólidos sob a lógica Menos Lixo e a valorização do trabalho dos catadores de materiais recicláveis — parceria que ela própria descreve como sua militância atual. Desde 2022, seus projetos registram índices de até 95% de desvio de resíduos do aterro sanitário, por reciclagem e compostagem. É idealizadora do Centro Leste Menos Lixo, em Florianópolis, e coordena ações que articulam cultura, educação ambiental e mobilização social. Integra ainda coletivos ligados à agroecologia, ao direito à cidade e à ocupação cultural dos espaços urbanos.",
+  "bio_short": "Engenheira sanitarista e produtora cultural; faz gestão socioambiental de eventos e trabalha com catadores de materiais recicláveis.",
+  "projects": [],
+  "links": [],
+  "photo": {
+   "name": "sara-borem",
+   "widths": [
+    640,
+    320
+   ]
+  }
+ },
+ {
+  "slug": "sara-santos",
+  "display_name": "Sara Santos",
+  "tier": "rede",
+  "role_line": "Produção · Cineclubismo · Articulação Territorial",
+  "bio": "Assistente social e produtora cultural. Desde 2018 atua na criação de espaços culturais e de debate voltados às expressões da questão social, articulando arte, território e comunidade. Trabalha com poesia desde 2022 e com cineclubismo a partir de 2023. Participou da produção coletiva das edições do Slam Cruz e Sousa e do Slam SC, em 2022 e 2023. Desde 2023 é idealizadora e produtora do Cineclube Vozes Veladas, projeto de exibições públicas e gratuitas com ênfase em produções independentes, contemplado com recursos do Prêmio Catarinense de Cinema (edição especial Lei Paulo Gustavo, 2024) e da Política Nacional Aldir Blanc (2025).",
+  "bio_short": "Assistente social e produtora cultural, idealizadora e produtora do Cineclube Vozes Veladas desde 2023.",
+  "projects": [
+   [
+    "vozes-veladas",
+    "Cineclube Vozes Veladas"
+   ]
+  ],
+  "links": [],
+  "photo_credit": "Maurício Garcias",
+  "photo": {
+   "name": "sara-santos",
+   "widths": [
+    640,
+    320
+   ]
+  }
+ },
+ {
+  "slug": "sarah-laranjeiras",
+  "display_name": "Sarah Laranjeiras",
+  "tier": "rede",
+  "role_line": "Direção Criativa · Conteúdo para Redes",
+  "bio": "Sarah Laranjeiras atua na direção criativa de roteiros e de conteúdos para redes sociais. Passou pelos setores de design, fotografia e audiovisual, repertório que sustenta seu trabalho de marketing para negócios e projetos culturais.",
+  "bio_short": "Direção criativa de roteiros e conteúdos para redes sociais, com passagem por design, fotografia e audiovisual.",
+  "projects": [],
+  "links": [],
+  "photo": {
+   "name": "sarah-laranjeiras",
+   "widths": [
+    640,
+    320
+   ]
+  }
+ },
+ {
+  "slug": "tayna-oliveira",
+  "display_name": "Tayná Oliveira",
+  "tier": "rede",
+  "role_line": "Curadoria · Produção Executiva · Cineclubismo",
+  "bio": "Assistente social e produtora cultural, atua desde 2018 em produção cultural e desenvolvimento comunitário, com trabalho direto em direção e produção executiva. Começou em projetos sociais em Pelotas (RS) e, em 2022, organizou a Brigada de Saúde Comunitária Ivone Lara em ocupações urbanas da Palhoça. Foi produtora do II FICA Garopaba, em 2023, e assinou a curadoria do festival em 2025. É idealizadora e diretora do Cineclube Vozes Veladas, que desde 2023 faz sessões gratuitas no centro de Florianópolis, e foi produtora executiva dos cineclubes Pátria Grande, Marighella e Educa Ambiental em 2024. No mesmo ano dirigiu \"Um Cinema no Museu\", em Joinville. Coordena o bloco Comuna Que Pariu.",
+  "bio_short": "Assistente social e produtora cultural: curadoria do FICA 2025, direção do Cineclube Vozes Veladas e produção executiva dos cineclubes.",
+  "projects": [
+   [
+    "fica-garopaba",
+    "FICA Garopaba"
+   ],
+   [
+    "vozes-veladas",
+    "Cineclube Vozes Veladas"
+   ],
+   [
+    "cineclube-patria-grande",
+    "Cineclube Pátria Grande"
+   ],
+   [
+    "cineclube-marighella",
+    "Cineclube Marighella"
+   ],
+   [
+    "educa-ambiental",
+    "Cineclube Educa Ambiental"
+   ]
+  ],
+  "links": [],
+  "photo": {
+   "name": "tayna-oliveira",
+   "widths": [
+    640,
+    320
+   ]
+  }
+ },
+ {
+  "slug": "vanderlan-junior",
+  "display_name": "Vanderlan Junior",
+  "tier": "rede",
+  "role_line": "Dança · Samba · Ensino",
+  "bio": "Vanderlan da Costa Júnior é bacharel em Educação Física, professor e dançarino de samba. Sua trajetória é dedicada ao ensino e à vivência do movimento, e une técnica, ancestralidade e prática na difusão do samba. Entende a dança como ato afetivo e transformador, caminho de conexão com o corpo, com o outro e com a história, e conduz os trabalhos com leveza, escuta e firmeza. É Cidadão Samba da Escola de Samba Embaixada Copa Lord e de Florianópolis, título que assume como compromisso de representar e valorizar a cultura do samba. \"No compasso do samba, encontro liberdade, força e identidade\".",
+  "bio_short": "Bacharel em Educação Física, professor e dançarino de samba; Cidadão Samba da Embaixada Copa Lord e de Florianópolis.",
+  "projects": [],
+  "links": [],
+  "photo_credit": "Antonio Husadel",
+  "photo": {
+   "name": "vanderlan-junior",
+   "widths": [
+    640,
+    320
+   ]
+  }
+ }
+]

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://desterrocore.github.io/patriagrande/sitemap.xml

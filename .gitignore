@@ -1,0 +1,16 @@
+# Material de origem: 111 MB de PDFs, currículos e fotografias em resolução
+# integral. É a matéria-prima do site, não o site — fica na máquina de quem
+# edita. Tudo que a página publica é derivado dele por tools/build-images.py.
+reference-content/
+
+# Sistema operacional e editores
+.DS_Store
+Thumbs.db
+*~
+.idea/
+.vscode/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
