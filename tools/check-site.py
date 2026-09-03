@@ -45,10 +45,10 @@ SENSITIVE = [
     (re.compile(r"meucnpj@", re.I), "e-mail contábil interno"),
 ]
 
-# Diretórios que existem no repositório mas não são rotas do site. "_site" é o
-# mais importante: o workflow monta a cópia a publicar ANTES de rodar esta
-# verificação, e sem esta lista o verificador compara cada página com o clone
-# dela mesma e acusa título duplicado.
+# Diretórios que existem no repositório mas não são rotas do site. "_site" só
+# aparece quando alguém roda o passo de montagem localmente — no workflow a
+# verificação vem antes — e sem esta lista o verificador compararia cada página
+# com o clone dela mesma e acusaria título duplicado.
 NOT_ROUTES = {"_site", "assets", "source", "tools", "reference-content", "node_modules"}
 
 # O histórico de um projeto só admite execução concluída. 2026 é o ano corrente,
@@ -260,19 +260,95 @@ def check_pages() -> None:
             if pattern.search(text):
                 fail(f"{rel}: publica {label} — remover (§28.8).")
 
-        # Links internos
+        # Links internos. O 404 usa caminho de raiz — é a única página servida
+        # num endereço que ela não conhece —, então "/algo" resolve a partir da
+        # raiz do site, não do diretório da página.
         for href in parser.links:
             if href.startswith(("http://", "https://", "mailto:", "tel:", "#", "data:")):
                 continue
-            target = (page.parent / href).resolve()
-            if target.is_dir():
-                target = target / "index.html"
-            elif href.endswith("/"):
+            base = ROOT if href.startswith("/") else page.parent
+            target = (base / href.lstrip("/")).resolve()
+            # Um href terminado em barra aponta para o índice do diretório —
+            # inclusive "/", que resolve para a própria raiz.
+            if target.is_dir() or href.endswith("/"):
                 target = target / "index.html"
             if not target.exists():
                 fail(f"{rel}: link quebrado → {href}")
 
     notes.append(f"{len(pages)} páginas verificadas.")
+
+
+def check_domain() -> None:
+    """O arquivo CNAME e o BASE_URL do gerador têm de falar do mesmo domínio.
+
+    Se divergirem, nada quebra visivelmente: o site abre no domínio do CNAME e
+    publica tags canônicas apontando para outro endereço. O buscador segue a
+    canônica, indexa o domínio errado e o certo some do índice — um erro caro e
+    silencioso, exatamente o tipo que uma verificação deve pegar.
+    """
+    cname = ROOT / "CNAME"
+    base = re.search(
+        r'^BASE_URL\s*=\s*"([^"]+)"',
+        (ROOT / "tools" / "build-site.py").read_text(encoding="utf-8"),
+        re.M,
+    )
+    if not base:
+        fail("tools/build-site.py: BASE_URL não encontrado.")
+        return
+    base_url = base.group(1)
+
+    if not cname.exists():
+        # Com publicação via Actions, quem manda no domínio é Settings → Pages,
+        # que este script não consegue ler. Sem o CNAME versionado não há como
+        # conferir coerência nenhuma — então o arquivo é exigido, justamente
+        # para que exista uma declaração de domínio dentro do repositório.
+        fail(
+            f"CNAME ausente. BASE_URL é {base_url} e nada no repositório declara "
+            "o domínio — crie o CNAME com o domínio publicado em Settings → Pages."
+        )
+        return
+
+    raw = cname.read_text(encoding="utf-8")
+    host = raw.strip()
+    if len(raw.strip().splitlines()) != 1:
+        fail("CNAME: deve conter exatamente uma linha, só o domínio.")
+    if "://" in host or "/" in host:
+        fail(f'CNAME: "{host}" — sem protocolo e sem barra, apenas o domínio.')
+    if not re.fullmatch(r"[a-z0-9.-]+\.[a-z]{2,}", host):
+        fail(f'CNAME: "{host}" não parece um domínio válido.')
+
+    base_host = re.sub(r"^https?://", "", base_url).split("/")[0]
+    if host and base_host and host != base_host:
+        fail(
+            f'CNAME diz "{host}" e BASE_URL diz "{base_host}". As tags canônicas, o '
+            "og:url e o sitemap apontariam para um domínio diferente do que serve o site."
+        )
+    if base_url.endswith("/"):
+        fail("tools/build-site.py: BASE_URL não deve terminar em barra.")
+
+    # O sitemap declarado no robots.txt precisa ser o mesmo domínio. Este é o
+    # único arquivo do site com o domínio escrito à mão: build-site.py não o gera.
+    robots = (ROOT / "robots.txt").read_text(encoding="utf-8")
+    m = re.search(r"^Sitemap:\s*(\S+)", robots, re.M)
+    if m and not m.group(1).startswith(base_url):
+        fail(f"robots.txt aponta o sitemap para {m.group(1)}, fora de {base_url}.")
+
+    # O artefato precisa levar o CNAME. É dispensável enquanto a publicação sair
+    # do Actions, mas some sem aviso se um dia ela voltar a sair de um branch.
+    wf = ROOT / ".github" / "workflows" / "deploy-pages.yml"
+    if wf.exists() and "cp CNAME _site/" not in wf.read_text(encoding="utf-8"):
+        fail("deploy-pages.yml não copia o CNAME para _site/.")
+
+    # E o HTML commitado precisa ter sido gerado com o BASE_URL atual. Trocar o
+    # domínio e esquecer de rodar build-site.py deixa o repositório aprovado em
+    # todas as outras checagens e publicando canônicas para o endereço antigo.
+    home = (ROOT / "index.html").read_text(encoding="utf-8")
+    canon = re.search(r'<link rel="canonical" href="([^"]+)"', home)
+    if canon and not canon.group(1).startswith(base_url):
+        fail(
+            f"index.html tem canonical {canon.group(1)}, que não começa com "
+            f"{base_url} — rode tools/build-site.py."
+        )
 
 
 def check_brand() -> None:
@@ -344,6 +420,7 @@ def check_assets() -> None:
 def main() -> int:
     check_data()
     check_pages()
+    check_domain()
     check_brand()
     check_assets()
 
