@@ -148,12 +148,6 @@ BAND = {
     "abrindo-a-caixa-preta": "deep",
     "oficinas-de-danca": "yellow",
 }
-PLATE = {
-    "red": ("#690404", "#FFCC00"),
-    "deep": ("#5D0404", "#FFCC00"),
-    "yellow": ("#FFCC00", "#690404"),
-}
-
 ORDER = [
     "fica-garopaba", "flaca", "fica-calango", "cineclube-patria-grande",
     "educa-ambiental", "cine-retrata", "vozes-veladas", "cineclube-marighella",
@@ -249,18 +243,102 @@ PROJECT_MEDIA = {
 
 # Edições correntes. O §31 é a regra: previsão nunca aparece como resultado, e
 # por isso este bloco vive separado da linha do tempo e carrega selo próprio.
+# O campo "unverified" do levantamento é caderneta de apuração: cita nome de
+# arquivo, discute a confiabilidade de currículos, dá instrução a quem edita o
+# site e — pior — repete as metas dos projetos aprovados, que é justamente o que
+# a §31 proíbe publicar. Ele nunca vai para a página. O que vai é a declaração
+# curta abaixo, em terceira pessoa sobre o site, dirigida a quem lê.
+# O bloco de números usa tipografia de display: um valor precisa caber em uma ou
+# duas palavras curtas. "aproximadamente 10" a 56px numa coluna de 200px quebra
+# em três pedaços. A nuance migra para o rótulo, logo abaixo, em corpo de texto,
+# onde ela se lê melhor e não se perde.
+METRIC_FIX = {
+    "cerca de 10": "≈10",
+    "aproximadamente 10": "≈10",
+    "cerca de 600": "≈600",
+    "≈30 filmes em 30 exibições": "≈30",
+    "≈22 filmes": "≈22",
+    "11 países": "11",
+    "6 dias": "6",
+}
+LABEL_FIX = {
+    "3ª edição (2024) — obras e sessões": "3ª edição (2024) — filmes, distribuídos em 30 exibições",
+    "3ª edição (2024) — duração da programação": "3ª edição (2024) — dias de programação",
+    "4ª edição (2025) — obras exibidas": "4ª edição (2025) — filmes exibidos",
+    "4ª edição (2025) — origem das obras": "4ª edição (2025) — países de origem das obras",
+    "sessões na 1ª edição": "sessões na 1ª edição, número declarado como aproximado",
+    "produções exibidas na 1ª edição": "produções exibidas na 1ª edição, número aproximado",
+    "classificação no Edital nº 044.000/SMLCP/2024 (PNAB / Fundação Cultural de Florianópolis Franklin Cascaes)":
+        "classificação no edital municipal que financiou a 1ª edição",
+}
+
+
+PENDING_PUBLIC = {
+    "fica-garopaba":
+        "O site não publica os números acumulados do festival — filmes, sessões, público e "
+        "municípios somados ao longo das edições. Eles aparecem em materiais de divulgação, "
+        "mas ainda não foram conferidos contra o registro final de cada edição.\n\n"
+        "Seguem em consolidação a programação de cada ano, os créditos completos por edição e "
+        "o registro fotográfico em resolução de publicação.",
+    "flaca":
+        "As datas exatas da 1ª edição não estão fechadas nos materiais reunidos — por isso o "
+        "site diz \"fim de outubro e início de novembro de 2025\" em vez de um intervalo "
+        "preciso.\n\nA lista de filmes, a grade de sessões, os nomes das oficinas e os "
+        "convidados dos debates estão sendo reunidos a partir do arquivo da edição, junto dos "
+        "créditos completos de curadoria, comunicação e produção.",
+    "cineclube-patria-grande":
+        "Da execução de 2025 estão documentados o financiamento e a linha curatorial, mas ainda "
+        "não o calendário: número de sessões, datas e locais. Os filmes exibidos e os mediadores "
+        "dos debates das duas execuções seguem em levantamento.",
+    "vozes-veladas":
+        "O calendário da execução de 2025 — número de sessões, datas e locais — ainda não está "
+        "consolidado, e os filmes exibidos e os mediadores dos debates dos dois ciclos seguem em "
+        "levantamento.",
+    "cine-retrata":
+        "De uma das três sessões estão documentados o filme e o formato; das outras duas, ainda "
+        "não. Títulos, datas e convidados seguem em levantamento, e o público não foi "
+        "contabilizado — por isso o site não apresenta número de audiência.",
+    "educa-ambiental":
+        "O calendário da execução de 2025 e a lista de filmes, oficinas e mediadores dos debates "
+        "ainda não estão consolidados. O período em que Eron Nascimento exerce a direção do "
+        "cineclube também não está datado nos materiais, e por isso o crédito aparece sem ano.",
+    "cineclube-marighella":
+        "Não há registro de nova execução depois de 2024: o projeto é apresentado como um ciclo, "
+        "não como linha continuada. Os filmes exibidos, as datas das sessões e o conteúdo das "
+        "oficinas seguem em levantamento, e o público não foi contabilizado.",
+    "arte-para-voar":
+        "Falta praticamente toda a documentação de campo desta oficina: local ou locais de "
+        "realização, calendário, quantidade de encontros, perfil do público, descrição "
+        "metodológica e registro fotográfico. Nada disso foi estimado — é o motivo de esta ser "
+        "a página mais curta do arquivo.",
+    "abrindo-a-caixa-preta":
+        "Os números desta página vêm dos registros institucionais da produtora e ainda não foram "
+        "conferidos contra o material original do curso. Seguem em levantamento as datas, os "
+        "endereços das aulas e das duas exposições de conclusão, e quantas pessoas efetivamente "
+        "concluíram a turma — número distinto das vinte vagas ofertadas.",
+}
+
 ONGOING = {
     "fica-garopaba": {
+        "edicao": b("andamento.fica-garopaba.edicao"),
         "title": b("andamento.fica-garopaba.edicao") + " do FICA Garopaba",
         "text": b("andamento.fica-garopaba.descricao"),
         "quando_onde": b("andamento.fica-garopaba.quando_onde"),
         "status": b("andamento.fica-garopaba.status_texto"),
+        # Território da edição PROPOSTA, não o histórico. Sem data: §45 manda
+        # dizer "acompanhe" quando não há realização anunciada, e a janela do
+        # PRONAC é prazo de projeto, não data de festival.
+        "territorio": "Garopaba · Paulo Lopes · Imbituba · Florianópolis",
+        "cta": b("andamento.fica-garopaba.cta", "Ver o histórico do festival"),
     },
     "flaca": {
+        "edicao": b("andamento.flaca.edicao"),
         "title": b("andamento.flaca.edicao") + " do FLACA",
         "text": b("andamento.flaca.descricao"),
         "quando_onde": b("andamento.flaca.quando_onde"),
         "status": b("andamento.flaca.status_texto"),
+        "territorio": "Florianópolis",
+        "cta": b("andamento.flaca.cta", "Ver o histórico do festival"),
     },
 }
 
@@ -374,13 +452,17 @@ projects["fica-calango"] = {
 projects["oficinas-de-danca"] = {
     "slug": "oficinas-de-danca",
     "title": b("danca.titulo"),
-    "years": [2025],
-    "cities": ["Santa Catarina"],
+    # Nem ano, nem cidade, nem linha do tempo: a lista institucional registra a
+    # ação como executada, e nada mais. Inventar "2025 · Santa Catarina" seria
+    # exatamente o que o §44 proíbe.
+    "years": [],
+    "cities": [],
+    "undated": True,
     "lede": b("danca.lede"),
     "summary": b("danca.summary"),
     "concept": b("danca.summary"),
     "territory": "Os locais das oficinas ainda não estão registrados nos materiais da produtora.",
-    "history": [{"year": 2025, "label": "Ações formativas", "text": b("danca.summary").split("\n\n")[0]}],
+    "history": [],
     "credits": [],
     "metrics": [],
     "funding": [],
@@ -395,7 +477,6 @@ out_projects = []
 for slug in ORDER:
     p = projects[slug]
     band = BAND[slug]
-    plate_bg, plate_ink = PLATE[band]
     media = PROJECT_MEDIA.get(slug, {})
 
     entry = {
@@ -405,10 +486,8 @@ for slug in ORDER:
         "categories": CATEGORIES[slug],
         "years": sorted(set(int(y) for y in p["years"])),
         "years_label": years_label(p["years"]),
-        "cities": p["cities"] or ["Santa Catarina"],
+        "cities": p["cities"],
         "band": band,
-        "plate_bg": plate_bg,
-        "plate_ink": plate_ink,
         "plate_text": PLATE_TEXT[slug],
         "lede": p["lede"],
         "summary": p["summary"],
@@ -418,13 +497,23 @@ for slug in ORDER:
         "history": [{"year": int(h["year"]), "label": h["label"], "text": h["text"]} for h in p["history"]],
         "territory": p["territory"],
         "credits": p.get("credits", []),
-        "metrics": p.get("metrics", []),
+        "metrics": [
+            {**m, "value": METRIC_FIX.get(m["value"], m["value"]),
+             "label": LABEL_FIX.get(m["label"], m["label"])}
+            for m in p.get("metrics", [])
+        ],
         "funding": p.get("funding", []),
         "funding_short": funding_short(p.get("funding", [])),
         "related": [r for r in RELATED[slug] if r in ORDER][:3],
         "seo_description": p["seo_description"][:158],
-        "pending": p.get("pending") or p.get("unverified", ""),
+        # Público: o que o leitor precisa saber sobre a lacuna.
+        "pending": PENDING_PUBLIC.get(slug) or p.get("pending", ""),
+        # Interno: a apuração inteira, com nomes de arquivo e ressalvas de
+        # método. Fica no JSON como registro e NUNCA é renderizado.
+        "notes_internal": p.get("unverified", ""),
     }
+    if p.get("undated"):
+        entry["undated"] = True
     if PULL.get(slug):
         entry["pull"] = PULL[slug]
     if ONGOING.get(slug):
@@ -544,10 +633,19 @@ if missing:
 # 4. Cópia do site
 # ==========================================================================
 
+LINHA_SLUGS = ["cinema-e-audiovisual", "formacao", "artes-visuais",
+               "producao-cultural", "territorio-e-socioambiental", "america-latina"]
+
+
 def linhas() -> list[dict]:
-    slugs = ["cinema-e-audiovisual", "formacao", "artes-visuais",
-             "producao-cultural", "territorio-e-socioambiental", "america-latina"]
-    return [{"title": b(f"linha.{s}.titulo"), "text": b(f"linha.{s}.texto")} for s in slugs]
+    """Texto integral — vive em /quem-somos/, que é o dono do assunto."""
+    return [{"title": b(f"linha.{s}.titulo"), "text": b(f"linha.{s}.texto")} for s in LINHA_SLUGS]
+
+
+def linhas_resumo() -> list[dict]:
+    """Uma linha por eixo, para a home. Repetir os seis parágrafos inteiros nas
+    duas páginas não é ênfase — é duplicata, e faz a home perder o ritmo."""
+    return [{"title": b(f"linha.{s}.titulo"), "text": b(f"linha.{s}.resumo")} for s in LINHA_SLUGS]
 
 
 def foto_for(destino: str) -> dict | None:
@@ -560,6 +658,11 @@ def foto_for(destino: str) -> dict | None:
     return None
 
 
+phones = [
+    {"tel": "+5548996971772", "label": "(48) 99697-1772"},
+    {"tel": "+5548999486832", "label": "(48) 99948-6832"},
+]
+
 site = {
     "email": "patriagrandeproducoes@gmail.com",
     "instagram": "@patriagrandeproducoes",
@@ -567,10 +670,7 @@ site = {
     # Os dois números vieram do documento institucional. Qual é o principal e
     # qual é WhatsApp ainda não foi definido pela equipe, então nenhum dos dois
     # é apresentado como canal preferencial.
-    "phones": [
-        {"tel": "+5548996971772", "label": "(48) 99697-1772"},
-        {"tel": "+5548999486832", "label": "(48) 99948-6832"},
-    ],
+    "phones": phones,
     "footer_projects": [[s, title_by_slug[s]] for s in
                         ["fica-garopaba", "flaca", "fica-calango",
                          "cineclube-patria-grande", "cine-retrata"]],
@@ -604,7 +704,7 @@ site = {
         "services_lede": b("home.servicos_lede"),
         "fullbleed_image": foto_for("home.fullbleed"),
         "axes_title": b("home.linhas_titulo", "Seis linhas que se atravessam"),
-        "axes": linhas(),
+        "axes": linhas_resumo(),
         "territories_title": b("home.territorios_titulo"),
         "territories_text": b("home.territorios_texto"),
         "territories": [
@@ -694,7 +794,7 @@ site = {
              "value": "[patriagrandeproducoes@gmail.com](mailto:patriagrandeproducoes@gmail.com)",
              "note": "Canal principal. Orçamentos, pautas de imprensa, propostas e convites."},
             {"title": "Telefone",
-             "value": "[(48) 99697-1772](tel:+5548996971772)<br>[(48) 99948-6832](tel:+5548999486832)",
+             "values": [f'[{p["label"]}](tel:{p["tel"]})' for p in phones],
              "note": "Dois números da produtora."},
             {"title": "Instagram",
              "value": "[@patriagrandeproducoes](https://www.instagram.com/patriagrandeproducoes/)",
