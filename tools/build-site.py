@@ -79,6 +79,29 @@ def inline(text: str) -> str:
     )
 
 
+# Oportunidade de quebra depois do arroba, e só quando há letra dos dois lados.
+# Sem ela, "patriagrandeproducoes@gmail.com" numa coluna estreita quebra onde
+# calhar — o "m" final sozinho na linha —, porque .contact__value precisa de
+# overflow-wrap: anywhere para nunca vazar do card. Com a marca, o navegador
+# quebra depois do arroba, que é como se quebra um e-mail.
+# Só o arroba: marcar também o ponto fazia o endereço quebrar em
+# "…@gmail." / "com" nas colunas largas, que é pior do que quebrar no arroba.
+# A ressalva da letra à esquerda é o @ de um perfil: "@patriagrande" não pode
+# quebrar logo depois do arroba.
+_WBR = re.compile(r"(?<=[^\W_])(@)(?=[^\W_])")
+
+
+def wbr(markup: str) -> str:
+    """Marca as quebras possíveis no texto visível, nunca dentro de uma tag."""
+    out, i = [], 0
+    for m in re.finditer(r"<[^>]*>", markup):
+        out.append(_WBR.sub(r"\1<wbr>", markup[i:m.start()]))
+        out.append(m.group(0))
+        i = m.end()
+    out.append(_WBR.sub(r"\1<wbr>", markup[i:]))
+    return "".join(out)
+
+
 def paras(text: str, cls: str = "") -> str:
     if not text:
         return ""
@@ -262,6 +285,10 @@ def footer(site: dict, depth: int) -> str:
     serv_links = "".join(
         f'<li><a href="{r}servicos/{slug}/">{title}</a></li>' for slug, title in site["footer_services"]
     )
+    phones = "".join(
+        f'<li><a class="footer__plain" href="tel:{p["tel"]}">{e(p["label"])}</a></li>'
+        for p in site["phones"]
+    )
     return f"""</main>
 <footer class="footer">
 {cartografia("cartografia")}
@@ -288,6 +315,7 @@ def footer(site: dict, depth: int) -> str:
 <h3>Contato</h3>
 <ul class="footer__list">
 <li><a class="footer__plain" href="mailto:{site["email"]}">{site["email"]}</a></li>
+{phones}
 <li><a href="{site["instagram_url"]}" target="_blank" rel="noopener">Instagram {site["instagram"]}</a></li>
 </ul>
 </div>
@@ -734,7 +762,7 @@ def page_home(site, projects, people, services, by_slug) -> None:
 <div data-reveal><h2 id="contato-home">{inline(h["contact_title"])}</h2></div>
 <div data-reveal>
 {paras(h["contact_text"], "lede")}
-<p class="contact__value" style="margin-top:1.1em"><a href="mailto:{site["email"]}">{site["email"]}</a></p>
+<p class="contact__value" style="margin-top:1.1em"><a href="mailto:{site["email"]}">{wbr(e(site["email"]))}</a></p>
 <p class="btnrow" style="margin-top:1.5em">
 <a class="btn btn--primary" href="contato/">Entrar em contato <span class="btn__arrow" aria-hidden="true">→</span></a>
 </p>
@@ -1309,9 +1337,12 @@ def page_contato(site, services) -> None:
         # "values" vira uma linha por item. O dado não carrega marcação: <br>
         # dentro do JSON seria escapado por inline() e apareceria como texto.
         vals = b.get("values") or [b["value"]]
-        body = "".join(f'<p class="contact__value">{inline(v)}</p>' for v in vals)
-        return (f'<div class="contact__block"><h3>{e(b["title"])}</h3>{body}'
-                f'<p class="meta" style="margin-top:.8em">{inline(b["note"])}</p></div>')
+        body = "".join(f'<p class="contact__value">{wbr(inline(v))}</p>' for v in vals)
+        # A nota é opcional: o bloco dos telefones não leva nenhuma, porque o
+        # rótulo já diz o que é e a frase que havia ali só contava os números.
+        nota = (f'<p class="meta" style="margin-top:.8em">{inline(b["note"])}</p>'
+                if b.get("note") else "")
+        return (f'<div class="contact__block"><h3>{e(b["title"])}</h3>{body}{nota}</div>')
 
     blocks = "".join(contact_block(b) for b in s["blocks"])
     reasons = "".join(f"<li>{inline(r)}</li>" for r in s["reasons"])

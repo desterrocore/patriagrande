@@ -775,15 +775,21 @@ def foto_for(destino: str) -> dict | None:
     return None
 
 
-# Telefone não é mais canal publicado. Os dois números vieram do documento
-# institucional, nunca se definiu qual era o principal nem qual era WhatsApp, e
-# a produtora decidiu em 07/09/2026 tirá-los do ar — do bloco de contato e do
-# rodapé das 21 páginas. Ficam o e-mail e o Instagram. Os números seguem no
-# levantamento, em source/pesquisa-fontes.json, se um dia voltarem.
+# Os dois números do documento institucional. Saíram do ar em 07/09/2026 e
+# voltaram no mesmo dia, por decisão da produtora — agora ao lado do Instagram,
+# e sem a nota que dizia "Dois números da produtora": o rótulo do bloco basta.
+# Continua sem definição qual é o principal e qual é WhatsApp, e por isso
+# nenhum dos dois é apresentado como canal preferencial.
+phones = [
+    {"tel": "+5548996971772", "label": "(48) 99697-1772"},
+    {"tel": "+5548999486832", "label": "(48) 99948-6832"},
+]
+
 site = {
     "email": "patriagrandeproducoes@gmail.com",
     "instagram": "@patriagrandeproducoes",
     "instagram_url": "https://www.instagram.com/patriagrandeproducoes/",
+    "phones": phones,
     "footer_projects": [[s, title_by_slug[s]] for s in
                         ["fica-garopaba", "flaca", "fica-calango",
                          "cineclube-patria-grande", "cine-retrata"]],
@@ -906,6 +912,8 @@ site = {
             {"title": "E-mail institucional",
              "value": "[patriagrandeproducoes@gmail.com](mailto:patriagrandeproducoes@gmail.com)",
              "note": "Canal principal. Orçamentos, pautas de imprensa, propostas e convites."},
+            {"title": "Contato",
+             "values": [f'[{p["label"]}](tel:{p["tel"]})' for p in phones]},
             {"title": "Instagram",
              "value": "[@patriagrandeproducoes](https://www.instagram.com/patriagrandeproducoes/)",
              "note": "Programação, chamadas de sessão, registros das atividades — e "

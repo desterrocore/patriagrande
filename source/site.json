@@ -2,6 +2,16 @@
  "email": "patriagrandeproducoes@gmail.com",
  "instagram": "@patriagrandeproducoes",
  "instagram_url": "https://www.instagram.com/patriagrandeproducoes/",
+ "phones": [
+  {
+   "tel": "+5548996971772",
+   "label": "(48) 99697-1772"
+  },
+  {
+   "tel": "+5548999486832",
+   "label": "(48) 99948-6832"
+  }
+ ],
  "footer_projects": [
   [
    "fica-garopaba",
@@ -304,6 +314,13 @@
     "title": "E-mail institucional",
     "value": "[patriagrandeproducoes@gmail.com](mailto:patriagrandeproducoes@gmail.com)",
     "note": "Canal principal. Orçamentos, pautas de imprensa, propostas e convites."
+   },
+   {
+    "title": "Contato",
+    "values": [
+     "[(48) 99697-1772](tel:+5548996971772)",
+     "[(48) 99948-6832](tel:+5548999486832)"
+    ]
    },
    {
     "title": "Instagram",
