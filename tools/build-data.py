@@ -790,9 +790,14 @@ site = {
     "instagram": "@patriagrandeproducoes",
     "instagram_url": "https://www.instagram.com/patriagrandeproducoes/",
     "phones": phones,
-    "footer_projects": [[s, title_by_slug[s]] for s in
-                        ["fica-garopaba", "flaca", "fica-calango",
-                         "cineclube-patria-grande", "cine-retrata"]],
+    # Todos os festivais e todos os cineclubes, na ordem do portfólio. A lista
+    # sai de CATEGORIES em vez de ser escrita à mão: escrita à mão ela já tinha
+    # ficado para trás — o Educa Ambiental e o Marighella nunca chegaram nela —
+    # e voltaria a ficar no próximo projeto. As três ações de formação não
+    # entram: o rodapé ficaria com dez itens contra quatro das outras colunas, e
+    # elas estão a um clique em /projetos.
+    "footer_projects": [[s, title_by_slug[s]] for s in ORDER
+                        if {"festival", "cineclube"} & set(CATEGORIES[s])],
     "footer_services": [[s["slug"], s["title"]] for s in services],
 
     "seo": {
