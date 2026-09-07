@@ -37,6 +37,11 @@ FORBIDDEN_PROJECTS = [
     "festival de hip-hop",
 ]
 
+# Projetos retirados do site por decisão da produtora. Diferente da lista do
+# §18, que barra portfólio indevido, estes não podem aparecer em lugar nenhum —
+# nem em texto corrido, nem em card, nem em rodapé.
+RETIRED = ["vozes veladas", "vozes-veladas"]
+
 # §28.8 — dados que nunca devem ser publicados.
 SENSITIVE = [
     (re.compile(r"\b\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}\b"), "CNPJ"),
@@ -263,6 +268,11 @@ def check_pages() -> None:
         if parser.h1_count != 1:
             fail(f"{rel}: {parser.h1_count} elementos <h1> (deve haver exatamente um).")
 
+        low = text.lower()
+        for term in RETIRED:
+            if term in low:
+                fail(f'{rel}: menciona "{term}", projeto retirado do site.')
+
         if parser.buttons_without_type:
             fail(f"{rel}: {parser.buttons_without_type} <button> sem type explícito.")
 
@@ -402,6 +412,16 @@ def check_brand() -> None:
         if not (ROOT / "assets" / "img" / "marca" / name).exists():
             fail(f"assets/img/marca/{name} ausente — rode tools/build-brand.py.")
 
+    # Placas de marca. Não passam por images.json, então nada mais confere se
+    # existem — sem esta lista, um srcset apontaria para o vazio e a placa do
+    # card ficaria em branco. As larguras espelham PLATE_WIDTHS.
+    for slug in ("cineclube-patria-grande", "fica-garopaba", "flaca", "fica-calango"):
+        for width in (1500, 900, 600, 300):
+            for ext in ("png", "webp"):
+                name = f"{slug}-{width}.{ext}"
+                if not (ROOT / "assets" / "img" / "projetos" / name).exists():
+                    fail(f"assets/img/projetos/{name} ausente — rode tools/build-brand.py.")
+
     # A Squarely do pacote é "free for personal use ONLY" e não pode ser servida.
     for font in (ROOT / "assets" / "fonts").glob("*"):
         if "squarely" in font.name.lower():
@@ -439,6 +459,20 @@ def check_assets() -> None:
                     f'{len(missing)} arquivo(s) — {", ".join(missing[:4])}'
                     f'{"…" if len(missing) > 4 else ""}. Rode tools/build-images.py.'
                 )
+
+    # Retrato de quem não está mais na página não pode continuar publicado. O
+    # manifesto é um catraca de mão única — obriga o arquivo a existir, mas nada
+    # liga a entrada a um consumidor —, então uma pessoa retirada a pedido da
+    # produtora seguia com o retrato no ar, em URL estável e adivinhável, depois
+    # de sumir do site. Esta regra é o que impede isso de voltar a acontecer.
+    publicados = {p["slug"] for p in json.loads((SRC / "equipe.json").read_text(encoding="utf-8"))}
+    for entry in manifest.get("equipe", []):
+        if entry["name"] not in publicados:
+            fail(
+                f'images.json / equipe / {entry["name"]}: a pessoa não está em '
+                "equipe.json e o retrato dela continuaria publicado. Tire a entrada "
+                "do manifesto e apague os arquivos em assets/img/equipe/."
+            )
 
     # Arquivo em assets/img que nenhum manifesto reivindica é lixo de build
     # anterior: some do site sem ninguém perceber, e engorda o repositório.

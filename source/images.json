@@ -11,16 +11,6 @@
    "focus_y": 0.51
   },
   {
-   "name": "carolina-rogelin",
-   "src": "reference-content/fotos-equipe-2026-eventos/Carolina Rögelin _ LIBRAS/Foto1.jpg",
-   "ratio": "1:1",
-   "widths": [
-    640,
-    320
-   ],
-   "focus_y": 0.375
-  },
-  {
    "name": "cristovam-muniz",
    "src": "reference-content/fotos-equipe-2026-eventos/Cristovam Muniz/foto cristovam1-1.jpg",
    "ratio": "1:1",
@@ -29,16 +19,6 @@
     320
    ],
    "focus_y": 0.334
-  },
-  {
-   "name": "denise-de-castro",
-   "src": "reference-content/fotos-equipe-2026-eventos/Denise de castro/1744978454108.jpg",
-   "ratio": "1:1",
-   "widths": [
-    640,
-    320
-   ],
-   "focus_y": 0.362
   },
   {
    "name": "ediane-oliveira",
@@ -155,16 +135,6 @@
    "focus_y": 0.425
   },
   {
-   "name": "marcela-guitarrarra",
-   "src": "reference-content/fotos-equipe-2026-eventos/Marcela Guitarrarra/foto_marcela.jpeg",
-   "ratio": "1:1",
-   "widths": [
-    640,
-    320
-   ],
-   "focus_y": 0.481
-  },
-  {
    "name": "marta-siminhuk",
    "src": "reference-content/fotos-equipe-2026-eventos/Marta Siminhuk/marta 2.jpg",
    "ratio": "1:1",
@@ -183,21 +153,6 @@
     320
    ],
    "focus_y": 0.567
-  },
-  {
-   "name": "peri-dias-luersen",
-   "src": "reference-content/fotos-equipe-2026-eventos/Peri Dias Luersen/9D5DE8FE-6978-4FA7-8F9D-AA0C0366C207_Original.JPG",
-   "ratio": "1:1",
-   "widths": [
-    640,
-    320
-   ],
-   "box": [
-    0,
-    556,
-    1000,
-    1556
-   ]
   },
   {
    "name": "sara-borem",
@@ -285,8 +240,7 @@
   {
    "name": "sessao-ao-ar-livre-conversa",
    "src": "reference-content/Site Pátria Grande 2026/imagens/251115_8122.jpg",
-   "ratio": "16:9",
-   "focus_x": 0.3,
+   "ratio": "3:2",
    "focus_y": 0.55,
    "widths": [
     1800,
