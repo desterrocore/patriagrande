@@ -446,7 +446,7 @@ def project_card(p: dict, depth: int, feature: bool = False, eager: bool = False
 </li>"""
 
 
-def ongoing_card(p: dict, depth: int) -> str:
+def ongoing_card(p: dict, depth: int, sizes: str = SIZES_CARD) -> str:
     """A edição corrente não é o projeto: reaproveitar o card do histórico dizia
     "2022–2025 · Garopaba" numa seção sobre o que ainda vai acontecer. Este card
     fala só da edição em curso — e não imprime data, porque não há data
@@ -455,7 +455,7 @@ def ongoing_card(p: dict, depth: int) -> str:
     href = f'{up(depth)}projetos/{p["slug"]}/'
     return f"""<li>
 <article class="pcard pcard--ongoing">
-{plate(p, depth, SIZES_CARD)}
+{plate(p, depth, sizes)}
 <span class="pcard__flag">{badge("Edição em andamento")}</span>
 <div class="pcard__body">
 <p class="pcard__kicker">{e(o.get("edicao") or "Nova edição")}</p>
@@ -615,7 +615,18 @@ def page_home(site, projects, people, services, by_slug) -> None:
     depth = 0
 
     featured = "".join(project_card(by_slug[s], depth, feature=True) for s in h["featured"])
-    ongoing = "".join(ongoing_card(by_slug[s], depth) for s in h["ongoing"])
+    # O FICA e o FLACA aparecem duas vezes nesta página: como projeto, na grade
+    # de destaque, e como edição corrente, na grade de andamento. É proposital —
+    # o projeto e a edição são coisas diferentes —, mas as duas grades têm
+    # larguras diferentes, e com "sizes" diferentes o navegador escolheria dois
+    # arquivos diferentes da MESMA marca e baixaria a imagem duas vezes. Quando
+    # o projeto já está no destaque, o card de andamento declara o "sizes" do
+    # destaque: o arquivo já foi buscado, e o segundo card o reaproveita.
+    ongoing = "".join(
+        ongoing_card(by_slug[s], depth,
+                     SIZES_CARD_FEATURE if s in h["featured"] else SIZES_CARD)
+        for s in h["ongoing"]
+    )
     service_cards = "".join(service_card(s, depth, i) for i, s in enumerate(services, 1))
     nucleo = [p for p in people if p["tier"] == "nucleo"]
     team_cards = "".join(team_card(p, depth, compact=True) for p in nucleo)
