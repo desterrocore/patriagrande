@@ -274,7 +274,7 @@ produtora — o site as declara em vez de preenchê-las.
 - **FICA Calango** publica apenas o que dois currículos e o registro no Salic sustentam: ano,
   território, fomento e dois créditos. Calendário, número de sessões e público seguem sem
   conferência.
-- **Créditos completos por edição** de FICA, FLACA, Vozes Veladas, Educa Ambiental e Cineclube
+- **Créditos completos por edição** de FICA, FLACA, Educa Ambiental e Cineclube
   Pátria Grande seguem em consolidação.
 - **Clipping.** Não existe página de imprensa nesta versão, por decisão do §16: o material de
   imprensa vive em `/contato` e o clipping entrará nas páginas dos próprios projetos.
