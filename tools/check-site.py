@@ -415,7 +415,8 @@ def check_brand() -> None:
     # Placas de marca. Não passam por images.json, então nada mais confere se
     # existem — sem esta lista, um srcset apontaria para o vazio e a placa do
     # card ficaria em branco. As larguras espelham PLATE_WIDTHS.
-    for slug in ("cineclube-patria-grande", "fica-garopaba", "flaca", "fica-calango"):
+    for slug in ("cineclube-patria-grande", "fica-garopaba", "flaca", "fica-calango",
+                 "cine-retrata", "educa-ambiental", "cineclube-marighella"):
         for width in (1500, 900, 600, 300):
             for ext in ("png", "webp"):
                 name = f"{slug}-{width}.{ext}"

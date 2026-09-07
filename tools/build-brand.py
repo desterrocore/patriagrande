@@ -381,6 +381,70 @@ def draw_waves(canvas: Image.Image, band_h: int, curves, bands=None, ss: int = 3
 # branco, o "CALANGO" é creme, e o disco do FLACA vai para cima de fundo escuro,
 # onde a faixa de antisserrilhado do recorte de cor vira anel luminoso. Errar
 # isso não quebra o build: faz buraco no logotipo, ou halo em volta dele.
+def mark_box(im: Image.Image, background, tol: float = 60.0, inset: int = 6):
+    """A caixa da arte dentro de um ladrilho de fundo chapado.
+
+    Vale a pena recortar por ela e não pelo ladrilho inteiro: como a placa vai
+    receber a MESMA cor de fundo, a margem do ladrilho é indistinguível da
+    placa, e mantê-la só faria a marca aparecer menor do que podia. O recuo
+    descarta a borda do arquivo, onde JPEG e PNG costumam deixar uma linha de
+    pixels que não é nem fundo nem arte.
+    """
+    import numpy as np
+
+    a = np.asarray(im.convert("RGB")).astype(int)[inset:-inset, inset:-inset]
+    ys, xs = np.nonzero(np.sqrt(((a - np.array(background)) ** 2).sum(2)) > tol)
+    return inset + xs.min(), inset + ys.min(), inset + xs.max() + 1, inset + ys.max() + 1
+
+
+def _smooth_ground(im: Image.Image, radius: float = 2.4) -> Image.Image:
+    """Desfoca o fundo de um ladrilho, preservando a arte."""
+    import numpy as np
+    from PIL import ImageFilter
+
+    a = np.asarray(im.convert("RGB")).astype(int)
+    arte = ((a.mean(2) < 140) | ((a.max(2) - a.min(2)) > 50)).astype("uint8") * 255
+    mask = (Image.fromarray(arte)
+            .filter(ImageFilter.MaxFilter(5))
+            .filter(ImageFilter.GaussianBlur(1.5)))
+    return Image.composite(im, im.filter(ImageFilter.GaussianBlur(radius)), mask)
+
+
+def bleed_tile(tile: Image.Image, box, w: int, h: int,
+               tangent: float = PLATE_TANGENT) -> Image.Image:
+    """Estica um ladrilho quadrado até cobrir a placa, espelhando a textura.
+
+    É o caso do Cine Retrata: o fundo dele não é cor chapada, é uma textura com
+    degradê de cima para baixo. Pintar a placa de uma cor média deixaria costura
+    visível onde a textura encontra o liso. Escalando o ladrilho pela marca, ele
+    sobra na vertical e falta uns 5% de cada lado na horizontal — e espelhar a
+    própria textura nessas faixas é invisível, porque o grão não tem direção.
+    """
+    mw, mh = box[2] - box[0], box[3] - box[1]
+    k = tangent * h / mh
+    if mw * k > PLATE_MAX_WIDTH * w:
+        k = PLATE_MAX_WIDTH * w / mw
+    tw, th = round(tile.width * k), round(tile.height * k)
+    big = tile.resize((tw, th), Image.LANCZOS)
+
+    # O grão do papel é ruído de alta frequência: sozinho ele triplica o peso do
+    # arquivo e some na tela, no tamanho em que a placa é servida. Desfocar só
+    # o FUNDO, com a marca protegida por máscara, corta o WebP de 654 para 198 KB
+    # sem tirar um fio da linha preta.
+    big = _smooth_ground(big)
+
+    ox = round(w / 2 - (box[0] + box[2]) / 2 * k)
+    oy = round(h / 2 - (box[1] + box[3]) / 2 * k)
+    out = Image.new("RGB", (w, h))
+    out.paste(big, (ox, oy))
+    if ox > 0:
+        out.paste(big.crop((0, 0, min(ox, tw), th)).transpose(Image.FLIP_LEFT_RIGHT), (0, oy))
+    if ox + tw < w:
+        n = min(w - (ox + tw), tw)
+        out.paste(big.crop((tw - n, 0, tw, th)).transpose(Image.FLIP_LEFT_RIGHT), (ox + tw, oy))
+    return out
+
+
 SHEET_BOX = {                      # caixas medidas varrendo imagens-festivais.png
     "flaca": (724, 37, 1343, 666),
     # Dois pixels para dentro: a borda do ladrilho tem uma linha de transição
@@ -409,9 +473,12 @@ def art_cineclube() -> Image.Image | None:
         return disc_alpha(Image.open(stem.with_suffix(".png")))
 
 
-def compose_plate(art: Image.Image, bg: str, width: int, curves=None) -> Image.Image:
+def compose_plate(art: Image.Image, bg, width: int, curves=None,
+                  tile_box=None) -> Image.Image:
     """Uma placa 3:2: fundo, o desenho de ondas quando houver, e a marca."""
     w, h = plate_size(width)
+    if tile_box is not None:
+        return bleed_tile(art, tile_box, w, h).convert("RGBA")
     plate = Image.new("RGBA", (w, h), bg)
 
     if curves is not None:
@@ -432,11 +499,14 @@ def compose_plate(art: Image.Image, bg: str, width: int, curves=None) -> Image.I
             art_h = round(art.height * art_w / art.width)
         top = (h - art_h) // 2
 
-    plate.alpha_composite(art.resize((art_w, art_h), Image.LANCZOS), ((w - art_w) // 2, top))
+    # .convert("RGBA"): recorte de ladrilho chega em RGB, e alpha_composite exige
+    # os dois lados com canal alfa.
+    plate.alpha_composite(art.convert("RGBA").resize((art_w, art_h), Image.LANCZOS),
+                          ((w - art_w) // 2, top))
     return plate
 
 
-def save_plate(slug: str, art: Image.Image, bg: str, curves=None) -> None:
+def save_plate(slug: str, art: Image.Image, bg, curves=None, tile_box=None) -> None:
     """Grava a placa em WebP e PNG, nas larguras que o card usa.
 
     O PNG é o ramo do srcset para quem não tem WebP, e em cor cheia uma placa
@@ -445,7 +515,7 @@ def save_plate(slug: str, art: Image.Image, bg: str, curves=None) -> None:
     """
     OUT_PROJETOS.mkdir(parents=True, exist_ok=True)
     for width in PLATE_WIDTHS:
-        plate = compose_plate(art, bg, width, curves).convert("RGB")
+        plate = compose_plate(art, bg, width, curves, tile_box).convert("RGB")
         plate.save(OUT_PROJETOS / f"{slug}-{width}.webp",
                    format="WEBP", quality=90, method=6)
         plate.quantize(colors=256, method=Image.FASTOCTREE).save(
@@ -464,6 +534,22 @@ PLATE_BG = {
     "flaca": "#000C2A",
     "fica-calango": "#85082C",
     "fica-garopaba": "#FFFFFF",
+    "educa-ambiental": "#053305",
+    # O disco do Marighella já vem recortado, com alfa, e é branco por dentro:
+    # a placa repete o branco da própria arte, e o filete vermelho do disco é
+    # que dá a forma. Sobre o vermelho da marca ficaria mais forte, mas aí o
+    # card brigaria com a faixa vermelha da casa quando caísse sobre uma.
+    "cineclube-marighella": "#FFFFFF",
+    # O Cine Retrata não tem cor de fundo: o dele é textura, e a placa inteira
+    # é o próprio ladrilho espelhado. Ver bleed_tile.
+    "cine-retrata": None,
+}
+
+# Ladrilhos que já vêm com o fundo dentro, um arquivo por projeto.
+TILE = {
+    "educa-ambiental": "Cineclube EDUCA AMBIENTAL LOGO.jpg",
+    "cine-retrata": "AVATAR CINE RETRATA.png",
+    "cineclube-marighella": "CCCM Logo.png",
 }
 
 
@@ -485,6 +571,39 @@ def build_project_plates() -> None:
                    PLATE_BG["flaca"])
         save_plate("fica-calango", folha.crop(SHEET_BOX["fica-calango"]).convert("RGBA"),
                    PLATE_BG["fica-calango"])
+
+    # O Educa Ambiental é ladrilho de cor chapada: recorta-se a marca e a placa
+    # repete o mesmo verde, então a moldura do ladrilho desaparece.
+    educa = FESTIVAIS / TILE["educa-ambiental"]
+    if educa.exists():
+        im = ImageOps.exif_transpose(Image.open(educa)).convert("RGB")
+        save_plate("educa-ambiental", im.crop(mark_box(im, (5, 51, 5))),
+                   PLATE_BG["educa-ambiental"])
+    else:
+        print(f"  {TILE['educa-ambiental']} ausente — Educa Ambiental pulado.")
+
+    # O Cine Retrata é ladrilho de textura: a placa é o próprio ladrilho.
+    retrata = FESTIVAIS / TILE["cine-retrata"]
+    if retrata.exists():
+        im = ImageOps.exif_transpose(Image.open(retrata)).convert("RGB")
+        import numpy as np
+        a = np.asarray(im).astype(int)
+        arte = (a.mean(2) < 110) | ((a.max(2) - a.min(2)) > 60)
+        ys, xs = np.nonzero(arte)
+        save_plate("cine-retrata", im, None,
+                   tile_box=(xs.min(), ys.min(), xs.max() + 1, ys.max() + 1))
+    else:
+        print(f"  {TILE['cine-retrata']} ausente — Cine Retrata pulado.")
+
+    # O Marighella é o único que já chega recortado: PNG com alfa, disco branco
+    # de filete vermelho. Não há o que cortar, só o que assentar.
+    cccm = FESTIVAIS / TILE["cineclube-marighella"]
+    if cccm.exists():
+        save_plate("cineclube-marighella",
+                   tight(ImageOps.exif_transpose(Image.open(cccm)).convert("RGBA"), pad=0),
+                   PLATE_BG["cineclube-marighella"])
+    else:
+        print(f"  {TILE['cineclube-marighella']} ausente — Marighella pulado.")
 
     evergreen = FESTIVAIS / "FICA_Garopaba_logo_evergreen.png"
     if not evergreen.exists() or not WAVE_SRC.exists():
