@@ -262,10 +262,6 @@ def footer(site: dict, depth: int) -> str:
     serv_links = "".join(
         f'<li><a href="{r}servicos/{slug}/">{title}</a></li>' for slug, title in site["footer_services"]
     )
-    phones = "".join(
-        f'<li><a class="footer__plain" href="tel:{p["tel"]}">{e(p["label"])}</a></li>'
-        for p in site["phones"]
-    )
     return f"""</main>
 <footer class="footer">
 {cartografia("cartografia")}
@@ -292,7 +288,6 @@ def footer(site: dict, depth: int) -> str:
 <h3>Contato</h3>
 <ul class="footer__list">
 <li><a class="footer__plain" href="mailto:{site["email"]}">{site["email"]}</a></li>
-{phones}
 <li><a href="{site["instagram_url"]}" target="_blank" rel="noopener">Instagram {site["instagram"]}</a></li>
 </ul>
 </div>

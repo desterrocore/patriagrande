@@ -298,6 +298,18 @@ PROJECT_LOGO = {
     "fica-calango":
         "Marca do FICA Calango: ladrilho vermelho com um anel de círculos azul-claros em "
         "volta de um olho, e o nome em letras cor de creme.",
+    "cine-retrata":
+        "Marca do Cine Retrata: sobre fundo de textura cinza, um quadro de filme desenhado a "
+        "traço preto com um olho no centro e um facho vermelho de projeção saindo dele, e o "
+        "nome embaixo em letras pretas.",
+    "educa-ambiental":
+        "Marca do Cineclube Educa Ambiental: sobre verde-escuro, um círculo vermelho traçado "
+        "à mão com um ponto branco no meio, ao lado do nome em vermelho e ciano, e a silhueta "
+        "de um peixe em branco.",
+    "cineclube-marighella":
+        "Marca do Cineclube Marighella: disco branco de filete vermelho com o retrato de "
+        "Carlos Marighella em vermelho-escuro, o nome do cineclube acima e “Marighella” em "
+        "letras verticais ao lado.",
 }
 # As larguras espelham PLATE_WIDTHS em tools/build-brand.py. Se lá mudar, aqui
 # muda junto — o srcset promete arquivo que precisa existir.
@@ -763,19 +775,15 @@ def foto_for(destino: str) -> dict | None:
     return None
 
 
-phones = [
-    {"tel": "+5548996971772", "label": "(48) 99697-1772"},
-    {"tel": "+5548999486832", "label": "(48) 99948-6832"},
-]
-
+# Telefone não é mais canal publicado. Os dois números vieram do documento
+# institucional, nunca se definiu qual era o principal nem qual era WhatsApp, e
+# a produtora decidiu em 07/09/2026 tirá-los do ar — do bloco de contato e do
+# rodapé das 21 páginas. Ficam o e-mail e o Instagram. Os números seguem no
+# levantamento, em source/pesquisa-fontes.json, se um dia voltarem.
 site = {
     "email": "patriagrandeproducoes@gmail.com",
     "instagram": "@patriagrandeproducoes",
     "instagram_url": "https://www.instagram.com/patriagrandeproducoes/",
-    # Os dois números vieram do documento institucional. Qual é o principal e
-    # qual é WhatsApp ainda não foi definido pela equipe, então nenhum dos dois
-    # é apresentado como canal preferencial.
-    "phones": phones,
     "footer_projects": [[s, title_by_slug[s]] for s in
                         ["fica-garopaba", "flaca", "fica-calango",
                          "cineclube-patria-grande", "cine-retrata"]],
@@ -898,12 +906,10 @@ site = {
             {"title": "E-mail institucional",
              "value": "[patriagrandeproducoes@gmail.com](mailto:patriagrandeproducoes@gmail.com)",
              "note": "Canal principal. Orçamentos, pautas de imprensa, propostas e convites."},
-            {"title": "Telefone",
-             "values": [f'[{p["label"]}](tel:{p["tel"]})' for p in phones],
-             "note": "Dois números da produtora."},
             {"title": "Instagram",
              "value": "[@patriagrandeproducoes](https://www.instagram.com/patriagrandeproducoes/)",
-             "note": "Programação, chamadas de sessão e registros das atividades."},
+             "note": "Programação, chamadas de sessão, registros das atividades — e "
+                     "mensagem direta, se preferir escrever por lá."},
             {"title": "Onde estamos",
              "value": "Florianópolis · SC",
              "note": "Base da produtora, com atuação em diferentes regiões do Brasil."},

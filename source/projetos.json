@@ -601,7 +601,17 @@
   ],
   "seo_description": "Cineclube Educa Ambiental: dez sessões ao ar livre com debate no Rio Vermelho, Florianópolis, em 2024, e nova execução em 2025 pela PNAB.",
   "pending": "O calendário da execução de 2025 e a lista de filmes, oficinas e mediadores dos debates ainda não estão consolidados. O período em que Eron Nascimento exerce a direção do cineclube também não está datado nos materiais, e por isso o crédito aparece sem ano.",
-  "notes_internal": "Ficou de fora por falta de comprovação: (1) o número de sessões, as datas e os locais da execução de 2025 — os currículos registram a execução e o financiamento, mas não a programação; (2) o período em que Eron Nascimento exerce a direção do cineclube — sua mini-biografia informa o cargo sem datar, e por isso o crédito está sem ano; (3) a lista de filmes exibidos, os mediadores dos debates e as oficinas efetivamente realizadas não constam em nenhum documento consultado; (4) o público não foi contabilizado; (5) a numeração do edital do Circuito Catarinense de Cultura diverge — \"05/2024\" nos currículos de Cristovam Muniz e no de Flávio Veloso para este projeto, \"50/2024\" em outros itens dos mesmos documentos; (6) nenhuma escola, associação de moradores ou parceiro local do Rio Vermelho está nomeado nos materiais consultados — a articulação comunitária aparece nos registros, mas sem parceiros identificados, e por isso não foi citada como parceria; (7) não há galeria fotográfica nem clipping reunidos."
+  "notes_internal": "Ficou de fora por falta de comprovação: (1) o número de sessões, as datas e os locais da execução de 2025 — os currículos registram a execução e o financiamento, mas não a programação; (2) o período em que Eron Nascimento exerce a direção do cineclube — sua mini-biografia informa o cargo sem datar, e por isso o crédito está sem ano; (3) a lista de filmes exibidos, os mediadores dos debates e as oficinas efetivamente realizadas não constam em nenhum documento consultado; (4) o público não foi contabilizado; (5) a numeração do edital do Circuito Catarinense de Cultura diverge — \"05/2024\" nos currículos de Cristovam Muniz e no de Flávio Veloso para este projeto, \"50/2024\" em outros itens dos mesmos documentos; (6) nenhuma escola, associação de moradores ou parceiro local do Rio Vermelho está nomeado nos materiais consultados — a articulação comunitária aparece nos registros, mas sem parceiros identificados, e por isso não foi citada como parceria; (7) não há galeria fotográfica nem clipping reunidos.",
+  "logo": {
+   "name": "educa-ambiental",
+   "widths": [
+    1500,
+    900,
+    600,
+    300
+   ],
+   "alt": "Marca do Cineclube Educa Ambiental: sobre verde-escuro, um círculo vermelho traçado à mão com um ponto branco no meio, ao lado do nome em vermelho e ciano, e a silhueta de um peixe em branco."
+  }
  },
  {
   "slug": "cine-retrata",
@@ -666,7 +676,17 @@
   ],
   "seo_description": "Cine Retrata: três sessões gratuitas em 2025 com documentários sobre fatos reais e debate com convidados, no CIC e no Bugio Trindade, Florianópolis.",
   "pending": "De uma das três sessões estão documentados o filme e o formato; das outras duas, ainda não. Títulos, datas e convidados seguem em levantamento, e o público não foi contabilizado — por isso o site não apresenta número de audiência.",
-  "notes_internal": "Ficou de fora por falta de comprovação: (1) os títulos das outras duas sessões, suas datas e os nomes dos convidados que participaram dos debates — apenas a sessão de outubro de 2025 no Bugio Trindade está documentada com filme (\"O Dia que Durou 21 Anos\") e formato; (2) o público não foi contabilizado em nenhum documento consultado, e por isso não há métrica de audiência; (3) a numeração do edital diverge — os currículos de Flávio Veloso e de Giulia Giacomolli registram \"edital nº 50/2024\" para este projeto, o currículo de Cristovam Muniz cita apenas \"Circuito Catarinense de Cultura — PNAB 2024\" sem número, e em outro item do mesmo conjunto de documentos aparece \"05/2024\"; a numeração exata precisa ser conferida antes de publicar; (4) o relatório-base descreve o papel de Flávio Veloso como \"direção artística / produção\", enquanto seu currículo registra \"Diretor Geral / Artístico\" — adotou-se a formulação do currículo; (5) não há galeria fotográfica, cartazes nem clipping reunidos; (6) não há registro de parceiros institucionais além dos espaços de exibição."
+  "notes_internal": "Ficou de fora por falta de comprovação: (1) os títulos das outras duas sessões, suas datas e os nomes dos convidados que participaram dos debates — apenas a sessão de outubro de 2025 no Bugio Trindade está documentada com filme (\"O Dia que Durou 21 Anos\") e formato; (2) o público não foi contabilizado em nenhum documento consultado, e por isso não há métrica de audiência; (3) a numeração do edital diverge — os currículos de Flávio Veloso e de Giulia Giacomolli registram \"edital nº 50/2024\" para este projeto, o currículo de Cristovam Muniz cita apenas \"Circuito Catarinense de Cultura — PNAB 2024\" sem número, e em outro item do mesmo conjunto de documentos aparece \"05/2024\"; a numeração exata precisa ser conferida antes de publicar; (4) o relatório-base descreve o papel de Flávio Veloso como \"direção artística / produção\", enquanto seu currículo registra \"Diretor Geral / Artístico\" — adotou-se a formulação do currículo; (5) não há galeria fotográfica, cartazes nem clipping reunidos; (6) não há registro de parceiros institucionais além dos espaços de exibição.",
+  "logo": {
+   "name": "cine-retrata",
+   "widths": [
+    1500,
+    900,
+    600,
+    300
+   ],
+   "alt": "Marca do Cine Retrata: sobre fundo de textura cinza, um quadro de filme desenhado a traço preto com um olho no centro e um facho vermelho de projeção saindo dele, e o nome embaixo em letras pretas."
+  }
  },
  {
   "slug": "cineclube-marighella",
@@ -741,7 +761,17 @@
   "seo_description": "Cineclube Marighella: dez sessões de cinema ao ar livre com debate na Ocupação Urbana Carlos Marighella, em Palhoça (SC), realizadas em 2024.",
   "pending": "Não há registro de nova execução depois de 2024: o projeto é apresentado como um ciclo, não como linha continuada. Os filmes exibidos, as datas das sessões e o conteúdo das oficinas seguem em levantamento, e o público não foi contabilizado.",
   "notes_internal": "Ficou de fora por falta de comprovação: (1) não há registro de nova execução depois de 2024 em nenhum documento consultado — o projeto é apresentado como ciclo único, e não como linha continuada; (2) os filmes exibidos, as datas das sessões, os mediadores dos debates e o conteúdo das oficinas não constam; (3) o público não foi contabilizado, e não há parceiro comunitário ou coletivo da ocupação nomeado nos materiais, embora a articulação local apareça nos registros; (4) o papel de Lennon da Silva Rocha vem do relatório-base (§14), sem currículo próprio entre os materiais consultados; (5) a atuação prévia de Tayná Oliveira na ocupação, pelo grupo Brigada de Saúde Ivone Lara, é trajetória individual documentada em sua mini-biografia — não é ação institucional da Pátria Grande e está apresentada como contexto, não como crédito; (6) não há galeria fotográfica reunida, e qualquer imagem de moradores exige autorização de uso antes da publicação; (7) não há clipping.",
-  "pull": "O projeto não trata a Ocupação Carlos Marighella como cenário. Trata como território, com agência cultural própria."
+  "pull": "O projeto não trata a Ocupação Carlos Marighella como cenário. Trata como território, com agência cultural própria.",
+  "logo": {
+   "name": "cineclube-marighella",
+   "widths": [
+    1500,
+    900,
+    600,
+    300
+   ],
+   "alt": "Marca do Cineclube Marighella: disco branco de filete vermelho com o retrato de Carlos Marighella em vermelho-escuro, o nome do cineclube acima e “Marighella” em letras verticais ao lado."
+  }
  },
  {
   "slug": "abrindo-a-caixa-preta",
