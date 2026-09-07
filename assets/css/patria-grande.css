@@ -830,11 +830,15 @@ blockquote.pull cite {
 .band--yellow .pcard__plate { --plate-bg: var(--pg-red); --plate-ink: var(--pg-yellow); }
 
 /* Placa de marca. A imagem já vem composta do build — fundo e arte no mesmo
-   arquivo, em 3:2 —, porque as quatro marcas pedem fundos diferentes e nenhuma
-   cor da casa serve às quatro: o disco do cineclube é exatamente o vermelho da
-   placa vermelha, o FLACA é azul-marinho, o Calango é carmim e o FICA é preto
-   sobre branco com o desenho de ondas do festival. Aqui só resta deixar a
-   imagem preencher a placa. */
+   arquivo, em 3:2 —, porque as sete marcas pedem fundos incompatíveis entre si
+   e nenhuma cor da casa serve a todas: o disco do Cineclube Pátria Grande é
+   exatamente o vermelho da placa vermelha e vai sobre amarelo; o FLACA é
+   azul-marinho e o Calango carmim, cada um sobre a cor da própria arte; o Educa
+   Ambiental é verde-escuro; o FICA é preto sobre branco com o desenho de ondas
+   do festival; o Marighella é um disco já recortado, sobre branco; e o Cine
+   Retrata não tem cor de fundo nenhuma — a placa dele é a própria textura de
+   papel, espelhada nas laterais. Aqui só resta deixar a imagem preencher a
+   placa. */
 .pcard__plate--logo { background: none; }
 .pcard__plate--logo picture { display: block; width: 100%; height: 100%; }
 .pcard__plate--logo img { width: 100%; height: 100%; object-fit: cover; display: block; }

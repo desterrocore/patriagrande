@@ -429,7 +429,7 @@ def bleed_tile(tile: Image.Image, box, w: int, h: int,
 
     # O grão do papel é ruído de alta frequência: sozinho ele triplica o peso do
     # arquivo e some na tela, no tamanho em que a placa é servida. Desfocar só
-    # o FUNDO, com a marca protegida por máscara, corta o WebP de 654 para 198 KB
+    # o FUNDO, com a marca protegida por máscara, corta o WebP de 654 para 172 KB
     # sem tirar um fio da linha preta.
     big = _smooth_ground(big)
 

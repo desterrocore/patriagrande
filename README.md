@@ -42,7 +42,7 @@ Site estático: HTML, CSS e um arquivo de JavaScript. Sem framework, sem bundler
 dependência de terceiros em tempo de execução. As fontes são hospedadas aqui, então a página
 não faz nenhuma requisição para fora do próprio domínio.
 
-O HTML **é gerado e é commitado**. Vinte e duas páginas dividem o mesmo cabeçalho, rodapé e
+O HTML **é gerado e é commitado**. Vinte e uma páginas dividem o mesmo cabeçalho, rodapé e
 ficha de metadados; manter isso à mão é como se introduz divergência. Quem clona serve os
 arquivos direto; quem edita conteúdo mexe nos JSON e roda o gerador.
 
@@ -209,7 +209,7 @@ o arquivo mostra todos os projetos e a galeria abre a imagem no próprio navegad
 /                           home
 /quem-somos/                institucional, conceito, cartografia, origem, linhas de atuação
 /projetos/                  arquivo com abas Realizados / Em andamento e filtros
-/projetos/<slug>/           onze páginas de projeto
+/projetos/<slug>/           dez páginas de projeto
 /servicos/                  índice
 /servicos/<slug>/           quatro páginas de serviço
 /equipe/                    núcleo + rede
