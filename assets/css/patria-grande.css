@@ -626,11 +626,8 @@ hr { border: 0; border-top: 1px solid var(--band-rule); margin: clamp(30px, 4vw,
   color: var(--band-dim);
 }
 
-/* Cabeçalho de projeto: fotografia sangrada + tarja de metadados. */
-.projecthead__media { position: relative; aspect-ratio: 16 / 9; background: var(--pg-red-deep); }
-.projecthead__media img { width: 100%; height: 100%; object-fit: cover; }
-@media (max-width: 640px) { .projecthead__media { aspect-ratio: 4 / 3; } }
-
+/* Cabeçalho de projeto: tipografia sobre a faixa da marca e tarja de metadados.
+   Não há fotografia de abertura — a fotografia do projeto vive na galeria. */
 .projecthead__body { padding-block: clamp(32px, 4.4vw, 64px); }
 .projecthead__title { font-size: var(--fs-h1); text-transform: uppercase; }
 .projecthead__lede {
@@ -831,6 +828,16 @@ blockquote.pull cite {
 .band--red .pcard__plate,
 .band--deep .pcard__plate { --plate-bg: var(--pg-yellow); --plate-ink: var(--pg-red); }
 .band--yellow .pcard__plate { --plate-bg: var(--pg-red); --plate-ink: var(--pg-yellow); }
+
+/* Placa de marca. A imagem já vem composta do build — fundo e arte no mesmo
+   arquivo, em 3:2 —, porque as quatro marcas pedem fundos diferentes e nenhuma
+   cor da casa serve às quatro: o disco do cineclube é exatamente o vermelho da
+   placa vermelha, o FLACA é azul-marinho, o Calango é carmim e o FICA é preto
+   sobre branco com o desenho de ondas do festival. Aqui só resta deixar a
+   imagem preencher a placa. */
+.pcard__plate--logo { background: none; }
+.pcard__plate--logo picture { display: block; width: 100%; height: 100%; }
+.pcard__plate--logo img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 .pcard__flag { position: absolute; z-index: 2; left: 12px; top: 12px; }
 

@@ -81,7 +81,7 @@ SERVICE_LIMITS = {
 
 SERVICE_PROOF = {
     "producao-executiva": ["fica-garopaba", "flaca", "cine-retrata"],
-    "projecao-e-equipamentos": ["cineclube-marighella", "vozes-veladas", "cineclube-patria-grande"],
+    "projecao-e-equipamentos": ["cineclube-marighella", "cineclube-patria-grande", "educa-ambiental"],
     "traducao-e-legendagem": ["fica-garopaba", "flaca"],
     "oficinas-e-formacao": ["abrindo-a-caixa-preta", "arte-para-voar", "educa-ambiental"],
 }
@@ -142,7 +142,6 @@ BAND = {
     "cineclube-patria-grande": "deep",
     "educa-ambiental": "red",
     "cine-retrata": "deep",
-    "vozes-veladas": "red",
     "cineclube-marighella": "deep",
     "arte-para-voar": "yellow",
     "abrindo-a-caixa-preta": "deep",
@@ -150,7 +149,7 @@ BAND = {
 }
 ORDER = [
     "fica-garopaba", "flaca", "fica-calango", "cineclube-patria-grande",
-    "educa-ambiental", "cine-retrata", "vozes-veladas", "cineclube-marighella",
+    "educa-ambiental", "cine-retrata", "cineclube-marighella",
     "abrindo-a-caixa-preta", "arte-para-voar", "oficinas-de-danca",
 ]
 
@@ -161,7 +160,6 @@ PLATE_TEXT = {
     "cineclube-patria-grande": "Cineclube\nPátria Grande",
     "educa-ambiental": "Educa\nAmbiental",
     "cine-retrata": "Cine\nRetrata",
-    "vozes-veladas": "Vozes\nVeladas",
     "cineclube-marighella": "Cineclube\nMarighella",
     "abrindo-a-caixa-preta": "#Abrindo\nacaixapreta",
     "arte-para-voar": "Arte para\nVoar",
@@ -175,7 +173,6 @@ SHORT = {
     "cineclube-patria-grande": "Cineclube Pátria Grande",
     "educa-ambiental": "Cineclube Educa Ambiental",
     "cine-retrata": "Cine Retrata",
-    "vozes-veladas": "Cineclube Vozes Veladas",
     "cineclube-marighella": "Cineclube Marighella",
     "abrindo-a-caixa-preta": "#Abrindoacaixapreta",
     "arte-para-voar": "Arte para Voar",
@@ -230,15 +227,97 @@ def photo(slug: str) -> dict | None:
     }
 
 
+# Placas de projeto. Não são fotografia e não passam pelo manifesto de imagens:
+# são a marca do projeto já composta sobre o fundo que ela pede, em 3:2, escrita
+# por tools/build-brand.py em assets/img/projetos/. O texto aqui descreve a
+# marca, não o fundo — o fundo é decoração e não entra no alt.
+# --- Ficha técnica ---------------------------------------------------------
+# A ficha é a equipe do projeto, não o diário de bordo das edições. Por isso ela
+# não carrega ano: uma pessoa aparece uma vez, com o que fez. O levantamento em
+# pesquisa-fontes.json continua guardando a atribuição edição a edição.
+
+# Fichas escritas à mão, porque a fusão automática das linhas do levantamento
+# ficaria ilegível — Cristovam aparecia quatro vezes no FICA, e o Flávio repetia
+# "oficinas" duas vezes na mesma linha.
+CREDITS_PUBLIC = {
+    "fica-garopaba": [
+        ("Cristovam Muniz", "Direção geral e direção de curadoria"),
+        ("Flávio Veloso", "Proponente, coidealização, direção de programação, curadoria e oficinas"),
+        ("Thais Alemany", "Produção executiva e projeção de cinema ao ar livre"),
+        ("Giulia Giacomolli", "Produção executiva"),
+        ("Eron Nascimento", "Curadoria"),
+        ("Lennon da Silva Rocha", "Produção técnico-cultural, projeção e coordenação técnica"),
+    ],
+    "flaca": [
+        ("Flávio Veloso", "Direção geral e artística"),
+        ("Giulia Giacomolli", "Produção executiva e proponente"),
+        ("Cristovam Muniz", "Direção de curadoria"),
+        ("Thais Alemany", "Produção executiva"),
+        ("Eron Nascimento", "Curadoria e assistência de produção"),
+        ("Lennon da Silva Rocha", "Produção técnico-cultural, projeção e coordenação técnica"),
+        ("Ediane Oliveira", "Assessoria de imprensa"),
+    ],
+}
+
+# Funções que traziam o ano dentro do próprio texto. Tirar a coluna do ano e
+# deixar "(2024); ... (2025)" na função seria trocar o ano de lugar, não removê-lo.
+CREDIT_ROLE_FIX = {
+    # Caixa alta no meio da função destoa do resto das fichas.
+    "Coordenação de Curadoria": "Coordenação de curadoria",
+    "Coidealização, oficinas e fotografia still (2024); produção executiva e oficinas (2025)":
+        "Coidealização, produção executiva, oficinas e fotografia still",
+    "Coidealização e direção de curadoria (2024); coordenação de curadoria (2025)":
+        "Coidealização, direção e coordenação de curadoria",
+}
+
+
+def credits_for(slug: str, raw: list[dict]) -> list[dict]:
+    """A ficha publicada: sem ano e com uma linha por pessoa."""
+    if slug in CREDITS_PUBLIC:
+        return [{"name": n, "role": r} for n, r in CREDITS_PUBLIC[slug]]
+    out: dict[str, list[str]] = {}
+    for c in raw:
+        role = CREDIT_ROLE_FIX.get(c["role"], c["role"])
+        roles = out.setdefault(c["name"], [])
+        if role not in roles:
+            roles.append(role)
+    return [{"name": n, "role": " · ".join(rs)} for n, rs in out.items()]
+
+
+PROJECT_LOGO = {
+    "cineclube-patria-grande":
+        "Marca do Cineclube Pátria Grande: disco vermelho com o contorno da América do Sul "
+        "e o nome em branco e amarelo.",
+    "fica-garopaba":
+        "Marca do FICA Garopaba: um círculo azul com ondas do mar ao lado do nome em letras "
+        "pretas, sobre a linha “Festival Internacional de Cinema Ambiental”, com o desenho "
+        "de ondas do festival ao fundo.",
+    "flaca":
+        "Marca do FLACA: disco azul-marinho atravessado por arcos finos, com “Festival "
+        "Latino Americano de Cinema Ambiental” em letras de cores diferentes.",
+    "fica-calango":
+        "Marca do FICA Calango: ladrilho vermelho com um anel de círculos azul-claros em "
+        "volta de um olho, e o nome em letras cor de creme.",
+}
+# As larguras espelham PLATE_WIDTHS em tools/build-brand.py. Se lá mudar, aqui
+# muda junto — o srcset promete arquivo que precisa existir.
+PROJECT_LOGO = {
+    slug: {"name": slug, "widths": [1500, 900, 600, 300], "alt": alt}
+    for slug, alt in PROJECT_LOGO.items()
+}
+
 PROJECT_MEDIA = {
+    # Sem "hero": página de projeto não tem mais foto de abertura. A roda de
+    # conversa, que era a abertura, virou a primeira imagem da galeria — é o
+    # único arquivo do lote em que o próprio festival se identifica na tela.
+    # Sem "card": o logotipo do festival ocupa a placa do card. A fotografia que
+    # servia de capa desceu para a galeria, para não sumir do site.
     "flaca": {
-        "hero": "flaca-roda-de-conversa",
-        "card": "flaca-sala-cheia",
-        "gallery": ["flaca-plateia-vertical", "flaca-libras", "flaca-independente",
-                    "flaca-sala-pequena", "flaca-plateia-floresta"],
+        "gallery": ["flaca-roda-de-conversa", "flaca-sala-cheia", "flaca-plateia-vertical",
+                    "flaca-libras", "flaca-independente", "flaca-sala-pequena",
+                    "flaca-plateia-floresta"],
     },
-    "fica-garopaba": {"card": "fica-salao-comunitario",
-                      "gallery": ["fica-salao-comunitario", "fica-3a-edicao"]},
+    "fica-garopaba": {"gallery": ["fica-salao-comunitario", "fica-3a-edicao"]},
 }
 
 # Edições correntes. O §31 é a regra: previsão nunca aparece como resultado, e
@@ -290,10 +369,6 @@ PENDING_PUBLIC = {
         "Da execução de 2025 estão documentados o financiamento e a linha curatorial, mas ainda "
         "não o calendário: número de sessões, datas e locais. Os filmes exibidos e os mediadores "
         "dos debates das duas execuções seguem em levantamento.",
-    "vozes-veladas":
-        "O calendário da execução de 2025 — número de sessões, datas e locais — ainda não está "
-        "consolidado, e os filmes exibidos e os mediadores dos debates dos dois ciclos seguem em "
-        "levantamento.",
     "cine-retrata":
         "De uma das três sessões estão documentados o filme e o formato; das outras duas, ainda "
         "não. Títulos, datas e convidados seguem em levantamento, e o público não foi "
@@ -345,7 +420,6 @@ ONGOING = {
 CONCEPT_TITLE = {
     "fica-garopaba": "Cinema ambiental como forma de olhar o território",
     "flaca": "América Latina e crise climática na mesma programação",
-    "vozes-veladas": "Cinema na rua, debate depois",
     "cine-retrata": "O fato real como ponto de partida do debate",
     "educa-ambiental": "Educação ambiental que chega ao bairro",
     "cineclube-marighella": "Cinema dentro da ocupação",
@@ -368,11 +442,10 @@ RELATED = {
     "fica-garopaba": ["flaca", "fica-calango", "educa-ambiental"],
     "flaca": ["fica-garopaba", "fica-calango", "cineclube-patria-grande"],
     "fica-calango": ["fica-garopaba", "flaca", "educa-ambiental"],
-    "cineclube-patria-grande": ["vozes-veladas", "educa-ambiental", "cine-retrata"],
-    "educa-ambiental": ["cineclube-patria-grande", "vozes-veladas", "fica-garopaba"],
-    "cine-retrata": ["cineclube-patria-grande", "vozes-veladas", "educa-ambiental"],
-    "vozes-veladas": ["cineclube-patria-grande", "cineclube-marighella", "cine-retrata"],
-    "cineclube-marighella": ["vozes-veladas", "cineclube-patria-grande", "educa-ambiental"],
+    "cineclube-patria-grande": ["educa-ambiental", "cine-retrata", "cineclube-marighella"],
+    "educa-ambiental": ["cineclube-patria-grande", "cine-retrata", "fica-garopaba"],
+    "cine-retrata": ["cineclube-patria-grande", "educa-ambiental", "cineclube-marighella"],
+    "cineclube-marighella": ["cineclube-patria-grande", "educa-ambiental", "cine-retrata"],
     "abrindo-a-caixa-preta": ["arte-para-voar", "oficinas-de-danca", "cine-retrata"],
     "arte-para-voar": ["abrindo-a-caixa-preta", "oficinas-de-danca", "educa-ambiental"],
     "oficinas-de-danca": ["arte-para-voar", "abrindo-a-caixa-preta", "cineclube-patria-grande"],
@@ -385,7 +458,6 @@ CATEGORIES = {
     "cineclube-patria-grande": ["cineclube"],
     "educa-ambiental": ["cineclube"],
     "cine-retrata": ["cineclube"],
-    "vozes-veladas": ["cineclube"],
     "cineclube-marighella": ["cineclube"],
     "arte-para-voar": ["formacao"],
     "abrindo-a-caixa-preta": ["formacao", "fotografia"],
@@ -496,7 +568,7 @@ for slug in ORDER:
         "actions_text": p.get("actions_text") or "\n".join(f"- {a}" for a in p.get("actions", [])),
         "history": [{"year": int(h["year"]), "label": h["label"], "text": h["text"]} for h in p["history"]],
         "territory": p["territory"],
-        "credits": p.get("credits", []),
+        "credits": credits_for(slug, p.get("credits", [])),
         "metrics": [
             {**m, "value": METRIC_FIX.get(m["value"], m["value"]),
              "label": LABEL_FIX.get(m["label"], m["label"])}
@@ -520,6 +592,8 @@ for slug in ORDER:
         entry["ongoing"] = ONGOING[slug]
     if media.get("hero") and photo(media["hero"]):
         entry["hero_image"] = photo(media["hero"])
+    if PROJECT_LOGO.get(slug):
+        entry["logo"] = PROJECT_LOGO[slug]
     if media.get("card") and photo(media["card"]):
         entry["card_image"] = photo(media["card"])
     gal = [photo(g) for g in media.get("gallery", [])]
@@ -546,7 +620,15 @@ NUCLEO = [
     "eron-nascimento", "esteban-zapata", "lennon-da-silva-rocha",
 ]
 
-HOLD = {"bruno-souza"}   # pasta sem foto, sem função e sem uma linha de bio
+HOLD = {
+    "bruno-souza",              # pasta sem foto, sem função e sem uma linha de bio
+    # Retiradas da página a pedido da produtora em 07/09/2026. Os registros
+    # continuam em source/pesquisa-fontes.json; só não vão ao ar.
+    "carolina-rogelin",
+    "denise-de-castro",
+    "marcela-guitarrarra",
+    "peri-dias-luersen",
+}
 
 META = re.compile(
     r"[^.!?]*\b(o material (que ele enviou|dispon[íi]vel)|n[ãa]o h[áa] curr[íi]culo"
@@ -568,6 +650,30 @@ BIO_OVERRIDE = {
         "sustenta seu trabalho de marketing para negócios e projetos culturais."
     ),
 }
+
+# Vínculos informados pela produtora em 07/09/2026, que a apuração documental
+# não tinha alcançado — o levantamento só enxerga o que está escrito nos
+# currículos. Entram como acréscimo ao que foi apurado, nunca no lugar dele.
+PROJECTS_ADD = {
+    "lennon-da-silva-rocha": ["fica-garopaba", "flaca"],
+    "thais-alemany": ["flaca", "cineclube-patria-grande"],
+    "eron-nascimento": ["cineclube-patria-grande"],
+}
+
+
+def person_projects(raw: list[str], slug: str) -> list[list[str]]:
+    """Etiquetas de projeto de uma pessoa, na ordem do portfólio e sem repetir.
+    Projeto que saiu do site some daqui sozinho: a etiqueta só existe se houver
+    página para apontar."""
+    seen, out = set(), []
+    for s_ in list(raw) + PROJECTS_ADD.get(slug, []):
+        target = SLUG_MAP.get(s_, s_)
+        if target in title_by_slug and target not in seen:
+            seen.add(target)
+            out.append(target)
+    out.sort(key=lambda t: ORDER.index(t))
+    return [[t, title_by_slug[t]] for t in out]
+
 
 LINK_HOSTS = [
     ("youtube.com", "YouTube"), ("instagram.com", "Instagram"), ("facebook.com", "Facebook"),
@@ -605,8 +711,7 @@ for p in RAW_PEOPLE:
         "role_line": b(f"equipe.{slug}.role") or p["role_line"],
         "bio": b(f"equipe.{slug}.bio") or BIO_OVERRIDE.get(slug) or META.sub("", p["bio"]).strip(),
         "bio_short": b(f"equipe.{slug}.bio_short") or META.sub("", p.get("bio_short") or p["bio"][:150]).strip(),
-        "projects": [[SLUG_MAP.get(s, s), title_by_slug[SLUG_MAP.get(s, s)]]
-                     for s in p.get("projects", []) if SLUG_MAP.get(s, s) in title_by_slug],
+        "projects": person_projects(p.get("projects", []), slug),
         "links": [{"href": h, "label": link_label(h)} for h in p.get("links", [])],
     }
     if (p.get("photo_credit") or "").strip():
@@ -738,7 +843,7 @@ site = {
             {"year": "2023", "title": "O festival ganha estrutura",
              "text": "A 2ª edição do FICA amplia a operação, com Giulia Giacomolli na produção executiva. No mesmo período começam a se formar as ações cineclubistas que depois integrariam o portfólio da produtora."},
             {"year": "2024", "title": "Formalização e linha cineclubista",
-             "text": "A Pátria Grande Produções é constituída em Florianópolis. No mesmo ano são executados quatro cineclubes — Pátria Grande, Educa Ambiental, Marighella e Vozes Veladas — contemplados pelo Prêmio Catarinense de Cinema, e acontece a 3ª edição do FICA."},
+             "text": "A Pátria Grande Produções é constituída em Florianópolis. No mesmo ano são executados os cineclubes Pátria Grande, Educa Ambiental e Marighella, contemplados pelo Prêmio Catarinense de Cinema, e acontece a 3ª edição do FICA."},
             {"year": "2025", "title": "O portfólio se amplia",
              "text": "A 4ª edição do FICA, a 1ª edição do FLACA em Florianópolis, o Cine Retrata, a continuidade dos cineclubes por política pública estadual, a Oficina de Pandorga — Arte para Voar e o Curso Básico de Fotografia Digital #Abrindoacaixapreta."},
         ],

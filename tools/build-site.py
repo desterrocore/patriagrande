@@ -327,7 +327,57 @@ def badge(text: str) -> str:
     return f'<span class="badge">{e(text)}</span>'
 
 
-def project_card(p: dict, depth: int, feature: bool = False) -> str:
+# O "sizes" de um card não é chute: sai da própria grade. .projectgrid é
+# repeat(auto-fill, minmax(min(100%, 290px), 1fr)) dentro de .shell (máx 1320px,
+# padding clamp(18px,4.4vw,60px), gap clamp(18px,2.2vw,32px)), e por isso vira
+# duas colunas em 656px e três em 1003px — pontos que não têm media query
+# nenhuma no CSS. Declarar "30vw a partir de 900px", como estava, subdeclarava
+# 1,45× entre 900 e 1002px (o navegador buscava o arquivo de 300px para uma
+# caixa de 445px) e sobredeclarava 2,3× abaixo de 900. Estes dois valores foram
+# conferidos largura a largura de 320 a 2560: nunca subdeclaram, e sobram no
+# máximo 1,13×.
+SIZES_CARD = ("(min-width: 1400px) 400px, (min-width: 1003px) 30vw, "
+              "(min-width: 656px) 45vw, 100vw")
+SIZES_CARD_FEATURE = "(min-width: 1400px) 600px, (min-width: 656px) 45vw, 100vw"
+
+
+def project_logo(p: dict, depth: int, sizes: str, loading: str = "lazy") -> str:
+    """A placa de marca de um projeto, servida em PNG com WebP na frente.
+
+    Não passa por picture() com JPEG por dois motivos: a arte é chapada, e nela
+    um PNG de 256 cores fica menor e mais limpo que qualquer JPEG; e o JPEG
+    espalharia halo em volta de tipo de alto contraste sobre cor sólida."""
+    lg = p["logo"]
+    base = f'{up(depth)}assets/img/projetos/{lg["name"]}'
+    webp = ", ".join(f"{base}-{w}.webp {w}w" for w in lg["widths"])
+    png = ", ".join(f"{base}-{w}.png {w}w" for w in lg["widths"])
+    big = max(lg["widths"])
+    return (
+        "<picture>"
+        f'<source type="image/webp" srcset="{webp}" sizes="{sizes}">'
+        f'<img src="{base}-{big}.png" srcset="{png}" sizes="{sizes}" '
+        f'alt="{e(lg["alt"])}" loading="{loading}" decoding="async"'
+        f'{" fetchpriority=\"high\"" if loading == "eager" else ""} '
+        f'width="{big}" height="{big * 2 // 3}">'
+        "</picture>"
+    )
+
+
+def plate(p: dict, depth: int, sizes: str, loading: str = "lazy") -> str:
+    """A placa de um projeto: a marca quando existe, senão o nome em tipo.
+
+    A placa de marca já vem composta do build de imagens — fundo e arte no mesmo
+    arquivo, em 3:2 —, porque cada uma das quatro marcas pede um fundo diferente
+    e nenhuma cor da casa serve às quatro."""
+    if p.get("logo"):
+        return (f'<div class="pcard__plate pcard__plate--logo">'
+                f'{project_logo(p, depth, sizes, loading)}</div>')
+    return (f'<div class="pcard__plate plate--{p["band"]}">'
+            f'{cartografia("cartografia")}'
+            f'<span aria-hidden="true">{e(p["plate_text"])}</span></div>')
+
+
+def project_card(p: dict, depth: int, feature: bool = False, eager: bool = False) -> str:
     """Card do arquivo. Sem foto documental o card recebe uma placa de cor da
     marca com a cartografia atrás — nunca imagem de banco, nunca gerada, nunca
     emprestada de outro projeto."""
@@ -338,15 +388,17 @@ def project_card(p: dict, depth: int, feature: bool = False) -> str:
     # abas: some da aba "Realizados" seria apagar quatro edições do FICA.
     status = "executado andamento" if p.get("ongoing") else "executado"
 
-    if p.get("card_image"):
-        sizes = "(min-width: 900px) 42vw, 100vw" if feature else "(min-width: 900px) 30vw, 100vw"
-        media = f'<div class="pcard__media">{picture(p["card_image"], depth, sizes=sizes, ratio="3:2")}</div>'
+    # A marca do projeto ganha da fotografia no card: um festival se reconhece
+    # primeiro pelo logotipo, e a fotografia continua na galeria da página.
+    sizes = SIZES_CARD_FEATURE if feature else SIZES_CARD
+    loading = "eager" if eager else "lazy"
+    if p.get("logo"):
+        media = plate(p, depth, sizes, loading)
+    elif p.get("card_image"):
+        media = (f'<div class="pcard__media">'
+                 f'{picture(p["card_image"], depth, sizes=sizes, ratio="3:2", loading=loading)}</div>')
     else:
-        media = (
-            f'<div class="pcard__plate plate--{p["band"]}">'
-            f'{cartografia("cartografia")}'
-            f'<span aria-hidden="true">{e(p["plate_text"])}</span></div>'
-        )
+        media = plate(p, depth, sizes, loading)
 
     # "Edição em andamento" e não "Em andamento": o projeto já aconteceu, o que
     # está correndo agora é uma edição nova. A diferença é o ponto inteiro.
@@ -380,10 +432,7 @@ def ongoing_card(p: dict, depth: int) -> str:
     href = f'{up(depth)}projetos/{p["slug"]}/'
     return f"""<li>
 <article class="pcard pcard--ongoing">
-<div class="pcard__plate plate--{p["band"]}">
-{cartografia("cartografia")}
-<span aria-hidden="true">{e(p["plate_text"])}</span>
-</div>
+{plate(p, depth, SIZES_CARD)}
 <span class="pcard__flag">{badge("Edição em andamento")}</span>
 <div class="pcard__body">
 <p class="pcard__kicker">{e(o.get("edicao") or "Nova edição")}</p>
@@ -828,7 +877,8 @@ def page_projetos(site, projects) -> None:
         f'aria-controls="painel-projetos" data-tab="{e(t["key"])}" aria-selected="false">{e(t["label"])}</button>'
         for t in s["tabs"]
     )
-    cards = "".join(project_card(p, depth) for p in projects)
+    cards = "".join(project_card(p, depth, eager=(i == 0))
+                    for i, p in enumerate(projects))
 
     out = head("Projetos — Pátria Grande Produções", site["seo"]["projetos"], "projetos/", depth)
     out += header("projetos/", depth)
@@ -887,15 +937,6 @@ def page_projeto(site, p, by_slug) -> None:
         for k, v in meta_items
     )
 
-    hero_media = ""
-    if p.get("hero_image"):
-        hero_media = (
-            f'<div class="projecthead__media">'
-            + picture(p["hero_image"], depth, sizes="100vw", loading="eager", ratio="16:9")
-            + "</div>"
-            + f'<div class="shell" style="padding-top:.9em"><p class="archivecaption">{inline(p["hero_image"]["caption"])}</p></div>'
-        )
-
     history = "".join(
         f'<li><span class="timeline__year">{e(h["year"])}</span>'
         f'<h3 class="timeline__title">{e(h["label"])}</h3>'
@@ -903,10 +944,10 @@ def page_projeto(site, p, by_slug) -> None:
         for h in p["history"]
     )
 
+    # Sem ano: a ficha diz quem faz o quê no projeto, e não em qual edição.
+    # A atribuição edição a edição fica no levantamento, em pesquisa-fontes.json.
     credit_rows = "".join(
-        f'<div class="credits__row"><dt>{e(c["role"])}</dt><dd>{e(c["name"])}'
-        + (f' <span class="meta" style="text-transform:none">({e(c["year"])})</span>' if c.get("year") else "")
-        + "</dd></div>"
+        f'<div class="credits__row"><dt>{e(c["role"])}</dt><dd>{e(c["name"])}</dd></div>'
         for c in p.get("credits", [])
     )
     for i, f in enumerate(p.get("funding", [])):
@@ -986,17 +1027,21 @@ def page_projeto(site, p, by_slug) -> None:
 </div>
 </section>"""
 
+    # Prévia de link. Sem foto de abertura, quem serve é a primeira imagem da
+    # galeria — mas só se ela tiver largura de sobra: as redes sociais pedem
+    # 1200 px, e mandar um arquivo de 640 px seria entregar um borrão. Abaixo
+    # disso vale mais o cartão da marca, que é nítido em qualquer tamanho.
     og = None
-    if p.get("hero_image"):
-        big = max(p["hero_image"]["widths"])
-        og = f'{BASE_URL}/assets/img/fotos/{p["hero_image"]["name"]}-{big}.jpg'
+    og_source = p.get("hero_image") or next(iter(p.get("gallery", [])), None)
+    if og_source and max(og_source["widths"]) >= 1200:
+        big = max(og_source["widths"])
+        og = f'{BASE_URL}/assets/img/fotos/{og_source["name"]}-{big}.jpg'
 
     out = head(f'{p["short_title"]} — Pátria Grande Produções', p["seo_description"],
                f'projetos/{p["slug"]}/', depth, og_image=og)
     out += header("projetos/", depth)
     out += f"""
 <article class="projecthead">
-{hero_media}
 <div class="band band--{p["band"]} projecthead__body">
 {cartografia("cartografia cartografia--canto")}
 <div class="shell">
