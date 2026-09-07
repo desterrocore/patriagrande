@@ -1239,8 +1239,25 @@ figure { margin: 0; }
 
 .contact { display: grid; gap: clamp(22px, 2.8vw, 44px); }
 @media (min-width: 800px) { .contact { grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); } }
+.contact__block { container-type: inline-size; }
 .contact__block h3 { font-size: var(--fs-h4); margin-bottom: .6em; }
-.contact__value { font-size: var(--fs-h3); font-weight: 700; overflow-wrap: anywhere; }
+
+/* O valor é dimensionado pela COLUNA, não pela janela. Com var(--fs-h3) ele
+   crescia junto com o viewport enquanto a coluna parava de crescer no teto da
+   .shell — em 1280px o tipo já tinha 21,6px e a coluna só 261, e aí
+   "patriagrandeproducoes@" (265px) não cabia mais: o navegador caía no
+   overflow-wrap e quebrava antes do arroba, ou deixava o "s" do @perfil
+   sozinho. cqi é 1% da largura da coluna; a maior palavra do bloco tem 22
+   caracteres e mede cerca de 12,25× o corpo, então 7,6cqi a deixa em 93% da
+   coluna em qualquer largura. */
+.contact__value {
+  font-size: clamp(1.05rem, 7.6cqi, 1.35rem);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+@supports not (font-size: 1cqi) {
+  .contact__value { font-size: 1.2rem; }
+}
 .contact__value a { text-decoration-color: var(--band-accent); text-decoration-thickness: 2px; }
 
 /* ---------------------------------------------------------------------------
