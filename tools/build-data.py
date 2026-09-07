@@ -829,7 +829,7 @@ site = {
         "lede": b("quem_somos.lede"),
         "institucional": b("quem_somos.institucional"),
         "fecho": b("quem_somos.fecho"),
-        "logo_caption": "**Logotipo Pátria Grande Produções** · A América Latina desenhada com o sul para cima, cercada por sol, lua, aves, peixe, água, cidade e a linha do Equador.",
+        "logo_caption": "**Logotipo Pátria Grande Produções** · A América Latina desenhada com o sul para cima, cercada por sol, lua, aves, peixe, água, cidade e a linha do Equador. A inspiração é o trabalho “América Invertida”, do hispano-uruguaio Joaquín Torres-García.",
         "conceito_titulo": b("quem_somos.conceito_titulo"),
         "conceito": b("quem_somos.conceito"),
         "cartografia_titulo": b("quem_somos.cartografia_titulo"),
