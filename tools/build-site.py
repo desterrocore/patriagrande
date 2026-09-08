@@ -232,7 +232,8 @@ def head(title: str, description: str, path: str, depth: int, og_image: str | No
 <meta property="og:image" content="{og}">
 <meta name="twitter:card" content="summary_large_image">
 
-<meta name="theme-color" content="#690404">
+<meta name="theme-color" content="#690404" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="{THEME_COLOR_DARK}" media="(prefers-color-scheme: dark)">
 <link rel="icon" href="{r}assets/img/marca/favicon.ico" sizes="any">
 <link rel="icon" href="{r}assets/img/marca/favicon-96.png" type="image/png" sizes="96x96">
 <link rel="apple-touch-icon" href="{r}assets/img/marca/favicon-180.png">
@@ -241,11 +242,48 @@ def head(title: str, description: str, path: str, depth: int, og_image: str | No
 <link rel="preload" href="{r}assets/fonts/archivo-black-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="{r}assets/fonts/archivo-400-800-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="{r}assets/css/patria-grande.css">
+
+<!-- Tema. Inline e síncrono de propósito: main.js é `defer`, e esperar por ele
+     faria a página pintar clara antes de escurecer. Escreve SEMPRE um valor —
+     a escolha guardada, ou o que o sistema pedir —, e é por isso que a folha de
+     estilo não precisa de um segundo bloco em @media (prefers-color-scheme):
+     dois blocos para manter em sincronia, e um deles envelheceria. O try/catch
+     é para navegador com armazenamento bloqueado, onde ler localStorage lança.
+     Sem JavaScript nada disto roda e o site fica no tema claro, que é completo. -->
+<script>(function(){{var t;try{{t=localStorage.getItem("pg-tema")}}catch(e){{}}if(t!=="dark"&&t!=="light")t=window.matchMedia&&window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.dataset.theme=t}})()</script>
 </head>
 <body>
 {map_sprite()}
 <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
 """
+
+
+# A cor da barra do navegador no celular. Clara é o vermelho da marca; escura é
+# o fundo do tema escuro, para a barra não brilhar em cima de uma página escura.
+THEME_COLOR_DARK = "#161210"
+
+
+def theme_toggle() -> str:
+    """O botão de tema. O rótulo acessível diz o que o clique FAZ, não em que
+    modo a pessoa está — é a formulação que não deixa dúvida —, e main.js o
+    reescreve a cada troca. Sem JavaScript o botão não teria efeito nenhum, e
+    por isso .no-js o esconde.
+
+    O desenho é o sol e a lua: os dois estão no logotipo da casa, no mesmo céu,
+    e são a imagem que a produtora já usa para dia e noite."""
+    sol = ('<svg class="themetoggle__i themetoggle__i--sol" viewBox="0 0 24 24" '
+           'aria-hidden="true" focusable="false">'
+           '<circle cx="12" cy="12" r="4.6"/>'
+           '<g stroke="currentColor" stroke-width="1.9" stroke-linecap="round">'
+           '<path d="M12 1.6v3M12 19.4v3M1.6 12h3M19.4 12h3'
+           'M4.6 4.6l2.2 2.2M17.2 17.2l2.2 2.2M19.4 4.6l-2.2 2.2M6.8 17.2l-2.2 2.2"/>'
+           '</g></svg>')
+    lua = ('<svg class="themetoggle__i themetoggle__i--lua" viewBox="0 0 24 24" '
+           'aria-hidden="true" focusable="false">'
+           '<path d="M20.3 14.6A8.6 8.6 0 0 1 9.4 3.7a8.7 8.7 0 1 0 10.9 10.9z"/>'
+           '</svg>')
+    return (f'<button class="themetoggle" type="button" data-theme-toggle '
+            f'aria-label="Mudar para o modo escuro">{sol}{lua}</button>')
 
 
 def header(active: str, depth: int) -> str:
@@ -263,6 +301,7 @@ def header(active: str, depth: int) -> str:
 <img class="brand__word" src="{r}assets/img/marca/wordmark-amarelo-450.png" width="450" height="293" alt="Pátria Grande Produções" loading="eager" decoding="async">
 </a>
 <nav class="nav" aria-label="Principal">
+{theme_toggle()}
 <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-list">
 <span class="nav__bars" aria-hidden="true"><i></i><i></i><i></i></span>Menu
 </button>
@@ -826,7 +865,7 @@ def page_quem_somos(site, people) -> None:
 <p class="archivecaption">{inline(s["logo_caption"])}</p>
 </aside>
 </div>
-<p class="manifesto" style="margin-top:clamp(36px,4.4vw,64px);color:var(--pg-red)" data-reveal>{inline(s["fecho"])}</p>
+<p class="manifesto manifesto--accent" style="margin-top:clamp(36px,4.4vw,64px)" data-reveal>{inline(s["fecho"])}</p>
 </div>
 </section>
 

@@ -1,12 +1,13 @@
 /* ===========================================================================
    PÁTRIA GRANDE PRODUÇÕES — comportamento
    ---------------------------------------------------------------------------
-   Quatro coisas, nesta ordem de importância:
+   Cinco coisas, nesta ordem de importância:
 
-     1. o menu no celular;
-     2. as abas e os filtros do arquivo de projetos;
-     3. a ampliação de fotografias na galeria;
-     4. uma revelação curta na rolagem.
+     1. o botão de tema;
+     2. o menu no celular;
+     3. as abas e os filtros do arquivo de projetos;
+     4. a ampliação de fotografias na galeria;
+     5. uma revelação curta na rolagem.
 
    Nada aqui é necessário para ler o site. Sem JavaScript o menu fica aberto
    como lista, o portfólio mostra todos os projetos, a galeria abre a imagem
@@ -22,7 +23,95 @@
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* -------------------------------------------------------------------------
-     1. Menu
+     1. Tema
+     Quem escolhe primeiro é o sistema. Este botão serve para discordar dele, e
+     a discordância fica guardada — daí em diante o site obedece à pessoa, não
+     ao sistema operacional.
+
+     Quem aplica o tema na primeira pintura NÃO é este arquivo: é o script
+     inline do <head>, porque este aqui é `defer` e a página já teria pintado
+     clara antes de ele rodar. Aqui ficam só a troca e o rótulo.
+     ------------------------------------------------------------------------- */
+
+  var root = document.documentElement;
+  var prefereEscuro = window.matchMedia('(prefers-color-scheme: dark)');
+  var botaoTema = document.querySelector('[data-theme-toggle]');
+  var COR_BARRA = { dark: '#161210', light: '#690404' };
+
+  var guardado = function () {
+    try {
+      var v = localStorage.getItem('pg-tema');
+      return v === 'dark' || v === 'light' ? v : null;
+    } catch (e) { return null; }
+  };
+
+  // O script do <head> já resolveu o tema; o atributo está sempre presente.
+  var temaAtual = function () {
+    return root.dataset.theme === 'dark' ? 'dark' : 'light';
+  };
+
+  /* A barra do navegador no celular. O <head> traz duas <meta theme-color> com
+     `media`, uma por esquema do sistema, e o navegador usa a PRIMEIRA cujo
+     media casa. Acrescentar uma terceira no fim não adianta nada: ela nunca
+     vence por ordem. Quando alguém escolhe um tema contra o sistema, o certo é
+     reescrever as duas que já existem e tirar o `media` delas — aí não sobra
+     condição para o navegador avaliar e a escolha vale. */
+  var pintarBarra = function (tema) {
+    var metas = document.querySelectorAll('meta[name="theme-color"]');
+    for (var i = 0; i < metas.length; i++) {
+      metas[i].removeAttribute('media');
+      metas[i].setAttribute('content', COR_BARRA[tema]);
+    }
+  };
+
+  var rotular = function () {
+    if (!botaoTema) return;
+    botaoTema.setAttribute(
+      'aria-label',
+      temaAtual() === 'dark' ? 'Mudar para o modo claro' : 'Mudar para o modo escuro'
+    );
+  };
+
+  rotular();
+
+  if (botaoTema) {
+    botaoTema.addEventListener('click', function () {
+      var novo = temaAtual() === 'dark' ? 'light' : 'dark';
+      root.dataset.theme = novo;
+      pintarBarra(novo);
+      try { localStorage.setItem('pg-tema', novo); } catch (e) {}
+      rotular();
+    });
+  }
+
+  // Se a escolha já estava guardada quando a página abriu, a barra precisa
+  // seguir a escolha desde o começo, e não só depois de um clique.
+  if (guardado()) pintarBarra(temaAtual());
+
+  // Sem escolha guardada, o sistema continua mandando — inclusive se ele mudar
+  // com a página aberta, que é o que acontece ao anoitecer no celular.
+  var aoMudarSistema = function () {
+    if (guardado()) return;
+    root.dataset.theme = prefereEscuro.matches ? 'dark' : 'light';
+    rotular();
+  };
+
+  /* Voltar para uma página restaurada do cache de retrocesso não roda script
+     nenhum de novo: o <html> volta com o data-theme que tinha quando a pessoa
+     saiu dali. Quem trocou o tema na página seguinte e apertou "voltar"
+     encontrava o tema antigo, com o localStorage dizendo outra coisa. */
+  window.addEventListener('pageshow', function (ev) {
+    if (!ev.persisted) return;
+    var alvo = guardado() || (prefereEscuro.matches ? 'dark' : 'light');
+    if (root.dataset.theme !== alvo) root.dataset.theme = alvo;
+    if (guardado()) pintarBarra(alvo);
+    rotular();
+  });
+  if (prefereEscuro.addEventListener) prefereEscuro.addEventListener('change', aoMudarSistema);
+  else if (prefereEscuro.addListener) prefereEscuro.addListener(aoMudarSistema);
+
+  /* -------------------------------------------------------------------------
+     2. Menu
      O botão só existe abaixo de 901px. Acima disso a lista é sempre visível,
      então o estado aria-expanded é irrelevante e o botão sai da árvore.
      ------------------------------------------------------------------------- */
@@ -66,7 +155,7 @@
   }
 
   /* -------------------------------------------------------------------------
-     2. Arquivo de projetos: abas de situação + filtros de categoria
+     3. Arquivo de projetos: abas de situação + filtros de categoria
 
      A lista já vem inteira no HTML, e a seleção é feita no cliente. Sem
      JavaScript a página é o arquivo completo — que é exatamente o
@@ -176,7 +265,7 @@
   }
 
   /* -------------------------------------------------------------------------
-     3. Galeria
+     4. Galeria
      Cada figura da galeria é um link para a imagem grande. Com JavaScript o
      link vira um <dialog> nativo — que já traz foco preso, Esc e camada de
      topo de graça — com navegação por seta entre as fotos da mesma galeria.
@@ -259,7 +348,7 @@
   }
 
   /* -------------------------------------------------------------------------
-     4. Revelação na rolagem
+     5. Revelação na rolagem
      Uma vez por elemento, e nunca quando o sistema pede menos movimento.
      ------------------------------------------------------------------------- */
 

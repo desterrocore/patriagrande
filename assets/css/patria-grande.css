@@ -501,6 +501,40 @@ hr { border: 0; border-top: 1px solid var(--band-rule); margin: clamp(30px, 4vw,
 .nav__cta:hover { background: var(--pg-white); color: var(--pg-red); border-bottom-color: transparent; }
 .nav__cta[aria-current='page'] { background: var(--pg-white); color: var(--pg-red); }
 
+/* Botão de tema. Vive na barra ao lado do menu, em qualquer largura — trocar o
+   tema é gesto de leitura e não pode ficar escondido atrás do menu do celular.
+   O desenho é o sol e a lua, que já estão no logotipo da casa, no mesmo céu.
+   Aparece o alvo, não o estado: de dia mostra a lua, que é para onde o clique
+   leva. Sem JavaScript o botão não teria efeito, e então ele não existe. */
+.themetoggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  flex: none;
+  padding: 0;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, .45);
+  color: var(--pg-white);
+  cursor: pointer;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+.themetoggle:hover { border-color: var(--pg-yellow); color: var(--pg-yellow); }
+.themetoggle__i { width: 17px; height: 17px; fill: currentColor; }
+.no-js .themetoggle { display: none; }
+
+/* Um dos dois ícones por vez. A regra é escrita nos dois sentidos porque o tema
+   tem três estados e não dois: escuro explícito, claro explícito, e nenhum dos
+   dois — que é o padrão, e aí quem responde é o sistema. */
+/* Claro: mostra a lua, que é para onde o clique leva. Escuro: mostra o sol.
+   O ícone e o aria-label dizem a mesma coisa — a ação, não o estado.
+   O script do <head> escreve data-theme sempre, então basta olhar para ele. */
+.themetoggle__i--lua { display: block; }
+.themetoggle__i--sol { display: none; }
+:root[data-theme='dark'] .themetoggle__i--sol { display: block; }
+:root[data-theme='dark'] .themetoggle__i--lua { display: none; }
+
 .nav__toggle {
   display: none;
   align-items: center;
@@ -700,6 +734,14 @@ hr { border: 0; border-top: 1px solid var(--band-rule); margin: clamp(30px, 4vw,
 
 .btnrow { display: flex; flex-wrap: wrap; gap: 12px; }
 
+/* Um botão dentro de .prose é botão, não link de texto: `.prose a` tem
+   especificidade maior que `.btn` e reimpunha a sublinha por cima do rótulo.
+   No claro ela era vermelha sobre o botão vermelho e não se via; no escuro, com
+   o acento da faixa invertida em branco, virava um risco branco cortando o
+   rótulo do CTA — exatamente o "nunca branco sobre amarelo" que o cabeçalho da
+   seção 9 proíbe. */
+.prose a.btn { text-decoration: none; }
+
 .prose a, .linkish {
   color: inherit;
   text-decoration: underline;
@@ -748,6 +790,11 @@ blockquote.pull cite {
   text-transform: uppercase;
   color: var(--band-dim);
 }
+
+/* O fecho institucional é o vermelho da marca sobre papel — e o acento da faixa
+   é exatamente isso. Escrito como cor em linha, como estava, ele venceria
+   qualquer regra de tema e ficaria vermelho a 1,44:1 sobre o fundo escuro. */
+.manifesto--accent { color: var(--band-accent); }
 
 /* ---------------------------------------------------------------------------
    11. Estruturas de duas colunas
@@ -1364,7 +1411,149 @@ figure { margin: 0; }
 }
 
 /* ---------------------------------------------------------------------------
-   23. Movimento
+   23. Tema escuro — o mesmo cartaz, impresso ao contrário
+   ---------------------------------------------------------------------------
+   Nenhuma cor da marca se move. #690404, #5D0404 e #FFCC00 continuam onde
+   estavam; o que troca de lugar é papel e tinta. Metade do site já era escuro
+   — doze faixas vermelhas, quinze vermelho-profundas, o cabeçalho, o rodapé e
+   toda a camada fotográfica —, e é essa metade que fica intacta, com as
+   proporções de contraste que já foram medidas uma vez.
+
+   Três coisas mudam de verdade:
+
+   1. O ACENTO. Sobre o fundo escuro o vermelho da marca dá 1,44:1 — sumiria
+      de todo olho-de-seção, de todo ano da linha do tempo, de toda sublinha
+      de link e, pior, do anel de foco. O acento passa a ser o amarelo, que dá
+      12,31:1 e é a outra cor da casa, não uma cor nova.
+
+   2. A FAIXA AMARELA. Um campo inteiro de #FFCC00 à noite é ofuscante. Aqui
+      ela é impressa ao contrário: campo vermelho, tipo amarelo, 8,57:1 — a
+      inversão exata da faixa vermelha, que tem tipo branco e acento amarelo.
+      O modo escuro automático da extensão que o usuário testou virou este
+      trecho em oliva com tipo rosa; o erro lá foi girar o matiz de 48° para
+      51°, que é o caminho para o verde. Escurecer o amarelo da casa gira para
+      41°, o ocre. Se algum dia alguém quiser um campo claro aqui, é para esse
+      lado que se anda — nunca para o oliva.
+
+   3. AS COSTURAS. Com o fundo em #161210, o vermelho fica a 1,44:1 dele e o
+      profundo a 1,32:1: as faixas deixariam de ter borda. Um filete sólido de
+      #FFCC00 desenha o corte — 12,31:1 contra o fundo, 8,57:1 contra o
+      vermelho, 9,36:1 contra o profundo.
+
+   Quem aplica o tema é o atributo data-theme no <html>, escrito pelo script
+   inline do <head> antes da primeira pintura. Ele SEMPRE escreve um valor: a
+   escolha guardada, ou o que o sistema pedir. Por isso aqui não há
+   @media (prefers-color-scheme) — haveria dois blocos para manter em sincronia
+   e um deles envelheceria. Sem JavaScript o site fica no tema claro, que é
+   completo; meio tema escuro seria pior que nenhum.
+   --------------------------------------------------------------------------- */
+
+:root[data-theme='dark'] {
+  /* O papel vira tinta e a tinta vira papel. #161210 é o mesmo valor de
+     THEME_COLOR_DARK em tools/build-site.py e do literal em main.js — o
+     verificador cobra que os três sejam iguais. */
+  --pg-paper: #161210;
+
+  /* Os alfas são os MESMOS do modo claro. sRGB é codificado em gama, então o
+     mesmo alfa rende mais sobre fundo escuro: a tinta secundária sai de 6,83:1
+     no claro para 8,61:1 aqui, e o filete de 1,62:1 para 1,93:1. A correção que
+     o modo escuro pede chega de graça, sem número novo para justificar.
+     A tinta principal é a exceção: .92 em vez de sólida, 14,40:1 em vez de
+     17,2:1. Tipo pesado e grande em branco cheio sobre tela emissiva halona. */
+  --ink:         rgba(247, 244, 238, .92);   /* #E5E2DC — 14,40:1 */
+  --ink-dim:     rgba(247, 244, 238, .70);   /* #B3B0AB —  8,61:1 */
+  --rule:        rgba(247, 244, 238, .22);   /* #484441 —  1,93:1 */
+  --rule-strong: rgba(247, 244, 238, .42);   /* #74716D —  3,83:1 */
+
+  --band-bg:     var(--pg-paper);
+  --band-ink:    var(--ink);
+  --band-dim:    var(--ink-dim);
+  --band-rule:   var(--rule);
+  --band-accent: var(--pg-yellow);           /* 12,31:1 — o vermelho daria 1,44:1 */
+
+  color-scheme: dark;
+}
+
+/* As faixas de leitura redeclaram os cinco tokens e por isso venceriam o :root.
+   band--white não é usada em página nenhuma; fica apontada para o mesmo lugar
+   para nunca poder servir uma parede branca. */
+:root[data-theme='dark'] .band--paper,
+:root[data-theme='dark'] .band--white {
+  --band-bg: var(--pg-paper); --band-ink: var(--ink);
+  --band-dim: var(--ink-dim); --band-rule: var(--rule); --band-accent: var(--pg-yellow);
+}
+
+/* A faixa amarela ao contrário: campo vermelho, tipo amarelo (8,57:1), acento
+   branco (12,96:1). É a faixa vermelha espelhada. O vermelho, e não o profundo,
+   porque o rodapé é profundo e em duas páginas a faixa encosta nele — dois
+   campos idênticos, sem tinta diferente entre eles, seria costura de 1,00:1. */
+:root[data-theme='dark'] .band--yellow {
+  --band-bg: var(--pg-red); --band-ink: var(--pg-yellow);
+  --band-dim: rgba(255, 255, 255, .80); --band-rule: rgba(255, 204, 0, .34);
+  --band-accent: var(--pg-white);
+}
+/* Dois herdeiros da faixa amarela pintavam campo vermelho sobre amarelo. O
+   campo agora é vermelho, e vermelho sobre vermelho é 1,00:1. */
+:root[data-theme='dark'] .band--yellow .badge { background: var(--pg-yellow); color: var(--pg-red); }
+:root[data-theme='dark'] .band--yellow ::selection { background: var(--pg-yellow); color: var(--pg-red); }
+
+/* As costuras. Sem elas as faixas encostam sem borda. */
+:root[data-theme='dark'] .band--red,
+:root[data-theme='dark'] .band--deep { border-block: 2px solid var(--pg-yellow); }
+:root[data-theme='dark'] .band--yellow { border-block: 4px solid var(--pg-yellow); }
+:root[data-theme='dark'] .header { border-bottom: 2px solid var(--pg-yellow); }
+:root[data-theme='dark'] .footer { border-top: 2px solid var(--pg-yellow); }
+
+/* Botão cheio: no claro ele é vermelho sobre fundo claro e amarelo sobre fundo
+   vermelho. No escuro toda faixa é escura, então há um só botão cheio — o
+   amarelo. Um campo vermelho aqui daria 1,44:1 e o botão não teria silhueta,
+   que é falha de 1.4.11 e não questão de gosto. */
+:root[data-theme='dark'] .band--yellow .btn--primary,
+:root[data-theme='dark'] .band--paper .btn--primary,
+:root[data-theme='dark'] .band--white .btn--primary {
+  background: var(--pg-yellow); color: var(--pg-red); border-color: var(--pg-yellow);
+}
+:root[data-theme='dark'] .band--yellow .btn--primary:hover,
+:root[data-theme='dark'] .band--paper .btn--primary:hover,
+:root[data-theme='dark'] .band--white .btn--primary:hover {
+  background: var(--pg-white); border-color: var(--pg-white);
+}
+/* Mesma regra para o estado marcado dos filtros, pelo mesmo motivo. */
+:root[data-theme='dark'] .filters__btn[aria-pressed='true'] {
+  background: var(--pg-yellow); border-color: var(--pg-yellow); color: var(--pg-red);
+}
+
+/* Card de serviço: vermelho a 1,44:1 do fundo deixa de ser card. Ganha filete,
+   e o hover passa a CLAREAR — no claro ele escurece, e sobre página escura
+   escurecer no hover se lê como desativado. */
+:root[data-theme='dark'] .scard {
+  background: var(--pg-red-deep);
+  border: 1px solid rgba(255, 204, 0, .45);
+}
+:root[data-theme='dark'] .scard:hover,
+:root[data-theme='dark'] .scard:focus-within { background: var(--pg-red); }
+
+/* As placas de marca têm fundo assado no arquivo e não acompanham o tema. Três
+   delas são escuras — azul-marinho, verde e carmim — e a 1,04, 1,31 e 1,83:1 do
+   fundo somem dentro do card. Um filete amarelo por dentro devolve a borda:
+   5,26, 4,46 e 3,34:1 contra o interior de cada uma, e 5,06 a 6,13:1 contra o
+   fundo. Nas placas claras ele quase não aparece contra a arte, e não precisa:
+   elas já dão 12 a 19:1 contra o fundo.
+
+   É `outline` com recuo negativo, e não `box-shadow: inset`. Sombra interna
+   pinta na camada de fundo do elemento, ABAIXO dos filhos, e a arte da placa é
+   um <img> de width:100%/height:100%/object-fit:cover — ela cobria o filete
+   inteiro. Medido: com box-shadow a borda esquerda da placa do FLACA lia
+   (0,12,42), a arte pura; com outline lê (158,130,16), que é o amarelo a 62%
+   sobre o azul-marinho. O contorno pinta depois do conteúdo. */
+:root[data-theme='dark'] .pcard__plate,
+:root[data-theme='dark'] .pcard__media {
+  outline: 1px solid rgba(255, 204, 0, .62);
+  outline-offset: -1px;
+}
+
+/* ---------------------------------------------------------------------------
+   24. Movimento
    Uma revelação curta na rolagem e nada mais. Sem parallax, sem scroll-jacking,
    sem abertura obrigatória.
    --------------------------------------------------------------------------- */
@@ -1392,11 +1581,20 @@ figure { margin: 0; }
 .no-js [data-reveal] { opacity: 1; transform: none; }
 
 /* ---------------------------------------------------------------------------
-   24. Impressão — o site também é material de imprensa.
+   25. Impressão — o site também é material de imprensa.
    --------------------------------------------------------------------------- */
 
 @media print {
   .header, .nav, .skip-link, .filters, .tabs, .btnrow, .cartografia { display: none !important; }
+  /* O papel é branco em qualquer tema. Sem isto, color-scheme: dark segue
+     valendo na impressão e o navegador pinta a tela do papel de escuro — a
+     folha sai com moldura preta em volta do conteúdo, mesmo com body branco. */
+  :root { color-scheme: light; }
+  /* E as costuras do tema escuro existem para separar campos que, no papel,
+     são todos brancos: viram tinta amarela gasta e mudam a paginação. */
+  .band--red, .band--deep, .band--yellow, .header, .footer { border: 0 !important; }
+  .pcard__plate, .pcard__media { outline: 0 !important; }
+
   body { background: #fff; color: #000; font-size: 11pt; }
   .band { padding-block: 12pt; background: #fff !important; color: #000 !important; }
   .band * { color: #000 !important; }
