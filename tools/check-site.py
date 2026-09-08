@@ -282,6 +282,14 @@ def check_pages() -> None:
             if not img.get("loading"):
                 notes.append(f'{rel}: <img src="{img.get("src")}"> sem loading.')
 
+        # O tema é aplicado antes da primeira pintura por um script inline. Sem
+        # ele a página pinta clara e escurece depois — o piscão que o modo
+        # escuro existe para evitar.
+        if 'localStorage.getItem("pg-tema")' not in text:
+            fail(f"{rel}: sem o script de tema no <head> — a página piscaria clara.")
+        if text.count("data-theme-toggle") != 1:
+            fail(f'{rel}: {text.count("data-theme-toggle")} botões de tema (deve haver exatamente um).')
+
         if "id=\"conteudo\"" not in text:
             fail(f"{rel}: falta o alvo #conteudo do link de pular navegação.")
 
@@ -442,6 +450,75 @@ def check_brand() -> None:
             fail(f"{font.name}: a Squarely não tem licença web — remover de assets/fonts/.")
 
 
+def check_theme() -> None:
+    """O tema escuro tem uma cor de fundo, e ela é escrita em três arquivos.
+
+    O #161210 aparece na folha de estilo (o token --pg-paper do bloco escuro),
+    em tools/build-site.py (THEME_COLOR_DARK, que vira a &lt;meta theme-color&gt; das
+    21 páginas) e em assets/js/main.js (o valor que o botão grava quando alguém
+    escolhe o tema). Se um deles andar sozinho, nada quebra visivelmente: o site
+    fica com um fundo e a barra do navegador do celular com outro. Este é
+    exatamente o tipo de divergência que só aparece num aparelho e nunca numa
+    revisão de código.
+    """
+    css = (ROOT / "assets" / "css" / "patria-grande.css").read_text(encoding="utf-8")
+    js = (ROOT / "assets" / "js" / "main.js").read_text(encoding="utf-8")
+    site = (ROOT / "tools" / "build-site.py").read_text(encoding="utf-8")
+
+    bloco = re.search(r":root\[data-theme='dark'\]\s*\{(.*?)\}", css, re.S)
+    if not bloco:
+        fail("patria-grande.css: bloco :root[data-theme='dark'] ausente — o tema escuro sumiu.")
+        return
+    fundo = re.search(r"--pg-paper:\s*(#[0-9A-Fa-f]{6})", bloco.group(1))
+    if not fundo:
+        fail("patria-grande.css: o bloco escuro não define --pg-paper.")
+        return
+    fundo = fundo.group(1).upper()
+
+    py = re.search(r'THEME_COLOR_DARK\s*=\s*"(#[0-9A-Fa-f]{6})"', site)
+    if not py:
+        fail("tools/build-site.py: THEME_COLOR_DARK não encontrado.")
+    elif py.group(1).upper() != fundo:
+        fail(f"THEME_COLOR_DARK é {py.group(1)} e o fundo escuro da CSS é {fundo}. "
+             "A barra do navegador ficaria de uma cor e a página de outra.")
+
+    if fundo.lower() not in js.lower():
+        fail(f"assets/js/main.js não contém {fundo}: o botão de tema gravaria uma "
+             "theme-color diferente do fundo que a folha de estilo pinta.")
+
+    if "color-scheme: dark" not in bloco.group(1):
+        fail("patria-grande.css: o bloco escuro não declara color-scheme: dark — "
+             "barra de rolagem e controles de formulário continuariam claros.")
+
+    # E o artefato que chega ao celular é o HTML commitado, não o gerador. Se
+    # alguém editar uma página à mão, ou esquecer de rodar tools/build-site.py,
+    # a &lt;meta theme-color&gt; publicada diverge sem que nada acuse.
+    for page in sorted(ROOT.glob("*.html")) + sorted(ROOT.glob("*/index.html")):
+        if page.relative_to(ROOT).parts[0] in NOT_ROUTES:
+            continue
+        html = page.read_text(encoding="utf-8")
+        achou = re.findall(
+            r'<meta name="theme-color" content="(#[0-9A-Fa-f]{6})" '
+            r'media="\(prefers-color-scheme: (light|dark)\)">', html)
+        cores = {esquema: cor.upper() for cor, esquema in achou}
+        if cores.get("dark") != fundo:
+            fail(f'{page.relative_to(ROOT).as_posix()}: theme-color do escuro é '
+                 f'{cores.get("dark")} e o fundo escuro da CSS é {fundo}.')
+        if cores.get("light") != "#690404":
+            fail(f'{page.relative_to(ROOT).as_posix()}: theme-color do claro é '
+                 f'{cores.get("light")}, esperado #690404.')
+
+    # A sombra interna não pinta acima de um filho, e a arte da placa é um <img>
+    # que cobre a caixa inteira. Já foi escrito assim uma vez e o filete ficou
+    # invisível nas três placas escuras que ele existe para emoldurar.
+    placa = re.search(r"\.pcard__plate,\s*:root\[data-theme='dark'\] \.pcard__media \{(.*?)\}",
+                      css, re.S)
+    if placa and "box-shadow" in placa.group(1):
+        fail("patria-grande.css: o filete das placas no tema escuro usa box-shadow, "
+             "que pinta abaixo da imagem e não aparece. Use outline com "
+             "outline-offset negativo.")
+
+
 def check_assets() -> None:
     """Cada entrada do manifesto tem de ter TODOS os arquivos que o srcset promete.
 
@@ -508,6 +585,7 @@ def main() -> int:
     check_data()
     check_pages()
     check_domain()
+    check_theme()
     check_brand()
     check_assets()
 
