@@ -375,6 +375,19 @@ def check_domain() -> None:
     if base_url.endswith("/"):
         fail("tools/build-site.py: BASE_URL não deve terminar em barra.")
 
+    # O README é o primeiro texto que alguém lê sobre este repositório, e a
+    # primeira linha dele diz onde o site está no ar. Ela ficou apontando para o
+    # endereço antigo depois da migração de domínio, e nada acusou — a coerência
+    # entre CNAME, BASE_URL e robots.txt não alcança prosa. Alcança agora.
+    readme = ROOT / "README.md"
+    if readme.exists():
+        for url in re.findall(r"No ar[^\n]*?<(https?://[^>]+)>", readme.read_text(encoding="utf-8")):
+            if re.sub(r"^https?://", "", url).rstrip("/").split("/")[0] != base_host:
+                fail(
+                    f'README.md: "No ar" aponta para {url}, e o site é servido em '
+                    f"{base_host}. Corrija a primeira linha do README."
+                )
+
     # O sitemap declarado no robots.txt precisa ser o mesmo domínio. Este é o
     # único arquivo do site com o domínio escrito à mão: build-site.py não o gera.
     robots = (ROOT / "robots.txt").read_text(encoding="utf-8")

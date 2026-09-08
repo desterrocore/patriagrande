@@ -3,7 +3,8 @@
 Site institucional da **Pátria Grande Produções** — produtora cultural de Florianópolis,
 com atuação em diferentes regiões do Brasil.
 
-No ar: <https://desterrocore.com.br/patriagrande/> — migrando para <https://patriagrande.com.br>
+No ar em <https://patriagrande.com.br>, com o `http://` redirecionando para o `https://`.
+O `www` ainda devolve erro de certificado — ver a seção 1 do `SUMMARY.md`.
 
 ---
 
