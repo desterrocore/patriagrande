@@ -504,7 +504,7 @@
   "related": [
    "educa-ambiental",
    "cine-retrata",
-   "cineclube-marighella"
+   "fica-garopaba"
   ],
   "seo_description": "Cineclube Pátria Grande: dez sessões ao ar livre com debate no Rio Vermelho e Ingleses em 2024 e curadoria latino-americana em 2025, Florianópolis.",
   "pending": "Da execução de 2025 estão documentados o financiamento e a linha curatorial, mas ainda não o calendário: número de sessões, datas e locais. Os filmes exibidos e os mediadores dos debates das duas execuções seguem em levantamento.",
@@ -672,7 +672,7 @@
   "related": [
    "cineclube-patria-grande",
    "educa-ambiental",
-   "cineclube-marighella"
+   "fica-garopaba"
   ],
   "seo_description": "Cine Retrata: três sessões gratuitas em 2025 com documentários sobre fatos reais e debate com convidados, no CIC e no Bugio Trindade, Florianópolis.",
   "pending": "De uma das três sessões estão documentados o filme e o formato; das outras duas, ainda não. Títulos, datas e convidados seguem em levantamento, e o público não foi contabilizado — por isso o site não apresenta número de audiência.",
@@ -690,6 +690,7 @@
  },
  {
   "slug": "cineclube-marighella",
+  "hidden": true,
   "title": "Cineclube Marighella",
   "short_title": "Cineclube Marighella",
   "categories": [

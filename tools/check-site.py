@@ -40,7 +40,13 @@ FORBIDDEN_PROJECTS = [
 # Projetos retirados do site por decisão da produtora. Diferente da lista do
 # §18, que barra portfólio indevido, estes não podem aparecer em lugar nenhum —
 # nem em texto corrido, nem em card, nem em rodapé.
-RETIRED = ["vozes veladas", "vozes-veladas"]
+RETIRED = [
+    "vozes veladas",
+    "vozes-veladas",
+    "cineclube-marighella",
+    "cineclube marighella",
+    "marighella",
+]
 
 # §28.8 — dados que nunca devem ser publicados.
 SENSITIVE = [
@@ -136,6 +142,7 @@ def check_data() -> None:
     projects = json.loads((SRC / "projetos.json").read_text(encoding="utf-8"))
     people = json.loads((SRC / "equipe.json").read_text(encoding="utf-8"))
     slugs = {p["slug"] for p in projects}
+    hidden = {p["slug"] for p in projects if p.get("hidden")}
 
     for p in projects:
         where = f'projetos.json / {p["slug"]}'
@@ -195,6 +202,8 @@ def check_data() -> None:
         for rel in sv.get("related_projects", []):
             if rel not in slugs:
                 fail(f"{where}: projeto relacionado inexistente: {rel}")
+            if rel in hidden:
+                fail(f"{where}: related_projects aponta para projeto oculto «{rel}».")
     if len(service_slugs) != len(services):
         fail("servicos.json: slug duplicado.")
 
@@ -211,6 +220,8 @@ def check_data() -> None:
         for s, _title in person.get("projects", []):
             if s not in slugs:
                 fail(f"{where}: aponta para projeto inexistente: {s}")
+            if s in hidden:
+                fail(f"{where}: tag aponta para projeto oculto «{s}».")
 
         words = len(person.get("bio", "").split())
         if person["tier"] == "nucleo" and not 55 <= words <= 165:
@@ -226,6 +237,19 @@ def check_data() -> None:
     # alguém voltou da rede sem decisão editorial.
     if len(nucleo) != 7:
         notes.append(f"equipe.json: {len(nucleo)} pessoas no núcleo — a v2 define sete.")
+
+    site = json.loads((SRC / "site.json").read_text(encoding="utf-8"))
+    for slug, _title in site.get("footer_projects", []):
+        if slug in hidden:
+            fail(f"site.json footer_projects: projeto oculto «{slug}» não pode aparecer no rodapé.")
+
+    for slug in hidden:
+        page = ROOT / "projetos" / slug / "index.html"
+        if page.is_file():
+            fail(
+                f"{page.relative_to(ROOT)}: projeto oculto não pode ter página HTML "
+                "— apague e rode tools/build-site.py."
+            )
 
 
 def check_pages() -> None:

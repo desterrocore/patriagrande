@@ -36,10 +36,6 @@
   [
    "cine-retrata",
    "Cine Retrata"
-  ],
-  [
-   "cineclube-marighella",
-   "Cineclube Marighella"
   ]
  ],
  "footer_services": [
@@ -63,7 +59,7 @@
  "seo": {
   "home": "Pátria Grande Produções é produtora cultural em Florianópolis: festivais, cineclubes, formação, produção executiva, projeção, tradução e legendagem.",
   "quem_somos": "Produtora cultural sediada em Florianópolis, formalizada em 2024. Festivais, cineclubes e formação com horizonte latino-americano e atuação territorial.",
-  "projetos": "Portfólio da Pátria Grande: FICA Garopaba, FLACA, Cineclube Pátria Grande, Educa Ambiental, Marighella, Cine Retrata, oficina e curso.",
+  "projetos": "Portfólio da Pátria Grande: FICA Garopaba, FLACA, Cineclube Pátria Grande, Educa Ambiental, Cine Retrata, oficina e curso.",
   "servicos": "Produção executiva e gestão cultural, estrutura de projeção, tradução e legendagem audiovisual, oficinas e formação com a Pátria Grande Produções.",
   "equipe": "Cinema, fotografia, curadoria, produção executiva, formação, tradução, acessibilidade e tecnologia: as pessoas que fazem a Pátria Grande Produções.",
   "contato": "Fale com a Pátria Grande Produções: e-mail institucional, Instagram e base em Florianópolis. Exibições, oficinas, orçamentos, imprensa e parcerias.",
@@ -89,7 +85,7 @@
   "about_title": "Uma produtora cultural com identidade latino-americana",
   "about_text": "A Pátria Grande Produções é uma produtora cultural sediada em Florianópolis que atua em diferentes regiões do Brasil. Realizamos festivais, cineclubes, mostras, ações formativas e projetos que aproximam cultura, território e pensamento crítico.\n\nNosso nome parte do ideal de Pátria Grande — uma América Latina conectada por suas culturas, suas histórias e suas diferenças. É essa perspectiva que orienta a forma como produzimos, programamos e criamos encontros.",
   "projects_title": "O que já aconteceu",
-  "projects_lede": "Festivais, cineclubes, oficina e curso realizados entre 2022 e 2025 em Garopaba, Florianópolis, Palhoça e outras cidades catarinenses. Aqui entra só o que foi executado — e o site diz, projeto a projeto, o que é anterior à empresa, constituída em 2024.",
+  "projects_lede": "Festivais, cineclubes, oficina e curso realizados entre 2022 e 2025 em Garopaba, Florianópolis e outras cidades catarinenses. Aqui entra só o que foi executado — e o site diz, projeto a projeto, o que é anterior à empresa, constituída em 2024.",
   "featured": [
    "fica-garopaba",
    "flaca",
@@ -144,7 +140,7 @@
    }
   ],
   "territories_title": "Onde os projetos acontecem",
-  "territories_text": "Florianópolis é base, não limite. Garopaba, casa do FICA desde 2022, e outras cidades do litoral catarinense. O Rio Vermelho e os Ingleses, no norte da Ilha. A Ocupação Urbana Carlos Marighella, em Palhoça. Salas públicas, escolas, praças e espaços independentes no Centro da capital.\n\nCada lugar muda o projeto. Um cineclube montado dentro de uma ocupação não é o mesmo cineclube de uma sala pública no Centro, e a programação sabe disso.",
+  "territories_text": "Florianópolis é base, não limite. Garopaba, casa do FICA desde 2022, e outras cidades do litoral catarinense. O Rio Vermelho e os Ingleses, no norte da Ilha. Salas públicas, escolas, praças e espaços independentes no Centro da capital.\n\nCada lugar muda o projeto. Um cineclube no bairro não é o mesmo cineclube de uma sala pública no Centro, e a programação sabe disso.",
   "territories": [
    {
     "name": "Florianópolis",
@@ -153,10 +149,6 @@
    {
     "name": "Garopaba",
     "text": "Casa do FICA desde 2022, com circulação por outras cidades do litoral catarinense."
-   },
-   {
-    "name": "Palhoça",
-    "text": "Ocupação Urbana Carlos Marighella, na região da Formiga do Aririu, onde funcionou o Cineclube Marighella."
    },
    {
     "name": "Distrito Federal",
@@ -171,7 +163,7 @@
  "quem_somos": {
   "title": "Cultura, cinema e território a partir de Florianópolis",
   "lede": "A Pátria Grande Produções é uma produtora cultural sediada em Florianópolis que realiza festivais, cineclubes, mostras, oficinas e projetos audiovisuais em diferentes regiões do Brasil, com um horizonte latino-americano.",
-  "institucional": "A **Pátria Grande Produções** é uma produtora cultural sediada em Florianópolis. Atuamos em diferentes regiões do Brasil, promovendo encontros, experiências e projetos que fortalecem a cultura, a arte e o pensamento crítico.\n\nNosso nome é inspirado no ideal latino-americano de **Pátria Grande**: uma visão de integração entre os povos, as culturas e os territórios da América Latina, baseada na diversidade, na cooperação e na valorização das identidades que nos conectam. É essa inspiração que orienta nosso trabalho e nossa forma de ocupar os espaços culturais.\n\nAcreditamos que a cultura é uma ferramenta de transformação social, capaz de aproximar pessoas, estimular reflexões e construir novos olhares sobre o mundo. Por isso desenvolvemos projetos que promovem o acesso à arte, à educação e à produção cultural em suas múltiplas linguagens.\n\nNossa atuação abrange a criação, a produção e a gestão de festivais de cinema — com destaque para iniciativas voltadas às questões ambientais e socioambientais —, a realização de cineclubes e mostras audiovisuais, eventos de artes visuais, ações formativas, oficinas e cursos em diferentes áreas, além da prestação de serviços técnicos e culturais, como produção executiva, tradução e legendagem, locação de equipamentos de projeção e suporte para eventos.\n\nMais do que realizar eventos, buscamos criar pontes entre territórios, artistas, comunidades e públicos diversos. Cada projeto é pensado como uma oportunidade de fortalecer redes culturais, ampliar o acesso à produção artística e valorizar as narrativas que emergem da América Latina e de seus diferentes contextos.\n\nIsso tem endereço. O FICA, festival internacional de cinema ambiental de Garopaba, segue para sua quinta edição. O Festival Latino-Americano de Cinema Ambiental (FLACA) segue para sua segunda edição em Florianópolis, circulando entre salas de cinema, escolas e ruas. Os cineclubes montaram tela no Rio Vermelho, nos Ingleses e dentro de uma ocupação urbana em Palhoça. A oficina de pandorga e o curso de fotografia levaram a formação para fora do cinema. Os festivais, os cineclubes e o curso foram realizados com programação gratuita, viabilizados por políticas públicas de cultura.\n\nA Pátria Grande Produções acredita em uma cultura viva, democrática e acessível. Trabalhamos para que o cinema, as artes visuais, a formação cultural e a circulação de conhecimento cheguem a diferentes lugares, conectando pessoas por meio da criatividade, da memória e da imaginação coletiva.",
+  "institucional": "A **Pátria Grande Produções** é uma produtora cultural sediada em Florianópolis. Atuamos em diferentes regiões do Brasil, promovendo encontros, experiências e projetos que fortalecem a cultura, a arte e o pensamento crítico.\n\nNosso nome é inspirado no ideal latino-americano de **Pátria Grande**: uma visão de integração entre os povos, as culturas e os territórios da América Latina, baseada na diversidade, na cooperação e na valorização das identidades que nos conectam. É essa inspiração que orienta nosso trabalho e nossa forma de ocupar os espaços culturais.\n\nAcreditamos que a cultura é uma ferramenta de transformação social, capaz de aproximar pessoas, estimular reflexões e construir novos olhares sobre o mundo. Por isso desenvolvemos projetos que promovem o acesso à arte, à educação e à produção cultural em suas múltiplas linguagens.\n\nNossa atuação abrange a criação, a produção e a gestão de festivais de cinema — com destaque para iniciativas voltadas às questões ambientais e socioambientais —, a realização de cineclubes e mostras audiovisuais, eventos de artes visuais, ações formativas, oficinas e cursos em diferentes áreas, além da prestação de serviços técnicos e culturais, como produção executiva, tradução e legendagem, locação de equipamentos de projeção e suporte para eventos.\n\nMais do que realizar eventos, buscamos criar pontes entre territórios, artistas, comunidades e públicos diversos. Cada projeto é pensado como uma oportunidade de fortalecer redes culturais, ampliar o acesso à produção artística e valorizar as narrativas que emergem da América Latina e de seus diferentes contextos.\n\nIsso tem endereço. O FICA, festival internacional de cinema ambiental de Garopaba, segue para sua quinta edição. O Festival Latino-Americano de Cinema Ambiental (FLACA) segue para sua segunda edição em Florianópolis, circulando entre salas de cinema, escolas e ruas. Os cineclubes montaram tela no Rio Vermelho e nos Ingleses. A oficina de pandorga e o curso de fotografia levaram a formação para fora do cinema. Os festivais, os cineclubes e o curso foram realizados com programação gratuita, viabilizados por políticas públicas de cultura.\n\nA Pátria Grande Produções acredita em uma cultura viva, democrática e acessível. Trabalhamos para que o cinema, as artes visuais, a formação cultural e a circulação de conhecimento cheguem a diferentes lugares, conectando pessoas por meio da criatividade, da memória e da imaginação coletiva.",
   "fecho": "**Porque construir uma Pátria Grande é também ampliar os espaços de encontro entre culturas, ideias e sonhos.**",
   "logo_caption": "**Logotipo Pátria Grande Produções** · A América Latina desenhada com o sul para cima, cercada por sol, lua, aves, peixe, água, cidade e a linha do Equador. A inspiração é o trabalho “América Invertida”, do hispano-uruguaio Joaquín Torres-García.",
   "conceito_titulo": "O que quer dizer Pátria Grande",
@@ -191,7 +183,7 @@
    "group": "fotos"
   },
   "origem_titulo": "De onde vem",
-  "origem": "A Pátria Grande Produções foi constituída em Florianópolis em 2024. A experiência que ela reúne é mais antiga. O FICA — Festival Internacional de Cinema Ambiental de Garopaba nasceu em 2022, dois anos antes de a empresa existir, e suas duas primeiras edições foram realizadas por profissionais que depois formaram o núcleo da Pátria Grande.\n\nEm 2024, ano da formalização, foram executados os cineclubes Pátria Grande, Educa Ambiental e Marighella, contemplados pelo Prêmio Catarinense de Cinema, e aconteceu a terceira edição do FICA. Em 2025 vieram a quarta edição do FICA, a primeira edição do FLACA em Florianópolis, o Cine Retrata, a Oficina de Pandorga — Arte para Voar e o Curso Básico de Fotografia Digital #Abrindoacaixapreta.\n\nA diferença entre a história das pessoas e a história da empresa importa, e o site a mantém projeto a projeto. Ela vale também para o presente: o FICA e o FLACA têm edições realizadas e, agora, novas edições em produção. Uma coisa é o que já aconteceu, que está no portfólio com o que pôde ser documentado. Outra é o que está sendo feito, que aparece como em andamento e não empresta números das edições anteriores.",
+  "origem": "A Pátria Grande Produções foi constituída em Florianópolis em 2024. A experiência que ela reúne é mais antiga. O FICA — Festival Internacional de Cinema Ambiental de Garopaba nasceu em 2022, dois anos antes de a empresa existir, e suas duas primeiras edições foram realizadas por profissionais que depois formaram o núcleo da Pátria Grande.\n\nEm 2024, ano da formalização, foram executados os cineclubes Pátria Grande e Educa Ambiental, contemplados pelo Prêmio Catarinense de Cinema, e aconteceu a terceira edição do FICA. Em 2025 vieram a quarta edição do FICA, a primeira edição do FLACA em Florianópolis, o Cine Retrata, a Oficina de Pandorga — Arte para Voar e o Curso Básico de Fotografia Digital #Abrindoacaixapreta.\n\nA diferença entre a história das pessoas e a história da empresa importa, e o site a mantém projeto a projeto. Ela vale também para o presente: o FICA e o FLACA têm edições realizadas e, agora, novas edições em produção. Uma coisa é o que já aconteceu, que está no portfólio com o que pôde ser documentado. Outra é o que está sendo feito, que aparece como em andamento e não empresta números das edições anteriores.",
   "timeline": [
    {
     "year": "2022",
@@ -206,7 +198,7 @@
    {
     "year": "2024",
     "title": "Formalização e linha cineclubista",
-    "text": "A Pátria Grande Produções é constituída em Florianópolis. No mesmo ano são executados os cineclubes Pátria Grande, Educa Ambiental e Marighella, contemplados pelo Prêmio Catarinense de Cinema, e acontece a 3ª edição do FICA."
+    "text": "A Pátria Grande Produções é constituída em Florianópolis. No mesmo ano são executados os cineclubes Pátria Grande e Educa Ambiental, contemplados pelo Prêmio Catarinense de Cinema, e acontece a 3ª edição do FICA."
    },
    {
     "year": "2025",
@@ -234,7 +226,7 @@
    },
    {
     "title": "Território e socioambiental",
-    "text": "Cinema ambiental, educação ambiental e descentralização. O Cineclube Educa Ambiental levou filmes e debate ao Rio Vermelho, em vez de concentrar a discussão ambiental no centro da cidade; o Cineclube Marighella armou tela dentro da Ocupação Urbana Carlos Marighella, em Palhoça. O endereço não é detalhe de produção: é parte da proposta."
+    "text": "Cinema ambiental, educação ambiental e descentralização. O Cineclube Educa Ambiental levou filmes e debate ao Rio Vermelho, em vez de concentrar a discussão ambiental no centro da cidade; o Cineclube Pátria Grande fez o mesmo no norte da Ilha. O endereço não é detalhe de produção: é parte da proposta."
    },
    {
     "title": "América Latina",
@@ -246,7 +238,7 @@
  },
  "projetos": {
   "title": "Arquivo de projetos",
-  "lede": "Festivais, cineclubes, cursos e oficinas realizados desde 2022 em Florianópolis, Garopaba, Palhoça e no Distrito Federal — e as edições que estão acontecendo agora.",
+  "lede": "Festivais, cineclubes, cursos e oficinas realizados desde 2022 em Florianópolis, Garopaba e no Distrito Federal — e as edições que estão acontecendo agora.",
   "tabs": [
    {
     "key": "executado",

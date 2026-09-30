@@ -561,7 +561,12 @@ def service_card(s: dict, depth: int, num: int) -> str:
 </li>"""
 
 
-def team_card(person: dict, depth: int, compact: bool = False) -> str:
+def team_card(
+    person: dict,
+    depth: int,
+    compact: bool = False,
+    hidden: set[str] | frozenset[str] = frozenset(),
+) -> str:
     r = up(depth)
     if person.get("photo"):
         media = picture(
@@ -584,7 +589,9 @@ def team_card(person: dict, depth: int, compact: bool = False) -> str:
     tags = ""
     if person.get("projects") and not compact:
         items = "".join(
-            f'<li><a class="tag" href="{r}projetos/{s}/">{e(t)}</a></li>' for s, t in person["projects"]
+            f'<li><a class="tag" href="{r}projetos/{s}/">{e(t)}</a></li>'
+            for s, t in person["projects"]
+            if s not in hidden
         )
         tags = f'<ul class="taglist">{items}</ul>'
 
@@ -665,6 +672,14 @@ def axes_cols(n: int) -> str:
 # --------------------------------------------------------------------------
 
 
+def visible_projects(projects: list) -> list:
+    return [p for p in projects if not p.get("hidden")]
+
+
+def project_public(p: dict | None) -> bool:
+    return bool(p) and not p.get("hidden")
+
+
 def build() -> None:
     site = json.loads((SRC / "site.json").read_text(encoding="utf-8"))
     projects = json.loads((SRC / "projetos.json").read_text(encoding="utf-8"))
@@ -672,28 +687,29 @@ def build() -> None:
     services = json.loads((SRC / "servicos.json").read_text(encoding="utf-8"))
 
     by_slug = {p["slug"]: p for p in projects}
+    hidden = {p["slug"] for p in projects if p.get("hidden")}
 
     print("Gerando páginas:")
-    page_home(site, projects, people, services, by_slug)
+    page_home(site, projects, people, services, by_slug, hidden)
     page_quem_somos(site, people)
     page_projetos(site, projects)
-    for p in projects:
+    for p in visible_projects(projects):
         page_projeto(site, p, by_slug)
     page_servicos(site, services, by_slug)
     for i, s in enumerate(services, 1):
         page_servico(site, s, i, services, by_slug)
-    page_equipe(site, people)
+    page_equipe(site, people, hidden)
     page_contato(site, services)
     page_404(site)
     page_robots()
-    page_sitemap(projects, services)
+    page_sitemap(visible_projects(projects), services)
     print("\nPronto.")
 
 
 # ---- home -----------------------------------------------------------------
 
 
-def page_home(site, projects, people, services, by_slug) -> None:
+def page_home(site, projects, people, services, by_slug, hidden: set[str]) -> None:
     h = site["home"]
     depth = 0
 
@@ -712,7 +728,7 @@ def page_home(site, projects, people, services, by_slug) -> None:
     )
     service_cards = "".join(service_card(s, depth, i) for i, s in enumerate(services, 1))
     nucleo = [p for p in people if p["tier"] == "nucleo"]
-    team_cards = "".join(team_card(p, depth, compact=True) for p in nucleo)
+    team_cards = "".join(team_card(p, depth, compact=True, hidden=hidden) for p in nucleo)
 
     axes = "".join(
         f'<li><span class="axes__num">{i + 1:02d}</span><h3>{e(a["title"])}</h3>'
@@ -982,9 +998,10 @@ def page_projetos(site, projects) -> None:
     depth = 1
     s = site["projetos"]
 
-    executed = [p for p in projects
+    public = visible_projects(projects)
+    executed = [p for p in public
                 if "executado" in ("executado andamento" if p.get("ongoing") else "executado")]
-    ongoing = [p for p in projects if p.get("ongoing")]
+    ongoing = [p for p in public if p.get("ongoing")]
 
     filters = "".join(
         f'<button class="filters__btn" type="button" data-filter="{e(f["key"])}" aria-pressed="false">{e(f["label"])}</button>'
@@ -996,7 +1013,7 @@ def page_projetos(site, projects) -> None:
         for t in s["tabs"]
     )
     cards = "".join(project_card(p, depth, eager=(i == 0))
-                    for i, p in enumerate(projects))
+                    for i, p in enumerate(public))
 
     out = head("Projetos — Pátria Grande Produções", site["seo"]["projetos"], "projetos/", depth)
     out += header("projetos/", depth)
@@ -1135,7 +1152,11 @@ def page_projeto(site, p, by_slug) -> None:
 
     related = ""
     if p.get("related"):
-        items = "".join(project_card(by_slug[s], depth) for s in p["related"] if s in by_slug)
+        items = "".join(
+            project_card(by_slug[s], depth)
+            for s in p["related"]
+            if project_public(by_slug.get(s))
+        )
         related = f"""
 <section class="band band--paper band--tight">
 <div class="shell">
@@ -1292,7 +1313,11 @@ def page_servico(site, s, num, services, by_slug) -> None:
 
     proof = ""
     if s.get("related_projects"):
-        items = "".join(project_card(by_slug[x], depth) for x in s["related_projects"] if x in by_slug)
+        items = "".join(
+            project_card(by_slug[x], depth)
+            for x in s["related_projects"]
+            if project_public(by_slug.get(x))
+        )
         proof = f"""
 <section class="band band--paper band--tight">
 <div class="shell">
@@ -1373,7 +1398,7 @@ def page_servico(site, s, num, services, by_slug) -> None:
 # ---- equipe ---------------------------------------------------------------
 
 
-def page_equipe(site, people) -> None:
+def page_equipe(site, people, hidden: set[str]) -> None:
     depth = 1
     s = site["equipe"]
     nucleo = [p for p in people if p["tier"] == "nucleo"]
@@ -1399,7 +1424,7 @@ def page_equipe(site, people) -> None:
 <div class="prose" data-reveal>{paras(s["nucleo_text"])}</div>
 </div>
 <ul class="teamgrid" style="margin-top:clamp(32px,3.8vw,58px)" data-reveal>
-{"".join(team_card(p, depth) for p in nucleo)}
+{"".join(team_card(p, depth, hidden=hidden) for p in nucleo)}
 </ul>
 </div>
 </section>
@@ -1412,7 +1437,7 @@ def page_equipe(site, people) -> None:
 <div class="prose" data-reveal>{paras(s["rede_text"])}</div>
 </div>
 <ul class="teamgrid teamgrid--compact" style="margin-top:clamp(32px,3.8vw,58px)" data-reveal>
-{"".join(team_card(p, depth, compact=True) for p in rede)}
+{"".join(team_card(p, depth, compact=True, hidden=hidden) for p in rede)}
 </ul>
 </div>
 </section>
