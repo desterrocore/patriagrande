@@ -147,7 +147,14 @@
     "Cineclube Pátria Grande"
    ]
   ],
-  "links": []
+  "links": [],
+  "photo": {
+   "name": "thais-alemany",
+   "widths": [
+    640,
+    320
+   ]
+  }
  },
  {
   "slug": "eron-nascimento",

@@ -259,10 +259,10 @@ produtora — o site as declara em vez de preenchê-las.
   institucionais, em 700 e 640 px. Por isso a página não tem hero fotográfico.
 - **Seis dos onze projetos não têm nenhuma fotografia** e usam placa de cor: os cineclubes, o
   curso de fotografia, a oficina de pandorgas e as oficinas de dança.
-- **Retratos.** Três pessoas aparecem com iniciais em vez de foto: **Thais Alemany** (a pasta
-  tem só currículo e portfólio), **Jia** (os arquivos da pasta retratam alguém que não foi
-  possível identificar com segurança) e **Bruno Souza**, que está fora do site porque a pasta
-  dele está inteiramente vazia. **Flávio Veloso** não tem retrato profissional recente — a foto
+- **Retratos.** Duas pessoas aparecem com iniciais em vez de foto: **Jia** (os arquivos da pasta
+  retratam alguém que não foi possível identificar com segurança) e **Bruno Souza**, que está
+  fora do site porque a pasta dele está inteiramente vazia. **Flávio Veloso** não tem retrato
+  profissional recente — a foto
   em uso é um registro de celular de 2023, e é o card do fundador.
 - **Créditos de fotografia** estão publicados onde são conhecidos: Flávio Veloso, Maurício
   Garcias e Antonio Husadel. Os demais retratos seguem sem crédito documentado.
