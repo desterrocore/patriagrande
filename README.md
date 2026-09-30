@@ -126,12 +126,32 @@ aqui, o GitHub ignora o arquivo `CNAME`. O arquivo continua no repositório por 
 | Onde | O quê |
 | --- | --- |
 | `CNAME` | o domínio, sozinho, numa linha |
-| `BASE_URL` em `tools/build-site.py` | tags canônicas, `og:url` e `sitemap.xml` |
-| `Sitemap:` em `robots.txt` | o único arquivo com o domínio escrito à mão — `build-site.py` não gera o robots |
+| `BASE_URL` em `tools/build-site.py` | tags canônicas, `og:url`, `sitemap.xml` e `robots.txt` |
+| `robots.txt` / `sitemap.xml` | gerados por `build-site.py` a partir do `BASE_URL` |
 | `index.html` | a canônica publicada tem de bater com o `BASE_URL` atual |
 | `deploy-pages.yml` | copia o `CNAME` para o artefato |
 
-`tools/check-site.py` confere os cinco e falha se divergirem. Não é zelo: divergência aqui não
+`tools/check-site.py` confere os cinco e falha se divergirem.
+
+### Busca no Google (orgânico, sem anúncios)
+
+O site já publica `robots.txt`, `sitemap.xml`, título/descrição por página e JSON-LD da
+organização na home. Para aparecer nos resultados **não patrocinados**, falta sobretudo
+cadastrar o domínio no **[Google Search Console](https://search.google.com/search-console)**
+(gratuito):
+
+1. Criar propriedade **Domínio** (`patriagrande.com.br`) com registro TXT no Registro.br,
+   ou **Prefixo de URL** (`https://patriagrande.com.br/`) com tag HTML (se usar tag, rode
+   `build-site.py` depois de colocá-la em `head()` e remova quando verificado).
+2. Em **Sitemaps**, enviar `https://patriagrande.com.br/sitemap.xml`.
+3. Em **Inspeção de URL**, pedir indexação da home uma vez após o deploy.
+4. (Opcional) [Bing Webmaster Tools](https://www.bing.com/webmasters) — importar do GSC ou
+   enviar o mesmo sitemap.
+
+Consultas como **Pátria Grande Produções** tendem a ficar em primeiro lugar orgânico depois da
+indexação; **patria grande** sozinho é mais ambíguo (ver `SUMMARY.md` §4.4). Perfil da empresa
+no Google (gratuito) e link do site no Instagram reforçam buscas de marca. O certificado
+HTTPS do `www` ainda está na fila — ver `SUMMARY.md` §1. Não é zelo: divergência aqui não
 quebra nada visivelmente — o site abre e publica canônicas apontando para outro endereço, o
 buscador segue a canônica e indexa o domínio errado. Trocar o `BASE_URL` e esquecer de rodar
 `build-site.py` também é pego, comparando a canônica do `index.html` com o valor atual.

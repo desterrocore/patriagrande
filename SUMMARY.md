@@ -241,7 +241,17 @@ publicar. O relatório completo, com evidência e correção prescrita para cada
 - [ ] `role_line` de Jia ("Produção Assistente") e de Luna Vanzella ("Curadoria · Coordenação
       de Curadoria", que se repete).
 
-### 4.4. Conteúdo que falta
+### 4.4. Busca no Google (manual, gratuito)
+
+Feito no repositório: `robots.txt`, `sitemap.xml` com `lastmod`, meta por página, JSON-LD na
+home, `noindex` no `404.html`. Fora do repositório (quem tem acesso ao domínio):
+
+- [ ] **Google Search Console** — verificar `patriagrande.com.br` (TXT no Registro.br ou tag HTML).
+- [ ] Enviar sitemap `https://patriagrande.com.br/sitemap.xml` no GSC.
+- [ ] **Inspeção de URL** na home → solicitar indexação após cada deploy SEO relevante.
+- [ ] (Opcional) Bing Webmaster Tools; (opcional) Perfil da empresa no Google + URL no Instagram.
+
+### 4.5. Conteúdo que falta
 
 - [ ] **Clipping** — não há página de imprensa nesta versão, por decisão do §16. O material
       entra nas páginas dos próprios projetos.

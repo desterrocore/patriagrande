@@ -24,6 +24,7 @@ from __future__ import annotations
 import html
 import json
 import re
+from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -210,10 +211,19 @@ NAV = [
 ]
 
 
-def head(title: str, description: str, path: str, depth: int, og_image: str | None = None) -> str:
+def head(
+    title: str,
+    description: str,
+    path: str,
+    depth: int,
+    og_image: str | None = None,
+    *,
+    robots_noindex: bool = False,
+) -> str:
     canonical = f"{BASE_URL}/{path}" if path else f"{BASE_URL}/"
     og = og_image or f"{BASE_URL}/assets/img/marca/og-patria-grande.png"
     r = up(depth)
+    robots_meta = '\n<meta name="robots" content="noindex, follow">' if robots_noindex else ""
     return f"""<!DOCTYPE html>
 <html lang="pt-BR" class="no-js">
 <head>
@@ -222,6 +232,7 @@ def head(title: str, description: str, path: str, depth: int, og_image: str | No
 <title>{e(title)}</title>
 <meta name="description" content="{e(description)}">
 <link rel="canonical" href="{canonical}">
+{robots_meta}
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
@@ -256,6 +267,38 @@ def head(title: str, description: str, path: str, depth: int, og_image: str | No
 {map_sprite()}
 <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
 """
+
+
+def organization_json_ld(site: dict) -> str:
+    """Organization + WebSite na home — ajuda buscas de marca e Rich Results."""
+    graph = [
+        {
+            "@type": "Organization",
+            "@id": f"{BASE_URL}/#organization",
+            "name": "Pátria Grande Produções",
+            "alternateName": [
+                "Patria Grande",
+                "Pátria Grande",
+                "Patria Grande Produções",
+            ],
+            "url": BASE_URL,
+            "logo": f"{BASE_URL}/assets/img/marca/og-patria-grande.png",
+            "email": site["email"],
+            "telephone": site["phones"][0]["tel"],
+            "sameAs": [site["instagram_url"]],
+        },
+        {
+            "@type": "WebSite",
+            "@id": f"{BASE_URL}/#website",
+            "url": BASE_URL,
+            "name": "Pátria Grande Produções",
+            "inLanguage": "pt-BR",
+            "publisher": {"@id": f"{BASE_URL}/#organization"},
+        },
+    ]
+    payload = json.dumps({"@context": "https://schema.org", "@graph": graph},
+                         ensure_ascii=False, separators=(",", ":"))
+    return f'<script type="application/ld+json">{payload}</script>\n'
 
 
 # A cor da barra do navegador no celular. Clara é o vermelho da marca; escura é
@@ -642,6 +685,7 @@ def build() -> None:
     page_equipe(site, people)
     page_contato(site, services)
     page_404(site)
+    page_robots()
     page_sitemap(projects, services)
     print("\nPronto.")
 
@@ -680,6 +724,7 @@ def page_home(site, projects, people, services, by_slug) -> None:
     )
 
     out = head(h["title"], site["seo"]["home"], "", depth)
+    out += organization_json_ld(site)
     out += header("", depth)
     out += f"""
 <section class="hero">
@@ -1472,7 +1517,13 @@ def page_404(site) -> None:
     depth = 0
     # Caminho de raiz só é seguro quando o site vive no ápice do domínio.
     _ABS_ROOT = "/" not in BASE_URL.split("://", 1)[-1]
-    out = head("Página não encontrada — Pátria Grande Produções", site["seo"]["404"], "404.html", depth)
+    out = head(
+        "Página não encontrada — Pátria Grande Produções",
+        site["seo"]["404"],
+        "404.html",
+        depth,
+        robots_noindex=True,
+    )
     out += header("__none__", depth)
     out += f"""
 <section class="band band--deep pagehead" style="min-height:62svh;display:flex;align-items:center">
@@ -1493,15 +1544,24 @@ def page_404(site) -> None:
     _ABS_ROOT = False
 
 
-# ---- sitemap --------------------------------------------------------------
+# ---- robots + sitemap -----------------------------------------------------
+
+
+def page_robots() -> None:
+    write(
+        "robots.txt",
+        "User-agent: *\nAllow: /\n\n"
+        f"Sitemap: {BASE_URL}/sitemap.xml\n",
+    )
 
 
 def page_sitemap(projects, services) -> None:
     paths = ["", "quem-somos/", "projetos/", "servicos/", "equipe/", "contato/"]
     paths += [f'projetos/{p["slug"]}/' for p in projects]
     paths += [f'servicos/{s["slug"]}/' for s in services]
+    lastmod = date.today().isoformat()
     urls = "\n".join(
-        f"  <url><loc>{BASE_URL}/{p}</loc>"
+        f"  <url><loc>{BASE_URL}/{p}</loc><lastmod>{lastmod}</lastmod>"
         f"<priority>{'1.0' if p == '' else '0.8' if p.count('/') <= 1 else '0.6'}</priority></url>"
         for p in paths
     )

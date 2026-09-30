@@ -420,6 +420,24 @@ def check_domain() -> None:
             f"{base_url} — rode tools/build-site.py."
         )
 
+    expected_robots = (
+        "User-agent: *\nAllow: /\n\n"
+        f"Sitemap: {base_url}/sitemap.xml\n"
+    )
+    robots_path = ROOT / "robots.txt"
+    if robots_path.read_text(encoding="utf-8") != expected_robots:
+        fail("robots.txt não bate com BASE_URL — rode tools/build-site.py.")
+
+    home_html = (ROOT / "index.html").read_text(encoding="utf-8")
+    if 'type="application/ld+json"' not in home_html or "Pátria Grande Produções" not in home_html:
+        fail("index.html: falta JSON-LD da organização na home — rode tools/build-site.py.")
+    if '"@type":"Organization"' not in home_html.replace(" ", "") and '"@type": "Organization"' not in home_html:
+        fail("index.html: JSON-LD sem Organization — rode tools/build-site.py.")
+
+    err404 = (ROOT / "404.html").read_text(encoding="utf-8")
+    if 'content="noindex, follow"' not in err404:
+        fail('404.html: falta <meta name="robots" content="noindex, follow"> — rode tools/build-site.py.')
+
 
 def check_brand() -> None:
     """A cartografia é inline em todas as páginas e o SVG é gerado por
