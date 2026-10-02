@@ -39,7 +39,7 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p _site
-          cp index.html 404.html robots.txt sitemap.xml site.webmanifest .nojekyll _site/
+          cp index.html 404.html robots.txt sitemap.xml llms.txt site.webmanifest .nojekyll _site/
           # O CNAME vai junto por consistência, não por necessidade: quando a
           # publicação sai de um workflow do Actions, o GitHub ignora o arquivo
           # e o domínio é exclusivamente o de Settings → Pages. Ele importa
