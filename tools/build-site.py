@@ -31,6 +31,8 @@ ROOT = Path(__file__).resolve().parent.parent
 SRC = ROOT / "source"
 
 BASE_URL = "https://patriagrande.com.br"
+ORG_ID = f"{BASE_URL}/#organization"
+WEBSITE_ID = f"{BASE_URL}/#website"
 
 # --------------------------------------------------------------------------
 # utilidades
@@ -269,12 +271,18 @@ def head(
 """
 
 
+def json_ld_script(data: dict) -> str:
+    payload = json.dumps(data, ensure_ascii=False, separators=(",", ":"))
+    return f'<script type="application/ld+json">{payload}</script>\n'
+
+
 def organization_json_ld(site: dict) -> str:
     """Organization + WebSite na home — ajuda buscas de marca e Rich Results."""
+    same_as = site.get("same_as") or [site["instagram_url"]]
     graph = [
         {
             "@type": "Organization",
-            "@id": f"{BASE_URL}/#organization",
+            "@id": ORG_ID,
             "name": "Pátria Grande Produções",
             "alternateName": [
                 "Patria Grande",
@@ -285,20 +293,102 @@ def organization_json_ld(site: dict) -> str:
             "logo": f"{BASE_URL}/assets/img/marca/og-patria-grande.png",
             "email": site["email"],
             "telephone": site["phones"][0]["tel"],
-            "sameAs": [site["instagram_url"]],
+            "description": site["seo"]["home"],
+            "foundingDate": site.get("founding_date", "2024"),
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": site.get("address_locality", "Florianópolis"),
+                "addressRegion": site.get("address_region", "SC"),
+                "addressCountry": site.get("address_country", "BR"),
+            },
+            "sameAs": same_as,
         },
         {
             "@type": "WebSite",
-            "@id": f"{BASE_URL}/#website",
+            "@id": WEBSITE_ID,
             "url": BASE_URL,
             "name": "Pátria Grande Produções",
             "inLanguage": "pt-BR",
-            "publisher": {"@id": f"{BASE_URL}/#organization"},
+            "publisher": {"@id": ORG_ID},
         },
     ]
-    payload = json.dumps({"@context": "https://schema.org", "@graph": graph},
-                         ensure_ascii=False, separators=(",", ":"))
-    return f'<script type="application/ld+json">{payload}</script>\n'
+    return json_ld_script({"@context": "https://schema.org", "@graph": graph})
+
+
+def breadcrumb_json_ld(crumbs: list[tuple[str, str]]) -> str:
+    """crumbs: (nome visível, URL absoluta)."""
+    elements = [
+        {
+            "@type": "ListItem",
+            "position": i,
+            "name": name,
+            "item": url,
+        }
+        for i, (name, url) in enumerate(crumbs, 1)
+    ]
+    return json_ld_script({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": elements,
+    })
+
+
+def _project_schema_type(project: dict) -> str:
+    cat = project["categories"][0] if project.get("categories") else ""
+    if cat == "festival":
+        return "Festival"
+    if cat == "cineclube":
+        return "Event"
+    return "CreativeWork"
+
+
+def _project_alternate_names(project: dict) -> list[str]:
+    if project.get("seo_alternate_names"):
+        return project["seo_alternate_names"]
+    slug = project["slug"]
+    if slug == "fica-garopaba":
+        return ["FICA", "FICA Garopaba"]
+    if slug == "flaca":
+        return ["FLACA"]
+    if slug == "fica-calango":
+        return ["FICA Calango", "Calango"]
+    return []
+
+
+def project_json_ld(project: dict) -> str:
+    slug = project["slug"]
+    url = f"{BASE_URL}/projetos/{slug}/"
+    node: dict = {
+        "@type": _project_schema_type(project),
+        "@id": f"{url}#project",
+        "name": project["title"],
+        "url": url,
+        "description": project["seo_description"],
+        "organizer": {"@id": ORG_ID},
+    }
+    alt = _project_alternate_names(project)
+    if alt:
+        node["alternateName"] = alt
+    if project.get("cities"):
+        locality = project["cities"][0]
+        node["location"] = {
+            "@type": "Place",
+            "name": ", ".join(project["cities"]),
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": locality,
+                "addressCountry": "BR",
+            },
+        }
+    years = project.get("years") or []
+    if years and node["@type"] in ("Festival", "Event"):
+        node["startDate"] = f"{min(years)}-01-01"
+        node["endDate"] = f"{max(years)}-12-31"
+    return json_ld_script({"@context": "https://schema.org", "@graph": [node]})
+
+
+def project_page_title(project: dict) -> str:
+    return project.get("seo_title") or f'{project["short_title"]} — Pátria Grande Produções'
 
 
 # A cor da barra do navegador no celular. Clara é o vermelho da marca; escura é
@@ -396,6 +486,7 @@ def footer(site: dict, depth: int) -> str:
 <div>
 <h3>Contato</h3>
 <ul class="footer__list">
+<li><a class="footer__plain" href="{r}">patriagrande.com.br</a></li>
 <li><a class="footer__plain" href="mailto:{site["email"]}">{site["email"]}</a></li>
 {phones}
 <li><a href="{site["instagram_url"]}" target="_blank" rel="noopener">Instagram {site["instagram"]}</a></li>
@@ -703,6 +794,7 @@ def build() -> None:
     page_404(site)
     page_robots()
     page_sitemap(visible_projects(projects), services)
+    page_llms_txt(site)
     print("\nPronto.")
 
 
@@ -906,6 +998,10 @@ def page_quem_somos(site, people) -> None:
     )
 
     out = head(s["title"] + " — Pátria Grande Produções", site["seo"]["quem_somos"], "quem-somos/", depth)
+    out += breadcrumb_json_ld([
+        ("Início", f"{BASE_URL}/"),
+        ("Quem somos", f"{BASE_URL}/quem-somos/"),
+    ])
     out += header("quem-somos/", depth)
     out += f"""
 <section class="band band--red pagehead">
@@ -1016,6 +1112,10 @@ def page_projetos(site, projects) -> None:
                     for i, p in enumerate(public))
 
     out = head("Projetos — Pátria Grande Produções", site["seo"]["projetos"], "projetos/", depth)
+    out += breadcrumb_json_ld([
+        ("Início", f"{BASE_URL}/"),
+        ("Projetos", f"{BASE_URL}/projetos/"),
+    ])
     out += header("projetos/", depth)
     out += f"""
 <section class="band band--deep pagehead">
@@ -1176,8 +1276,15 @@ def page_projeto(site, p, by_slug) -> None:
         big = max(og_source["widths"])
         og = f'{BASE_URL}/assets/img/fotos/{og_source["name"]}-{big}.jpg'
 
-    out = head(f'{p["short_title"]} — Pátria Grande Produções', p["seo_description"],
+    proj_url = f"{BASE_URL}/projetos/{p['slug']}/"
+    out = head(project_page_title(p), p["seo_description"],
                f'projetos/{p["slug"]}/', depth, og_image=og)
+    out += breadcrumb_json_ld([
+        ("Início", f"{BASE_URL}/"),
+        ("Projetos", f"{BASE_URL}/projetos/"),
+        (p["short_title"], proj_url),
+    ])
+    out += project_json_ld(p)
     out += header("projetos/", depth)
     out += f"""
 <article class="projecthead">
@@ -1267,6 +1374,10 @@ def page_servicos(site, services, by_slug) -> None:
     cards = "".join(service_card(sv, depth, i) for i, sv in enumerate(services, 1))
 
     out = head("Serviços — Pátria Grande Produções", site["seo"]["servicos"], "servicos/", depth)
+    out += breadcrumb_json_ld([
+        ("Início", f"{BASE_URL}/"),
+        ("Serviços", f"{BASE_URL}/servicos/"),
+    ])
     out += header("servicos/", depth)
     out += f"""
 <section class="band band--red pagehead">
@@ -1331,7 +1442,13 @@ def page_servico(site, s, num, services, by_slug) -> None:
         service_card(o, depth, i) for i, o in enumerate(services, 1) if o["slug"] != s["slug"]
     )
 
+    svc_url = f"{BASE_URL}/servicos/{s['slug']}/"
     out = head(f'{s["title"]} — Pátria Grande Produções', s["seo"], f'servicos/{s["slug"]}/', depth)
+    out += breadcrumb_json_ld([
+        ("Início", f"{BASE_URL}/"),
+        ("Serviços", f"{BASE_URL}/servicos/"),
+        (s["title"], svc_url),
+    ])
     out += header("servicos/", depth)
     out += f"""
 <section class="band band--red pagehead">
@@ -1405,6 +1522,10 @@ def page_equipe(site, people, hidden: set[str]) -> None:
     rede = [p for p in people if p["tier"] != "nucleo"]
 
     out = head("Equipe — Pátria Grande Produções", site["seo"]["equipe"], "equipe/", depth)
+    out += breadcrumb_json_ld([
+        ("Início", f"{BASE_URL}/"),
+        ("Equipe", f"{BASE_URL}/equipe/"),
+    ])
     out += header("equipe/", depth)
     out += f"""
 <section class="band band--red pagehead">
@@ -1473,6 +1594,10 @@ def page_contato(site, services) -> None:
     )
 
     out = head("Contato — Pátria Grande Produções", site["seo"]["contato"], "contato/", depth)
+    out += breadcrumb_json_ld([
+        ("Início", f"{BASE_URL}/"),
+        ("Contato", f"{BASE_URL}/contato/"),
+    ])
     out += header("contato/", depth)
     out += f"""
 <section class="band band--red pagehead">
@@ -1570,6 +1695,37 @@ def page_404(site) -> None:
 
 
 # ---- robots + sitemap -----------------------------------------------------
+
+
+def page_llms_txt(site: dict) -> None:
+    """Resumo para assistentes de IA — convenção llms.txt."""
+    body = f"""# Pátria Grande Produções
+
+> {site["seo"]["home"]}
+
+Site oficial: {BASE_URL}/
+Contato: {site["email"]}
+Instagram: {site["instagram_url"]}
+
+## Páginas principais
+
+- {BASE_URL}/
+- {BASE_URL}/quem-somos/
+- {BASE_URL}/projetos/
+- {BASE_URL}/contato/
+
+## Festivais e projetos em destaque
+
+- {BASE_URL}/projetos/fica-garopaba/ — FICA Garopaba, Festival Internacional de Cinema Ambiental
+- {BASE_URL}/projetos/flaca/ — FLACA, Festival Latino-Americano de Cinema Ambiental
+- {BASE_URL}/projetos/fica-calango/ — FICA Calango (cinema ambiental, DF)
+- {BASE_URL}/projetos/cineclube-patria-grande/ — Cineclube Pátria Grande
+
+## Serviços
+
+- {BASE_URL}/servicos/
+"""
+    write("llms.txt", body)
 
 
 def page_robots() -> None:

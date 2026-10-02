@@ -2,6 +2,13 @@
  "email": "patriagrandeproducoes@gmail.com",
  "instagram": "@patriagrandeproducoes",
  "instagram_url": "https://www.instagram.com/patriagrandeproducoes/",
+ "same_as": [
+  "https://www.instagram.com/patriagrandeproducoes/"
+ ],
+ "address_locality": "Florianópolis",
+ "address_region": "SC",
+ "address_country": "BR",
+ "founding_date": "2024",
  "phones": [
   {
    "tel": "+5548996971772",
@@ -57,16 +64,16 @@
   ]
  ],
  "seo": {
-  "home": "Pátria Grande Produções é produtora cultural em Florianópolis: festivais, cineclubes, formação, produção executiva, projeção, tradução e legendagem.",
-  "quem_somos": "Produtora cultural sediada em Florianópolis, formalizada em 2024. Festivais, cineclubes e formação com horizonte latino-americano e atuação territorial.",
-  "projetos": "Portfólio da Pátria Grande: FICA Garopaba, FLACA, Cineclube Pátria Grande, Educa Ambiental, Cine Retrata, oficina e curso.",
+  "home": "Pátria Grande Produções: produtora cultural em Florianópolis (SC). FICA Garopaba, FLACA, cineclubes, formação, produção executiva, projeção e legendagem.",
+  "quem_somos": "Produtora cultural em Florianópolis (SC), formalizada em 2024. Festivais de cinema ambiental, cineclubes e formação com horizonte latino-americano.",
+  "projetos": "Festivais de cinema ambiental e cineclubes da Pátria Grande: FICA Garopaba, FLACA, FICA Calango, Cineclube Pátria Grande, Educa Ambiental e mais.",
   "servicos": "Produção executiva e gestão cultural, estrutura de projeção, tradução e legendagem audiovisual, oficinas e formação com a Pátria Grande Produções.",
   "equipe": "Cinema, fotografia, curadoria, produção executiva, formação, tradução, acessibilidade e tecnologia: as pessoas que fazem a Pátria Grande Produções.",
   "contato": "Fale com a Pátria Grande Produções: e-mail institucional, Instagram e base em Florianópolis. Exibições, oficinas, orçamentos, imprensa e parcerias.",
   "404": "A página que você procurou não existe neste site da Pátria Grande Produções."
  },
  "home": {
-  "title": "Pátria Grande Produções — cultura para conectar territórios",
+  "title": "Pátria Grande Produções · FICA, FLACA e cultura em SC",
   "hero_title": "Cultura para conectar territórios.",
   "hero_lede": "Festivais, cineclubes, mostras, formação e produção cultural criados a partir de Florianópolis e em diálogo com diferentes territórios do Brasil e da América Latina.",
   "hero_image": {

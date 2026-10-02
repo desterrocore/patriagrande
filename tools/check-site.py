@@ -288,6 +288,13 @@ def check_pages() -> None:
             fail(f"{rel}: sem meta description.")
         elif len(parser.description) > 165:
             fail(f"{rel}: meta description com {len(parser.description)} caracteres.")
+        elif len(parser.description) > 155:
+            notes.append(
+                f"{rel}: meta description com {len(parser.description)} caracteres (ideal ≤155)."
+            )
+
+        if len(parser.title) > 65:
+            notes.append(f'{rel}: <title> com {len(parser.title)} caracteres (ideal ≤65).')
 
         if parser.h1_count != 1:
             fail(f"{rel}: {parser.h1_count} elementos <h1> (deve haver exatamente um).")
@@ -457,6 +464,13 @@ def check_domain() -> None:
         fail("index.html: falta JSON-LD da organização na home — rode tools/build-site.py.")
     if '"@type":"Organization"' not in home_html.replace(" ", "") and '"@type": "Organization"' not in home_html:
         fail("index.html: JSON-LD sem Organization — rode tools/build-site.py.")
+    compact_ld = home_html.replace(" ", "")
+    if '"addressCountry":"BR"' not in compact_ld and '"addressCountry": "BR"' not in home_html:
+        fail("index.html: JSON-LD da Organization sem addressCountry BR — rode tools/build-site.py.")
+
+    seo_map = SRC / "seo-keywords.json"
+    if not seo_map.exists():
+        fail("source/seo-keywords.json ausente — mapa de palavras-chave.")
 
     err404 = (ROOT / "404.html").read_text(encoding="utf-8")
     if 'content="noindex, follow"' not in err404:

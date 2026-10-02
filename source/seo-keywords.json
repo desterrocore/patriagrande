@@ -1,0 +1,54 @@
+{
+  "_comment": "Mapa editorial de SEO — títulos e descrições publicados vêm de site.json, projetos.json e servicos.json; este arquivo documenta a intenção por cluster.",
+  "clusters": {
+    "brand": {
+      "queries": [
+        "Pátria Grande Produções",
+        "produtora cultural Florianópolis",
+        "patriagrande producoes"
+      ],
+      "pages": ["/", "/quem-somos/", "/contato/"]
+    },
+    "fica_garopaba": {
+      "queries": [
+        "FICA Garopaba",
+        "festival cinema ambiental Garopaba",
+        "Festival Internacional de Cinema Ambiental de Garopaba",
+        "FICA Santa Catarina"
+      ],
+      "canonical": "/projetos/fica-garopaba/",
+      "seo_title": "FICA Garopaba · Festival de Cinema Ambiental — Pátria Grande"
+    },
+    "flaca": {
+      "queries": [
+        "FLACA festival",
+        "FLACA cinema ambiental",
+        "Festival Latino-Americano de Cinema Ambiental",
+        "festival cinema ambiental Florianópolis"
+      ],
+      "canonical": "/projetos/flaca/",
+      "seo_title": "FLACA · Festival Latino-Americano de Cinema Ambiental — Pátria Grande"
+    },
+    "fica_calango": {
+      "queries": [
+        "FICA Calango",
+        "festival cinema ambiental Brasília",
+        "festival cinema ambiental DF"
+      ],
+      "canonical": "/projetos/fica-calango/",
+      "seo_title": "FICA Calango · cinema ambiental no DF (2022) — Pátria Grande"
+    },
+    "projetos_hub": {
+      "queries": [
+        "festivais Pátria Grande",
+        "cinema ambiental Santa Catarina"
+      ],
+      "canonical": "/projetos/"
+    }
+  },
+  "guardrails": [
+    "Qualificar FICA com Garopaba ou nome completo do festival.",
+    "Cineclubes não competem com o cluster FICA Garopaba.",
+    "Usar Pátria Grande Produções ou produtora cultural — não só Pátria Grande."
+  ]
+}
