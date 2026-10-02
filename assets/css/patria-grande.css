@@ -980,7 +980,12 @@ blockquote.pull cite {
   --band-accent: var(--pg-yellow);
 }
 .scard:hover, .scard:focus-within { background: var(--pg-red-deep); }
-.scard > *:not(.cartografia) { position: relative; z-index: 1; }
+.scard > *:not(.cartografia):not(.scard__title) {
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+}
+.scard:has(.scard__title a) { cursor: pointer; }
 .scard .cartografia { right: -16%; bottom: -20%; top: auto; width: 56%; transform: none; opacity: .1; color: var(--pg-yellow); }
 .scard__num {
   font-family: var(--ff-mono);
@@ -991,7 +996,7 @@ blockquote.pull cite {
 }
 .scard__title { font-size: var(--fs-h3); color: var(--pg-yellow); }
 .scard__title a { text-decoration: none; }
-.scard__title a::after { content: ''; position: absolute; inset: 0; }
+.scard__title a::after { content: ''; position: absolute; inset: 0; z-index: 1; }
 .scard__desc { font-size: var(--fs-small); color: rgba(255, 255, 255, .86); margin: 0; }
 .scard__more {
   margin-top: auto;
