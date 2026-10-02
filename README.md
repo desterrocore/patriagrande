@@ -156,6 +156,26 @@ quebra nada visivelmente — o site abre e publica canônicas apontando para out
 buscador segue a canônica e indexa o domínio errado. Trocar o `BASE_URL` e esquecer de rodar
 `build-site.py` também é pego, comparando a canônica do `index.html` com o valor atual.
 
+### Visibilidade em buscas e assistentes de IA (Gemini, Copilot, etc.)
+
+Não há cadastro separado para o Gemini: respostas com busca usam o **índice do Google** e o
+**Knowledge Graph**. O repositório publica JSON-LD da organização (com endereço em
+Florianópolis/SC), `WebSite`, breadcrumbs, schema por projeto, `llms.txt` e mapa editorial em
+`source/seo-keywords.json`. Depois de cada deploy com mudança de SEO ou schema:
+
+1. **Google Business Profile** — site = `https://patriagrande.com.br`, Instagram nos links sociais,
+   nome alinhado ao site.
+2. **Instagram** — `@patriagrandeproducoes` com link para o domínio; `@fica.garopaba` apontando
+   para `/projetos/fica-garopaba/` quando possível.
+3. **Search Console** — sitemap enviado; inspeção e “Solicitar indexação” em `/`, `/quem-somos/`,
+   `/contato/`, `/projetos/fica-garopaba/`, `/projetos/flaca/`.
+4. **Bing Webmaster Tools** — mesmo sitemap (Copilot/Bing).
+5. **`www`** — até o certificado incluir `www.patriagrande.com.br`, use só o ápice em testes
+   (Rich Results, GSC); ver `SUMMARY.md` §1 para reemitir o certificado no GitHub Pages.
+6. (Opcional) item **Wikidata** com site oficial e `sameAs` do Instagram.
+
+Efeito em assistentes costuma levar **semanas**, não horas.
+
 Todos os caminhos internos são relativos, então o mesmo build funciona no ápice e num
 subcaminho. A exceção é o `404.html`: o Pages devolve esse arquivo para qualquer endereço
 inexistente, inclusive `/projetos/algo/inexistente/`, e ali um caminho relativo resolveria para

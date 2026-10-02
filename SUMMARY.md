@@ -241,15 +241,21 @@ publicar. O relatório completo, com evidência e correção prescrita para cada
 - [ ] `role_line` de Jia ("Produção Assistente") e de Luna Vanzella ("Curadoria · Coordenação
       de Curadoria", que se repete).
 
-### 4.4. Busca no Google (manual, gratuito)
+### 4.4. Busca no Google e assistentes de IA (manual, gratuito)
 
-Feito no repositório: `robots.txt`, `sitemap.xml` com `lastmod`, meta por página, JSON-LD na
-home, `noindex` no `404.html`. Fora do repositório (quem tem acesso ao domínio):
+Feito no repositório: `robots.txt`, `sitemap.xml` com `lastmod`, meta e `seo_title` por projeto
+(mapa em `source/seo-keywords.json`), JSON-LD da organização (endereço SC), breadcrumbs,
+schema por projeto, `llms.txt`, `noindex` no `404.html`. Fora do repositório:
 
-- [ ] **Google Search Console** — verificar `patriagrande.com.br` (TXT no Registro.br ou tag HTML).
+- [ ] **Google Search Console** — propriedade no ápice `https://patriagrande.com.br/` (não `www` até §1).
 - [ ] Enviar sitemap `https://patriagrande.com.br/sitemap.xml` no GSC.
-- [ ] **Inspeção de URL** na home → solicitar indexação após cada deploy SEO relevante.
-- [ ] (Opcional) Bing Webmaster Tools; (opcional) Perfil da empresa no Google + URL no Instagram.
+- [ ] **Inspeção de URL** — indexar após deploy: `/`, `/quem-somos/`, `/contato/`,
+      `/projetos/fica-garopaba/`, `/projetos/flaca/`.
+- [ ] **Bing Webmaster Tools** — importar do GSC ou enviar o mesmo sitemap.
+- [ ] **Google Business Profile** — site oficial, Instagram, descrição com o domínio.
+- [ ] **Instagram** — bio com `patriagrande.com.br`; @fica.garopaba com link ao FICA no site.
+- [ ] **Certificado `www`** — reemitir no GitHub Pages (§1) para Rich Results e links `https://www`.
+- [ ] (Opcional) Wikidata com site oficial.
 
 ### 4.5. Conteúdo que falta
 
